@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1/2 Cup Sugar to Grams — Free Baking Conversion Calculator</title>
+    <meta name="description" content="Convert 1/2 cup of sugar to grams instantly. Covers granulated, brown, and powdered sugar. Free baking calculator with accurate density data.">
+
+    <meta property="og:title" content="1/2 Cup Sugar to Grams — Free Conversion Calculator">
+    <meta property="og:description" content="Convert 1/2 cup of sugar to grams instantly. Granulated, brown, and powdered sugar supported.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/1-2-cup-sugar-to-grams">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1/2 Cup Sugar to Grams — Free Conversion Calculator">
+    <meta name="twitter:description" content="Convert 1/2 cup of sugar to grams instantly. Granulated, brown, and powdered sugar supported.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/1-2-cup-sugar-to-grams">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "1/2 Cup Sugar to Grams", "item": "https://bakecalc.club/1-2-cup-sugar-to-grams" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many grams is 1/2 cup of granulated sugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One half cup of granulated white sugar weighs exactly 100 grams. This is half of the standard 200g-per-cup baseline and is one of the simplest conversions in baking."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does 1/2 cup of packed brown sugar weigh?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When firmly packed as recipes instruct, ½ cup of brown sugar weighs roughly 110 grams (half of the 220g full-cup standard). The molasses and packing density account for the extra 10 grams versus white sugar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is 1/2 cup of powdered sugar the same weight as granulated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No — ½ cup of powdered sugar weighs only about 60 grams, while granulated sugar is 100 grams per half cup. Powdered sugar is much lighter and aerated; substituting by volume without adjusting weight will dramatically alter your recipe."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>1/2 Cup Sugar to Grams Converter</h1>
+            <p>Convert ½ US cup of sugar into grams — covers granulated, brown, and powdered sugar with precise density data.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-cups="0.5">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="cups-input">Cups of Sugar</label>
+                        <input type="number" inputmode="decimal" id="cups-input" value="0.5" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ingredient-type">Type of Sugar</label>
+                        <select id="ingredient-type">
+                            <option value="200" selected>Granulated White Sugar (1 cup ≈ 200g)</option>
+                            <option value="220">Brown Sugar, packed (1 cup ≈ 220g)</option>
+                            <option value="120">Powdered / Confectioners' Sugar (1 cup ≈ 120g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateCupsToGrams(this)">Convert to Grams</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Gram Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="grams-output-frac">≈ 100 g (half cup)</span> (<span id="grams-output">100</span> g)
+                    </div>
+                    <p class="output-note">*Calculated using standard US cup densities. Brown sugar assumes firmly packed method.</p>
+                </div>
+            </div>
+            <article class="seo-section">
+                <h2>How Many Grams in 1/2 Cup of Sugar?</h2>
+                <p>Half a cup of sugar is one of the most common measurements in cookie, muffin, and quick-bread recipes — and <strong>½ cup of granulated white sugar equals exactly 100 grams</strong>. Brown sugar (packed) comes in at ~110 grams per half cup, while powdered sugar is a much lighter ~60 grams. These differences are large enough to matter, especially in recipes where sugar does more than sweeten — it also affects spread, browning, and texture.</p>
+
+                <h2>The Conversion Formula</h2>
+                <p>Half the full-cup density for each sugar variety:</p>
+                <ul>
+                    <li><strong>Grams</strong> = Cups × Grams-per-Cup</li>
+                    <li>Granulated Sugar: 0.5 × 200 g = <strong>100 grams</strong></li>
+                    <li>Brown Sugar (packed): 0.5 × 220 g = <strong>110 grams</strong></li>
+                    <li>Powdered Sugar: 0.5 × 120 g = <strong>60 grams</strong></li>
+                </ul>
+
+                <h2>Why Powdered Sugar Is So Much Lighter</h2>
+                <p>Powdered sugar (also called confectioners' or icing sugar) is granulated sugar ground to a fine dust and mixed with a small amount of cornstarch to prevent caking. The fine grind incorporates a tremendous amount of air — which is why 1 cup weighs only 120 g versus granulated sugar's 200 g. When a frosting recipe calls for "1/2 cup powdered sugar, sifted," sifting adds even more air, and the weight can drop below 55 grams. For consistent results, weigh powdered sugar whenever possible.</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: How many grams is 1/2 cup of granulated sugar?</h3>
+                        <p>A1: One half cup of granulated white sugar weighs exactly 100 grams — half of the standard 200 g full-cup baseline. It's one of the easiest conversions in baking.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: How much does 1/2 cup of packed brown sugar weigh?</h3>
+                        <p>A2: When firmly packed, ½ cup of brown sugar weighs roughly 110 grams. The extra 10 g versus white sugar comes from molasses content and the dense packing method.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: Is 1/2 cup of powdered sugar the same weight as granulated?</h3>
+                        <p>A3: No — ½ cup of powdered sugar weighs only ~60 g, while granulated is 100 g per half cup. Substituting by volume without adjusting for this 40 g difference will dramatically change your recipe.</p>
+                    </div>
+                </div>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>

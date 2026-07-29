@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 Cup Butter to Grams — Free Baking Conversion Calculator</title>
+    <meta name="description" content="Convert 1 cup of butter to grams instantly. Supports stick, melted, and whipped butter. Free baking calculator — works on mobile, no sign-up.">
+
+    <meta property="og:title" content="1 Cup Butter to Grams — Free Conversion Calculator">
+    <meta property="og:description" content="Convert 1 cup of butter to grams instantly. Stick, melted, and whipped butter supported.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/1-cup-butter-to-grams">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1 Cup Butter to Grams — Free Conversion Calculator">
+    <meta name="twitter:description" content="Convert 1 cup of butter to grams instantly. Stick, melted, and whipped butter supported.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/1-cup-butter-to-grams">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "1 Cup Butter to Grams", "item": "https://bakecalc.club/1-cup-butter-to-grams" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many grams is 1 cup of butter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One US customary cup of standard stick butter weighs 227 grams, which is exactly 2 sticks or 16 tablespoons. This is the universal US butter conversion standard."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does melted butter weigh the same as solid butter per cup?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. One cup of melted butter weighs roughly 240 grams — about 13 grams more than solid stick butter (227 g). The difference is because melted butter settles more densely into the measuring cup with no air gaps."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many sticks of butter equal 1 cup?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Two full sticks of US butter equal exactly 1 cup (227 grams total). Each standard American stick is 1/2 cup or 113.4 grams. Most butter wrappers are printed with tablespoon markings for easy measuring."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>1 Cup Butter to Grams Converter</h1>
+            <p>Convert 1 US customary cup of butter into grams — covers stick, melted, and whipped butter accurately.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-cups="1">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="cups-input">Cups of Butter</label>
+                        <input type="number" inputmode="decimal" id="cups-input" value="1" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ingredient-type">Type of Butter</label>
+                        <select id="ingredient-type">
+                            <option value="227" selected>Standard Stick Butter (1 cup ≈ 227g / 2 sticks)</option>
+                            <option value="240">Melted Butter (1 cup ≈ 240g)</option>
+                            <option value="150">Whipped Butter (1 cup ≈ 150g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateCupsToGrams(this)">Convert to Grams</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Gram Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="grams-output-frac">227 grams</span> (<span id="grams-output">227</span> g)
+                    </div>
+                    <p class="output-note">*Calculated using standard US butter densities. 1 cup solid butter = 2 sticks = 16 tbsp.</p>
+                </div>
+            </div>
+            <article class="seo-section">
+                <h2>How Many Grams in 1 Cup of Butter?</h2>
+                <p>In American baking, <strong>1 cup of butter = 227 grams = 2 sticks = 16 tablespoons</strong>. This is one of the most reliable conversions in the kitchen because butter is sold in standardized sticks with markings. Unlike flour or sugar, butter's density is consistent enough that this conversion rarely varies — but it does change if your butter is melted or whipped.</p>
+
+                <h2>The Conversion Formula (Cups → Grams)</h2>
+                <p>Multiply cups by the grams-per-cup for your butter state:</p>
+                <ul>
+                    <li><strong>Grams</strong> = Cups × Grams-per-Cup</li>
+                    <li>Stick Butter: 1 cup × 227 g/cup = <strong>227 grams</strong> (exactly 2 sticks)</li>
+                    <li>Melted Butter: 1 cup × 240 g/cup = <strong>240 grams</strong></li>
+                    <li>Whipped Butter: 1 cup × 150 g/cup = <strong>150 grams</strong></li>
+                </ul>
+
+                <h2>Solid vs. Melted: Why the Difference</h2>
+                <p>Solid stick butter leaves small air pockets when packed into a measuring cup. Melted butter pours in as a continuous liquid, filling those gaps and packing roughly 13 extra grams into the same volume. Most baking recipes that specify "1 cup butter" mean solid stick butter (227 g) unless they explicitly say "melted." If a recipe says "1 cup melted butter," measure it after melting — and expect ~240 grams.</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: How many grams is 1 cup of butter?</h3>
+                        <p>A1: One US customary cup of standard stick butter weighs 227 grams — exactly 2 sticks or 16 tablespoons. This is the universal conversion for solid butter in American recipes.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: Does melted butter weigh the same as solid butter per cup?</h3>
+                        <p>A2: No. Melted butter settles more densely — 1 cup of melted butter is roughly 240 grams, about 13 g more than solid stick butter. Always check whether your recipe intends the butter to be measured solid or melted.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: How many sticks of butter equal 1 cup?</h3>
+                        <p>A3: Two full sticks of US butter equal exactly 1 cup (227 grams). Each stick is 1/2 cup or 113.4 grams, with tablespoon markings printed right on the wrapper for easy portioning.</p>
+                    </div>
+                </div>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>

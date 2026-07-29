@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oven Temperature Conversion — °F to °C, Gas Marks & Fan Oven Guide | BakeCalc</title>
+    <meta name="description" content="Convert Fahrenheit to Celsius for baking in 2 seconds. 350°F to C, every gas mark, fan oven adjustments, plus how to know if your oven is lying to you (most are). Free.">
+
+    <meta property="og:title" content="Oven Temperature Conversion — °F to °C, Gas Marks & Fan Oven Guide">
+    <meta property="og:description" content="Instant °F ↔ °C for every baking temperature. Gas marks, fan oven math, and why a $12 thermometer is the best baking investment you'll make.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/oven-temperature-conversion">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Oven Temperature Conversion — °F to °C">
+    <meta name="twitter:description" content="Every baking temperature converted, plus how to tell if your oven thermostat is lying.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/oven-temperature-conversion">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Oven Temperature Conversion", "item": "https://bakecalc.club/oven-temperature-conversion" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is 350°F in Celsius for baking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "350°F = 177°C, rounded to 180°C in virtually every recipe worldwide. This is the single most common baking temperature — cookies, cakes, muffins, brownies all default to it. For a fan (convection) oven, drop to 160°C. Gas Mark 4. The 3-degree rounding difference (177 vs 180) is smaller than your oven's natural temperature swing, so don't overthink it — set 180°C and bake."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I convert Fahrenheit to Celsius for oven temperatures?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Formula: °C = (°F − 32) × 5/9. But bakers don't calculate — we memorize the round numbers: 300°F ≈ 150°C, 325°F ≈ 160°C, 350°F ≈ 180°C, 375°F ≈ 190°C, 400°F ≈ 200°C, 425°F ≈ 220°C, 450°F ≈ 230°C. Quick mental estimate: subtract 30 from °F, then halve it. 350 − 30 = 320, half = 160. A bit low but close enough to know which neighborhood you're in."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to lower the temperature for a fan (convection) oven?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — reduce by 25°F (or 15°C) for a fan oven. The fan blows hot air directly onto food, stripping away the insulating cool-air layer. If you don't adjust, the outside cooks too fast. Example: 350°F conventional → 325°F fan (or 180°C → 160°C fan). Exception: some modern ovens auto-convert when you select fan mode — check if the display changes after setting. Also check for doneness 5-10 minutes early with fan; things bake faster even with the adjustment."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does oven temperature matter so much more for baking than cooking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Baking depends on a precise sequence of chemical reactions, each triggered at a specific temperature: butter melts at ~90°F, eggs set at ~160°F, gluten firms above 140°F, sugar caramelizes around 320°F, and leaveners activate at different ranges. The oven temperature controls the order and timing of these events. Too hot: the crust sets before the inside rises, producing a volcano-shaped muffin with raw batter in the center. Too cool: batters spread before setting, yielding flat, dense cookies. A 25°F error in a roast chicken is barely noticeable; in a soufflé, it's the difference between Instagram-worthy and the trash can."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>Oven Temperature Conversion — °F to °C for Real Bakers</h1>
+            <p>Every baking temperature you'll ever encounter, converted. Fahrenheit, Celsius, gas marks, fan oven math — plus the stuff nobody tells you about your oven's thermostat.</p>
+        </header>
+        <main>
+            <div class="calculator-card">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="temp-input">Temperature</label>
+                        <input type="number" inputmode="numeric" id="temp-input" value="350" min="100" max="550" step="5">
+                    </div>
+                    <div class="input-group">
+                        <label for="temp-from">From</label>
+                        <select id="temp-from">
+                            <option value="F" selected>Fahrenheit (°F)</option>
+                            <option value="C">Celsius (°C)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="convertOvenTemp()">Convert</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Converted:</h3>
+                    <div class="output-value">
+                        <span id="temp-output-main">177°C</span> <span style="font-size:1rem;color:var(--text-muted);">(≈ 180°C for baking)</span>
+                    </div>
+                    <p class="output-note" id="temp-output-note">*Mathematically 176.7°C, rounded to 180°C in recipes. Gas Mark 4. For fan ovens: reduce to 160°C.</p>
+                </div>
+            </div>
+            <article class="seo-section">
+
+                <h2>The Day I Learned My Oven Was a Liar</h2>
+                <p>I spent two years convinced I couldn't bake macarons. Every batch: cracked tops, no feet, hollow shells. I tried aging egg whites. I tried the French method, then the Italian. I sifted the almond flour three times. Nothing worked. Then I bought a $12 oven thermometer — the kind that hangs from the middle rack — and discovered my oven, when set to 300°F, was actually cycling between 275°F and 290°F. It was running <em>twenty-five degrees cold</em> the entire time. Macarons need a solid 300°F to get that initial burst of steam that lifts the shells into perfect little feet. At 280°F, the batter just… sat there. Slowly drying out instead of springing up.</p>
+                <p>I fixed nothing about my technique. Set the dial to 325°F instead of 300°F. Next batch: perfect macarons. Two years of frustration solved by a thermometer that costs less than a bag of almond flour. This is why I'm going to spend this entire page trying to convince you to buy one.</p>
+
+                <h2>350°F to Celsius — the One Conversion That Covers Half Your Baking</h2>
+                <p><strong>350°F = 177°C, which every recipe developer on earth rounds to 180°C.</strong> It's the default baking temperature for a reason: at 350°F, butter melts at a controlled pace, eggs set without scrambling, and sugar caramelizes slowly enough to develop flavor without burning. It's the Goldilocks zone.</p>
+                <p>Here's a thing nobody mentions about the 177-vs-180 debate: your home oven can't hold a single temperature anyway. Even a good oven swings ±10 to 15°F as the heating element cycles on and off. When you set it to 350°F, the actual temperature inside bounces between about 335°F and 365°F over the course of a bake. The 3°C rounding error is literally smaller than your oven's natural fluctuation. Set it to 180°C and go make your cookies. If you want precision, buy the thermometer — the rounding argument is theater.</p>
+
+                <h2>Every Oven Temperature a Baker Will Ever Need</h2>
+                <p>I've annotated these with what actually happens at each temperature, not just textbook definitions. Some of these I learned the hard way so you don't have to.</p>
+                <table style="width:100%; border-collapse:collapse; margin:16px 0; font-size:0.92rem;">
+                    <thead>
+                        <tr style="background:var(--card-bg);">
+                            <th style="padding:10px 8px;text-align:left;">°F</th>
+                            <th style="padding:10px 8px;text-align:left;">°C (recipe)</th>
+                            <th style="padding:10px 8px;text-align:left;">Gas</th>
+                            <th style="padding:10px 8px;text-align:left;">Fan °C</th>
+                            <th style="padding:10px 8px;text-align:left;">Best For</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding:10px 8px;">200°F</td><td style="padding:10px 8px;">95</td><td style="padding:10px 8px;">—</td><td style="padding:10px 8px;">80</td>
+                            <td style="padding:10px 8px;">Meringue drying (the 2-hour kind, not the quick kind). Also: reviving stale crackers and drying fresh breadcrumbs. Nothing actually "bakes" at 200°F — it's a dehydrator setting.</td>
+                        </tr>
+                        <tr style="background:var(--card-bg);">
+                            <td style="padding:10px 8px;">250°F</td><td style="padding:10px 8px;">120</td><td style="padding:10px 8px;">½</td><td style="padding:10px 8px;">105</td>
+                            <td style="padding:10px 8px;">Slow-roasted tomatoes. Long-and-low cheesecake (the kind that bakes for 2+ hours and never cracks). Pavlova bases that stay marshmallowy inside.</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 8px;">275°F</td><td style="padding:10px 8px;">140</td><td style="padding:10px 8px;">1</td><td style="padding:10px 8px;">120</td>
+                            <td style="padding:10px 8px;">The "I have all afternoon" temperature. Swiss meringue that takes 90 minutes but comes out glossy. Dehydrating citrus slices for garnish. The lowest setting on some older gas ovens.</td>
+                        </tr>
+                        <tr style="background:var(--card-bg);">
+                            <td style="padding:10px 8px;">300°F</td><td style="padding:10px 8px;">150</td><td style="padding:10px 8px;">2</td><td style="padding:10px 8px;">135</td>
+                            <td style="padding:10px 8px;">Macaron zone. Fruit crisps that need the fruit to actually cook before the topping burns. Granola — hot enough to crisp the oats, cool enough to not scorch the nuts.</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 8px;">325°F</td><td style="padding:10px 8px;">160</td><td style="padding:10px 8px;">3</td><td style="padding:10px 8px;">145</td>
+                            <td style="padding:10px 8px;">Cheesecake that wants to be creamy, not rubbery. Delicate layer cakes where you can't afford a domed top. Enriched breads like brioche — the butter would burn at higher temps.</td>
+                        </tr>
+                        <tr style="background:var(--card-bg);">
+                            <td style="padding:10px 8px;"><strong>350°F</strong></td><td style="padding:10px 8px;"><strong>180</strong></td><td style="padding:10px 8px;"><strong>4</strong></td><td style="padding:10px 8px;"><strong>160</strong></td>
+                            <td style="padding:10px 8px;"><strong>The universal default. Chocolate chip cookies, layer cakes, muffins, brownies, quick breads, sheet cakes, cupcakes — if a recipe doesn't say, it's 350°F. This is the temperature your grandmother baked at and probably her grandmother too.</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 8px;">375°F</td><td style="padding:10px 8px;">190</td><td style="padding:10px 8px;">5</td><td style="padding:10px 8px;">170</td>
+                            <td style="padding:10px 8px;">Puff pastry needs this heat — the water in the butter layers flashes to steam, creating those tissue-thin sheets. Scones and biscuits, where you want a brown exterior fast. Roasted vegetables that need caramelized edges.</td>
+                        </tr>
+                        <tr style="background:var(--card-bg);">
+                            <td style="padding:10px 8px;">400°F</td><td style="padding:10px 8px;">200</td><td style="padding:10px 8px;">6</td><td style="padding:10px 8px;">180</td>
+                            <td style="padding:10px 8px;">Artisan bread — that blast of heat creates the oven spring that makes a boule bloom open. Pizza on a stone. Anything you want deeply brown and crisp on the outside while staying moist inside.</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 8px;">425°F</td><td style="padding:10px 8px;">220</td><td style="padding:10px 8px;">7</td><td style="padding:10px 8px;">200</td>
+                            <td style="padding:10px 8px;">Pizza that tastes like a pizzeria made it. Bread with shatteringly crisp crust. Sheet-pan meals where everything roasts together.</td>
+                        </tr>
+                        <tr style="background:var(--card-bg);">
+                            <td style="padding:10px 8px;">450°F</td><td style="padding:10px 8px;">230</td><td style="padding:10px 8px;">8</td><td style="padding:10px 8px;">210</td>
+                            <td style="padding:10px 8px;">Neapolitan-style pizza — 90 seconds and you're done. Blistering-hot pie crusts that need the fat to sear instantly. Preheating a Dutch oven for no-knead bread.</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:10px 8px;">475°F</td><td style="padding:10px 8px;">245</td><td style="padding:10px 8px;">9</td><td style="padding:10px 8px;">225</td>
+                            <td style="padding:10px 8px;">Sourdough with steam — you want that loaf to spring so hard the scoring pattern looks like a work of art. Maximum crust.</td>
+                        </tr>
+                        <tr style="background:var(--card-bg);">
+                            <td style="padding:10px 8px;">500°F+</td><td style="padding:10px 8px;">260+</td><td style="padding:10px 8px;">10</td><td style="padding:10px 8px;">240</td>
+                            <td style="padding:10px 8px;">Professional pizza ovens. Bread with extreme crust character. Most home ovens max out at 500-550°F. At this temperature, things happen in seconds, not minutes — don't walk away.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Fan Ovens: The 25°F Rule, and When It Lies</h2>
+                <p>Standard advice: <strong>reduce the recipe temperature by 25°F (or about 15°C) when using a fan.</strong> A 350°F conventional recipe becomes 325°F with the fan on. The fan blows hot air directly onto your food, accelerating heat transfer. Without the reduction, edges burn before centers set.</p>
+                <p>But here's where it gets messy. Some modern ovens have an "auto-convert" mode that does the math for you — you punch in 350°F with the fan on, and the oven silently drops itself to 325°F. If you then manually reduce by another 25°F, you're baking at an effective 300°F and wondering why your scones took 35 minutes. How do you know? <strong>Watch the display when you switch to fan mode.</strong> If the number drops automatically, your oven converts for you. Don't double-dip.</p>
+                <p>Another exception that throws people: fan ovens brown surfaces much faster even <em>with</em> the temperature reduced. The moving air strips moisture from the food's surface, accelerating Maillard browning. Check your bake 5-10 minutes before the recipe's stated time — especially for things with exposed tops like muffins, cookies, and bread loaves. I've burned the tops off more focaccia than I care to admit by trusting the timer instead of my eyes.</p>
+                <p>If you bake at high altitude — say, Denver or above — the fan oven rules shift again. Lower air pressure means water evaporates faster and leaveners expand more aggressively. You might need to <em>increase</em> the temperature by 15-25°F (counterintuitively) to set the structure before the batter over-expands and collapses. The standard advice for baking above 5,000 feet already includes a 15-25°F temperature bump; combined with a fan oven, you might end up right back at the original recipe temperature. Confusing? Yes. This is why high-altitude bakers deserve medals.</p>
+
+                <h2>Gas Marks: The British Baking System Americans Never Learned</h2>
+                <p>If you're cooking from a British or older Australian recipe, you'll see "Gas Mark 4" instead of a temperature. Gas marks run from ¼ to 9 and map to specific Fahrenheit ranges. They're a relic of mechanical gas ovens where you turned a dial to register numbers rather than temperatures — the oven didn't know how hot it was, it just knew how much gas was flowing.</p>
+                <p>The most common: <strong>Gas Mark 4 = 350°F / 180°C.</strong> Gas Mark 1 = 275°F (slow oven). Gas Mark 6 = 400°F (moderately hot). Gas Mark 9 = 475°F (very hot). If you're using a modern electric or digital gas oven, ignore the gas mark and use the Fahrenheit or Celsius equivalent — your thermostat is more precise than the mechanical regulator that gas marks were designed for.</p>
+                <p>One more reason to not stress about gas marks: those old mechanical gas ovens could swing ±30°F easily. The entire cooking tradition built on gas marks tolerated far more temperature variation than we obsess over today. Your ±10°F digital oven is already generations ahead of what built the classic recipes.</p>
+
+                <h2>How to Find Your Oven's Hot Spots (and Fix Them)</h2>
+                <p>Almost every oven has uneven heating — the back is hotter than the front, or one corner runs 30°F warmer than the rest. Here's how to map yours: buy a loaf of the cheapest white sandwich bread you can find. Spread the slices across your middle rack in a single layer, covering every inch. Set the oven to 350°F and watch through the window. The slices that brown first are your hot spots. The slices still pale after 10 minutes are the cold zones.</p>
+                <p>Once you know the map, you have two fixes. The active fix: rotate your pans halfway through baking — front-to-back and (for serious hotspots) side-to-side. The passive fix: avoid placing pans directly on hot spots, and if your oven has a hot back wall, pull the rack forward an inch. For truly uneven ovens, a pizza stone or baking steel left on the bottom rack acts as a heat diffuser — it absorbs and re-radiates heat more evenly than the bare heating element. I keep a $30 pizza stone on my bottom rack permanently for this reason. It also happens to make great pizza.</p>
+
+                <h2>The Broiler — a Different Animal Entirely</h2>
+                <p>While we're talking about oven heat: your broiler (grill, if you're in the UK) operates at 500-550°F and heats only from above. It's not for baking — it's for browning. Crème brûlée tops, melting cheese on a casserole, blistering peppers for peeling. A broiler doesn't care about °F to °C conversion because you control it by distance, not by temperature. Move the rack closer for faster browning, farther for slower. The only number that matters: most broiler elements cycle on and off to prevent overheating, so "high broil" just means it cycles off less often. Don't overthink it.</p>
+
+                <h2>Questions Real Bakers Ask About Oven Temperatures</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>What temperature is 350°F in Celsius?</h3>
+                        <p>350°F = 177°C, rounded to 180°C by essentially every baking recipe on the planet. Gas Mark 4. With a fan on: 160°C. Don't agonize over the 3-degree rounding difference — your oven's temperature swings more than that just cycling on and off. I'm serious about that oven thermometer. If you bake more than twice a month, it's the single most useful $12 you'll spend on your kitchen. For more on why precision matters more for some ingredients than others, our <a href="/articles/bakers-percentage-explained">baker's percentage guide</a> explains the math behind why temperature and weight are the two variables that actually move the needle.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How do I know if my oven temperature is accurate?</h3>
+                        <p>Hang an oven thermometer from the middle rack, preheat for a full 20 minutes (not just until the "preheated" beep — that beep is a liar too; it usually goes off when the air hits temperature, not when the walls are saturated with heat), and read it. If your oven is set to 350°F and the thermometer reads 330°F, now you know: compensate by setting your dial to 370°F. If it reads 370°F, dial down to 330°F. Check the reading at the front and back of the rack — a 15°F difference between front and back is normal; a 40°F difference means you should rotate your pans mid-bake. For the science of even heat distribution and why it affects bigger bakes more than small ones, see <a href="/articles/why-cake-sinks-in-middle">why cakes sink in the middle</a>.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Does opening the oven door really ruin a bake?</h3>
+                        <p>Depends on what you're baking. A tray of cookies at 350°F? Open the door — the thermal mass of the oven walls recovers the temperature within 60 seconds. A delicate soufflé or a cheesecake in its first 20 minutes? Don't even breathe near the handle. The temperature drop from opening the door is about 50-75°F instantly, and for structure-dependent bakes (anything relying on egg foam, steam, or fragile gluten networks), that sudden drop can cause a collapse that won't recover even when the temperature comes back. Bread during its first 10 minutes of oven spring: don't open. Bread in its last 10 minutes when you're just browning the crust: go ahead. The risk isn't the temperature loss — it's that the structure hasn't set yet when the loss happens.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Why do some recipes say "preheat to 400°F then reduce to 350°F"?</h3>
+                        <p>This is called a "temperature drop" bake and it's common in bread and some pastries. The initial blast of high heat creates a burst of oven spring — the yeast goes into overdrive and the water in the dough flashes to steam, expanding the loaf rapidly. Then the reduced temperature finishes the bake without burning the crust. It mimics the effect of a professional steam-injected oven without the $10,000 equipment. If your recipe calls for this, don't skip the drop — it's not a suggestion. The baker who wrote it tested the recipe both ways and the drop version won. For more on how different ingredients behave under heat, check <a href="/1-cup-butter-to-grams">1 cup butter to grams</a> — butter's water content drives a lot of the steam action in early baking.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 28px; font-size: 0.94rem; color: var(--text-muted); border-top: 1px solid var(--border-color, #e0e0e0); padding-top: 20px;">🔥 Related: <a href="/1-cup-flour-to-grams">Flour Cup → Grams</a> — because flour weight matters more than temperature for most recipe failures &nbsp;|&nbsp; <a href="/articles/bakers-percentage-explained">Baker's Percentage: the Formula That Makes Any Recipe Scalable</a> &nbsp;|&nbsp; <a href="/articles/why-cake-sinks-in-middle">Why Cakes Sink (Hint: Temperature Is Usually Involved)</a> &nbsp;|&nbsp; <a href="/cost-calculator">Recipe Cost Calculator</a></p>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1/4 Cup Brown Sugar to Grams — Free Baking Conversion Calculator</title>
+    <meta name="description" content="Convert 1/4 cup of brown sugar to grams. ¼ packed cup = 55g. Free baking calculator — works on mobile, no sign-up.">
+
+    <meta property="og:title" content="1/4 Cup Brown Sugar to Grams — Free Conversion Calculator">
+    <meta property="og:description" content="Convert 1/4 cup of packed brown sugar to grams. ¼ cup = 55g packed, ~45g loose. Light and dark brown sugar supported.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/1-4-cup-brown-sugar-to-grams">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1/4 Cup Brown Sugar to Grams — Free Conversion Calculator">
+    <meta name="twitter:description" content="Convert 1/4 cup of packed brown sugar to grams. ¼ cup = 55g.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/1-4-cup-brown-sugar-to-grams">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "1/4 Cup Brown Sugar to Grams", "item": "https://bakecalc.club/1-4-cup-brown-sugar-to-grams" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the weight difference between packed and spooned brown sugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The difference is substantial — about 10 grams per quarter cup, or nearly 20%. Packed brown sugar (pressed firmly into the measuring cup) weighs about 55 g per quarter cup. The same volume loosely spooned in without pressing weighs only about 45 g. That 10-gram gap is enough to change the chewiness of a batch of cookies. Most American recipes assume packed brown sugar unless they specifically say otherwise, so when a recipe says 1/4 cup brown sugar with no qualifier, pack it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does hardened brown sugar weigh more than soft brown sugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not meaningfully — a brick of hardened brown sugar and a bag of soft, fresh brown sugar both weigh about 220 g per packed cup. What changes is how hard you have to work to pack it. Hardened brown sugar resists packing, so if you simply scoop it without firmly pressing, you may accidentally under-pack and end up with less sugar than intended. The fix is to soften it first (a damp paper towel in the microwave for 20 seconds, or an apple slice in the bag overnight), or to use a scale and measure 55 g regardless of its rock-hard attitude."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do light and dark brown sugar weigh the same?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — light and dark brown sugar are functionally identical in weight at about 220 g per packed cup, or 55 g per quarter cup. Dark brown sugar simply has more molasses (about 6.5% vs. 3.5% for light), and that extra few percentage points of sticky syrup does not change the density measurably. The difference between the two is entirely in flavor and moisture: dark brown sugar gives you a deeper caramel note and slightly more acid for baking soda reactions, but the weight per quarter cup is the same either way."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>1/4 Cup Brown Sugar to Grams Converter</h1>
+            <p>Convert ¼ US cup of brown sugar into grams — packed vs. loose, light vs. dark, and what happens when your brown sugar turns into a brick.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-cups="0.25">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="cups-input">Cups of Brown Sugar</label>
+                        <input type="number" inputmode="decimal" id="cups-input" value="0.25" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ingredient-type">Packing Method</label>
+                        <select id="ingredient-type">
+                            <option value="220" selected>Packed Brown Sugar (1 cup ≈ 220g)</option>
+                            <option value="180">Loose / Spooned Brown Sugar (1 cup ≈ 180g)</option>
+                            <option value="220">Dark Brown Sugar, packed (1 cup ≈ 220g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateCupsToGrams(this)">Convert to Grams</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Gram Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="grams-output-frac">≈ 55 g (quarter cup, packed)</span> (<span id="grams-output">55</span> g)
+                    </div>
+                    <p class="output-note">*Packed method assumes brown sugar is pressed firmly into the cup until it holds its shape when turned out. Loose method is spooned and leveled without pressing. Light and dark brown sugar weigh the same when packed identically.</p>
+                </div>
+            </div>
+            <article class="seo-section">
+                <h2>How Many Grams in 1/4 Cup of Brown Sugar?</h2>
+                <p>Brown sugar is the only common baking ingredient where your measuring technique swings the weight by 20% or more. Spoon it in loosely and you get about 45 grams. Pack it firmly with the back of a spoon — the way most American recipes intend — and you get <strong>55 grams per quarter cup</strong>. That 10-gram gap is not a rounding error; it is enough extra sugar to change the spread, chew, and color of a batch of chocolate chip cookies. <strong>Packed brown sugar weighs about 220 g per cup, or 55 g per quarter cup.</strong> The packing matters because brown sugar is coated in molasses, and that thin layer of syrup makes the crystals sticky — they cling together, and pressing them drives out air pockets that would otherwise take up volume. White sugar crystals are dry and slide past each other freely, which is why white sugar weighs the same scooped or spooned. Brown sugar fights you either way: measure it loose and you are probably under-sugaring your recipe; pack it half-heartedly and you are somewhere in the middle with no way to know where.</p>
+
+                <h2>The Conversion: Two Numbers, One Ingredient</h2>
+                <p>Brown sugar is the rare ingredient that needs two rows on the conversion chart because the measurement method changes the answer:</p>
+                <ul>
+                    <li><strong>Grams</strong> = Cups × Grams-per-Cup</li>
+                    <li>Packed (Light or Dark): 0.25 × 220 g = <strong>55 grams</strong></li>
+                    <li>Loose / Spooned: 0.25 × 180 g = <strong>45 grams</strong></li>
+                </ul>
+
+                <h2>What 10 Grams of Brown Sugar Actually Changes in Your Bake</h2>
+                <p>Ten grams is roughly two teaspoons of brown sugar — it does not sound like much, but in a quarter-cup quantity it is an 18% swing, and brown sugar punches above its weight class in baking chemistry. Brown sugar is acidic (the molasses brings a pH around 5.5), so it reacts with baking soda to produce lift. More brown sugar = more acid = more CO2, up to a point. It is also more hygroscopic than white sugar because molasses is a humectant — it pulls and holds water from the air and from your dough. An extra 10 grams of brown sugar per quarter cup in a cookie recipe means a chewier, darker, more spread-out cookie that stays soft a day longer. Undershoot by 10 grams and you get a paler, cakier cookie that stales faster. For <a href="/1-2-cup-brown-sugar-to-grams">half-cup conversions</a> the absolute error doubles to 20 grams, but the proportion stays the same. The quarter cup is the foundation — get it right and the scaling follows naturally. Our <a href="/1-cup-brown-sugar-to-grams">full-cup brown sugar guide</a> goes deeper on how packing consistency affects large-batch baking.</p>
+
+                <h2>Light vs. Dark Brown Sugar: Same Weight, Different Personality</h2>
+                <p>Light brown sugar contains about 3.5% molasses by weight; dark brown sugar is around 6.5%. That extra 3% molasses changes the flavor noticeably — dark brown sugar tastes deeper, almost like toffee — but it does not change the density in any measurable way. Both pack to 220 g per cup, both settle to 55 g per quarter cup. The choice between them is a flavor decision, not a weight decision. Dark brown sugar also brings slightly more acid to the party, which means a little more lift from your baking soda, and slightly more moisture retention. If a recipe calls for "brown sugar" without specifying light or dark, it almost always means light — but substituting dark at the same weight will not hurt anything. You will just get a more pronounced molasses note, which is rarely a bad thing in a gingerbread or a barbecue rub.</p>
+
+                <h2>The Hardened Brown Sugar Problem</h2>
+                <p>Brown sugar turns into a rock when the molasses coating dries out and the crystals fuse together. When your brown sugar is hard as a hockey puck, you cannot pack it properly — the chunks resist compression and you end up with big air gaps in the measuring cup. The result is an under-packed measurement that could be as low as 40 g per quarter cup instead of the intended 55 g. Soften it first. The fastest method: put the hardened sugar in a microwave-safe bowl, drape a damp paper towel over the top, and microwave in 15-second bursts until it loosens up. Alternatively, seal the hardened sugar in a bag with a slice of apple or a piece of bread overnight — the moisture migrates into the sugar and softens it. Or, simplest of all, use a scale and weigh 55 g. The scale does not care how hard your brown sugar is. <a href="/1-tbsp-brown-sugar-to-grams">Tablespoon conversions</a> for brown sugar get even trickier because packing at that small scale is wildly inconsistent — another reason a scale pays for itself.</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: What is the weight difference between packed and spooned brown sugar?</h3>
+                        <p>A1: Packed brown sugar — pressed firmly into the cup until it holds its shape — weighs about 55 g per quarter cup. Loosely spooned brown sugar without any pressing weighs about 45 g. That is a 10-gram difference, or roughly 18%. Most American recipes assume the packed method. If the recipe says "1/4 cup brown sugar, packed," pack it. If it just says "1/4 cup brown sugar" without a qualifier, pack it anyway — that is the default convention in US recipe writing and has been for decades.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: Does hardened brown sugar weigh more than soft brown sugar?</h3>
+                        <p>A2: No — a rock-hard lump of brown sugar and a bag of soft, fresh brown sugar both contain the same amount of sugar and molasses per gram. A packed cup of hardened brown sugar and a packed cup of soft brown sugar both weigh about 220 g. The problem with hardened sugar is not the weight, it is that you cannot pack it into a measuring cup properly — the hard chunks leave air gaps, so you end up under-measuring. Soften it first (microwave with a damp paper towel, or seal it overnight with an apple slice), or bypass the problem entirely by using a scale set to 55 g.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: Do light and dark brown sugar weigh the same?</h3>
+                        <p>A3: Yes — the density difference is negligible. Light brown sugar (about 3.5% molasses) and dark brown sugar (about 6.5% molasses) both pack to 220 g per cup, or 55 g per quarter cup. The extra few percent of molasses in dark brown sugar changes the flavor, the acidity, and the moisture retention of your bake, but not the weight. Substitute them freely by weight with zero conversion math required.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 28px; font-size: 0.94rem; color: var(--text-muted); border-top: 1px solid var(--border-color, #e0e0e0); padding-top: 20px;">📐 See also: <a href="/1-cup-brown-sugar-to-grams">1 Cup Brown Sugar → Grams</a> &nbsp;|&nbsp; <a href="/1-2-cup-brown-sugar-to-grams">1/2 Cup Brown Sugar → Grams</a> &nbsp;|&nbsp; <a href="/1-tbsp-brown-sugar-to-grams">1 Tbsp Brown Sugar → Grams</a> &nbsp;|&nbsp; <a href="/1-4-cup-sugar-to-grams">1/4 Cup Sugar → Grams</a> &nbsp;|&nbsp; <a href="/1-4-cup-powdered-sugar-to-grams">1/4 Cup Powdered Sugar → Grams</a></p>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>

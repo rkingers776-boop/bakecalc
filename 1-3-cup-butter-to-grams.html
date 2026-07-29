@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1/3 Cup Butter to Grams — Free Baking Conversion Calculator</title>
+    <meta name="description" content="Convert 1/3 cup of butter to grams accurately. Solid, melted, salted, and unsalted butter conversions. Free calculator — plus the butter stick marking trick every baker should know.">
+
+    <meta property="og:title" content="1/3 Cup Butter to Grams — Free Conversion Calculator">
+    <meta property="og:description" content="Convert 1/3 cup of butter to grams accurately. Solid, melted, salted, and unsalted butter supported — plus stick-to-gram shortcuts.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/1-3-cup-butter-to-grams">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1/3 Cup Butter to Grams — Free Conversion Calculator">
+    <meta name="twitter:description" content="Convert 1/3 cup of butter to grams accurately. Solid, melted, salted, and unsalted butter supported.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/1-3-cup-butter-to-grams">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "1/3 Cup Butter to Grams", "item": "https://bakecalc.club/1-3-cup-butter-to-grams" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many grams is 1/3 cup of butter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "76 grams for standard US butter. This is the same whether the butter is salted or unsalted — salt content doesn't change the weight. A full US stick of butter is 113g (1/2 cup), so 1/3 cup is exactly two-thirds of a stick. Melted butter weighs the same as solid butter by mass, but it occupies less volume — so 1/3 cup of solid butter and 1/3 cup of melted butter are different amounts of butter by weight."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does melted butter weigh the same as solid butter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By mass, yes — melting doesn't change weight. But by volume, no. A stick of butter melted down occupies about 15-20% less volume than it did in solid form. This means if a recipe says '1/3 cup melted butter,' you should melt the butter first and then measure 1/3 cup of the liquid. If you instead measure 1/3 cup of solid butter and then melt it, you'll actually have slightly more butter than intended. The difference is about 10-12 grams, which matters in recipes like brownies where the fat-to-flour ratio controls fudginess."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I measure 1/3 cup butter using stick markings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A standard US butter stick is 1/2 cup (8 tablespoons, 113g) with tablespoon markings on the wrapper. For 1/3 cup, you need 5 tablespoons plus 1 teaspoon — that's 5 full tablespoon marks plus one-third of the next tablespoon. Cut at the wrapper line between the 5th and 6th tablespoon marks. Even more precise: weigh 76g on a kitchen scale. If you use butter from a block or tub without markings, the scale method is by far the most accurate approach — no wrapper-guessing required."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>1/3 Cup Butter to Grams Converter</h1>
+            <p>Convert ⅓ US cup of butter into grams — covering the solid-vs-melted confusion, the stick-marking trick, and why your butter knife is actually a measuring tool.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-cups="0.333">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="cups-input">Cups of Butter</label>
+                        <input type="number" inputmode="decimal" id="cups-input" value="0.33" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ingredient-type">Type / State</label>
+                        <select id="ingredient-type">
+                            <option value="227" selected>Solid Butter, Salted or Unsalted (1 cup ≈ 227g)</option>
+                            <option value="227">Melted Butter (1 cup ≈ 227g — by mass, equivalent to solid)</option>
+                            <option value="205">Clarified Butter / Ghee (1 cup ≈ 205g, milk solids removed)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateCupsToGrams(this)">Convert to Grams</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Gram Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="grams-output-frac">≈ 76 g (third cup)</span> (<span id="grams-output">76</span> g)
+                    </div>
+                    <p class="output-note">*Standard US butter density: 227g per cup. A full stick = 113g (1/2 cup). 1/3 cup = 76g, or 5 Tbsp + 1 tsp using stick wrapper markings. Clarified butter is slightly lighter — milk solids removal reduces density.</p>
+                </div>
+            </div>
+            <article class="seo-section">
+                <h2>How Many Grams in 1/3 Cup of Butter?</h2>
+                <p>One-third cup of butter weighs <strong>76 grams</strong>. Unlike flour or sugar, butter has almost no measuring ambiguity — it's sold in standardized sticks (in the US) with tablespoon markings right on the wrapper, and its density is extremely consistent at 227 grams per cup. That consistency is a gift: whether you're using cheap store-brand butter or premium European-style butter with 82%+ butterfat, a cup is still 227 grams. The fat-to-water ratio varies slightly between brands (European butter has less water, more fat), but the total weight per cup remains effectively identical for baking purposes. <strong>5 tablespoons + 1 teaspoon = 1/3 cup = 76g.</strong></p>
+
+                <h2>The Conversion Formula — Butter Is the Easiest Ingredient</h2>
+                <p>Butter has one of the most reliable cup-to-gram conversions in baking. At 227 grams per cup, the math is clean and the real-world results are predictable:</p>
+                <ul>
+                    <li><strong>Grams</strong> = Cups × Grams-per-Cup</li>
+                    <li>Solid or Melted Butter: 0.333 × 227 g = <strong>76 grams</strong></li>
+                    <li>Stick Math: 1 stick = 113g = 1/2 cup, so 2/3 stick = 76g = 1/3 cup</li>
+                    <li>Tablespoon Math: 1/3 cup = 5 Tbsp + 1 tsp; 1 Tbsp butter = ~14g, so 5.33 × 14 = ~76g</li>
+                </ul>
+
+                <h2>The Melted vs Solid Butter Trap (It's Not About Weight)</h2>
+                <p>Here's where even experienced bakers get tripped up: <strong>solid butter and melted butter weigh the same by mass, but they don't occupy the same volume.</strong> Melt a stick of butter and it shrinks — the air trapped in the solid structure escapes, and the liquid butter takes up about 15-20% less space. This means ⅓ cup of <em>solid</em> butter (76g) is actually more butter than ⅓ cup of <em>melted</em> butter (about 85-90g if you melted ⅓ cup solid and then measured). The recipe writer's intention matters enormously here. If the recipe says "⅓ cup butter, melted," the standard interpretation is: measure ⅓ cup solid (76g), then melt it. If the recipe says "⅓ cup melted butter," it means: melt butter, then measure ⅓ cup of the liquid (which will be about 85-90g of original solid butter). In brownies and fudgy cookies, this ~12-gram difference in butter weight changes the fat-to-flour ratio enough to shift the texture from chewy to cakey. When in doubt, <a href="/articles/how-to-measure-flour-correctly">use a scale</a> — 76 grams is unambiguous regardless of what state the butter is in.</p>
+
+                <h2>Salted vs Unsalted Butter — Weight Is Identical, Behavior Is Not</h2>
+                <p>Salted and unsalted butter both weigh 227g per cup — the salt content (typically 1.5-2% in salted butter) is too small to measurably change density. But there is a practical difference that matters at the ⅓-cup scale: <strong>salted butter contains slightly more water</strong> than unsalted. Salt is a preservative, and manufacturers compensate by leaving a touch more water in salted butter. This means 76g of salted butter has roughly 1-2 grams less actual butterfat than 76g of unsalted butter. In a full batch of cookies with a cup of butter, that difference is negligible. In a small-batch recipe with only ⅓ cup of butter (like a six-cookie batch or a single browned-butter sauce for two servings of pasta), that 1-2g fat difference can be the margin between a cookie that spreads nicely and one that pools into a greasy puddle. The solution is simple: <strong>bake with unsalted butter</strong> so you control the salt and the fat content independently. Check our <a href="/1-cup-butter-to-grams">full butter conversion guide</a> for stick, tablespoon, and gram conversions at every volume.</p>
+
+                <h2>Where 1/3 Cup Butter Actually Shows Up</h2>
+                <p>A third-cup of butter is the workhorse fat quantity for small-batch baking: the butter in a half-dozen chocolate chip cookies, the fat in a single 8-inch pan of cornbread, or the butter component in a roux for two servings of mac and cheese. It's also the butter amount in many <a href="/1-3-cup-flour-to-grams">single-layer cake recipes</a> for a 6-inch round pan. In pie crust, ⅓ cup of butter (combined with the same amount of shortening or lard) is the fat for a single-crust 9-inch pie shell — and at that scale, switching from 76g of cold butter to 76g of room-temperature butter changes the crust from flaky to tough. Butter temperature matters as much as butter weight, and the ⅓-cup quantity appears often enough in small recipes that getting both right is the difference between "good enough" and "worth making again."</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: How many grams is 1/3 cup of butter?</h3>
+                        <p>A1: 76 grams. That's the same whether the butter is salted or unsalted. In stick terms, it's two-thirds of a standard US stick (a full stick = 113g = 1/2 cup). In tablespoon terms, it's 5 tablespoons plus 1 teaspoon. If you have a kitchen scale, just weigh 76g directly — it's faster than messing with wrapper markings and far more accurate.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: Does melted butter weigh the same as solid butter?</h3>
+                        <p>A2: By mass — yes, 76g of solid butter melted is still 76g. But by volume — no. Melted butter takes up less space because the air pockets in solid butter collapse. This creates a recipe interpretation problem: "⅓ cup melted butter" means measure after melting (about 85-90g of original solid), while "⅓ cup butter, melted" means measure solid first (76g), then melt. The weight difference is roughly 10-12g, which is enough to change brownie or cookie texture. When accuracy matters, weigh the butter — 76 grams is unambiguous. If you're using melted butter in a recipe that calls for solid, you need about 15-20% more solid butter to yield the same melted volume, and the recipe's texture will still be different because melted butter interacts with flour and sugar differently during mixing.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: How do I measure 1/3 cup of butter using stick markings?</h3>
+                        <p>A3: A standard US butter stick has tablespoon markings on the wrapper — each line is 1 tablespoon (14g). For 1/3 cup: count 5 full tablespoons, then add 1 teaspoon (one-third of the next tablespoon mark). Cut at the midpoint between the 5th and 6th tablespoon lines, slightly closer to the 5th. Even easier: the wrapper usually has a 1/4 cup (4 Tbsp) line clearly marked — go one tablespoon past that, then add a teaspoon. If your butter doesn't have markings (imported butter, blocks, tubs), the scale method wins hands down: 76g on a digital scale, no wrapper math needed. European butter blocks are often 250g — 76g is just under one-third of the block, which you can approximate by eye and then fine-tune on the scale.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 28px; font-size: 0.94rem; color: var(--text-muted); border-top: 1px solid var(--border-color, #e0e0e0); padding-top: 20px;">📐 See also: <a href="/1-cup-butter-to-grams">1 Cup Butter → Grams</a> &nbsp;|&nbsp; <a href="/1-2-cup-butter-to-grams">1/2 Cup Butter → Grams</a> &nbsp;|&nbsp; <a href="/1-4-cup-butter-to-grams">1/4 Cup Butter → Grams</a> &nbsp;|&nbsp; <a href="/1-tbsp-butter-to-grams">1 Tbsp Butter → Grams</a> &nbsp;|&nbsp; <a href="/1-3-cup-flour-to-grams">1/3 Cup Flour → Grams</a> &nbsp;|&nbsp; <a href="/1-3-cup-sugar-to-grams">1/3 Cup Sugar → Grams</a></p>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>

@@ -1,0 +1,1668 @@
+/* ============================================================
+   BakeCalc Club — Design System v3
+   "Warm Bakery" theme — terracotta, vanilla cream, chocolate
+   Mobile-first responsive — 全站适配移动端
+   ============================================================ */
+
+/* === Google Fonts === */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+/* ============================================================
+   CSS Variables
+   ============================================================ */
+:root {
+  /* --- Warm baking palette --- */
+  --primary:        #c7733e;
+  --primary-hover:  #9e4f28;
+  --primary-light:  #fdf0e4;
+  --primary-glow:   rgba(199, 115, 62, 0.18);
+
+  --bg:             #fef9f2;
+  --bg-warm:        #fef6eb;
+
+  --card-bg:        #ffffff;
+  --card-shadow:     0 2px 12px rgba(120, 70, 30, 0.07),
+                     0 1px 3px  rgba(120, 70, 30, 0.04);
+  --card-shadow-md:  0 4px 20px rgba(120, 70, 30, 0.09),
+                     0 2px 6px  rgba(120, 70, 30, 0.05);
+
+  --text:           #2c1e0f;
+  --text-secondary: #7a6a5c;
+  --text-muted:     #a89888;
+
+  --border-light:   #f0e4d4;
+  --border:         #dfc8ad;
+  --border-focus:   #c7733e;
+
+  --result-bg:      #fef7ee;
+  --success:        #7c9a5e;
+
+  /* --- Radii --- */
+  --radius-sm:      8px;
+  --radius:         12px;
+  --radius-lg:      16px;
+  --radius-xl:      20px;
+
+  /* --- Typography --- */
+  --font-h:         'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:      -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                    Arial, sans-serif;
+
+  /* --- Motion --- */
+  --ease:           0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-fast:      0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   Base Reset & Typography
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ambient flour-dust glow */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(199,115,62,0.04) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(199,115,62,0.03) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(180,140,100,0.02) 0%, transparent 70%);
+}
+
+/* Headings — serif for recipe-book feel */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-h);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text);
+  margin-top: 0;
+}
+
+h1 { font-size: clamp(1.5rem, 5vw, 2.2rem); }
+h2 { font-size: clamp(1.2rem, 3.5vw, 1.5rem); }
+h3 { font-size: 1.1rem; }
+h4 { font-size: 1rem; }
+
+p { margin: 0 0 0.9rem; color: var(--text-secondary); }
+
+a { color: var(--primary); text-decoration: none; transition: color var(--ease-fast); }
+a:hover { color: var(--primary-hover); }
+
+ul, ol { color: var(--text-secondary); padding-left: 1.3em; }
+li { margin-bottom: 0.35rem; }
+strong { color: var(--text); }
+
+/* ============================================================
+   Layout Container
+   ============================================================ */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 20px 56px;
+}
+
+/* ============================================================
+   Navigation (sub-pages)
+   ============================================================ */
+nav {
+  margin-bottom: 12px;
+}
+
+nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  padding: 6px 0;
+  transition: color var(--ease-fast);
+}
+
+nav a:hover { color: var(--primary); }
+
+/* ============================================================
+   Header (sub-pages)
+   ============================================================ */
+header {
+  text-align: center;
+  padding: 28px 0 20px;
+}
+
+header h1 {
+  color: var(--primary);
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: -0.02em;
+}
+
+header p {
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   Hero — homepage only
+   ============================================================ */
+.hero {
+  text-align: center;
+  padding: 48px 20px 40px;
+}
+
+.hero-icon {
+  font-size: 3.2rem;
+  margin-bottom: 16px;
+  display: block;
+  animation: gentle-bounce 3s ease-in-out infinite;
+}
+
+@keyframes gentle-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+.hero h1 {
+  color: var(--primary);
+  font-size: clamp(1.7rem, 6vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: -0.03em;
+}
+
+.hero p {
+  font-size: clamp(1rem, 2.8vw, 1.2rem);
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin: 0 auto 28px;
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--ease);
+  text-decoration: none;
+}
+
+.hero-btn--primary {
+  background: linear-gradient(135deg, var(--primary), #d4844a);
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(199, 115, 62, 0.28);
+}
+
+.hero-btn--primary:hover {
+  background: linear-gradient(135deg, var(--primary-hover), #b55a2e);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(199, 115, 62, 0.38);
+}
+
+.hero-btn--outline {
+  border: 2px solid var(--border);
+  color: var(--text-secondary);
+  background: transparent;
+}
+
+.hero-btn--outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+/* Decorative ribbon divider */
+/* Section header (used by converters & knowhow) */
+.section-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* ============================================================
+   Featured Card — hero product spotlight
+   ============================================================ */
+.featured-card {
+  position: relative;
+  margin: 8px 0 40px;
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 6px 32px rgba(120, 70, 30, 0.10),
+              0 2px 8px  rgba(120, 70, 30, 0.04);
+  transition: box-shadow var(--ease);
+}
+
+.featured-card:hover {
+  box-shadow: 0 10px 40px rgba(120, 70, 30, 0.13),
+              0 4px 12px rgba(120, 70, 30, 0.06);
+}
+
+.featured-badge {
+  position: absolute;
+  top: 0;
+  right: 24px;
+  background: linear-gradient(135deg, var(--primary), #d4844a);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 5px 14px;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+}
+
+.featured-body {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 28px;
+  padding: 32px 28px 28px;
+}
+
+.featured-text h2 {
+  font-size: 1.35rem;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.featured-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.featured-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.featured-bullets li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.featured-bullets li span {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.featured-cta {
+  display: inline-flex;
+  font-size: 1rem;
+  padding: 14px 30px;
+}
+
+/* --- Featured demo panel --- */
+.featured-demo {
+  background: var(--result-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.demo-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.demo-recipe {
+  font-family: var(--font-h);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.demo-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.demo-stat:last-of-type {
+  border-bottom: none;
+}
+
+.demo-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.demo-val {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.demo-val--accent {
+  color: var(--primary);
+  font-size: 1.2rem;
+}
+
+.demo-val--big {
+  color: var(--primary);
+  font-size: 1.6rem;
+  font-family: var(--font-h);
+}
+
+.demo-note {
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+}
+
+
+/* ============================================================
+   Section Title
+   ============================================================ */
+.section-title {
+  text-align: center;
+  font-family: var(--font-h);
+  font-size: clamp(1.3rem, 4vw, 1.7rem);
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+}
+
+/* ============================================================
+   Tools Grid — category cards (homepage)
+   ============================================================ */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.tools-grid--4col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.tool-category {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 22px 18px 16px;
+  transition: box-shadow var(--ease), transform var(--ease);
+}
+
+.tool-category:hover {
+  box-shadow: var(--card-shadow-md);
+  transform: translateY(-2px);
+}
+
+.tool-category-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.tool-category-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.tool-category-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.tool-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tool-category ul li { margin: 0; }
+
+.tool-category ul li a {
+  display: block;
+  padding: 7px 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: color var(--ease-fast);
+}
+
+.tool-category ul li a:hover {
+  color: var(--primary);
+}
+
+.tool-divider {
+  padding: 8px 0 4px !important;
+  margin-top: 4px;
+  border-top: 1px dashed var(--border-light);
+}
+
+.tool-divider span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.tool-category ul li a::before {
+  content: '→ ';
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity var(--ease-fast), margin var(--ease-fast);
+}
+
+.tool-category ul li a:hover::before {
+  opacity: 1;
+  margin-right: 2px;
+}
+
+/* ============================================================
+   Know-How — baking tips teaser section
+   ============================================================ */
+.knowhow {
+  margin: 44px 0 24px;
+}
+
+.knowhow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.knowhow-card {
+  display: block;
+  text-align: center;
+  padding: 28px 18px 22px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: box-shadow var(--ease), transform var(--ease);
+}
+
+.knowhow-card:hover {
+  box-shadow: var(--card-shadow-md);
+  transform: translateY(-2px);
+}
+
+.knowhow-icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.knowhow-card h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.knowhow-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.knowhow-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  background: var(--bg-warm);
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border-light);
+}
+
+.knowhow-card .knowhow-tag:not(:only-child) {
+  /* default muted style for "Coming soon" */
+}
+
+.knowhow-card:first-child .knowhow-tag {
+  color: #fff;
+  background: var(--success);
+  border-color: var(--success);
+}
+
+/* ============================================================
+   Article (blog post) styles
+   ============================================================ */
+.article { margin-top: 0; }
+
+.article-header {
+  text-align: left;
+  padding: 16px 0 8px;
+}
+
+.article-date {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.article-header h1 {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.article-excerpt {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 640px;
+  font-style: italic;
+  border-left: 3px solid var(--primary);
+  padding-left: 16px;
+}
+
+/* Intro drop-cap feel */
+.article-intro {
+  margin: 24px 0 28px;
+}
+
+.article-intro p {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1.1rem;
+}
+
+/* Body typography */
+.article-body { margin: 28px 0; }
+
+.article-body h2 {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  color: var(--primary);
+  margin: 32px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.article-body h2:first-child { margin-top: 0; }
+
+.article-body p {
+  line-height: 1.85;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.article-body strong { color: var(--text); }
+
+/* Checklist aside */
+.article-checklist {
+  margin: 32px 0;
+  padding: 24px 26px;
+  background: var(--result-bg);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius);
+}
+
+.article-checklist h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.article-checklist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.article-checklist ul li {
+  padding: 5px 0;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.article-checklist ul li::before {
+  content: '☐ ';
+  color: var(--primary);
+  font-size: 1rem;
+  margin-right: 6px;
+}
+
+/* Footer note */
+.article-footer-note {
+  margin: 28px 0 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-light);
+}
+
+.article-footer-note p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+}
+
+/* Cross-link CTA */
+.article-crosslink {
+  text-align: center;
+  margin: 32px 0;
+  padding: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+}
+
+.article-crosslink p {
+  margin: 0 0 4px;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   Know-How responsive
+   ============================================================ */
+@media (max-width: 768px) {
+  .knowhow-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .knowhow-grid { grid-template-columns: 1fr; }
+  .knowhow-card { padding: 22px 14px 18px; }
+}
+
+/* ============================================================
+   Calculator Card (tool sub-pages)
+   ============================================================ */
+.calculator-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  margin: 20px 0;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow var(--ease);
+}
+
+.calculator-card:hover {
+  box-shadow: var(--card-shadow-md);
+}
+
+.calculator-card label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.92rem;
+  margin-bottom: 5px;
+  color: var(--text);
+}
+
+/* Input fields */
+.calculator-card select,
+.calculator-card input[type="number"] {
+  width: 100%;
+  max-width: 400px;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-family: var(--font-body);
+  background: var(--card-bg);
+  color: var(--text);
+  transition: border-color var(--ease-fast), box-shadow var(--ease-fast);
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.calculator-card select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23a89888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.calculator-card select:focus,
+.calculator-card input[type="number"]:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* Input group */
+.input-group { margin-bottom: 16px; }
+
+/* Calculate button */
+.btn-calc {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--primary), #d4844a);
+  color: #fff;
+  border: none;
+  padding: 13px 32px;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: background var(--ease), transform var(--ease-fast), box-shadow var(--ease);
+  box-shadow: 0 2px 8px rgba(199, 115, 62, 0.22);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn-calc::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,0.12) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity var(--ease);
+}
+
+.btn-calc:hover {
+  background: linear-gradient(135deg, var(--primary-hover), #b55a2e);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(199, 115, 62, 0.35);
+}
+.btn-calc:hover::after { opacity: 1; }
+
+.btn-calc:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 4px rgba(199, 115, 62, 0.15);
+}
+
+/* ============================================================
+   Result Display
+   ============================================================ */
+.result-display {
+  background: var(--result-bg);
+  border: 1px solid var(--border-light);
+  border-left: 4px solid var(--primary);
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin-top: 24px;
+}
+
+.result-display h3 {
+  margin: 0 0 6px 0;
+  color: var(--primary-hover);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.output-value {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+  font-family: var(--font-h);
+}
+
+.output-note {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ============================================================
+   SEO Article Section
+   ============================================================ */
+.seo-section { margin-top: 28px; }
+
+.seo-section h2 {
+  color: var(--primary);
+  font-size: clamp(1.15rem, 2.8vw, 1.35rem);
+  font-weight: 600;
+  margin: 32px 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.seo-section h2:first-child { margin-top: 0; }
+
+.seo-section p {
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.seo-section li { line-height: 1.7; color: var(--text-secondary); }
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq-box {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.faq-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  transition: border-color var(--ease-fast), box-shadow var(--ease-fast);
+}
+
+.faq-item:hover {
+  border-color: var(--border);
+  box-shadow: 0 2px 8px rgba(120, 70, 30, 0.04);
+}
+
+.faq-item h3 {
+  margin: 0 0 6px 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  color: var(--text);
+}
+
+.faq-item p {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+footer {
+  margin-top: 48px;
+  padding-top: 22px;
+  border-top: 2px solid var(--border-light);
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+footer p { color: var(--text-muted); margin-bottom: 0.4rem; }
+
+footer a {
+  color: var(--text-secondary);
+  margin: 0 4px;
+  transition: color var(--ease-fast);
+}
+
+footer a:hover { color: var(--primary); }
+
+/* ============================================================
+   RESPONSIVE — mobile-first adapts up
+   ============================================================ */
+
+/* --- Tablet: 2-column grid, adjust spacing --- */
+@media (max-width: 768px) {
+  .container { padding: 32px 16px 44px; }
+
+  .hero { padding: 32px 12px 28px; }
+  .hero-icon { font-size: 2.6rem; }
+  .hero-actions { flex-direction: column; align-items: center; }
+  .hero-btn { width: 100%; max-width: 320px; justify-content: center; }
+
+  .featured-body { grid-template-columns: 1fr; gap: 20px; }
+  .featured-card { margin-bottom: 32px; }
+  .featured-badge { right: 16px; font-size: 0.7rem; padding: 4px 10px; }
+
+  .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+  .calculator-card { padding: 22px 16px; border-radius: var(--radius); }
+  .calculator-card select,
+  .calculator-card input[type="number"] { max-width: 100%; }
+
+  .btn-calc { width: 100%; justify-content: center; padding: 14px 20px; }
+
+  .seo-section h2 { font-size: 1.2rem; }
+}
+
+/* --- Phone: single column, tighter padding --- */
+@media (max-width: 540px) {
+  .container { padding: 24px 12px 36px; }
+
+  .hero { padding: 24px 8px 20px; }
+  .hero h1 { font-size: 1.55rem; }
+  .hero p { font-size: 0.95rem; margin-bottom: 20px; }
+  .hero-icon { font-size: 2.2rem; }
+  .hero-btn { font-size: 0.9rem; padding: 10px 20px; }
+
+  .featured-body { padding: 24px 14px 18px; }
+  .featured-text h2 { font-size: 1.15rem; }
+  .featured-desc { font-size: 0.88rem; }
+  .featured-bullets li { font-size: 0.85rem; }
+  .featured-cta { width: 100%; justify-content: center; font-size: 0.95rem; }
+  .featured-demo { padding: 16px 14px; gap: 8px; }
+  .featured-badge { right: 10px; font-size: 0.68rem; padding: 3px 8px; }
+
+  .tools-grid { grid-template-columns: 1fr; gap: 12px; }
+
+  header { padding: 20px 0 12px; }
+  header h1 { font-size: 1.4rem; }
+  header p { font-size: 0.92rem; }
+
+  .calculator-card { padding: 18px 14px; }
+
+  .result-display { padding: 14px 16px; }
+
+  .faq-item { padding: 14px 16px; }
+
+  .section-title { font-size: 1.2rem; }
+  .section-subtitle { font-size: 0.88rem; }
+
+  footer { font-size: 0.82rem; margin-top: 36px; }
+}
+
+/* --- Small phone --- */
+@media (max-width: 380px) {
+  .container { padding: 16px 10px 28px; }
+
+  .hero { padding: 16px 4px 16px; }
+  .hero h1 { font-size: 1.35rem; }
+  .hero p { font-size: 0.9rem; }
+
+  .hero-btn { font-size: 0.85rem; padding: 10px 16px; max-width: 100%; }
+
+  .featured-body { padding: 18px 10px 14px; }
+  .featured-text h2 { font-size: 1.05rem; }
+  .featured-demo { padding: 14px 10px; gap: 6px; }
+
+  .calculator-card { padding: 14px 10px; }
+  .calculator-card select,
+  .calculator-card input[type="number"] { font-size: 0.95rem; padding: 10px 12px; }
+  .calculator-card select { padding-right: 32px; }
+
+  .btn-calc { font-size: 0.95rem; padding: 12px 16px; }
+
+  .tool-category { padding: 16px 12px; }
+  .tool-category ul li a { font-size: 0.85rem; }
+
+  nav a { font-size: 0.82rem; }
+
+  .output-value { font-size: 1.15rem; }
+}
+
+/* ============================================================
+   Touch-friendly helpers
+   ============================================================ */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger tap targets on touchscreens */
+  .tool-category ul li a { padding: 10px 4px; }
+  .hero-btn { min-height: 44px; }
+  .btn-calc { min-height: 48px; }
+}
+
+/* ============================================================
+   Cost Calculator
+   ============================================================ */
+.cost-calc { margin-top: 4px; }
+
+/* --- Section wrapper --- */
+.cost-section {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px 24px 20px;
+  margin-bottom: 20px;
+  box-shadow: var(--card-shadow);
+}
+
+.cost-section--results {
+  background: linear-gradient(180deg, var(--card-bg) 0%, var(--result-bg) 100%);
+  border-color: var(--border);
+}
+
+.cost-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.cost-section-icon { font-size: 1.4rem; line-height: 1; }
+
+.cost-section-header h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  flex: 1;
+}
+
+/* --- Recipe info row --- */
+.info-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.info-field { flex: 1; min-width: 180px; }
+
+.info-field--sm { flex: 0 0 120px; }
+
+.info-field label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--text-secondary);
+}
+
+.info-field input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  background: var(--card-bg);
+  color: var(--text);
+  box-sizing: border-box;
+  transition: border-color var(--ease-fast), box-shadow var(--ease-fast);
+}
+
+.info-field input:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+/* --- Ingredient table --- */
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -4px;
+  padding: 0 4px;
+}
+
+.ingredient-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.ingredient-table thead th {
+  text-align: left;
+  padding: 8px 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid var(--border-light);
+  white-space: nowrap;
+}
+
+.th-name  { width: auto; }
+.th-qty   { width: 72px; }
+.th-unit  { width: 52px; }
+.th-price { width: 110px; }
+.th-subtotal { width: 80px; }
+.th-del   { width: 36px; }
+
+.ingredient-row td {
+  padding: 6px 6px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: middle;
+}
+
+.cell-unit {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.cell-subtotal {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.92rem;
+  white-space: nowrap;
+}
+
+/* Select & input inside rows */
+.ingredient-table select {
+  width: 100%;
+  padding: 8px 28px 8px 10px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-family: var(--font-body);
+  background: var(--card-bg);
+  color: var(--text);
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23a89888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  box-sizing: border-box;
+}
+
+.ingredient-table select:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 2px var(--primary-glow);
+}
+
+.ingredient-table input[type="number"] {
+  width: 100%;
+  padding: 8px 8px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-family: var(--font-body);
+  background: var(--card-bg);
+  color: var(--text);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.ingredient-table input[type="number"]:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 2px var(--primary-glow);
+}
+
+/* --- Row action buttons --- */
+.btn-add-row {
+  margin-left: auto;
+  padding: 6px 16px;
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--ease-fast);
+}
+
+.btn-add-row:hover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+.btn-row-del {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--ease-fast);
+}
+
+.btn-row-del:hover {
+  background: #fde8e8;
+  color: #c0392b;
+}
+
+/* --- Extra costs grid --- */
+.extra-costs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+}
+
+/* --- Results --- */
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.result-grid--2col { grid-template-columns: repeat(2, 1fr); }
+
+.result-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  text-align: center;
+}
+
+.result-item--highlight {
+  background: var(--primary-light);
+  border-color: var(--border);
+}
+
+.result-label {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 4px;
+}
+
+.result-val {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text);
+  font-family: var(--font-h);
+}
+
+.result-val--lg { font-size: 1.6rem; }
+
+.result-val--accent { color: var(--primary); }
+
+/* --- Total row --- */
+.result-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  background: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+}
+
+.result-total .result-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.result-total.has-profit {
+  border-color: var(--success);
+  background: #f9faf6;
+}
+
+.result-profit {
+  text-align: center;
+  padding: 12px;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.result-profit strong {
+  color: var(--success);
+  font-size: 1.2rem;
+  margin-left: 6px;
+}
+
+.result-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.btn-print {
+  padding: 8px 18px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, var(--primary), #d4844a);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--ease);
+  box-shadow: 0 2px 6px rgba(199, 115, 62, 0.2);
+}
+
+.btn-print:hover {
+  background: linear-gradient(135deg, var(--primary-hover), #b55a2e);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 12px rgba(199, 115, 62, 0.3);
+}
+
+.btn-reset {
+  padding: 8px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--ease-fast);
+}
+
+.btn-reset:hover {
+  border-color: #c0392b;
+  color: #c0392b;
+  background: #fef5f5;
+}
+
+/* --- Cost calc responsive --- */
+@media (max-width: 768px) {
+  .cost-section { padding: 18px 14px 14px; }
+
+  .result-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .ingredient-table { font-size: 0.82rem; }
+
+  .ingredient-table select,
+  .ingredient-table input[type="number"] { font-size: 0.82rem; padding: 7px 4px; }
+
+  .info-field--sm { flex: 0 0 100px; }
+
+  .result-val { font-size: 1.1rem; }
+  .result-val--lg { font-size: 1.35rem; }
+
+  .btn-print, .btn-reset { font-size: 0.82rem; padding: 7px 14px; }
+}
+
+@media (max-width: 540px) {
+  .cost-section { padding: 14px 10px 12px; }
+  .cost-section-header { flex-wrap: wrap; gap: 6px; }
+
+  .result-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .result-grid--2col { grid-template-columns: 1fr 1fr; }
+  .result-item { padding: 10px 10px; }
+
+  .result-total { flex-direction: column; gap: 4px; text-align: center; }
+  .result-total .result-val--lg { font-size: 1.5rem; }
+
+  .result-actions { width: 100%; }
+  .btn-print, .btn-reset { flex: 1; text-align: center; }
+
+  .extra-costs-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+
+  .info-row { flex-direction: column; gap: 10px; }
+  .info-field--sm { flex: 1; }
+
+  /* Mobile table: hide thead, show rows as cards */
+  .ingredient-table thead { display: none; }
+
+  .ingredient-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas:
+      "name name name"
+      "qty  unit price"
+      "sub  sub  del";
+    gap: 6px 8px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .ingredient-row td { display: block; padding: 0; border: none; }
+
+  .cell-name  { grid-area: name; }
+  .cell-qty   { grid-area: qty; }
+  .cell-unit  { grid-area: unit; align-self: center; text-align: left; }
+  .cell-price { grid-area: price; }
+  .cell-subtotal { grid-area: sub; text-align: left; }
+  .cell-del   { grid-area: del; text-align: right; align-self: center; }
+
+  .ingredient-table select,
+  .ingredient-table input[type="number"] { width: 100%; text-align: left; }
+}
+
+/* ============================================================
+   Article Figures (inline SVG illustrations)
+   ============================================================ */
+.article-figure {
+  margin: 28px 0;
+  padding: 16px 12px 8px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+.article-figure svg {
+  border-radius: 4px;
+}
+.article-figure figcaption {
+  margin-top: 10px;
+  padding: 0 8px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ============================================================
+   Print
+   ============================================================ */
+@media print {
+  body::before { display: none; }
+  .hero-actions, .btn-calc { display: none; }
+  .calculator-card { box-shadow: none; border: 1px solid #ccc; }
+  body { background: #fff; }
+  .tool-category { break-inside: avoid; }
+}
+
+/* ============================================================
+   Recipe Scaler
+   ============================================================ */
+
+/* Quick scale buttons row */
+.quick-scale-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  align-items: center;
+}
+
+.quick-scale-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-right: 4px;
+}
+
+.btn-scale-quick {
+  padding: 6px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all var(--ease-fast);
+}
+
+.btn-scale-quick:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.btn-scale-quick:active {
+  transform: scale(0.96);
+}
+
+/* Scale factor display inline */
+.scale-factor-display {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  background: var(--primary-light);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--primary);
+  font-family: var(--font-h);
+  margin-left: 8px;
+}
+
+/* Pan preset info callout */
+.pan-info-callout {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: var(--result-bg);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Scaled result cell in ingredient table */
+.cell-scaled {
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 0.92rem;
+  white-space: nowrap;
+  min-width: 120px;
+}
+
+/* Pan conversion table in SEO section */
+.pan-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 0.92rem;
+}
+
+.pan-table thead th {
+  text-align: left;
+  padding: 10px 8px;
+  background: var(--result-bg);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.pan-table tbody td {
+  padding: 9px 8px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-secondary);
+}
+
+.pan-table tbody tr:nth-child(even) {
+  background: var(--result-bg);
+}
+
+.pan-table .pan-factor {
+  font-weight: 700;
+  color: var(--primary);
+  font-family: var(--font-h);
+}
+
+/* Th column for scaled result */
+.th-qty-scaled {
+  width: 140px;
+}
+
+/* Recipe Scaler responsive */
+@media (max-width: 768px) {
+  .quick-scale-row {
+    gap: 6px;
+  }
+  .btn-scale-quick {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+  .scale-factor-display {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+  .pan-table {
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .quick-scale-row {
+    justify-content: center;
+  }
+  .cell-scaled {
+    min-width: auto;
+    white-space: normal;
+  }
+  .pan-table thead { display: none; }
+  .pan-table tbody td {
+    display: block;
+    padding: 6px 8px;
+    border-bottom: none;
+  }
+  .pan-table tbody tr {
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .pan-table .pan-factor {
+    font-size: 1.05rem;
+  }
+}

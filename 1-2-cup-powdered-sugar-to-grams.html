@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1/2 Cup Powdered Sugar to Grams — Sifted vs Unsifted Weight | BakeCalc</title>
+    <meta name="description" content="Convert 1/2 cup of powdered sugar to grams. Unsifted = 60g, sifted = 80g. The sifting difference explained — plus why your buttercream keeps splitting. Free calculator.">
+
+    <meta property="og:title" content="1/2 Cup Powdered Sugar to Grams — Sifted vs Unsifted Weight">
+    <meta property="og:description" content="Unsifted = 60g, sifted = 80g. The 20-gram gap that explains why your frosting was too thin. Free calculator.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/1-2-cup-powdered-sugar-to-grams">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1/2 Cup Powdered Sugar to Grams — Sifted vs Unsifted Weight">
+    <meta name="twitter:description" content="Unsifted = 60g, sifted = 80g. The sifting difference explained — free calculator.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/1-2-cup-powdered-sugar-to-grams">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "1/2 Cup Powdered Sugar to Grams", "item": "https://bakecalc.club/1-2-cup-powdered-sugar-to-grams" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many grams is 1/2 cup of powdered sugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Depends on sifting. Unsifted (straight from the bag) = 60g. Sifted first then measured = about 80g. Most American recipes assume unsifted unless 'sifted' is specified — but frosting and glaze recipes often mean sifted, because the aeration matters for a smooth, lump-free result. When in doubt, weigh 60-65g for standard recipes and sift after weighing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does sifting change the weight so much?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Powdered sugar particles are extremely fine and pack tightly. Sifting aerates the sugar, adding air between particles. A cup holds more air and less sugar after sifting. The cornstarch in powdered sugar (3-5%) also contributes to clumping — those tiny clumps collapse when sifted apart. The resulting 20g difference (60g vs 80g) is a 33% change per half cup — enough to turn a stiff buttercream into soup if you get it wrong."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I substitute granulated sugar for powdered sugar by weight?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No — 60g of powdered sugar (1/2 cup) is not the same as 60g of granulated. Powdered sugar has cornstarch and a much finer texture, which affects how it dissolves and creams. Granulated sugar in frosting will be gritty. That said, you can make powdered sugar by blending granulated sugar + 1 tsp cornstarch per cup in a high-speed blender until it's a fine powder — this works surprisingly well in a pinch."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>1/2 Cup Powdered Sugar to Grams Converter</h1>
+            <p>The sifted-vs-unsifted difference, and why that 20-gram gap is the difference between frosting that pipes and frosting that puddles.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-cups="0.5">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="cups-input">Cups of Powdered Sugar</label>
+                        <input type="number" inputmode="decimal" id="cups-input" value="0.5" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ingredient-type">Sifting Method</label>
+                        <select id="ingredient-type">
+                            <option value="120" selected>Unsifted / Straight from Bag (1 cup ≈ 120g)</option>
+                            <option value="160">Sifted First, Then Measured (1 cup ≈ 160g)</option>
+                            <option value="140">After Sifting, Then Scooping (1 cup ≈ 140g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateCupsToGrams(this)">Convert to Grams</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Gram Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="grams-output-frac">≈ 60 g (half cup)</span> (<span id="grams-output">60</span> g)
+                    </div>
+                    <p class="output-note">*Unsifted powdered sugar = 120g/cup. Sifted = 160g/cup. That 40g-per-cup spread is a 33% density difference — sift first if your recipe says "1 cup sifted powdered sugar."</p>
+                </div>
+            </div>
+            <article class="seo-section">
+                <h2>Sixty Grams or Eighty? The Powdered Sugar Fork in the Road</h2>
+                <p><strong>1/2 cup of unsifted powdered sugar weighs 60 grams. Sift it first, then measure, and that same half cup weighs closer to 80 grams.</strong> A 20-gram difference from a single action. That is not a rounding error — it is a 33% swing in the amount of sugar going into your bowl, and it's why your grandmother's frosting recipe that says "1 cup sifted powdered sugar" behaves nothing like your friend's recipe that just says "1 cup powdered sugar." They are not the same recipe. They are not even close.</p>
+                <p>Here is what's happening: powdered sugar (also called confectioners sugar in the US and icing sugar in the UK, Australia, and Canada — same stuff) is granulated sugar ground to a fine powder with 3-5% cornstarch added to stop it from turning into a solid brick. Those particles are microscopic. Left to sit, they settle and compress like fine dust. A cup scooped straight from the bag is dense — about 120 grams. Put that sugar through a sieve, and you have just filled the gaps between particles with air. The same physical cup now holds maybe 80 grams of actual sugar and 60% more air. If you were baking a cake, 20 grams of extra sugar might go unnoticed. In a buttercream, which is often just butter, powdered sugar, and a splash of liquid? Twenty extra grams of sugar absorbs moisture, stiffens the mixture, and suddenly your "spreadable frosting" is a crumbly paste that won't stick to the cake.</p>
+
+                <h2>The Conversion Formula</h2>
+                <ul>
+                    <li><strong>Grams</strong> = Cups × 120 (unsifted) or Cups × 160 (sifted)</li>
+                    <li>1/2 cup unsifted powdered sugar = <strong>60 grams</strong></li>
+                    <li>1/2 cup sifted then measured = <strong>80 grams</strong></li>
+                    <li>1/2 cup scooping after sifting = <strong>~70 grams</strong></li>
+                    <li>1 Tbsp unsifted powdered sugar = <strong>7.5 grams</strong> (120 ÷ 16)</li>
+                </ul>
+
+                <h2>Why Your Buttercream Keeps Splitting</h2>
+                <p>Here is a buttercream postmortem you did not ask for. The most common buttercream failure — a curdled, separated mess that looks like scrambled eggs suspended in soup — has two root causes, and powdered sugar measurement is one of them. Buttercream is an emulsion: fat (butter) suspended in a sugar-water matrix. Powdered sugar, with its built-in cornstarch, is a moisture sponge. Dump in 80 grams of sifted powdered sugar when your recipe expects 60 grams of unsifted, and you have just added 33% more starch and sugar than the butter can hold. The emulsion breaks. If your buttercream splits, the first question is: did you weigh the sugar, or did you scoop it? If you scooped it from a bag that's been sitting in the pantry for three months — packed and settled — you may have added more sugar than you think. Weigh it. Every time. For buttercream, 60 grams per half cup is the safe baseline; adjust from there after you see the texture.</p>
+
+                <h2>Quick Reference: Powdered Sugar Cups → Grams (Unsifted)</h2>
+                <table style="width:100%; border-collapse:collapse; margin:16px 0;">
+                    <tr style="background:var(--card-bg);"><th style="padding:8px;text-align:left;">Cups</th><th style="padding:8px;text-align:left;">Grams (Unsifted)</th><th style="padding:8px;text-align:left;">Grams (Sifted)</th><th style="padding:8px;text-align:left;">Typical Use</th></tr>
+                    <tr><td style="padding:8px;">2 Tbsp</td><td style="padding:8px;">15</td><td style="padding:8px;">20</td><td style="padding:8px;">Dusting a cake, small glaze</td></tr>
+                    <tr style="background:var(--card-bg);"><td style="padding:8px;">&frac14; cup</td><td style="padding:8px;">30</td><td style="padding:8px;">40</td><td style="padding:8px;">Glaze for a loaf cake</td></tr>
+                    <tr><td style="padding:8px;"><strong>&frac12; cup</strong></td><td style="padding:8px;"><strong>60</strong></td><td style="padding:8px;"><strong>80</strong></td><td style="padding:8px;"><strong>Small batch buttercream, cream cheese frosting</strong></td></tr>
+                    <tr style="background:var(--card-bg);"><td style="padding:8px;">1 cup</td><td style="padding:8px;">120</td><td style="padding:8px;">160</td><td style="padding:8px;">Standard buttercream batch, royal icing</td></tr>
+                    <tr><td style="padding:8px;">2 cups</td><td style="padding:8px;">240</td><td style="padding:8px;">320</td><td style="padding:8px;">Large frosting batch for layer cake</td></tr>
+                </table>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: How many grams is 1/2 cup of powdered sugar?</h3>
+                        <p>A1: Depends on sifting. Unsifted (straight from the bag) = 60g. Sifted first = about 80g. Most American recipes assume unsifted unless the word "sifted" appears before or after the measurement — and the word order matters. "1 cup sifted powdered sugar" means sift first, then measure (160g). "1 cup powdered sugar, sifted" means measure first, then sift (120g). When in doubt, weigh 60-65g for a half cup and sift after weighing — the sifting won't change the weight, only the volume.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: Why does sifting change the weight so much?</h3>
+                        <p>A2: Powdered sugar particles are microscopic and pack like settled dust. Sifting forces air between particles, dropping the weight per cup from about 120g to about 80g. The cornstarch anti-caking agent (3-5% of the product) also forms small clumps over time that collapse when sifted. The resulting 40g-per-cup spread means a "cup of powdered sugar" is one of the least precise measurements in baking — which is ironic, because powdered sugar is used most often in precision applications like frosting and fondant.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: Can I substitute granulated sugar for powdered sugar by weight?</h3>
+                        <p>A3: No — 60g of powdered sugar is not interchangeable with 60g of granulated, even though they weigh the same. Powdered sugar contains cornstarch (which thickens and stabilizes) and dissolves almost instantly because of its fine grind. Granulated sugar takes longer to dissolve and will leave a gritty texture in uncooked applications like frosting. That said, in a blender emergency: buzz 1 cup of granulated sugar with 1 teaspoon of cornstarch until it looks like snow. It works. I have done it. The frosting won't know.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 24px; font-size: 0.92rem; color: var(--text-muted);">🍬 Also try: <a href="/1-cup-powdered-sugar-to-grams">1 Cup Powdered Sugar → Grams</a> · <a href="/50g-powdered-sugar-to-cups">50g Powdered Sugar → Cups</a> · <a href="/100g-powdered-sugar-to-cups">100g Powdered Sugar → Cups</a> · <a href="/150g-powdered-sugar-to-cups">150g Powdered Sugar → Cups</a> · <a href="/200g-powdered-sugar-to-cups">200g Powdered Sugar → Cups</a> · <a href="/1-cup-sugar-to-grams">1 Cup Sugar → Grams</a></p>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>
