@@ -324,6 +324,22 @@
     } else {
       warningEl.style.display = 'none';
     }
+
+    // Update bridge links to Recipe Scaler and Baker's % Calculator
+    updatePanBridge(factor);
+  }
+
+  /* ---- Bridge: pass pan scale factor to other tools ---- */
+  function updatePanBridge(factor) {
+    var bridgeEl = $('pan-bridge');
+    var scalerLink = $('bridge-to-scaler');
+    var bakersLink = $('bridge-to-bakers');
+    if (!bridgeEl || !scalerLink || !bakersLink) return;
+
+    bridgeEl.style.display = '';
+    var f = factor.toFixed(3);
+    scalerLink.href = '/recipe-scaler?factor=' + f;
+    bakersLink.href = '/bakers-percentage-calculator?factor=' + f;
   }
 
   /* ---- Human-readable pan name ---- */

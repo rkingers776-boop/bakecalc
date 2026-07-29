@@ -634,6 +634,27 @@
           self.recalc();
         });
       }
+
+      // Check for ?factor= from Pan Size Converter bridge
+      var urlParams = new URLSearchParams(window.location.search);
+      var bridgeFactor = parseFloat(urlParams.get('factor'));
+      if (bridgeFactor > 0 && fwInput) {
+        // Switch to Percentages -> Recipe mode so user sees scaled grams
+        switchMode('pct-to-recipe');
+        var newFlour = Math.round(state.flourWeight * bridgeFactor);
+        fwInput.value = newFlour;
+        state.flourWeight = newFlour;
+        saveState();
+        self.recalc();
+        // Show banner
+        var banner = document.createElement('div');
+        banner.style.cssText = 'background:var(--result-bg);border:1px solid var(--primary);border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:0.9rem;color:var(--text-primary);';
+        banner.innerHTML = '<strong>Pan size factor ' + bridgeFactor.toFixed(2) + 'x applied</strong> &mdash; from the <a href="/pan-size-converter" style="color:var(--primary);">Pan Size Converter</a>. Total flour scaled to ' + newFlour + 'g.';
+        var container = document.querySelector('.container');
+        if (container && container.firstChild) {
+          container.insertBefore(banner, container.firstChild);
+        }
+      }
     },
 
     onIngredientChange: function (input, idx, field) {

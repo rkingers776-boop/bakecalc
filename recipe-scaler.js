@@ -459,6 +459,25 @@
         presetSel.innerHTML = buildPresetOptions(0);
       }
 
+      // Check for ?factor= from Pan Size Converter bridge
+      var urlParams = new URLSearchParams(window.location.search);
+      var bridgeFactor = parseFloat(urlParams.get('factor'));
+      if (bridgeFactor > 0) {
+        var orig = state.settings.originalYield || 1;
+        var newTarget = Math.round(orig * bridgeFactor * 10) / 10;
+        $('target-yield').value = newTarget;
+        state.settings.targetYield = newTarget;
+        saveState();
+        // Show a toast/banner that the factor was applied
+        var banner = document.createElement('div');
+        banner.style.cssText = 'background:var(--result-bg);border:1px solid var(--primary);border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:0.9rem;color:var(--text-primary);';
+        banner.innerHTML = '<strong>Pan size factor ' + bridgeFactor.toFixed(2) + 'x applied</strong> &mdash; from the <a href="/pan-size-converter" style="color:var(--primary);">Pan Size Converter</a>. Target yield set to ' + newTarget + '.';
+        var container = document.querySelector('.container');
+        if (container && container.firstChild) {
+          container.insertBefore(banner, container.firstChild);
+        }
+      }
+
       renderAllRows();
       this.recalc();
 
