@@ -936,6 +936,58 @@ header p {
 }
 
 /* ============================================================
+   Related Conversions & Cross-Linking
+   ============================================================ */
+.related-conversions,
+.try-these-tools {
+  margin-top: 36px;
+  padding: 18px 20px 14px;
+  background: var(--bg-terminal);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sharp, 6px);
+}
+
+.related-conversions h3,
+.try-these-tools h3 {
+  margin: 0 0 10px;
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.related-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.related-links li {
+  margin: 0;
+  padding: 0;
+}
+
+.related-links a {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  background: rgba(199,115,62,0.06);
+  border: 1px solid rgba(199,115,62,0.15);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.related-links a:hover {
+  background: rgba(199,115,62,0.14);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* ============================================================
    Footer
    ============================================================ */
 footer {
