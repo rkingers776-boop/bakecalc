@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1/4 Cup Butter to Grams — Free Baking Conversion Calculator | BakeCalc</title>
+    <meta name="description" content="Convert 1/4 cup of butter to grams instantly. ¼ cup = ½ stick = 57g. Free baking calculator — works on mobile, no sign-up.">
+
+    <meta property="og:title" content="1/4 Cup Butter to Grams — Free Conversion Calculator">
+    <meta property="og:description" content="Convert 1/4 cup of butter to grams instantly. ¼ cup = ½ stick = 57g. Stick, melted, and whipped butter supported.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/1-4-cup-butter-to-grams">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1/4 Cup Butter to Grams — Free Conversion Calculator">
+    <meta name="twitter:description" content="Convert 1/4 cup of butter to grams instantly. ¼ cup = ½ stick = 57g.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/1-4-cup-butter-to-grams">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "1/4 Cup Butter to Grams", "item": "https://bakecalc.club/1-4-cup-butter-to-grams" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many grams is 1/4 cup of butter exactly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "56.75 grams, which baker-rounds to 57g. That's half a US stick of butter — exactly 4 tablespoons. The butter wrapper already has tablespoon markings, so you can measure 1/4 cup without a measuring cup at all."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I just cut a stick of butter in half for 1/4 cup?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — each US stick is 1/2 cup (8 tbsp), so cutting it crosswise at the 4-tablespoon mark gives you exactly 1/4 cup or 57g. No measuring cup needed — the wrapper lines do the work for you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What if I only have whipped butter — how many grams for 1/4 cup?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Whipped butter is about 33% lighter than stick butter because it has air beaten into it. 1/4 cup of whipped butter weighs roughly 38g. You'd need closer to 1/3 cup of whipped butter to match the fat content of 1/4 cup stick butter. For baking where fat content matters, stick with stick butter and weigh it."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>1/4 Cup Butter to Grams Converter</h1>
+            <p>Convert ¼ US cup of butter into grams — half a stick, 4 tablespoons, or 57 grams at a glance.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-cups="0.25">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="cups-input">Cups of Butter</label>
+                        <input type="number" inputmode="decimal" id="cups-input" value="0.25" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ingredient-type">Type of Butter</label>
+                        <select id="ingredient-type">
+                            <option value="227" selected>Standard Stick Butter (1 cup ≈ 227g / 2 sticks)</option>
+                            <option value="240">Melted Butter (1 cup ≈ 240g)</option>
+                            <option value="150">Whipped Butter (1 cup ≈ 150g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateCupsToGrams(this)">Convert to Grams</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Gram Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="grams-output-frac">≈ 57 g (quarter cup)</span> (<span id="grams-output">57</span> g)
+                    </div>
+                    <p class="output-note">*¼ cup solid stick butter = ½ stick = 4 tbsp = 56.75 g precisely. Baker-rounds to 57 g. Melted or whipped butter differs significantly.</p>
+                </div>
+            </div>
+            <article class="seo-section">
+                <h2>How Many Grams in 1/4 Cup of Butter?</h2>
+                <p>Here's a fun fact: of all the quarter-cup conversions in your kitchen, butter is the only one where the package does the measuring for you. <strong>¼ cup of standard stick butter = 56.75 grams</strong> (baker-rounds to 57 g), which is exactly 4 tablespoons — half of one American stick. The paper wrapper is printed with tablespoon lines, so you don't touch a measuring cup. Just cut where the wrapper says 4 tbsp and you're done. But the gram number still earns its keep: when a European recipe calls for 57 g of butter and your brain goes blank, or when you're halving a recipe that was originally written for a full <a href="/1-cup-butter-to-grams">cup (227 g)</a> or a <a href="/1-2-cup-butter-to-grams">half cup (113 g)</a>, the scale doesn't lie and the wrapper lines only go so far.</p>
+
+                <h2>The Conversion Math (Why It's Not Just 227 ÷ 4)</h2>
+                <p>A standard stick of butter (½ cup) weighs 113.4 grams. Half of that — a quarter cup — gives you 56.7 grams. Bakers round to 57 g because nobody's kitchen scale reads to a tenth of a gram and butter has enough natural water-content variation that the decimal doesn't matter. But different butter states throw the number around:</p>
+                <ul>
+                    <li><strong>Grams</strong> = Cups × Grams-per-Cup</li>
+                    <li>Stick Butter: 0.25 × 227 g = <strong>56.75 g</strong> (round to 57 g, 4 tbsp, ½ stick)</li>
+                    <li>Melted Butter: 0.25 × 240 g = <strong>60 grams</strong></li>
+                    <li>Whipped Butter: 0.25 × 150 g = <strong>38 grams</strong></li>
+                </ul>
+
+                <h2>Small Volumes, Big Consequences</h2>
+                <p>A 2-gram error at the full-cup level is a rounding footnote — under 1% of the total fat. At the quarter-cup level, those same 2 grams are nearly 4% of your butter, and in a recipe that only calls for a quarter cup total (like a small-batch cookie recipe or a butter wash for pie crust), that percentage is your margin for error. If you accidentally use melted butter (60 g) when the recipe means solid (57 g), you've swapped in 5% more fat by weight and changed the water content — melted butter has lost evaporation moisture that solid butter still holds. Your cookies will spread faster and brown differently. At larger volumes like a <a href="/1-cup-butter-to-grams">full cup</a>, the proportional error shrinks; at ¼ cup, it's amplified. This is why pastry chefs weigh everything and home bakers sometimes wonder why their half-batch brownies didn't turn out like the full batch.</p>
+
+                <h2>The Whipped Butter Trap</h2>
+                <p>Whipped butter is stick butter with air beaten into it — that's it. No different ingredients, no special process. Just air. And air weighs nothing, which is why a cup of whipped butter clocks in at about 150 g vs stick butter's 227 g. If a recipe says "¼ cup butter" and you're holding a tub of whipped, you've got a problem: ¼ cup of whipped butter is just 38 g, containing roughly the fat of 2.5 tablespoons of stick butter. You'd need a heaping ⅓ cup of whipped butter to hit the same fat content. My advice: save whipped butter for toast. For baking, <a href="/1-tbsp-butter-to-grams">stick butter measured by weight</a> removes every variable.</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: How many grams is 1/4 cup of butter exactly?</h3>
+                        <p>A1: 56.75 grams, which baker-rounds to 57g. That's half a US stick of butter — exactly 4 tablespoons. The butter wrapper already has tablespoon markings, so you can measure 1/4 cup without a measuring cup at all.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: Can I just cut a stick of butter in half for 1/4 cup?</h3>
+                        <p>A2: Yes — each US stick is 1/2 cup (8 tbsp), so cutting it crosswise at the 4-tablespoon mark gives you exactly 1/4 cup or 57g. No math, no scale, no measuring cup. The wrapper lines do the work.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: What if I only have whipped butter — how many grams for 1/4 cup?</h3>
+                        <p>A3: Whipped butter is about 33% lighter — 1/4 cup weighs roughly 38g. You'd need closer to 1/3 cup of whipped butter to match the fat content of 1/4 cup stick butter. For baking, stick with stick butter and weigh it on a scale. Whipped butter belongs on pancakes, not in your cookie dough.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 28px; font-size: 0.94rem; color: var(--text-muted); border-top: 1px solid var(--border-color, #e0e0e0); padding-top: 20px;">📐 See also: <a href="/1-cup-butter-to-grams">1 Cup Butter → Grams</a> &nbsp;|&nbsp; <a href="/1-2-cup-butter-to-grams">1/2 Cup Butter → Grams</a> &nbsp;|&nbsp; <a href="/1-tbsp-butter-to-grams">1 Tbsp Butter → Grams</a> &nbsp;|&nbsp; <a href="/oven-temperature-conversion">Oven Temperature Conversion</a></p>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+            
+            <section class="related-conversions">
+                <h3>More Butter Conversions</h3>
+                <ul class="related-links">
+                    <li><a href="/1-cup-butter-to-grams.html">1 Cup Butter to Grams</a></li>
+                    <li><a href="/1-2-cup-butter-to-grams.html">1/2 Cup Butter to Grams</a></li>
+                    <li><a href="/1-3-cup-butter-to-grams.html">1/3 Cup Butter to Grams</a></li>
+                    <li><a href="/1-cup-coconut-oil-to-grams.html">Coconut Oil</a></li>
+                    <li><a href="/1-cup-vegetable-oil-to-grams.html">Vegetable Oil</a></li>
+                    <li><a href="/1-tbsp-butter-to-grams.html">1 Tbsp Butter to Grams</a></li>
+                    <li><a href="/articles/room-temperature-butter-vs-cold">Room Temp Butter vs Cold</a></li>
+                </ul>
+            </section>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>

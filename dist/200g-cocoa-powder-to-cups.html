@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>200g Cocoa Powder to Cups — Scaling Up for Big Batches & Bakery Orders | BakeCalc</title>
+    <meta name="description" content="200 grams of cocoa powder equals 2 US cups. For double-batch brownies, bakery-scale cakes, and bulk hot cocoa mix. Natural, Dutch, and black cocoa — all three densities.">
+
+    <meta property="og:title" content="200g Cocoa Powder to Cups — Large Batch Converter | BakeCalc">
+    <meta property="og:description" content="200g cocoa = 2 cups. Scale up confidently — density differences between natural, Dutch-process, and black cocoa at bulk quantities.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/200g-cocoa-powder-to-cups">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="200g Cocoa Powder to Cups — Large Batch Converter">
+    <meta name="twitter:description" content="200g cocoa = 2 cups. Scale up brownies, cakes, and hot cocoa mix with accurate per-gram density.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/200g-cocoa-powder-to-cups">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "200g Cocoa Powder to Cups", "item": "https://bakecalc.club/200g-cocoa-powder-to-cups" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many cups is 200 grams of cocoa powder?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "200 grams of natural unsweetened or Dutch-process cocoa powder equals exactly 2 US cups (200g ÷ 100g per cup = 2.00 cups). Black cocoa weighs 95g per cup, so 200g of black cocoa equals approximately 2.11 cups — 2 cups plus about 2 tablespoons."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "At what quantity does the black cocoa density difference start to matter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At 100g, the black cocoa difference is only about 1 tablespoon — barely noticeable in most recipes. At 200g, it grows to roughly 2 tablespoons (0.11 cup), which is enough to affect the texture of a cake. By 500g — the amount for a large commercial batch — it's a full quarter-cup difference. The gap grows linearly: every 100g of black cocoa adds about 1 extra tablespoon of volume compared to natural cocoa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I scale cocoa powder and flour at the same ratio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No — cocoa and flour have different densities and scaling them together by cup will throw off your ratios. 200g of cocoa is 2 cups (at 100g/cup). 200g of all-purpose flour is only about 1.67 cups (at 120g/cup). If a recipe doubles and calls for 200g each of cocoa and flour, measuring both as '2 cups each' would give you the correct amount of cocoa but nearly 20% too little flour. Always convert each ingredient individually."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>200 Grams of Cocoa Powder to Cups — When You're Baking for a Crowd</h1>
+            <p>Converting 200g of cocoa for double-batch brownies, bakery-scale layer cakes, and bulk dry mixes.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-mass="200">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="flour-mass">Cocoa Powder (Grams)</label>
+                        <input type="number" inputmode="decimal" id="flour-mass" value="200" min="1" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label for="flour-type">Cocoa Type</label>
+                        <select id="flour-type">
+                            <option value="100" selected>Natural Unsweetened (1 cup ≈ 100g)</option>
+                            <option value="100">Dutch-Process (1 cup ≈ 100g)</option>
+                            <option value="95">Black Cocoa — lighter weight (1 cup ≈ 95g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateFlour(this)">Convert to Cups</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Cup Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="cups-output-fraction">2 cups</span> (<span id="cups-output-decimal">2.00</span> cups)
+                    </div>
+                    <p class="output-note">*Natural & Dutch cocoa at 100g/cup. Black cocoa yields slightly more volume — about 2.11 cups for 200g.</p>
+                </div>
+            </div>
+
+            <article class="seo-section">
+                <h2>200 Grams of Cocoa = 2 Cups. But Scaling Up Has Traps.</h2>
+                <p>At 100 grams per cup for natural and Dutch-process cocoa, the math is clean: 200g = 2 cups. No fractions, no rounding. But here's the thing nobody mentions about large-batch cocoa conversions — at 200 grams, the difference between cocoa types stops being theoretical and starts being measurable in your mixing bowl.</p>
+
+                <p>With natural cocoa at 100g per cup, your 200 grams fills exactly 2 cups. With black cocoa at 95g per cup, those same 200 grams fill about 2.11 cups — 2 cups plus roughly 2 tablespoons. Two tablespoons of extra cocoa powder in a cake batter isn't nothing. It'll darken the crumb, intensify the chocolate flavor, and absorb a bit more liquid. If you're making a double batch of something delicate — genoise, angel food cake with cocoa, a mousse — that extra 2 tablespoons matters. If you're making brownies, honestly, no one will notice. Brownies are forgiving. Cakes are not.</p>
+
+                <h2>When You're Actually Dealing with 200g of Cocoa</h2>
+                <p>This isn't a random number. 200 grams of cocoa powder is what you'll hit when:</p>
+                <ul>
+                    <li><strong>Doubling a standard brownie recipe.</strong> Most full-pan recipes use about 100g. Double it for a bake sale or a birthday party and you're at 200g.</li>
+                    <li><strong>Making a three-tier chocolate cake.</strong> Each 9-inch layer might use 60–70g of cocoa. Three layers plus some for dusting the pans lands you right around 200g.</li>
+                    <li><strong>Prepping bulk hot cocoa mix.</strong> A jar of homemade mix that'll last the winter uses about 200g of cocoa as the base. (Add 400g powdered sugar, 200g milk powder, a pinch of salt, and you've got a mix that beats anything from a packet.)</li>
+                    <li><strong>Catering or cottage-food baking.</strong> Once you start selling your bakes, you stop thinking in single batches and start thinking in kilograms. 200g is a stepping stone between "home baker" and "this is actually a business."</li>
+                </ul>
+
+                <h2>A Note on Cocoa and Liquid Absorption at Scale</h2>
+                <p>This is a tip I picked up from a pastry chef who was way more patient than me: cocoa powder is thirsty. It absorbs roughly its own weight in liquid. At 50g, that's maybe 3–4 tablespoons of milk or water — barely noticeable in a batter. At 200g, you're looking at close to a full cup of liquid absorption. If you're scaling up a recipe and just doubling everything, check the batter consistency before it goes in the pan. If it's stiffer than the single-batch version, add liquid a tablespoon at a time until it looks right. The gram math works perfectly on paper. In a bowl, at 200 grams of cocoa, sometimes the batter needs a little intuition.</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: How many cups is 200g of cocoa powder?</h3>
+                        <p>200 grams of natural unsweetened or Dutch-process cocoa powder = <strong>2 US cups</strong> (200g ÷ 100g/cup). For black cocoa at 95g/cup: 200g ≈ 2.11 cups, or 2 cups + 2 tablespoons.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: Why does the cocoa type matter more at 200g than at 50g?</h3>
+                        <p>The density difference is the same percentage — black cocoa is always 5% lighter than natural. But 5% of a small number is a small error; 5% of a large number is a large error. At 50g, black vs natural cocoa differs by about ½ tablespoon. At 200g, it's 2 tablespoons. At 500g, it's a quarter cup. Absolute errors grow with quantity even when the percentage stays fixed.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: Can I substitute black cocoa for natural cocoa at this quantity?</h3>
+                        <p>By weight: yes. 200g of black cocoa and 200g of natural cocoa will both work in a recipe. By volume: no — 2 cups of black cocoa weighs only about 190g, not 200g. If the recipe calls for 2 cups of natural cocoa (200g) and you measure 2 cups of black cocoa, you're short by 10 grams. Not disastrous for brownies; might matter for a fussy cake. Weigh it and you avoid the problem entirely.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 24px; font-size: 0.92rem; color: var(--text-muted);">🍫 Scale it up or down: <a href="/100g-cocoa-powder-to-cups">100g Cocoa → Cups</a> · <a href="/50g-cocoa-powder-to-cups">50g Cocoa → Cups</a> · <a href="/1-cup-cocoa-powder-to-grams">1 Cup Cocoa → Grams</a> · <a href="/1-2-cup-cocoa-powder-to-grams">½ Cup Cocoa → Grams</a> · <a href="/cost-calculator">Cost Calculator</a></p>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+            
+            <section class="related-conversions">
+                <h3>Related Conversions</h3>
+                <ul class="related-links">
+                    <li><a href="1-cup-cocoa-powder-to-grams.html 1 Cup Cocoa Powder"></a></li>
+                    <li><a href="/100g-grams-to-cups-flour">100g Flour to Cups</a></li>
+                </ul>
+            </section>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>

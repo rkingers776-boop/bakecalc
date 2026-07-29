@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 Tablespoon Sugar to Grams — Free Baking Conversion Calculator | BakeCalc</title>
+    <meta name="description" content="Convert 1 tablespoon of sugar to grams instantly. Accurate conversion for granulated, brown, and powdered sugar. Free baking calculator, no sign-up.">
+
+    <meta property="og:title" content="1 Tablespoon Sugar to Grams — Free Conversion Calculator">
+    <meta property="og:description" content="Convert 1 tablespoon of sugar to grams instantly. Granulated, brown, and powdered sugar supported.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/1-tbsp-sugar-to-grams">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1 Tablespoon Sugar to Grams — Free Conversion Calculator">
+    <meta name="twitter:description" content="Convert 1 tablespoon of sugar to grams instantly.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/1-tbsp-sugar-to-grams">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "1 Tablespoon Sugar to Grams", "item": "https://bakecalc.club/1-tbsp-sugar-to-grams" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many grams is 1 tablespoon of granulated sugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One US tablespoon of granulated white sugar weighs approximately 12.5 grams. This is based on the standard density: 1 US cup of granulated sugar = 200 grams ÷ 16 tablespoons = 12.5g per tablespoon."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does brown sugar weigh more per tablespoon than white sugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on whether it's packed. A level tablespoon of loose brown sugar weighs about 12.5g (similar to white sugar), but brown sugar is nearly always measured 'packed' in recipes, which can push it to 14-16g per tablespoon. Always follow what the recipe says — 'packed' vs 'loose' matters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many grams is 1 tablespoon of powdered sugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One US tablespoon of powdered (confectioners') sugar weighs approximately 7.5 grams unsifted. Powdered sugar is much lighter than granulated sugar because the fine particles trap air. Sifted powdered sugar is even lighter at about 6g per tablespoon."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>1 Tablespoon Sugar to Grams Converter</h1>
+            <p>Convert US tablespoons of sugar into grams — accurate for granulated, brown, and powdered sugar.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-tbsp="1">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="tbsp-input">Tablespoons of Sugar</label>
+                        <input type="number" inputmode="decimal" id="tbsp-input" value="1" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ingredient-type">Type of Sugar</label>
+                        <select id="ingredient-type">
+                            <option value="200" selected>Granulated White Sugar (1 cup ≈ 200g)</option>
+                            <option value="220">Brown Sugar — Packed (1 cup ≈ 220g)</option>
+                            <option value="120">Powdered / Confectioners' Sugar (1 cup ≈ 120g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateTbspToGrams(this)">Convert to Grams</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Gram Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="grams-output-frac">12.5 grams</span> (<span id="grams-output">12.5</span> g)
+                    </div>
+                    <p class="output-note">*Granulated sugar: 1 cup = 200g, 1 tbsp = 1/16 cup. Packed brown sugar ≈ 13.8g/tbsp. Powdered sugar ≈ 7.5g/tbsp.</p>
+                </div>
+            </div>
+            <article class="seo-section">
+                <h2>How Many Grams in 1 Tablespoon of Sugar?</h2>
+                <p><strong>1 US tablespoon of granulated white sugar equals 12.5 grams.</strong> This is based on the standard density of 200g per US cup ÷ 16 tablespoons. But sugar type matters: brown sugar (packed) weighs about 13.8g per tablespoon, while powdered sugar weighs only about 7.5g per tablespoon.</p>
+
+                <h2>The Conversion Formula (Tbsp → Grams)</h2>
+                <ul>
+                    <li><strong>Grams</strong> = Tablespoons × (Grams-per-Cup ÷ 16)</li>
+                    <li>Granulated Sugar: 1 tbsp × (200 ÷ 16) = <strong>12.5 grams</strong></li>
+                    <li>Brown Sugar (packed): 1 tbsp × (220 ÷ 16) = <strong>13.8 grams</strong></li>
+                    <li>Powdered Sugar: 1 tbsp × (120 ÷ 16) = <strong>7.5 grams</strong></li>
+                </ul>
+
+                <h2>Quick Reference: Sugar Tbsp → Grams</h2>
+                <table style="width:100%; border-collapse:collapse; margin:16px 0;">
+                    <tr style="background:var(--card-bg);"><th style="padding:8px;text-align:left;">Tablespoons</th><th style="padding:8px;text-align:left;">Granulated (g)</th><th style="padding:8px;text-align:left;">Brown-Packed (g)</th><th style="padding:8px;text-align:left;">Powdered (g)</th></tr>
+                    <tr><td style="padding:8px;">1 tbsp</td><td style="padding:8px;"><strong>12.5</strong></td><td style="padding:8px;">13.8</td><td style="padding:8px;">7.5</td></tr>
+                    <tr style="background:var(--card-bg);"><td style="padding:8px;">2 tbsp</td><td style="padding:8px;"><strong>25.0</strong></td><td style="padding:8px;">27.5</td><td style="padding:8px;">15.0</td></tr>
+                    <tr><td style="padding:8px;">3 tbsp</td><td style="padding:8px;"><strong>37.5</strong></td><td style="padding:8px;">41.3</td><td style="padding:8px;">22.5</td></tr>
+                    <tr style="background:var(--card-bg);"><td style="padding:8px;">4 tbsp (1/4 cup)</td><td style="padding:8px;"><strong>50.0</strong></td><td style="padding:8px;">55.0</td><td style="padding:8px;">30.0</td></tr>
+                    <tr><td style="padding:8px;">8 tbsp (1/2 cup)</td><td style="padding:8px;"><strong>100.0</strong></td><td style="padding:8px;">110.0</td><td style="padding:8px;">60.0</td></tr>
+                    <tr style="background:var(--card-bg);"><td style="padding:8px;">16 tbsp (1 cup)</td><td style="padding:8px;"><strong>200.0</strong></td><td style="padding:8px;">220.0</td><td style="padding:8px;">120.0</td></tr>
+                </table>
+
+                <h2>Packed vs Unpacked Brown Sugar</h2>
+                <p>Most American recipes that call for brown sugar mean <em>packed</em> brown sugar — pressed firmly into the measuring cup or spoon until it holds its shape when turned out. Packed brown sugar weighs about 13.8g per tablespoon (220g/cup). The same volume of loose brown sugar weighs about 12.5g per tablespoon — a 10% difference. When in doubt, pack it: that's what recipe writers almost always intend.</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: How many grams is 1 tablespoon of granulated sugar?</h3>
+                        <p>A1: One US tablespoon of granulated white sugar weighs 12.5 grams, based on the standard density of 200g per US cup ÷ 16 tablespoons.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: Does brown sugar weigh more than white sugar per tablespoon?</h3>
+                        <p>A2: When packed (as most recipes intend), yes — about 13.8g per tablespoon vs 12.5g for granulated. The molasses in brown sugar adds weight, and the packing eliminates air pockets. Loose brown sugar weighs roughly the same as white sugar.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: How many grams is 1 tablespoon of powdered sugar?</h3>
+                        <p>A3: One US tablespoon of powdered (confectioners') sugar weighs approximately 7.5 grams. It is much lighter than granulated sugar — nearly half the weight per tablespoon — because the fine, aerated particles trap air.</p>
+                    </div>
+                </div>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+            
+            <section class="related-conversions">
+                <h3>More Tablespoon Conversions</h3>
+                <ul class="related-links">
+                    <li><a href="/1-tbsp-flour-to-grams.html">1 Tbsp Flour</a></li>
+                    <li><a href="/1-tbsp-brown-sugar-to-grams.html">1 Tbsp Brown Sugar</a></li>
+                    <li><a href="/1-tbsp-butter-to-grams.html">1 Tbsp Butter</a></li>
+                    <li><a href="/1-tbsp-honey-to-grams.html">1 Tbsp Honey</a></li>
+                    <li><a href="/1-tbsp-coconut-oil-to-grams.html">1 Tbsp Coconut Oil</a></li>
+                    <li><a href="/1-tbsp-vegetable-oil-to-grams.html">1 Tbsp Vegetable Oil</a></li>
+                    <li><a href="/1-tbsp-cornstarch-to-grams.html">1 Tbsp Cornstarch</a></li>
+                </ul>
+            </section>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>

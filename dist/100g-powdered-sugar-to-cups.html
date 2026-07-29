@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100g Powdered Sugar to Cups — Free Baking Conversion Calculator | BakeCalc</title>
+    <meta name="description" content="Convert 100g of powdered sugar to cups instantly. Free confectioners sugar calculator for frostings, icings, and dessert recipes.">
+
+    <meta property="og:title" content="100g Powdered Sugar to Cups - Free Conversion Calculator">
+    <meta property="og:description" content="Convert 100g of powdered sugar to cups instantly. Free confectioners sugar calculator.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/100g-powdered-sugar-to-cups">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="100g Powdered Sugar to Cups - Free Conversion Calculator">
+    <meta name="twitter:description" content="Convert 100g of powdered sugar to cups instantly. Confectioners sugar conversion supported.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/100g-powdered-sugar-to-cups">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "100g Powdered Sugar to Cups", "item": "https://bakecalc.club/100g-powdered-sugar-to-cups" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many cups is 100g of powdered sugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "100 grams of powdered (confectioners) sugar equals approximately 0.83 cups. Powdered sugar is quite light at 120g per cup, so 100g is a bit more than 3/4 cup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many tablespoons is 100g of powdered sugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Since 1 tablespoon of powdered sugar weighs roughly 7.5 grams, 100 grams equals approximately 13.3 tablespoons. In practical terms, that is 13 tablespoons plus 1 teaspoon of powdered sugar."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does sifting affect the cup measurement of 100g powdered sugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, significantly. Unsifted powdered sugar scooped directly can compress, resulting in 120g per cup. Heavily sifted powdered sugar can weigh as little as 100g per cup. For consistent results, weigh on a scale or follow the recipe's sifting instructions carefully."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>100g Powdered Sugar to Cups Converter</h1>
+            <p>Convert 100 grams of powdered (confectioners) sugar into standard US baking cups accurately.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-mass="100">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="sugar-mass">Sugar Weight (Grams)</label>
+                        <input type="number" inputmode="decimal" id="sugar-mass" value="100" min="1">
+                    </div>
+                    <div class="input-group">
+                        <label for="sugar-type">Type of Sugar</label>
+                        <select id="sugar-type">
+                            <option value="200">Granulated White Sugar (1 cup &#8776; 200g)</option>
+                            <option value="220">Packed Brown Sugar (1 cup &#8776; 220g)</option>
+                            <option value="120" selected>Powdered / Confectioners Sugar (1 cup &#8776; 120g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateSugar(this)">Convert to Cups</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Cup Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="cups-output-fraction">Roughly 4/5 cup</span> (<span id="cups-output-decimal">0.83</span> cups)
+                    </div>
+                    <p class="output-note">*Calculated using standard US customary culinary measuring cups for unsifted powdered sugar.</p>
+                </div>
+            </div>
+            <article class="seo-section">
+                <h2>Converting 100 Grams of Powdered Sugar to Cups</h2>
+                <p>Powdered sugar (confectioners or icing sugar) is a finely ground sugar blended with a small amount of cornstarch to prevent caking. Because of its powdery texture, it weighs far less per cup than granulated or brown sugar. At 120 grams per cup, 100 grams of powdered sugar equals about 0.83 cups — more than 3/4 cup but not quite a full cup. This quantity is common in buttercream frostings and glazes.</p>
+
+                <h2>The Mathematical Conversion Formula</h2>
+                <p>The conversion uses the standard powdered sugar density of 120g per cup:</p>
+                <ul>
+                    <li><strong>Total Cup Volume</strong> = Given Weight in Grams &divide; Standard Powdered Sugar Weight Per Cup</li>
+                    <li>Powdered: 100g &divide; 120g/cup = <strong>0.83 cups</strong></li>
+                    <li>Granulated: 100g &divide; 200g/cup = <strong>0.50 cups</strong> (1/2 cup)</li>
+                    <li>Packed Brown: 100g &divide; 220g/cup = <strong>0.45 cups</strong> (just under 1/2 cup)</li>
+                </ul>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: How many cups is 100g of powdered sugar?</h3>
+                        <p>A1: 100 grams of powdered (confectioners) sugar equals approximately 0.83 cups. Powdered sugar is quite light at 120g per cup, so 100g is a bit more than 3/4 cup.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: How many tablespoons is 100g of powdered sugar?</h3>
+                        <p>A2: Since 1 tablespoon of powdered sugar weighs roughly 7.5 grams, 100 grams equals approximately 13.3 tablespoons. In practical terms, that is 13 tablespoons plus 1 teaspoon of powdered sugar.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: Does sifting affect the cup measurement of 100g powdered sugar?</h3>
+                        <p>A3: Yes, significantly. Unsifted powdered sugar scooped directly can compress, resulting in 120g per cup. Heavily sifted powdered sugar can weigh as little as 100g per cup. For consistent results, weigh on a scale or follow the recipe's sifting instructions carefully.</p>
+                    </div>
+                </div>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+            
+            <section class="related-conversions">
+                <h3>Related Conversions</h3>
+                <ul class="related-links">
+                    <li><a href="1-cup-powdered-sugar-to-grams.html 1 Cup Powdered Sugar to Grams"></a></li>
+                    <li><a href="/100g-grams-to-cups-sugar">100g Sugar to Cups</a></li>
+                </ul>
+            </section>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>

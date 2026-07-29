@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sourdough Hydration Calculator — Free Final Dough Water Percentage Tool | BakeCalc</title>
+    <meta name="description" content="Free sourdough hydration calculator — enter your flour, water, and starter to get your exact final dough hydration. Multi-flour blends, starter contribution, reverse mode. No sign-up, works on your phone.">
+    <meta property="og:title" content="Sourdough Hydration Calculator — Free Final Dough Water % Tool">
+    <meta property="og:description" content="Calculate your exact sourdough hydration — accounts for starter contribution, flour blends, and more. Free, instant results.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/sourdough-hydration-calculator">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sourdough Hydration Calculator — Free Final Dough Water %">
+    <meta name="twitter:description" content="Exact sourdough hydration, instant results. Accounts for starter, flour blends. Free.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/sourdough-hydration-calculator">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Sourdough Hydration Calculator", "item": "https://bakecalc.club/sourdough-hydration-calculator" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is sourdough hydration?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hydration is the ratio of total water to total flour in your dough, expressed as a percentage. A dough with 500g flour and 350g water is 70% hydration (350 ÷ 500 × 100). The percentage includes water from your starter — a 100% hydration starter (equal flour and water) contributes both flour and water to your final dough. Higher hydration (75-85%) produces open, irregular crumb with large holes. Lower hydration (60-65%) yields tighter crumb, good for sandwich bread. Most artisan sourdough falls between 65-78%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does my sourdough starter affect final dough hydration?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your starter contains both flour and water. For a 100% hydration starter (fed equal weights flour and water), every 100g of starter contributes 50g flour and 50g water to your final dough. If you ignore this contribution, you'll get the wrong hydration number. Example: 500g flour + 350g water + 100g starter (100% hydration). Many beginners calculate 350/500 = 70%. But the real math is: total flour = 500 + 50 = 550g, total water = 350 + 50 = 400g, so true hydration = 400/550 = 72.7%. This calculator does that math for you."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What hydration is best for sourdough bread?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Beginners should start at 65-68% hydration — the dough is manageable, less sticky, and easier to shape. Intermediate: 70-75% for artisan loaves with open crumb. Advanced: 78-85% for ciabatta, pan de cristal, and very open-crumb breads. The 'best' hydration depends on your flour too — whole wheat and rye absorb more water than white bread flour, so a 75% hydration dough with 30% whole wheat feels like 70% hydration with 100% white flour."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is my high-hydration dough so sticky and hard to handle?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Stickiness is normal above 72% hydration. Four things help: (1) Autolyse — mix flour and water only, rest 30-60 minutes before adding starter and salt. This lets the flour fully hydrate and gluten start developing. (2) Wet hands — keep a bowl of water nearby and wet your hands before every stretch and fold. Dry hands stick; wet hands don't. (3) Coil folds instead of stretch-and-folds for very wet doughs. (4) A bench scraper is your best friend — use it instead of your fingers to handle the dough on the counter. Most importantly: don't add more flour. Adding flour to reduce stickiness changes your hydration and the final result. Learn to handle wet dough instead."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate hydration if I use a stiff starter (lower hydration)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The math is the same but the contribution changes. For a stiff starter at 50% hydration (e.g., fed 2:1 flour:water), every 100g of starter contributes roughly 66.7g flour and 33.3g water. For a liquid starter at 166% hydration (1:2 flour:water, common for panettone), 100g of starter contributes about 37.6g flour and 62.4g water. If you don't know your starter's hydration, it's almost certainly 100% (equal weights flour and water) — that's the standard for nearly all home sourdough recipes. This calculator lets you set any starter hydration."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+    <style>
+        /* Hydration Calculator overrides */
+        .hyd-calc { margin-top: 4px; }
+
+        .hyd-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 24px 24px 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .hyd-section--results {
+            background: linear-gradient(180deg, var(--card-bg) 0%, var(--result-bg) 100%);
+            border-color: var(--border);
+        }
+
+        .hyd-section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .hyd-section-icon { font-size: 1.4rem; line-height: 1; }
+
+        .hyd-section-header h2 {
+            margin: 0;
+            font-size: 1.15rem;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .hyd-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 0 -4px;
+            padding: 0 4px;
+        }
+
+        .hyd-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .hyd-table thead th {
+            text-align: left;
+            padding: 8px 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            border-bottom: 2px solid var(--border-light);
+            white-space: nowrap;
+        }
+
+        .hyd-table .th-flour-type { width: 26%; }
+        .hyd-table .th-grams { width: 20%; }
+        .hyd-table .th-blend { width: 18%; }
+        .hyd-table .th-contrib { width: 20%; }
+        .hyd-table .th-del-row { width: 36px; }
+
+        .hyd-row td {
+            padding: 6px 6px;
+            border-bottom: 1px solid var(--border-light);
+            vertical-align: middle;
+        }
+
+        .hyd-table select, .hyd-table input[type="number"] {
+            width: 100%;
+            padding: 8px 8px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 0.88rem;
+            font-family: var(--font-body);
+            background: var(--card-bg);
+            color: var(--text);
+            box-sizing: border-box;
+        }
+
+        .hyd-table select { padding-right: 28px; text-align: left; }
+        .hyd-table input[type="number"] { text-align: center; }
+
+        .hyd-table input:focus, .hyd-table select:focus {
+            outline: none;
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 2px var(--primary-glow);
+        }
+
+        .cell-readonly input {
+            background: #faf7f2;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .cell-blend-pct {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.95rem;
+            text-align: center;
+        }
+
+        .cell-contrib {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* Starter settings row */
+        .starter-settings {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: flex-end;
+            padding: 12px 16px;
+            background: var(--result-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-light);
+            margin: 14px 0;
+        }
+
+        .starter-field {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1 1 130px;
+            min-width: 100px;
+        }
+
+        .starter-field label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .starter-field input, .starter-field select {
+            padding: 9px 10px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 0.92rem;
+            font-family: var(--font-body);
+            background: var(--card-bg);
+            color: var(--text);
+            box-sizing: border-box;
+        }
+
+        .starter-field input:focus, .starter-field select:focus {
+            outline: none;
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 2px var(--primary-glow);
+        }
+
+        /* Results display */
+        .hyd-result-big {
+            text-align: center;
+            padding: 20px 16px 8px;
+        }
+
+        .hyd-result-number {
+            font-size: clamp(2.2rem, 6vw, 3.4rem);
+            font-weight: 700;
+            color: var(--primary);
+            font-family: var(--font-h);
+            line-height: 1.1;
+        }
+
+        .hyd-result-number sup {
+            font-size: 50%;
+            top: -0.5em;
+        }
+
+        .hyd-result-label {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .hyd-result-breakdown {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 16px 0;
+        }
+
+        .hyd-breakdown-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-sm);
+            padding: 12px 10px;
+            text-align: center;
+        }
+
+        .hyd-breakdown-val {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text);
+            font-family: var(--font-h);
+            margin-bottom: 2px;
+        }
+
+        .hyd-breakdown-lbl {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .hyd-breakdown-val--water { color: #2563eb; }
+        .hyd-breakdown-val--flour { color: #c7733e; }
+        .hyd-breakdown-val--starter { color: #7c9a5e; }
+
+        /* Hydration gauge */
+        .hyd-gauge-wrap {
+            margin: 10px 0 16px;
+            position: relative;
+            height: 36px;
+            background: linear-gradient(to right, #bfdbfe 0%, #bbf7d0 40%, #fef08a 60%, #fed7aa 80%, #fecaca 100%);
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+        }
+
+        .hyd-gauge-marker {
+            position: absolute;
+            top: -4px;
+            width: 4px;
+            height: 44px;
+            background: var(--text);
+            border-radius: 2px;
+            transform: translateX(-50%);
+            transition: left 0.3s ease;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+        }
+
+        .hyd-gauge-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+            padding: 0 4px;
+        }
+
+        /* Presets */
+        .preset-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 8px 0 0;
+        }
+
+        .preset-chip {
+            padding: 7px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: 20px;
+            background: var(--card-bg);
+            color: var(--text-secondary);
+            font-size: 0.84rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all var(--ease-fast);
+        }
+
+        .preset-chip:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .preset-chip:active { transform: scale(0.96); }
+
+        .btn-add-flour {
+            padding: 6px 16px;
+            border: 1.5px dashed var(--border);
+            border-radius: var(--radius-sm);
+            background: transparent;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all var(--ease-fast);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        .btn-add-flour:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .btn-row-del {
+            width: 28px; height: 28px;
+            border: none; border-radius: 50%;
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 1.2rem; line-height: 1;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all var(--ease-fast);
+        }
+
+        .btn-row-del:hover { background: #fde8e8; color: #c0392b; }
+
+        /* Hydration category callout */
+        .hyd-category-callout {
+            text-align: center;
+            padding: 10px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-top: 8px;
+        }
+
+        /* Reverse-mode input */
+        .reverse-input-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            align-items: flex-end;
+            padding: 16px;
+            background: var(--result-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border-light);
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .hyd-section { padding: 18px 14px 14px; }
+            .hyd-result-breakdown { grid-template-columns: repeat(2, 1fr); }
+            .starter-settings { flex-direction: column; gap: 10px; }
+            .hyd-table { font-size: 0.82rem; }
+            .hyd-table select, .hyd-table input[type="number"] { font-size: 0.82rem; padding: 7px 4px; }
+        }
+
+        @media (max-width: 540px) {
+            .hyd-section { padding: 14px 10px 12px; }
+            .hyd-result-breakdown { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .hyd-breakdown-item { padding: 10px 8px; }
+            .hyd-breakdown-val { font-size: 1.1rem; }
+            .preset-chips { justify-content: center; }
+            .preset-chip { font-size: 0.78rem; padding: 5px 12px; }
+
+            .hyd-table thead { display: none; }
+            .hyd-row {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                grid-template-areas:
+                    "type  grams"
+                    "blend contrib"
+                    "del   del";
+                gap: 6px 8px;
+                padding: 10px 0;
+                border-bottom: 1px solid var(--border-light);
+            }
+            .hyd-row td { display: block; padding: 0; border: none; }
+            .cell-flour-type { grid-area: type; }
+            .cell-flour-grams { grid-area: grams; }
+            .cell-flour-blend { grid-area: blend; }
+            .cell-flour-contrib { grid-area: contrib; align-self: center; }
+            .cell-flour-del { grid-area: del; text-align: right; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <nav>
+        <a href="/">&larr; Back to BakeCalc Club</a>
+    </nav>
+
+    <header>
+        <h1>🍞 Sourdough Hydration Calculator</h1>
+        <p>Calculate your exact final dough hydration — accounting for every gram of flour and water, including what's hiding in your starter.</p>
+    </header>
+
+    <main class="hyd-calc">
+
+        <!-- ====== MODE: FORWARD (recipe → hydration) ====== -->
+        <div class="hyd-section" id="forward-mode">
+            <div class="hyd-section-header">
+                <span class="hyd-section-icon">📐</span>
+                <h2>Your Recipe</h2>
+                <span style="font-size:0.8rem;color:var(--text-muted);">Add your flours, water, and starter below</span>
+            </div>
+
+            <!-- Flour table -->
+            <div class="hyd-table-wrap">
+                <table class="hyd-table">
+                    <thead>
+                        <tr>
+                            <th class="th-flour-type">Flour Type</th>
+                            <th class="th-grams">Grams</th>
+                            <th class="th-blend">% of Blend</th>
+                            <th class="th-contrib">% of Total Flour</th>
+                            <th class="th-del-row"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="flour-rows"></tbody>
+                </table>
+            </div>
+
+            <button class="btn-add-flour" onclick="HydCalc.addFlourRow()">＋ Add Another Flour</button>
+
+            <!-- Water input -->
+            <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end;margin-top:16px;">
+                <div class="starter-field" style="flex:2;min-width:180px;">
+                    <label for="water-grams">💧 Water (grams)</label>
+                    <input type="number" id="water-grams" value="350" min="0" step="1" inputmode="decimal" oninput="HydCalc.recalc()">
+                </div>
+            </div>
+
+            <!-- Starter settings -->
+            <div class="starter-settings">
+                <div class="starter-field">
+                    <label for="starter-grams">🫙 Starter (grams)</label>
+                    <input type="number" id="starter-grams" value="100" min="0" step="1" inputmode="decimal" oninput="HydCalc.recalc()">
+                </div>
+                <div class="starter-field">
+                    <label for="starter-hydration">Starter Hydration %</label>
+                    <select id="starter-hydration" onchange="HydCalc.recalc()">
+                        <option value="50">50% — stiff (lievito madre)</option>
+                        <option value="60">60% — stiff</option>
+                        <option value="80">80%</option>
+                        <option value="100" selected>100% — standard (equal flour &amp; water)</option>
+                        <option value="125">125% — liquid</option>
+                        <option value="166">166% — liquid (panettone)</option>
+                    </select>
+                </div>
+                <div class="starter-field" style="flex:0 0 auto;min-width:auto;">
+                    <span style="font-size:0.78rem;color:var(--text-muted);display:block;margin-bottom:4px;">Contributes</span>
+                    <span style="font-weight:700;color:var(--text);" id="starter-contrib-display">50g flour + 50g water</span>
+                </div>
+            </div>
+
+            <!-- Presets -->
+            <div style="margin:12px 0 0;">
+                <span style="font-size:0.8rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.03em;">Quick Presets:</span>
+                <div class="preset-chips">
+                    <button class="preset-chip" onclick="HydCalc.loadPreset('beginner')">🍞 Beginner Loaf (65%)</button>
+                    <button class="preset-chip" onclick="HydCalc.loadPreset('artisan')">🥖 Artisan Boule (72%)</button>
+                    <button class="preset-chip" onclick="HydCalc.loadPreset('ciabatta')">🫓 Ciabatta (80%)</button>
+                    <button class="preset-chip" onclick="HydCalc.loadPreset('ww')">🌾 30% Whole Wheat (75%)</button>
+                    <button class="preset-chip" onclick="HydCalc.loadPreset('focaccia')">🍕 Focaccia (78%)</button>
+                    <button class="preset-chip" onclick="HydCalc.loadPreset('baguette')">🥖 Baguette (68%)</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== RESULTS ====== -->
+        <div class="hyd-section hyd-section--results" id="results-section">
+            <div class="hyd-section-header">
+                <span class="hyd-section-icon">📊</span>
+                <h2>Final Dough</h2>
+                <span style="font-size:0.8rem;color:var(--text-muted);">All values include starter contribution</span>
+            </div>
+
+            <!-- Big hydration number -->
+            <div class="hyd-result-big">
+                <div class="hyd-result-number" id="final-hydration">70.0<span style="font-size:50%;">%</span></div>
+                <div class="hyd-result-label">Final Dough Hydration</div>
+            </div>
+
+            <!-- Hydration gauge -->
+            <div class="hyd-gauge-wrap">
+                <div class="hyd-gauge-marker" id="gauge-marker" style="left:70%;"></div>
+            </div>
+            <div class="hyd-gauge-labels">
+                <span>55% Bagels</span><span>65% Sandwich</span><span>72% Artisan</span><span>80% Ciabatta</span><span>90%+ Pan Cristal</span>
+            </div>
+
+            <!-- Category callout -->
+            <div class="hyd-category-callout" id="hyd-category">Moderate hydration — classic artisan sourdough range. Manageable dough, open crumb.</div>
+
+            <!-- Breakdown grid -->
+            <div class="hyd-result-breakdown">
+                <div class="hyd-breakdown-item">
+                    <div class="hyd-breakdown-val" id="total-flour">550</div>
+                    <div class="hyd-breakdown-lbl">Total Flour (g)</div>
+                </div>
+                <div class="hyd-breakdown-item">
+                    <div class="hyd-breakdown-val hyd-breakdown-val--water" id="total-water">400</div>
+                    <div class="hyd-breakdown-lbl">Total Water (g)</div>
+                </div>
+                <div class="hyd-breakdown-item">
+                    <div class="hyd-breakdown-val hyd-breakdown-val--starter" id="total-salt-display" style="font-size:1rem;">—</div>
+                    <div class="hyd-breakdown-lbl">Suggested Salt (2%)</div>
+                </div>
+                <div class="hyd-breakdown-item">
+                    <div class="hyd-breakdown-val" id="total-dough">1050</div>
+                    <div class="hyd-breakdown-lbl">Total Dough (g)</div>
+                </div>
+            </div>
+
+            <!-- Detailed flour breakdown -->
+            <div class="hyd-table-wrap" style="margin-top:8px;">
+                <table class="hyd-table">
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th style="text-align:center;">Grams</th>
+                            <th style="text-align:center;">Baker's %</th>
+                            <th style="text-align:center;">% of Blend</th>
+                        </tr>
+                    </thead>
+                    <tbody id="summary-body"></tbody>
+                </table>
+            </div>
+
+            <div style="display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;">
+                <button class="btn-print" onclick="HydCalc.printCard()" style="font-size:0.88rem;">🖨️ Print Formula Card</button>
+                <button class="btn-reset" onclick="HydCalc.reset()" style="font-size:0.85rem;">↺ Reset to Default</button>
+            </div>
+        </div>
+
+        <!-- ====== SEO Article ====== -->
+        <article class="seo-section">
+            <h2>How Sourdough Hydration Works (and Why Your Number Is Probably Wrong)</h2>
+            <p>Here's the thing most beginner sourdough bakers get wrong: they calculate hydration as <em>water ÷ flour</em> and call it a day. 500g flour + 350g water = 70%, easy. But that 100g of starter you added? It's not just "starter." It's 50g of flour and 50g of water (if you feed at 100% hydration, which almost everyone does). So your real total flour is 550g and your real total water is 400g — giving you a final dough hydration of <strong>72.7%, not 70%</strong>. That 2.7 percentage point difference changes how your dough behaves. It's stickier than you expected because it's actually wetter than you thought.</p>
+            <p>This calculator does that math — including multi-flour blends, non-standard starter hydrations, and salt suggestion — instantly. No spreadsheets, no scratching numbers on a flour-dusted notepad.</p>
+
+            <!-- VISUAL: hydration spectrum -->
+            <figure class="article-figure" style="background:var(--card-bg);border:1px solid var(--border-light);">
+                <svg viewBox="0 0 680 180" width="100%" height="auto" style="max-width:660px;" role="img" aria-label="Hydration spectrum from 55% to 90% showing crumb structure and dough behavior at each level">
+                    <defs>
+                        <linearGradient id="hydGrad" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#bfdbfe"/>
+                            <stop offset="35%" stop-color="#bbf7d0"/>
+                            <stop offset="60%" stop-color="#fef08a"/>
+                            <stop offset="85%" stop-color="#fed7aa"/>
+                            <stop offset="100%" stop-color="#fecaca"/>
+                        </linearGradient>
+                    </defs>
+                    <!-- Spectrum bar -->
+                    <rect x="30" y="22" width="620" height="20" rx="10" fill="url(#hydGrad)" stroke="#d4c8b8" stroke-width="1"/>
+                    <!-- Labels -->
+                    <text x="30" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="#5a4a38">55%</text>
+                    <text x="154" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="#5a4a38">62%</text>
+                    <text x="278" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="#5a4a38">68%</text>
+                    <text x="402" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="#5a4a38">74%</text>
+                    <text x="526" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="#5a4a38">80%</text>
+                    <text x="650" y="14" text-anchor="middle" font-size="9" font-weight="700" fill="#5a4a38">90%</text>
+
+                    <!-- Examples row -->
+                    <!-- 55% -->
+                    <text x="30" y="65" text-anchor="middle" font-size="10" font-weight="600" fill="#4a3728">Bagels</text>
+                    <circle cx="30" cy="80" r="12" fill="#e8d5b7" stroke="#c4a882" stroke-width="1.5"/>
+                    <text x="30" y="84" text-anchor="middle" font-size="7" fill="#8b7355">tight</text>
+                    <text x="30" y="110" text-anchor="middle" font-size="8" fill="#8b7355">Firm, chewy</text>
+
+                    <!-- 62% -->
+                    <text x="154" y="65" text-anchor="middle" font-size="10" font-weight="600" fill="#4a3728">Sandwich</text>
+                    <circle cx="154" cy="80" r="14" fill="#e8d5b7" stroke="#c4a882" stroke-width="1.5"/>
+                    <circle cx="150" cy="77" r="1.2" fill="#d4c0a0"/>
+                    <circle cx="158" cy="83" r="1" fill="#d4c0a0"/>
+                    <text x="154" y="110" text-anchor="middle" font-size="8" fill="#8b7355">Soft, fine crumb</text>
+
+                    <!-- 68% -->
+                    <text x="278" y="65" text-anchor="middle" font-size="10" font-weight="600" fill="#4a3728">Baguette</text>
+                    <circle cx="278" cy="80" r="15" fill="#e8d5b7" stroke="#c4a882" stroke-width="1.5"/>
+                    <circle cx="274" cy="76" r="1.5" fill="#d4c0a0"/>
+                    <circle cx="282" cy="80" r="1.8" fill="#d4c0a0"/>
+                    <circle cx="278" cy="85" r="1.3" fill="#d4c0a0"/>
+                    <text x="278" y="110" text-anchor="middle" font-size="8" fill="#8b7355">Moderate crumb</text>
+
+                    <!-- 74% -->
+                    <text x="402" y="65" text-anchor="middle" font-size="10" font-weight="600" fill="#4a3728">Artisan</text>
+                    <circle cx="402" cy="80" r="16" fill="#e8d5b7" stroke="#c4a882" stroke-width="1.5"/>
+                    <circle cx="395" cy="75" r="2" fill="#d4c0a0"/>
+                    <circle cx="408" cy="78" r="2.5" fill="#d4c0a0"/>
+                    <circle cx="400" cy="85" r="1.8" fill="#d4c0a0"/>
+                    <circle cx="410" cy="84" r="1.5" fill="#d4c0a0"/>
+                    <text x="402" y="110" text-anchor="middle" font-size="8" fill="#8b7355">Open, irregular</text>
+
+                    <!-- 80% -->
+                    <text x="526" y="65" text-anchor="middle" font-size="10" font-weight="600" fill="#4a3728">Ciabatta</text>
+                    <circle cx="526" cy="80" r="17" fill="#e8d5b7" stroke="#c4a882" stroke-width="1.5"/>
+                    <circle cx="518" cy="73" r="2.5" fill="#d4c0a0"/>
+                    <circle cx="530" cy="78" r="3" fill="#d4c0a0"/>
+                    <circle cx="522" cy="84" r="2" fill="#d4c0a0"/>
+                    <circle cx="534" cy="86" r="2.2" fill="#d4c0a0"/>
+                    <text x="526" y="110" text-anchor="middle" font-size="8" fill="#8b7355">Large holes, slack</text>
+
+                    <!-- 90% -->
+                    <text x="650" y="65" text-anchor="middle" font-size="10" font-weight="600" fill="#4a3728">Pan Cristal</text>
+                    <circle cx="650" cy="80" r="18" fill="#e8d5b7" stroke="#c4a882" stroke-width="1.5" opacity="0.6"/>
+                    <circle cx="642" cy="72" r="3" fill="#d4c0a0"/>
+                    <circle cx="655" cy="76" r="3.5" fill="#d4c0a0"/>
+                    <circle cx="645" cy="85" r="2.5" fill="#d4c0a0"/>
+                    <circle cx="658" cy="88" r="3" fill="#d4c0a0"/>
+                    <text x="650" y="110" text-anchor="middle" font-size="8" fill="#8b7355">Nearly pourable</text>
+
+                    <!-- Start here marker -->
+                    <text x="208" y="145" text-anchor="middle" font-size="11" font-weight="700" fill="#c7733e">← Start here if you're new →</text>
+                    <text x="208" y="162" text-anchor="middle" font-size="9" fill="#8b7355">65–68% hydration is the sweet spot for learning</text>
+                </svg>
+                <figcaption style="font-size:0.85rem;color:var(--text-muted);margin-top:10px;text-align:center;">Higher hydration = more water relative to flour = more open crumb, bigger holes, harder to handle. If you're new to sourdough, start at 65-68% and work your way up. Every 2% increase in hydration is noticeably wetter to work with.</figcaption>
+            </figure>
+
+            <h2>What the Numbers Actually Mean for Your Bread</h2>
+            <p>Hydration isn't just a number to brag about on Instagram. It directly controls three things about your bread:</p>
+            <ul>
+                <li><strong>Crumb structure.</strong> Lower hydration (60-65%) = tight, even crumb — good for sandwiches that need to hold fillings. Higher hydration (75-82%) = open, irregular crumb with those dramatic holes everyone posts photos of. The holes aren't just for show — an open crumb means the dough had enough water for the gluten to stretch into thin, translucent membranes around gas pockets.</li>
+                <li><strong>Dough handling.</strong> Every percentage point above 70% makes the dough noticeably stickier and harder to shape. At 80%+ you're not really "shaping" in the traditional sense — you're coaxing. A bench scraper and wet hands stop being optional somewhere around 72%.</li>
+                <li><strong>Crust and keeping quality.</strong> Higher hydration doughs produce bread that stays fresh longer — the extra water creates more steam during baking, which gelatinizes more starch in the crust. That's why a 78% hydration sourdough boule is still edible on day 4 while a 60% hydration sandwich loaf is getting stale on day 2.</li>
+            </ul>
+
+            <!-- VISUAL: starter contribution -->
+            <figure class="article-figure" style="background:var(--card-bg);border:1px solid var(--border-light);">
+                <svg viewBox="0 0 660 200" width="100%" height="auto" style="max-width:640px;" role="img" aria-label="How sourdough starter contributes flour and water to final dough, comparing wrong calculation vs correct calculation">
+                    <!-- Wrong calculation -->
+                    <rect x="10" y="10" width="305" height="182" rx="8" fill="#fef5f5" stroke="#fecaca" stroke-width="1.5"/>
+                    <text x="162" y="35" text-anchor="middle" font-size="12" font-weight="700" fill="#dc2626">❌ Common Mistake</text>
+                    <text x="162" y="52" text-anchor="middle" font-size="10" fill="#8b7355">Ignoring starter contribution</text>
+
+                    <rect x="36" y="68" width="110" height="40" rx="4" fill="#f5e6d3" stroke="#c4a882" stroke-width="1"/>
+                    <text x="91" y="86" text-anchor="middle" font-size="10" font-weight="600" fill="#5a4a38">500g Flour</text>
+                    <text x="91" y="100" text-anchor="middle" font-size="8" fill="#8b7355">(recipe flour only)</text>
+
+                    <rect x="178" y="68" width="110" height="40" rx="4" fill="#d4e8f8" stroke="#a0c8e8" stroke-width="1"/>
+                    <text x="233" y="86" text-anchor="middle" font-size="10" font-weight="600" fill="#1e40af">350g Water</text>
+                    <text x="233" y="100" text-anchor="middle" font-size="8" fill="#6a8aa0">(recipe water only)</text>
+
+                    <text x="162" y="132" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">350 ÷ 500 = 70%</text>
+                    <text x="162" y="148" text-anchor="middle" font-size="9" fill="#8b7355">Looks right. Isn't.</text>
+                    <text x="162" y="168" text-anchor="middle" font-size="9" fill="#8b7355">Starter (100g @ 100% hyd) is ignored.</text>
+
+                    <!-- Arrow -->
+                    <text x="480" y="62" text-anchor="middle" font-size="20" fill="#c7733e">→</text>
+                    <text x="480" y="80" text-anchor="middle" font-size="9" fill="#c7733e" font-weight="600">with this calculator</text>
+
+                    <!-- Correct calculation -->
+                    <rect x="345" y="10" width="305" height="182" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="2"/>
+                    <text x="497" y="35" text-anchor="middle" font-size="12" font-weight="700" fill="#16a34a">✓ Correct Calculation</text>
+                    <text x="497" y="52" text-anchor="middle" font-size="10" fill="#8b7355">Includes starter contribution</text>
+
+                    <rect x="356" y="68" width="130" height="18" rx="3" fill="#f5e6d3" stroke="#c4a882" stroke-width="0.8"/>
+                    <text x="421" y="81" text-anchor="middle" font-size="9" font-weight="600" fill="#5a4a38">500g + 50g (from starter) = 550g flour</text>
+
+                    <rect x="356" y="92" width="130" height="18" rx="3" fill="#d4e8f8" stroke="#a0c8e8" stroke-width="0.8"/>
+                    <text x="421" y="105" text-anchor="middle" font-size="9" font-weight="600" fill="#1e40af">350g + 50g (from starter) = 400g water</text>
+
+                    <text x="497" y="130" text-anchor="middle" font-size="11" font-weight="700" fill="#16a34a">400 ÷ 550 = 72.7%</text>
+                    <text x="497" y="148" text-anchor="middle" font-size="9" fill="#8b7355">2.7% higher than you thought.</text>
+                    <text x="497" y="168" text-anchor="middle" font-size="9" fill="#8b7355">That's why your dough is stickier than expected.</text>
+                </svg>
+                <figcaption style="font-size:0.85rem;color:var(--text-muted);margin-top:10px;text-align:center;">The most common mistake in sourdough math: forgetting that starter is half flour and half water. For a typical recipe with 20% starter (baker's percentage), ignoring the starter understates your true hydration by 2-3 percentage points.</figcaption>
+            </figure>
+
+            <h2>Starter Hydration: Why 100% Is Standard (and What Happens If It's Not)</h2>
+            <p>Almost every home sourdough recipe assumes your starter is fed at 100% hydration — equal weights of flour and water. That's the default for good reason: it's easy to remember, easy to mix, and the math is simple (half flour, half water). But if you maintain a stiffer starter — say 60% hydration for a lievito madre-style culture — or a liquid one at 125%+, the contribution to your final dough changes. A stiff starter brings more flour and less water to the party. That 100g of 60% hydration starter contributes roughly 62.5g flour and 37.5g water, not 50/50. If your recipe was formulated for 100% hydration starter and you use a stiff one without adjusting, your final dough will be drier — potentially by enough to notice. Our calculator handles any starter hydration you throw at it.</p>
+
+            <h2>Flour Blends Matter Too</h2>
+            <p>Not all flour drinks water at the same rate. Whole wheat flour absorbs about 10-15% more water than white bread flour. Rye absorbs even more — up to 20% more. So a dough at 75% hydration made with 100% bread flour handles differently than one at 75% hydration with 30% whole wheat. The whole wheat version feels drier and firmer because the bran is soaking up water that would otherwise be free in the dough. This calculator tracks your flour blend percentages so you can see exactly how each flour contributes to the total — useful if you're trying to dial in a specific blend or troubleshoot why a new formula feels different from an old one.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-box">
+                <div class="faq-item">
+                    <h3>What hydration should I start with as a beginner?</h3>
+                    <p>65-68%. At this level the dough is cohesive enough to shape without a fight but wet enough to produce decent oven spring and a respectable crumb. Start here, bake a few loaves until they're consistent, then bump to 70%. Jumping straight to 78% as a first-timer is a recipe for a floury countertop, a sticky blob, and a pancake loaf that makes you want to quit. Work your way up gradually — your hands need to learn the feel of wet dough as much as your brain needs to understand the theory.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Does salt count toward hydration?</h3>
+                    <p>No. Salt is typically 2% of flour weight (baker's percentage) and doesn't meaningfully affect hydration. The calculator suggests 2% salt based on your total flour — you can adjust it. Salt is included in total dough weight but not in the hydration calculation.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if I add oil, honey, or other liquids?</h3>
+                    <p>Oil and fat don't count toward hydration in the traditional baker's percentage system — hydration specifically means water relative to flour. Honey, milk, and other water-containing liquids do contribute water. Milk is about 87% water; honey is about 17% water. If you're using significant amounts of these, you'd need to calculate their water contribution separately. For most home sourdough recipes (flour, water, starter, salt), this isn't an issue — it's just flour, water, starter, and salt.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>My dough feels way wetter than the hydration % suggests. Why?</h3>
+                    <p>Two possibilities. One: your flour is low-protein (AP flour at 10% protein absorbs less water than bread flour at 13%). Two: you're using volume measurements instead of a scale — a "cup" of flour can vary by 30% in weight. Switch to a scale and make sure you're using bread flour (12-14% protein) for sourdough. If you're already doing both and it's still too wet, drop your hydration by 3-5% — climate matters. A humid kitchen in Florida at 75% hydration handles completely differently from a dry kitchen in Colorado at the same number.</p>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Cross-link -->
+    <aside class="article-crosslink">
+        <p><strong>🔧 Related tools and articles:</strong></p>
+        <ul style="list-style:none;padding:0;margin:10px 0;display:flex;flex-wrap:wrap;gap:10px;">
+            <li><a href="/bakers-percentage-calculator" style="display:inline-block;padding:8px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.88rem;text-decoration:none;color:var(--primary);">🧮 Baker's Percentage Calculator</a></li>
+            <li><a href="/recipe-scaler" style="display:inline-block;padding:8px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.88rem;text-decoration:none;color:var(--primary);">📐 Recipe Scaler</a></li>
+            <li><a href="/articles/sourdough-starter-feeding-guide" style="display:inline-block;padding:8px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.88rem;text-decoration:none;color:var(--primary);">🫙 Starter Feeding Guide</a></li>
+            <li><a href="/articles/sourdough-troubleshooting" style="display:inline-block;padding:8px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.88rem;text-decoration:none;color:var(--primary);">🔍 Sourdough Troubleshooting</a></li>
+            <li><a href="/1-cup-flour-to-grams" style="display:inline-block;padding:8px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.88rem;text-decoration:none;color:var(--primary);">🌾 Flour cups→grams</a></li>
+            <li><a href="/cost-calculator" style="display:inline-block;padding:8px 16px;background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius-sm);font-size:0.88rem;text-decoration:none;color:var(--primary);">📊 Cost Calculator</a></li>
+        </ul>
+    </aside>
+
+    <footer>
+        <p>&copy; 2026 BakeCalc Club</p>
+        <p>
+            <a href="/">Home</a>
+            <a href="/cost-calculator">Cost Calculator</a>
+            <a href="/about">About</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/contact">Contact</a>
+        </p>
+
+            <section class="related-conversions">
+                <h3>Quick Ingredient Converters</h3>
+                <ul class="related-links">
+                    <li><a href="/1-cup-flour-to-grams">1 Cup Flour to Grams</a></li>
+                    <li><a href="/1-cup-sugar-to-grams">1 Cup Sugar to Grams</a></li>
+                    <li><a href="/1-cup-butter-to-grams">1 Cup Butter to Grams</a></li>
+                    <li><a href="/1-oz-to-ml">1 oz to mL</a></li>
+                    <li><a href="/how-many-grams-is-1-egg">How Many Grams Is 1 Egg?</a></li>
+                    <li><a href="/oven-temperature-conversion">Oven Temperature Conversion</a></li>
+                </ul>
+            </section>
+            
+            <section class="try-these-tools">
+                <h3>Related Guides</h3>
+                <ul class="related-links">
+                    <li><a href="/articles/sourdough-starter-feeding-guide">Sourdough Starter Guide</a></li>
+                    <li><a href="/articles/sourdough-troubleshooting">Sourdough Troubleshooting</a></li>
+                    <li><a href="/articles/no-knead-bread-method">No-Knead Bread Method</a></li>
+                </ul>
+            </section>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+    </footer>
+
+</div><!-- /container -->
+
+<script>
+/* ============================================================
+   Sourdough Hydration Calculator — inline, zero dependencies
+   ============================================================ */
+(function(){
+    'use strict';
+
+    var FLOUR_PRESETS = [
+        { name: 'Bread Flour (12-14% protein)', default: true },
+        { name: 'All-Purpose Flour', default: false },
+        { name: 'Whole Wheat Flour', default: false },
+        { name: 'Rye Flour', default: false },
+        { name: 'Spelt Flour', default: false },
+        { name: 'Tipo 00 Flour', default: false },
+        { name: 'Semolina / Durum', default: false },
+        { name: 'Einkorn Flour', default: false },
+        { name: 'Other / Custom Flour', default: false }
+    ];
+
+    var RECIPE_PRESETS = {
+        beginner: {
+            flours: [{ name: 'Bread Flour (12-14% protein)', grams: 500 }],
+            water: 325,
+            starter: 100,
+            starterHyd: 100
+        },
+        artisan: {
+            flours: [
+                { name: 'Bread Flour (12-14% protein)', grams: 450 },
+                { name: 'Whole Wheat Flour', grams: 50 }
+            ],
+            water: 360,
+            starter: 100,
+            starterHyd: 100
+        },
+        ciabatta: {
+            flours: [{ name: 'Bread Flour (12-14% protein)', grams: 500 }],
+            water: 410,
+            starter: 80,
+            starterHyd: 100
+        },
+        ww: {
+            flours: [
+                { name: 'Bread Flour (12-14% protein)', grams: 350 },
+                { name: 'Whole Wheat Flour', grams: 150 }
+            ],
+            water: 375,
+            starter: 100,
+            starterHyd: 100
+        },
+        focaccia: {
+            flours: [{ name: 'Bread Flour (12-14% protein)', grams: 500 }],
+            water: 390,
+            starter: 80,
+            starterHyd: 100
+        },
+        baguette: {
+            flours: [{ name: 'Bread Flour (12-14% protein)', grams: 500 }],
+            water: 340,
+            starter: 80,
+            starterHyd: 100
+        }
+    };
+
+    // ---- State ----
+    var flourRows = [
+        { name: 'Bread Flour (12-14% protein)', grams: 500 }
+    ];
+
+    function getWaterGrams() {
+        var el = document.getElementById('water-grams');
+        return el ? Math.max(parseFloat(el.value) || 0, 0) : 350;
+    }
+
+    function getStarterGrams() {
+        var el = document.getElementById('starter-grams');
+        return el ? Math.max(parseFloat(el.value) || 0, 0) : 100;
+    }
+
+    function getStarterHydration() {
+        var el = document.getElementById('starter-hydration');
+        return el ? parseFloat(el.value) || 100 : 100;
+    }
+
+    // ---- Math ----
+    function calcStarterContrib() {
+        var starterG = getStarterGrams();
+        var starterH = getStarterHydration();
+        if (starterG <= 0) return { flour: 0, water: 0 };
+        // starter water / starter flour = starterH / 100
+        // starter = starter_flour + starter_water
+        // starter_water = starter_flour * (starterH / 100)
+        // starter = starter_flour * (1 + starterH/100)
+        // starter_flour = starter / (1 + starterH/100)
+        var starterFlour = starterG / (1 + starterH / 100);
+        var starterWater = starterFlour * (starterH / 100);
+        return {
+            flour: Math.round(starterFlour * 100) / 100,
+            water: Math.round(starterWater * 100) / 100
+        };
+    }
+
+    function getTotalFlour() {
+        var total = 0;
+        for (var i = 0; i < flourRows.length; i++) {
+            total += (flourRows[i].grams || 0);
+        }
+        total += calcStarterContrib().flour;
+        return total;
+    }
+
+    function getTotalWater() {
+        var total = getWaterGrams();
+        total += calcStarterContrib().water;
+        return total;
+    }
+
+    function getHydration() {
+        var tf = getTotalFlour();
+        if (tf <= 0) return 0;
+        return (getTotalWater() / tf) * 100;
+    }
+
+    function getTotalDough() {
+        var tf = getTotalFlour();
+        var tw = getTotalWater();
+        var salt = tf * 0.02; // 2% salt
+        return tf + tw + salt;
+    }
+
+    // ---- Hydration category ----
+    function getHydCategory(hyd) {
+        if (hyd <= 0) return { label: '—', color: '#999' };
+        if (hyd < 58) return { label: 'Very low hydration — bagel territory. Firm, tight crumb, chewy.', color: '#3b82f6' };
+        if (hyd < 63) return { label: 'Low hydration — soft sandwich bread. Fine, even crumb.', color: '#2563eb' };
+        if (hyd < 68) return { label: 'Moderate hydration — baguettes, everyday loaves. Easy to handle.', color: '#16a34a' };
+        if (hyd < 74) return { label: 'Moderate hydration — classic artisan sourdough range. Manageable dough, open crumb.', color: '#65a30d' };
+        if (hyd < 80) return { label: 'High hydration — open crumb, irregular holes. Wet hands and bench scraper needed.', color: '#ca8a04' };
+        if (hyd < 88) return { label: 'Very high hydration — ciabatta, focaccia. Slack dough, large holes. Handle gently.', color: '#ea580c' };
+        return { label: 'Extremely high hydration — pan de cristal territory. Nearly pourable. Challenging.', color: '#dc2626' };
+    }
+
+    // ---- Render ----
+    function renderFlourRows() {
+        var tbody = document.getElementById('flour-rows');
+        if (!tbody) return;
+
+        var totalGrams = 0;
+        for (var i = 0; i < flourRows.length; i++) {
+            totalGrams += (flourRows[i].grams || 0);
+        }
+
+        var html = '';
+        for (var i = 0; i < flourRows.length; i++) {
+            var f = flourRows[i];
+            var blendPct = totalGrams > 0 ? Math.round((f.grams / totalGrams) * 100) : 0;
+            var tf = getTotalFlour();
+            var contribPct = tf > 0 ? Math.round((f.grams / tf) * 100) : 0;
+
+            var options = '';
+            for (var j = 0; j < FLOUR_PRESETS.length; j++) {
+                var sel = FLOUR_PRESETS[j].name === f.name ? ' selected' : '';
+                options += '<option value="' + escAttr(FLOUR_PRESETS[j].name) + '"' + sel + '>' + FLOUR_PRESETS[j].name + '</option>';
+            }
+
+            html += '<tr class="hyd-row">'
+                + '<td class="cell-flour-type"><select onchange="HydCalc.updateFlourName(' + i + ', this.value)">' + options + '</select></td>'
+                + '<td class="cell-flour-grams"><input type="number" value="' + f.grams + '" min="0" step="1" inputmode="decimal" onchange="HydCalc.updateFlourGrams(' + i + ', parseFloat(this.value)||0)"></td>'
+                + '<td class="cell-blend-pct cell-flour-blend">' + blendPct + '%</td>'
+                + '<td class="cell-contrib cell-flour-contrib">' + contribPct + '% of total flour</td>'
+                + '<td class="cell-flour-del">' + (flourRows.length > 1 ? '<button class="btn-row-del" onclick="HydCalc.removeFlour(' + i + ')" title="Remove">&times;</button>' : '') + '</td>'
+                + '</tr>';
+        }
+        tbody.innerHTML = html;
+    }
+
+    function renderSummary() {
+        var body = document.getElementById('summary-body');
+        if (!body) return;
+
+        var tf = getTotalFlour();
+        var totalRawGrams = 0;
+        for (var i = 0; i < flourRows.length; i++) totalRawGrams += (flourRows[i].grams || 0);
+        var sc = calcStarterContrib();
+        var waterG = getWaterGrams();
+
+        var html = '';
+
+        // Each flour
+        for (var i = 0; i < flourRows.length; i++) {
+            var f = flourRows[i];
+            var bp = tf > 0 ? Math.round((f.grams / tf) * 1000) / 10 : 0;
+            var blendPct = totalRawGrams > 0 ? Math.round((f.grams / totalRawGrams) * 100) : 0;
+            html += '<tr>'
+                + '<td>' + escAttr(f.name) + '</td>'
+                + '<td style="text-align:center;font-weight:600;">' + f.grams + 'g</td>'
+                + '<td style="text-align:center;font-weight:600;color:var(--primary);">' + bp.toFixed(1) + '%</td>'
+                + '<td style="text-align:center;font-size:0.85rem;color:var(--text-muted);">' + blendPct + '% of blend</td>'
+                + '</tr>';
+        }
+
+        // Water
+        html += '<tr>'
+            + '<td>💧 Water (added directly)</td>'
+            + '<td style="text-align:center;font-weight:600;">' + waterG + 'g</td>'
+            + '<td style="text-align:center;font-weight:600;color:var(--primary);">' + (tf > 0 ? Math.round((waterG / tf) * 1000) / 10 : 0).toFixed(1) + '%</td>'
+            + '<td style="text-align:center;font-size:0.85rem;color:var(--text-muted);">—</td>'
+            + '</tr>';
+
+        // Starter
+        if (getStarterGrams() > 0) {
+            html += '<tr>'
+                + '<td>🫙 Starter (' + getStarterHydration() + '% hyd, ' + getStarterGrams() + 'g total)</td>'
+                + '<td style="text-align:center;font-weight:600;">' + getStarterGrams() + 'g</td>'
+                + '<td style="text-align:center;font-weight:600;color:var(--primary);">' + (tf > 0 ? Math.round((getStarterGrams() / tf) * 1000) / 10 : 0).toFixed(1) + '%</td>'
+                + '<td style="text-align:center;font-size:0.85rem;color:var(--text-muted);">→ ' + sc.flour.toFixed(1) + 'g flour + ' + sc.water.toFixed(1) + 'g water</td>'
+                + '</tr>';
+        }
+
+        // Salt
+        var saltG = Math.round(tf * 0.02);
+        if (saltG > 0) {
+            html += '<tr>'
+                + '<td>🧂 Salt (suggested 2%)</td>'
+                + '<td style="text-align:center;font-weight:600;">' + saltG + 'g</td>'
+                + '<td style="text-align:center;font-weight:600;color:var(--primary);">2.0%</td>'
+                + '<td style="text-align:center;font-size:0.85rem;color:var(--text-muted);">Adjust to taste</td>'
+                + '</tr>';
+        }
+
+        body.innerHTML = html;
+    }
+
+    function updateResults() {
+        var hyd = getHydration();
+        var tf = getTotalFlour();
+        var tw = getTotalWater();
+        var td = Math.round(getTotalDough());
+        var cat = getHydCategory(hyd);
+        var sc = calcStarterContrib();
+        var saltG = Math.round(tf * 0.02);
+
+        document.getElementById('final-hydration').innerHTML = hyd.toFixed(1) + '<span style="font-size:50%;">%</span>';
+        document.getElementById('total-flour').textContent = Math.round(tf);
+        document.getElementById('total-water').textContent = Math.round(tw);
+        document.getElementById('total-salt-display').textContent = saltG + 'g';
+        document.getElementById('total-dough').textContent = td;
+        document.getElementById('hyd-category').textContent = cat.label;
+        document.getElementById('hyd-category').style.color = cat.color;
+
+        // Gauge marker (map 50-95% range to 0-100%)
+        var gaugePos = Math.max(0, Math.min(100, ((hyd - 50) / 45) * 100));
+        document.getElementById('gauge-marker').style.left = gaugePos + '%';
+
+        // Starter contribution display
+        if (getStarterGrams() > 0) {
+            document.getElementById('starter-contrib-display').textContent = sc.flour.toFixed(0) + 'g flour + ' + sc.water.toFixed(0) + 'g water';
+        } else {
+            document.getElementById('starter-contrib-display').textContent = 'No starter added';
+        }
+    }
+
+    function recalc() {
+        renderFlourRows();
+        renderSummary();
+        updateResults();
+    }
+
+    function escAttr(str) {
+        return (str || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    // ---- Public API ----
+    window.HydCalc = {
+        addFlourRow: function() {
+            flourRows.push({ name: 'Bread Flour (12-14% protein)', grams: 100 });
+            recalc();
+        },
+
+        removeFlour: function(idx) {
+            if (flourRows.length <= 1) return;
+            flourRows.splice(idx, 1);
+            recalc();
+        },
+
+        updateFlourName: function(idx, name) {
+            if (idx < 0 || idx >= flourRows.length) return;
+            flourRows[idx].name = name;
+            recalc();
+        },
+
+        updateFlourGrams: function(idx, grams) {
+            if (idx < 0 || idx >= flourRows.length) return;
+            flourRows[idx].grams = Math.max(0, grams || 0);
+            recalc();
+        },
+
+        loadPreset: function(key) {
+            var p = RECIPE_PRESETS[key];
+            if (!p) return;
+            flourRows = JSON.parse(JSON.stringify(p.flours));
+            document.getElementById('water-grams').value = p.water;
+            document.getElementById('starter-grams').value = p.starter;
+            document.getElementById('starter-hydration').value = p.starterHyd;
+            recalc();
+        },
+
+        reset: function() {
+            flourRows = [{ name: 'Bread Flour (12-14% protein)', grams: 500 }];
+            document.getElementById('water-grams').value = 350;
+            document.getElementById('starter-grams').value = 100;
+            document.getElementById('starter-hydration').value = '100';
+            recalc();
+        },
+
+        recalc: recalc,
+
+        printCard: function() {
+            var hyd = getHydration();
+            var tf = Math.round(getTotalFlour());
+            var tw = Math.round(getTotalWater());
+            var td = Math.round(getTotalDough());
+            var sc = calcStarterContrib();
+            var saltG = Math.round(tf * 0.02);
+            var totalRawGrams = 0;
+            for (var i = 0; i < flourRows.length; i++) totalRawGrams += (flourRows[i].grams || 0);
+            var cat = getHydCategory(hyd);
+
+            var flourHtml = '';
+            for (var i = 0; i < flourRows.length; i++) {
+                var bp = tf > 0 ? (flourRows[i].grams / tf * 100).toFixed(1) : '0.0';
+                flourHtml += '<tr><td>' + escAttr(flourRows[i].name) + '</td><td>' + flourRows[i].grams + 'g</td><td>' + bp + '%</td></tr>';
+            }
+
+            var card = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Sourdough Formula — BakeCalc Club</title>'
+                + '<style>'
+                + 'body{font-family:Georgia,serif;color:#2c1e0f;max-width:600px;margin:40px auto;padding:0 20px;line-height:1.6}'
+                + 'h1{color:#c7733e;border-bottom:2px solid #f0e4d4;padding-bottom:8px;margin-bottom:4px}'
+                + 'h2{color:#9e4f28;font-size:1.1rem;margin:24px 0 8px}'
+                + 'table{width:100%;border-collapse:collapse;margin:12px 0}'
+                + 'th,td{padding:8px 10px;text-align:left;border-bottom:1px solid #f0e4d4}'
+                + 'th{color:#7a6a5c;font-size:0.85rem;font-weight:600;text-transform:uppercase}'
+                + '.meta{color:#7a6a5c;font-size:0.9rem;margin:4px 0}'
+                + '.big-num{font-size:2.4rem;font-weight:700;color:#c7733e;text-align:center;margin:16px 0}'
+                + '.footer{text-align:center;color:#a89888;font-size:0.8rem;margin-top:40px;border-top:1px solid #f0e4d4;padding-top:16px}'
+                + '@media print{body{margin:20px auto}}'
+                + '</style></head><body>'
+                + '<h1>Sourdough Bread Formula</h1>'
+                + '<div class="big-num">' + hyd.toFixed(1) + '% hydration</div>'
+                + '<p class="meta">' + cat.label + '</p>'
+                + '<p class="meta"><strong>Total Flour:</strong> ' + tf + 'g &nbsp;|&nbsp; <strong>Total Water:</strong> ' + tw + 'g &nbsp;|&nbsp; <strong>Total Dough:</strong> ' + td + 'g</p>'
+                + '<p class="meta"><strong>Salt:</strong> ' + saltG + 'g (2% of flour) &nbsp;|&nbsp; <strong>Starter:</strong> ' + getStarterGrams() + 'g @ ' + getStarterHydration() + '% hyd</p>'
+                + '<h2>Flour Blend</h2>'
+                + '<table><thead><tr><th>Flour</th><th>Grams</th><th>Baker\'s %</th></tr></thead><tbody>'
+                + flourHtml
+                + '</tbody></table>'
+                + '<h2>Liquids</h2>'
+                + '<table><thead><tr><th>Ingredient</th><th>Grams</th><th>Baker\'s %</th></tr></thead><tbody>'
+                + '<tr><td>Water (direct)</td><td>' + getWaterGrams() + 'g</td><td>' + (tf > 0 ? (getWaterGrams() / tf * 100).toFixed(1) : '0.0') + '%</td></tr>'
+                + '<tr><td>Water (from starter)</td><td>' + sc.water.toFixed(0) + 'g</td><td>' + (tf > 0 ? (sc.water / tf * 100).toFixed(1) : '0.0') + '%</td></tr>'
+                + '</tbody></table>'
+                + '<p class="footer">Generated by BakeCalc Club &mdash; bakecalc.club/sourdough-hydration-calculator</p>'
+                + '</body></html>';
+
+            var w = window.open('', '_blank', 'width=700,height=800');
+            if (w) {
+                w.document.write(card);
+                w.document.close();
+            }
+        }
+    };
+
+    // ---- Boot ----
+    document.addEventListener('DOMContentLoaded', function() {
+        recalc();
+    });
+
+})();
+</script>
+
+</body>
+</html>

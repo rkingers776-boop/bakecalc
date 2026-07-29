@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1/4 Cup Sugar to Grams — Free Baking Conversion Calculator | BakeCalc</title>
+    <meta name="description" content="Convert 1/4 cup of granulated sugar to grams. ¼ cup = 50g. Free baking calculator — works on mobile, no sign-up.">
+
+    <meta property="og:title" content="1/4 Cup Sugar to Grams — Free Conversion Calculator">
+    <meta property="og:description" content="Convert 1/4 cup of granulated sugar to grams. ¼ cup = 50g. Granulated, brown, and powdered sugar supported.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/1-4-cup-sugar-to-grams">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1/4 Cup Sugar to Grams — Free Conversion Calculator">
+    <meta name="twitter:description" content="Convert 1/4 cup of granulated sugar to grams. ¼ cup = 50g.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/1-4-cup-sugar-to-grams">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "1/4 Cup Sugar to Grams", "item": "https://bakecalc.club/1-4-cup-sugar-to-grams" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many grams is 1/4 cup of granulated sugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Exactly 50 grams. That is one-eighth of a standard 400g bag of sugar — useful to know if you're scaling a recipe and trying to figure out how much sugar to buy. Unlike flour, sugar's crystal structure means it packs consistently regardless of how you scoop or spoon it into the measuring cup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is 1/4 cup of brown sugar the same weight as 1/4 cup of white sugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Brown sugar is typically packed into the measuring cup, which makes it denser — 1/4 packed cup of brown sugar weighs about 55g versus 50g for white granulated sugar. If a recipe calls for brown sugar and says firmly packed, press it in with the back of a spoon until it holds its shape when turned out."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I substitute 50g of white sugar for 1/4 cup in any recipe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — sugar is one of the most forgiving ingredients to convert by weight. Unlike flour, where packing varies wildly depending on your scooping technique, 1/4 cup of granulated sugar is consistently 50g whether you scoop it, spoon it, or pour it. The uniform crystal size means minimal air pockets regardless of method."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>1/4 Cup Sugar to Grams Converter</h1>
+            <p>Convert ¼ US cup of sugar into grams — granulated, brown, and powdered sugar with the density differences that actually matter.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-cups="0.25">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="cups-input">Cups of Sugar</label>
+                        <input type="number" inputmode="decimal" id="cups-input" value="0.25" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ingredient-type">Type of Sugar</label>
+                        <select id="ingredient-type">
+                            <option value="200" selected>Granulated White Sugar (1 cup ≈ 200g)</option>
+                            <option value="220">Brown Sugar, packed (1 cup ≈ 220g)</option>
+                            <option value="120">Powdered / Confectioners' Sugar (1 cup ≈ 120g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateCupsToGrams(this)">Convert to Grams</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Gram Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="grams-output-frac">≈ 50 g (quarter cup)</span> (<span id="grams-output">50</span> g)
+                    </div>
+                    <p class="output-note">*Calculated using standard US cup densities. Brown sugar assumes firmly packed method. Powdered sugar is unsifted.</p>
+                </div>
+            </div>
+            <article class="seo-section">
+                <h2>How Many Grams in 1/4 Cup of Sugar?</h2>
+                <p>Sugar is denser than flour — pour them side by side into identical measuring cups and the sugar will always weigh more. <strong>¼ cup of granulated white sugar = exactly 50 grams</strong>. That's heavy for such a small volume, and the reason is simple: sugar crystals are solid, uniform little rocks that pack together with very little air between them. Flour particles are irregular, feathery, and trap air like loft insulation. The density difference between sugar and flour is why a recipe that calls for ¼ cup of each will produce dramatically different weights: 50 g for the sugar, only 30 g for the flour. Same measuring cup, completely different amounts of actual stuff in your bowl.</p>
+
+                <h2>The Conversion: Cleaner Than You'd Expect</h2>
+                <p>Granulated sugar at 200 g per cup divides neatly into quarters — one of the few baking conversions that produces no awkward decimals:</p>
+                <ul>
+                    <li><strong>Grams</strong> = Cups × Grams-per-Cup</li>
+                    <li>Granulated Sugar: 0.25 × 200 g = <strong>50 grams</strong></li>
+                    <li>Brown Sugar (packed): 0.25 × 220 g = <strong>55 grams</strong></li>
+                    <li>Powdered Sugar: 0.25 × 120 g = <strong>30 grams</strong></li>
+                </ul>
+
+                <h2>Why a Sugar Error Won't Ruin Your Cake (But It'll Change It)</h2>
+                <p>Sugar doesn't build structure the way flour does — it doesn't form gluten, so being off by a few grams won't turn your cake into a brick. But sugar does three things that matter enormously: it controls spread (more sugar = more spread in cookies), it drives browning (caramelization and Maillard reaction both need sugar), and it holds onto moisture after baking because sugar is hygroscopic — it pulls water from the air and keeps your baked goods soft for days. If you undershoot a <a href="/1-cup-sugar-to-grams">full cup</a> of sugar by 10 grams, the cake is slightly paler and goes stale a day sooner. If you undershoot a quarter cup by 10 grams — that's a 20% error — the effect is proportionally much larger. A quarter cup of sugar in a small-batch muffin recipe is the difference between a tender, golden dome and a pale, dry lump. For <a href="/1-2-cup-sugar-to-grams">half-cup</a> measurements, the math is similarly clean: 100 g for granulated.</p>
+
+                <h2>The Brown Sugar and Powdered Sugar Curves</h2>
+                <p>Brown sugar weighs more than white at the same volume only because you pack it — the molasses makes it clumpy and the recipe demands you press the air out. Loose brown sugar is actually lighter than white (~180 g/cup), but nobody measures it loose. <a href="/1-cup-brown-sugar-to-grams">Packed brown sugar</a> at 220 g/cup gives you 55 g per quarter cup — a 10% premium over white for the same scoop. Powdered sugar goes the other direction: 120 g/cup, or 30 g per quarter cup. That's because the fine grind incorporates a staggering amount of air — powdered sugar is essentially sugar-flavored air with a bit of cornstarch. If a frosting recipe says "¼ cup powdered sugar" and you accidentally use granulated (50 g instead of 30 g), you've added 67% more sugar by weight and it won't dissolve properly — the frosting will be gritty and sickly sweet. Our <a href="/1-cup-powdered-sugar-to-grams">powdered sugar guide</a> covers the sifting-vs-not-sifting weight difference in detail.</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: How many grams is 1/4 cup of granulated sugar?</h3>
+                        <p>A1: Exactly 50 grams. That is one-eighth of a standard 400 g bag — handy if you're planning a shopping list around a scaled recipe. Unlike flour, sugar's uniform crystals mean it weighs the same whether you scoop, spoon, or pour it into the cup.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: Is 1/4 cup of brown sugar the same weight as 1/4 cup of white sugar?</h3>
+                        <p>A2: No — ¼ packed cup of brown sugar weighs about 55 g vs 50 g for white granulated. The difference is entirely from packing: you press the air out of brown sugar on purpose. If a recipe says "firmly packed," press it in with the back of a spoon until the sugar holds its shape when dumped out.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: Can I substitute 50 g of white sugar for 1/4 cup in any recipe?</h3>
+                        <p>A3: Yes — sugar is one of the most forgiving ingredients to convert by weight. The crystal structure packs consistently no matter how you fill the cup, so ¼ cup granulated sugar is always 50 g. This is not true for flour (scooping vs spooning changes everything) or brown sugar (packed vs loose), but for white sugar, the volume-to-weight relationship is rock solid.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 28px; font-size: 0.94rem; color: var(--text-muted); border-top: 1px solid var(--border-color, #e0e0e0); padding-top: 20px;">📐 See also: <a href="/1-cup-sugar-to-grams">1 Cup Sugar → Grams</a> &nbsp;|&nbsp; <a href="/1-2-cup-sugar-to-grams">1/2 Cup Sugar → Grams</a> &nbsp;|&nbsp; <a href="/1-tbsp-sugar-to-grams">1 Tbsp Sugar → Grams</a> &nbsp;|&nbsp; <a href="/1-cup-brown-sugar-to-grams">1 Cup Brown Sugar → Grams</a> &nbsp;|&nbsp; <a href="/1-cup-powdered-sugar-to-grams">1 Cup Powdered Sugar → Grams</a></p>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+            
+            <section class="related-conversions">
+                <h3>More Sugar Conversions</h3>
+                <ul class="related-links">
+                    <li><a href="/1-cup-sugar-to-grams.html">1 Cup Sugar to Grams</a></li>
+                    <li><a href="/1-2-cup-sugar-to-grams.html">1/2 Cup Sugar to Grams</a></li>
+                    <li><a href="/1-3-cup-sugar-to-grams.html">1/3 Cup Sugar to Grams</a></li>
+                    <li><a href="/1-cup-brown-sugar-to-grams.html">Brown Sugar</a></li>
+                    <li><a href="/1-cup-powdered-sugar-to-grams.html">Powdered Sugar</a></li>
+                    <li><a href="/1-cup-honey-to-grams.html">Honey</a></li>
+                    <li><a href="/100g-grams-to-cups-sugar">100g Sugar to Cups</a></li>
+                </ul>
+            </section>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>

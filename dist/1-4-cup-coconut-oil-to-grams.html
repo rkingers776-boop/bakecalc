@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1/4 Cup Coconut Oil to Grams — Free Baking Conversion Calculator | BakeCalc</title>
+    <meta name="description" content="Convert 1/4 cup of coconut oil to grams. ¼ cup solid = 55g. Free baking calculator — works on mobile, no sign-up.">
+
+    <meta property="og:title" content="1/4 Cup Coconut Oil to Grams — Free Conversion Calculator">
+    <meta property="og:description" content="Convert 1/4 cup of coconut oil to grams. ¼ cup solid = 55g, melted = ~54g. Covers refined, unrefined, and solid vs. melted differences.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/1-4-cup-coconut-oil-to-grams">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1/4 Cup Coconut Oil to Grams — Free Conversion Calculator">
+    <meta name="twitter:description" content="Convert 1/4 cup of coconut oil to grams. ¼ cup solid = 55g.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/1-4-cup-coconut-oil-to-grams">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "1/4 Cup Coconut Oil to Grams", "item": "https://bakecalc.club/1-4-cup-coconut-oil-to-grams" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does solid coconut oil weigh the same as melted coconut oil?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Almost exactly — solid coconut oil weighs about 218 g per cup (55 g per quarter cup), and melted coconut oil weighs about 215 g per cup (54 g per quarter cup). The 1-gram difference per quarter cup is within the margin of error for most kitchen scales. What does change significantly between solid and melted is how you get it into the measuring cup. Solid coconut oil must be scooped and packed like shortening, which can trap air pockets. Melted coconut oil pours like water and fills the cup completely with no air gaps. If a recipe calls for melted coconut oil and you measure it solid, you are very close in weight — the 1-gram difference is not worth losing sleep over."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do refined and unrefined coconut oil weigh the same?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — refined and unrefined (virgin) coconut oil are functionally identical in density at about 218 g per cup. Refined coconut oil has been processed to remove the coconut flavor and aroma; unrefined keeps its natural coconut scent and taste. The processing removes some volatile aromatic compounds, but these are measured in parts per million and do not affect the weight in any meaningful way. A quarter cup of either is 55 grams."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is coconut oil lighter than butter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Butter weighs about 227 g per cup, or 57 g per quarter cup — roughly 2 grams heavier than the same volume of coconut oil. The difference comes down to composition: butter is about 80% fat with the remaining 20% being water and milk solids, which are denser than pure fat. Coconut oil is nearly 100% fat with negligible water content — and fat is lighter than water. Pure fat floats on water for exactly this reason. So a quarter cup of pure coconut oil fat (55 g) weighs slightly less than a quarter cup of butter (57 g), which carries its own water weight."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>1/4 Cup Coconut Oil to Grams Converter</h1>
+            <p>Convert ¼ US cup of coconut oil into grams — solid vs. melted, refined vs. unrefined, and why it behaves differently than butter in your bake.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-cups="0.25">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="cups-input">Cups of Coconut Oil</label>
+                        <input type="number" inputmode="decimal" id="cups-input" value="0.25" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ingredient-type">State of Coconut Oil</label>
+                        <select id="ingredient-type">
+                            <option value="218" selected>Solid Coconut Oil (1 cup ≈ 218g)</option>
+                            <option value="215">Melted Coconut Oil (1 cup ≈ 215g)</option>
+                            <option value="218">Refined Coconut Oil (1 cup ≈ 218g)</option>
+                            <option value="218">Unrefined / Virgin Coconut Oil (1 cup ≈ 218g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateCupsToGrams(this)">Convert to Grams</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Gram Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="grams-output-frac">≈ 55 g (quarter cup, solid)</span> (<span id="grams-output">55</span> g)
+                    </div>
+                    <p class="output-note">*Solid measurement assumes coconut oil is scooped and leveled at room temperature (below 76°F / 24°C). Melted values are for fully liquefied oil. Refined and unrefined coconut oil are functionally identical in density.</p>
+                </div>
+            </div>
+            <article class="seo-section">
+                <h2>How Many Grams in 1/4 Cup of Coconut Oil?</h2>
+                <p>Coconut oil is one of those ingredients that feels like it should be straightforward — it is just fat, after all — and then you open the jar and discover it is a solid white mass that your measuring cup was not built to handle. <strong>A quarter cup of solid coconut oil weighs about 55 grams.</strong> That puts it at roughly 218 grams per cup, which is lighter than butter (227 g/cup) and lighter than shortening (192 g/cup if you squint, but shortening fluffs differently). The exact weight barely budges whether your coconut oil is rock-solid from the fridge or fully melted from a warm kitchen — the density shift from solid to liquid is only about 1 gram per quarter cup, well within what a home kitchen scale can measure. But the <em>way</em> you measure it changes everything. Solid coconut oil scooped from the jar traps air like cold butter; melted coconut oil poured into a cup fills every crevice with no gaps. The weight is nearly identical either way, which is a small mercy in a world of baking ingredients that punish you for measuring wrong.</p>
+
+                <h2>The Conversion: Solid vs. Melted, Practically Identical</h2>
+                <p>Coconut oil at 218 g per cup gives you numbers clean enough to remember:</p>
+                <ul>
+                    <li><strong>Grams</strong> = Cups × Grams-per-Cup</li>
+                    <li>Solid Coconut Oil: 0.25 × 218 g = <strong>55 grams</strong></li>
+                    <li>Melted Coconut Oil: 0.25 × 215 g = <strong>54 grams</strong></li>
+                    <li>Refined or Unrefined (Virgin): 0.25 × 218 g = <strong>55 grams</strong></li>
+                </ul>
+
+                <h2>Why Coconut Oil Weight Matters More in Some Recipes Than Others</h2>
+                <p>Coconut oil is 100% fat — unlike butter, which carries about 15-20% water and milk solids that steam off during baking. That purity means every gram of coconut oil you add is a gram of pure fat that stays in the final product. Butter at <a href="/1-4-cup-butter-to-grams">a quarter cup</a> (57 g) contributes about 46 grams of actual fat and 9 grams of water; coconut oil at 55 g contributes all 55 grams as fat. That extra 10 grams of pure fat per quarter cup — roughly 22% more fat than butter by the same volume — is why coconut oil brownies are fudgier and coconut oil pie crusts are shorter and more crumbly. It also means that if you substitute coconut oil for butter 1:1 by volume, you are swapping in more fat and less water, which changes spread, browning, and texture. If you undershoot a quarter cup of coconut oil by 5 grams in a small-batch vegan cookie recipe, you lose nearly 10% of the total fat — the cookies will be drier, less spread, and missing the tender crumb that coconut oil is famous for. For <a href="/1-2-cup-coconut-oil-to-grams">half-cup quantities</a> in cake batters, the error doubles, but so does the batter volume, so the proportion stays consistent. Our <a href="/1-cup-coconut-oil-to-grams">full-cup coconut oil guide</a> covers how this scales up for batch baking.</p>
+
+                <h2>Refined vs. Unrefined: The Weight Stays the Same, the Flavor Does Not</h2>
+                <p>Refined coconut oil has been steam-deodorized and filtered to strip out the coconut flavor and aroma. It is the neutral option — if you want the functional benefits of coconut oil (pure fat, high smoke point, solid-at-room-temperature structure) without your brownies tasting like a piña colada, use refined. Unrefined (often labeled "virgin" or "extra virgin," though there is no legally regulated standard for that term with coconut oil) keeps its natural coconut scent and taste. It is ideal for curries, granola, and anything where coconut flavor is welcome. The weight of both is essentially identical — 218 g per cup, 55 g per quarter cup. The processing steps that refine coconut oil remove compounds measured in parts per million; you are not losing any measurable mass. Choose based on flavor, not weight.</p>
+
+                <h2>Why Coconut Oil Is Lighter Than Butter (and What That Means)</h2>
+                <p>Butter weighs 227 g per cup against coconut oil's 218 g — a difference of 9 grams per cup, or about 2 grams per quarter cup. The explanation is simple chemistry: butter is roughly 80% fat and 20% water and milk solids. Water is denser than fat (that is why oil floats), so the water content in butter adds weight per volume. Coconut oil is virtually 100% fat with negligible water, so it is lighter for the same volume. That 2-gram difference per quarter cup is small enough that you can substitute them by volume in most recipes without disaster, but the fat-to-water ratio shift is the real story — coconut oil gives you more pure fat and zero water, which is why coconut oil pie dough is flakier and why coconut oil cakes have a denser, richer crumb than butter cakes. If a recipe was developed specifically for coconut oil, do not substitute butter without adjusting — you will be adding water the recipe never accounted for. Our <a href="/1-tbsp-coconut-oil-to-grams">tablespoon conversion page</a> covers the small-scale measurements for dressings and sautés where a gram or two actually matters.</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: Does solid coconut oil weigh the same as melted coconut oil?</h3>
+                        <p>A1: Essentially, yes. Solid coconut oil weighs about 218 g per cup (55 g per quarter cup) and melted weighs about 215 g per cup (54 g per quarter cup) — a 1-gram difference at the quarter-cup scale. The density of coconut oil changes very slightly with temperature (most fats expand a tiny bit when liquid), but at the volumes used in home baking, the difference is below what most kitchen scales can register. The bigger practical issue is that solid coconut oil is hard to measure by volume without trapping air pockets — pressing it into a measuring cup like shortening works, but a scale eliminates the guesswork entirely.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: Do refined and unrefined coconut oil weigh the same?</h3>
+                        <p>A2: Yes. Refined coconut oil (neutral flavor, no coconut smell) and unrefined virgin coconut oil (coconutty aroma and taste) are both about 218 g per cup, or 55 g per quarter cup. The refining process removes volatile aromatic compounds at the parts-per-million level — nothing that registers on a gram scale. Use whichever version your recipe calls for based on flavor, and measure them identically by weight.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: Why is coconut oil lighter than butter?</h3>
+                        <p>A3: Butter is about 80% fat and 20% water and milk solids. Water is denser than fat — that is why oil floats on water and why vinaigrettes separate. Coconut oil is nearly 100% pure fat with negligible water content, so it weighs less per cup than butter does (218 g vs. 227 g). The difference at a quarter cup is only about 2 grams, so volume-for-volume substitution usually works. But the fat-to-water ratio is the real variable: coconut oil contributes more pure fat and zero water to your dough or batter, which changes the texture of the final bake in ways a 2-gram weight difference alone cannot explain.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 28px; font-size: 0.94rem; color: var(--text-muted); border-top: 1px solid var(--border-color, #e0e0e0); padding-top: 20px;">📐 See also: <a href="/1-cup-coconut-oil-to-grams">1 Cup Coconut Oil → Grams</a> &nbsp;|&nbsp; <a href="/1-2-cup-coconut-oil-to-grams">1/2 Cup Coconut Oil → Grams</a> &nbsp;|&nbsp; <a href="/1-tbsp-coconut-oil-to-grams">1 Tbsp Coconut Oil → Grams</a> &nbsp;|&nbsp; <a href="/1-4-cup-butter-to-grams">1/4 Cup Butter → Grams</a> &nbsp;|&nbsp; <a href="/1-4-cup-sugar-to-grams">1/4 Cup Sugar → Grams</a></p>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+            
+            <section class="related-conversions">
+                <h3>More Coconut Oil Conversions</h3>
+                <ul class="related-links">
+                    <li><a href="/1-cup-coconut-oil-to-grams.html">1 Cup Coconut Oil</a></li>
+                    <li><a href="/1-2-cup-coconut-oil-to-grams.html">1/2 Cup Coconut Oil</a></li>
+                    <li><a href="/1-cup-butter-to-grams.html">Butter</a></li>
+                    <li><a href="/1-cup-vegetable-oil-to-grams.html">Vegetable Oil</a></li>
+                    <li><a href="/1-tbsp-coconut-oil-to-grams.html">1 Tbsp Coconut Oil</a></li>
+                </ul>
+            </section>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>

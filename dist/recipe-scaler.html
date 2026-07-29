@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Scaler — Scale Any Baking Recipe Up or Down (Free) | BakeCalc</title>
+    <meta name="description" content="Free recipe scaler — double, halve, or scale any baking recipe by servings or pan size. Smart fraction display, egg scaling guide, pan conversion chart. No sign-up, works on your phone.">
+    <meta property="og:title" content="Recipe Scaler — Scale Any Baking Recipe | BakeCalc">
+    <meta property="og:description" content="Double, halve, or scale any recipe — smart fractions, pan size converter, egg scaling tips. Free, no sign-up.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/recipe-scaler">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Recipe Scaler — Scale Any Baking Recipe">
+    <meta name="twitter:description" content="Double, halve, or scale any recipe — smart fractions, pan size converter, egg scaling tips.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/recipe-scaler">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Recipe Scaler", "item": "https://bakecalc.club/recipe-scaler" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I scale a baking recipe up or down?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Divide your target yield by the original yield to get the scale factor, then multiply every ingredient amount by that factor. Example: original recipe serves 12, you need 18 — factor is 18/12 = 1.5×. Multiply 2 cups flour by 1.5 to get 3 cups. This works for most ingredients, but watch out for leaveners (baking powder/soda), spices, and salt — they sometimes need less than a pure linear scale. Use the free Recipe Scaler at BakeCalc Club to handle the math and fraction conversions automatically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I just double all the ingredients in a recipe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mostly yes — but three things don't always scale linearly. (1) Leaveners: when doubling a cake, use about 1.75× the baking powder, not 2× — a full double can cause the batter to rise and collapse. (2) Spices and salt: taste is not linear; start with 1.5× and adjust. (3) Baking time: a doubled recipe in a larger pan takes longer, but not twice as long — start checking at 1.3× the original time, not 2×. For pan size conversions, the math is different: going from 8-inch to 10-inch requires 1.56× the batter because pan area scales with radius squared, not diameter."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I convert an 8-inch cake recipe to a 9-inch pan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Scale the recipe by 1.27×. Here's why: the area of an 8-inch round pan is π × 4² = 50.3 square inches. A 9-inch pan is π × 4.5² = 63.6 square inches. Ratio: 63.6 ÷ 50.3 = 1.27. If you multiply by 1.25 (the ratio of diameters), you'll be slightly short. Always use area (π × radius²), not diameter. The BakeCalc Recipe Scaler has built-in pan presets that apply the correct area-based factors automatically."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I handle half an egg when scaling a recipe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Crack the egg(s) into a small bowl, beat lightly with a fork until the white and yolk are uniform, then weigh out what you need. One large egg out of the shell weighs approximately 50 grams. So half an egg is 25g of beaten egg. A quarter egg is about 12-13g. This is far more accurate (and less wasteful) than trying to visually split an egg in half. A kitchen scale that reads to 1 gram is essential here — they cost about $12 and pay for themselves in avoided baking failures."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does baking time change when I scale a recipe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — but not proportionally. If you double a cake recipe and bake it in two 8-inch pans (same thickness), the baking time stays roughly the same. If you pour all the batter into one larger/deeper pan, the center takes longer to cook through. A good rule of thumb: for every 50% increase in batter depth, add about 25% more baking time — but start checking 10 minutes before the original time anyway. The surface-area-to-volume ratio changes when you scale, especially for cakes baked in a single pan. Always use the toothpick/skewer test regardless of what the timer says."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between scaling by servings and scaling by pan size?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Scaling by servings is linear: if recipe A serves 8 and you need 12, multiply everything by 1.5×. Scaling by pan size is area-based: an 8-inch round pan holds 50 sq in of batter, a 10-inch holds 79 sq in — so you need 1.56× the recipe, not 1.25× (which is what the diameter ratio would suggest). The diameter ratio gives the wrong answer because pan capacity depends on area (radius squared), not diameter. For rectangular pans, multiply length × width to get area, then ratio the areas."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+    <header>
+        <h1>📐 Recipe Scaler — Scale Any Baking Recipe Up or Down, No Math Required</h1>
+        <p>Doubling a cake, halving cookies, or converting pan sizes — type in your ingredients and we handle the fractions. Built by a real baker, not an AI.</p>
+    </header>
+
+    <main class="cost-calc">
+
+        <!-- ============ Scale Settings ============ -->
+        <section class="cost-section">
+            <div class="cost-section-header">
+                <span class="cost-section-icon">📐</span>
+                <h2>Scale Settings</h2>
+            </div>
+
+            <div class="info-row">
+                <div class="info-field">
+                    <label for="original-yield">Original Recipe Yields</label>
+                    <input type="number" id="original-yield" value="12" min="0.1" step="any" inputmode="decimal">
+                    <span style="font-size:0.8rem;color:var(--text-muted);">servings, pieces, or reference size</span>
+                </div>
+                <div class="info-field">
+                    <label for="target-yield">Target Yield</label>
+                    <input type="number" id="target-yield" value="24" min="0.1" step="any" inputmode="decimal">
+                    <span style="font-size:0.8rem;color:var(--text-muted);">how many servings do you need?</span>
+                </div>
+            </div>
+
+            <!-- Scale factor live display -->
+            <div style="display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:12px 0 0;">
+                <span style="font-size:0.85rem;color:var(--text-muted);font-weight:600;">Scale Factor:</span>
+                <span class="scale-factor-display" id="val-scale-factor-inline">2.00×</span>
+            </div>
+
+            <!-- Quick scale buttons -->
+            <div class="quick-scale-row">
+                <span class="quick-scale-label">Quick:</span>
+                <button class="btn-scale-quick" onclick="RecipeScaler.quickScale(0.5)">½×</button>
+                <button class="btn-scale-quick" onclick="RecipeScaler.quickScale(2)">2×</button>
+                <button class="btn-scale-quick" onclick="RecipeScaler.quickScale(3)">3×</button>
+                <button class="btn-scale-quick" onclick="RecipeScaler.quickScale(1/3)">⅓×</button>
+                <button class="btn-scale-quick" onclick="RecipeScaler.quickScale(1.5)">1.5×</button>
+            </div>
+
+            <!-- Pan preset dropdown -->
+            <div class="info-field" style="margin-top:12px;">
+                <label for="pan-preset">Or pick a pan conversion:</label>
+                <select id="pan-preset" style="max-width:420px;">
+                    <option value="0">— Custom (enter manually) —</option>
+                </select>
+            </div>
+
+            <div class="pan-info-callout">
+                <strong>Why 8-inch → 10-inch is 1.56×, not 1.25×:</strong> Pan capacity depends on <em>area</em> (π × radius²), not diameter. An 8-inch round pan has ~50 square inches of surface. A 10-inch has ~79 sq in. The ratio is 79/50 = 1.56. Using the diameter ratio (10/8 = 1.25) gives you too little batter and a thin, sad cake. The presets above all use the correct area-based math.
+            </div>
+        </section>
+
+        <!-- ============ Ingredient List ============ -->
+        <section class="cost-section">
+            <div class="cost-section-header">
+                <span class="cost-section-icon">🧾</span>
+                <h2>Ingredients</h2>
+                <button class="btn-add-row" onclick="RecipeScaler.addRow()" title="Add ingredient">+ Add</button>
+            </div>
+            <div class="table-wrap">
+                <table class="ingredient-table" id="ingredient-table">
+                    <thead>
+                        <tr>
+                            <th class="th-name">Ingredient</th>
+                            <th class="th-qty">Original</th>
+                            <th class="th-unit">Unit</th>
+                            <th class="th-qty-scaled">Scaled Result</th>
+                            <th class="th-del"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="ingredients-body">
+                        <!-- JS-rendered rows -->
+                    </tbody>
+                </table>
+            </div>
+            <datalist id="ingredient-names"></datalist>
+        </section>
+
+        <!-- ============ Results Summary ============ -->
+        <section class="cost-section cost-section--results" id="result-container">
+            <div class="cost-section-header">
+                <span class="cost-section-icon">📊</span>
+                <h2>Scaled Recipe Summary</h2>
+                <div class="result-actions">
+                    <button class="btn-print" onclick="RecipeScaler.printRecipe()">🖨️ Print Recipe</button>
+                    <button class="btn-reset" onclick="RecipeScaler.resetAll()">↺ Reset</button>
+                </div>
+            </div>
+
+            <div class="result-grid result-grid--2col">
+                <div class="result-item result-item--highlight">
+                    <span class="result-label">Scale Factor</span>
+                    <span class="result-val result-val--accent" id="val-scale-factor">2.00×</span>
+                </div>
+                <div class="result-item result-item--highlight">
+                    <span class="result-label">Yield</span>
+                    <span class="result-val" id="val-yield-summary">12 → 24 servings</span>
+                </div>
+            </div>
+
+            <div class="table-wrap" style="margin-top:16px;">
+                <table class="ingredient-table">
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Original</th>
+                            <th>Scaled</th>
+                        </tr>
+                    </thead>
+                    <tbody id="summary-body">
+                        <!-- JS-rendered -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Egg warning (hidden unless fractional eggs detected) -->
+            <div id="egg-warning" class="result-display" style="display:none;margin-top:16px;border-left-color:#e6a817;">
+                <h3>🥚 About Fractional Eggs</h3>
+                <p class="output-note" style="font-style:normal;">
+                    Your scaled recipe calls for <strong id="egg-warning-qty">1.5 eggs</strong>.
+                    Here's the fix: crack the eggs into a bowl, beat lightly with a fork until uniform, then weigh out what you need.
+                    One large egg out of the shell weighs ~50g — so you need <strong id="egg-warning-grams">75g</strong> of beaten egg.
+                    <a href="/how-many-grams-is-1-egg">Full egg weight guide →</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- ============ SEO Article ============ -->
+        <article class="seo-section">
+
+            <h2>I Doubled the Cake and It Was Raw in the Middle</h2>
+            <p>The first time I tried to turn my mom's 8-inch vanilla cake into a 10-inch cake for my son's birthday party, I multiplied everything by 1.25. Because 10 is 25% bigger than 8, right?</p>
+            <p>Wrong. The batter overflowed the pan. The middle was raw soup at the 35-minute mark. At 55 minutes, the edges were burnt and the center was still jiggly. I served a grocery-store backup cake at my own kid's party.</p>
+            <p>The problem wasn't the recipe. It wasn't my oven. It was my math. I'd used the ratio of <em>diameters</em> (10/8 = 1.25) when I should have used the ratio of <em>areas</em> (π × 5² / π × 4² = 1.56). I'd underscaled the recipe by 20% and overbaked it trying to compensate. If you've been there, this tool is for you.</p>
+
+            <h2>The One Number That Changes Everything</h2>
+            <p>Recipe scaling comes down to one number: the <strong>scale factor</strong>. It's simply:</p>
+            <p style="text-align:center;font-size:1.2rem;font-weight:600;color:var(--primary);padding:12px;background:var(--result-bg);border-radius:var(--radius);">
+                Scale Factor = Target Yield ÷ Original Yield
+            </p>
+            <p>Original recipe makes 12 cupcakes, you need 30? Factor is 30/12 = 2.5×. Multiply every ingredient by 2.5. That's the easy part. The hard part is knowing <em>when</em> that simple multiplication breaks down — and what to do about it.</p>
+
+            <h2>Why You Can't Just Double Everything</h2>
+            <p>For most ingredients — flour, sugar, butter, milk, oil — yes, just multiply by the scale factor. But three categories need a lighter touch:</p>
+            <p><strong>1. Leaveners (baking powder &amp; baking soda):</strong> When scaling up more than 2×, use about 1.75× the leavener instead of a full 2×. Extra leavening produces too much gas too fast — the batter rises dramatically, then collapses before the structure sets. You get a cake with a crater in the middle. (Yes, I've done this. Multiple times.)</p>
+            <p><strong>2. Spices and salt:</strong> Taste is logarithmic, not linear. Doubling cinnamon doesn't double the perception of cinnamon — it can go from "warm spice note" to "this tastes like a candle." For strongly-flavored ingredients, scale by 1.5× first, taste the batter if it's safe, and adjust.</p>
+            <p><strong>3. Baking time:</strong> A doubled batch baked in two separate pans of the same size takes roughly the same time. A doubled batch baked in one larger/deeper pan takes longer — but not 2× longer. Start checking at about 1.3× the original time and trust the toothpick test over the clock.</p>
+
+            <h2>The Pan Size Trap: Diameter vs. Area</h2>
+            <p>This is the mistake almost every baker makes the first time. Pan capacity doesn't scale with diameter — it scales with <strong>area</strong>. And area scales with <strong>radius squared</strong> (π × r²).</p>
+            <p>An 8-inch round pan: radius = 4 inches, area = π × 4² ≈ 50.3 sq in.<br>
+            A 10-inch round pan: radius = 5 inches, area = π × 5² ≈ 78.5 sq in.<br>
+            Ratio: 78.5 ÷ 50.3 = <strong>1.56×</strong> — not 10/8 = 1.25×.</p>
+            <p>If you'd used 1.25×, you'd have 20% less batter than you need. Your cake would be thin, dry, and overbaked. The table below has the correct factors for every common pan swap.</p>
+
+            <h3>Pan Size Conversion Reference Table</h3>
+            <div class="table-wrap">
+            <table class="pan-table">
+                <thead>
+                    <tr>
+                        <th>Pan Shape</th>
+                        <th>From</th>
+                        <th>To</th>
+                        <th>Scale Factor</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Round</td><td>6-inch</td><td>8-inch</td><td class="pan-factor">1.78×</td><td>Nearly double the batter</td></tr>
+                    <tr><td>Round</td><td>8-inch</td><td>9-inch</td><td class="pan-factor">1.27×</td><td>Most common swap — add ~25%</td></tr>
+                    <tr><td>Round</td><td>8-inch</td><td>10-inch</td><td class="pan-factor">1.56×</td><td>Not 1.25! Uses area ratio</td></tr>
+                    <tr><td>Round</td><td>9-inch</td><td>10-inch</td><td class="pan-factor">1.23×</td><td>Small bump — one extra egg often enough</td></tr>
+                    <tr><td>Round → Square</td><td>8-inch round</td><td>8-inch square</td><td class="pan-factor">1.27×</td><td>Square pan holds more area</td></tr>
+                    <tr><td>Round → Square</td><td>9-inch round</td><td>9-inch square</td><td class="pan-factor">1.27×</td><td>Same ratio — geometry is consistent</td></tr>
+                    <tr><td>Square → Rect.</td><td>8×8-inch</td><td>9×13-inch</td><td class="pan-factor">1.83×</td><td>Nearly double; area ratio 117/64</td></tr>
+                    <tr><td>Rectangular</td><td>9×13-inch</td><td>13×18-inch (half sheet)</td><td class="pan-factor">2.0×</td><td>Classic sheet pan doubling</td></tr>
+                    <tr><td>Loaf</td><td>8×4-inch</td><td>9×5-inch</td><td class="pan-factor">1.42×</td><td>Common quick-bread swap</td></tr>
+                    <tr><td>Round</td><td>6-inch</td><td>10-inch</td><td class="pan-factor">2.78×</td><td>Nearly triple — consider splitting into 2 pans</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-top:4px;">All factors are area-based (π × r² for rounds, L × W for rectangles). For pans of different shapes, always compare areas — the tool above does this automatically.</p>
+
+            <h2>Eggs: The Half-Egg Problem (Solved)</h2>
+            <p>Scaling recipes inevitably produces fractional eggs. Your original cake uses 3 eggs and you need 1.5× — that's 4.5 eggs. What's half an egg?</p>
+            <p>The right answer: <strong>weigh it</strong>. Crack the eggs into a bowl, beat with a fork until the white and yolk are fully combined (10 seconds of light beating), then pour out the weight you need. One large egg out of the shell weighs approximately 50 grams. So 4.5 eggs = 225g of beaten egg.</p>
+            <p>This is more accurate than trying to eyeball "half an egg" and it avoids waste — whatever you don't use goes into scrambled eggs for the baker. A digital kitchen scale that reads to 1 gram costs about $12 and it's the single best investment you can make as a baker. I use mine every single day.</p>
+
+            <h2>How This Relates to Baker's Percentage</h2>
+            <p>If you've read our <a href="/articles/bakers-percentage-explained">guide to baker's percentage</a>, you know that professional bakers express every ingredient as a percentage of the flour weight. That system is naturally scalable — want 30% more bread? Multiply the flour weight by 1.3 and recalculate every other ingredient from its baker's percentage.</p>
+            <p>The tool on this page does the same thing, but works with the recipe as-written (cups, tablespoons, grams — whatever you've got). It doesn't require you to convert everything to baker's percentages first. But if you scale recipes often, learning baker's percentage is worth the hour it takes — it makes scaling, comparing, and troubleshooting recipes effortless.</p>
+
+            <h2>A Worked Example: Vanilla Cake from 8-inch to 10-inch</h2>
+            <p>Here's exactly how the math works for a real recipe:</p>
+            <p><strong>Original (8-inch, 2 layers, ~12 servings):</strong></p>
+            <ul>
+                <li>2½ cups all-purpose flour</li>
+                <li>1½ cups sugar</li>
+                <li>¾ cup butter</li>
+                <li>3 large eggs</li>
+                <li>1 cup milk</li>
+                <li>2 tsp vanilla</li>
+                <li>2½ tsp baking powder</li>
+                <li>½ tsp salt</li>
+            </ul>
+            <p><strong>Scale factor for 8-inch → 10-inch:</strong> 1.56× (area-based, from the pan preset above).</p>
+            <p><strong>Scaled (10-inch, 2 layers):</strong></p>
+            <ul>
+                <li>3¾ cups + 2 tbsp flour &ensp;<span style="color:var(--text-muted);">(2.5 × 1.56 = 3.9 cups)</span></li>
+                <li>2⅓ cups sugar &ensp;<span style="color:var(--text-muted);">(1.5 × 1.56 = 2.34)</span></li>
+                <li>1 cup + 3 tbsp butter &ensp;<span style="color:var(--text-muted);">(0.75 × 1.56 = 1.17)</span></li>
+                <li>4.7 eggs — use 235g beaten egg &ensp;<span style="color:var(--text-muted);">(3 × 1.56 = 4.68)</span></li>
+                <li>1½ cups + 1 tbsp milk &ensp;<span style="color:var(--text-muted);">(1 × 1.56 = 1.56)</span></li>
+                <li>3 tsp vanilla</li>
+                <li>3½ tsp baking powder &ensp;<span style="color:var(--text-muted);">(scaled slightly under 1.56×)</span></li>
+                <li>¾ tsp salt</li>
+            </ul>
+            <p>Try this yourself — the demo recipe loaded in the tool above is exactly this vanilla cake, pre-set to scale from 12 to 24 servings (2×). Change the target yield or use the pan preset dropdown to see the math in action.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-box">
+                <div class="faq-item">
+                    <h3>How do I scale a baking recipe up or down?</h3>
+                    <p>Divide your target yield by the original yield to get the scale factor, then multiply every ingredient amount by that factor. Example: original serves 12, you need 18 — factor is 18/12 = 1.5×. Multiply 2 cups flour by 1.5 = 3 cups. Most ingredients scale linearly, but leaveners, spices, and baking time need adjustments (see the sections above).</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I just double all the ingredients in a recipe?</h3>
+                    <p>For most ingredients — yes. For leaveners (baking powder/soda), use about 1.75× instead of 2× when doubling to avoid over-rising and collapse. For spices and salt, start at 1.5× and taste. For baking time, do NOT double it — a doubled recipe in the same pan size (two pans) takes roughly the same time; in one larger pan, start checking at ~1.3× the original time.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I convert a cake recipe for a different pan size?</h3>
+                    <p>Compare the <em>areas</em>, not the diameters. For round pans: area = π × radius². An 8-inch pan (radius 4) has an area of ~50 sq in. A 9-inch pan (radius 4.5) has ~64 sq in. The scale factor is 64/50 = 1.28×. For rectangular pans: area = length × width. The tool above has built-in presets for all common pan swaps.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I handle half an egg when scaling?</h3>
+                    <p>Beat the eggs together, then weigh out what you need. One large egg out of the shell = ~50g. Half an egg = 25g beaten egg. This is far more accurate than trying to eyeball it. See our <a href="/how-many-grams-is-1-egg">complete egg weight guide</a> for all sizes (medium through jumbo).</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Does baking time change when I scale a recipe?</h3>
+                    <p>It depends on whether you're baking in the same pan size (multiple pans) or a larger single pan. Multiple pans of the same thickness: same time. One larger/deeper pan: longer time. Rule of thumb — for every 50% increase in batter depth, add ~25% more time. Always use the toothpick test: insert in the center, it should come out clean or with a few moist crumbs.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What's the difference between scaling by servings and scaling by pan size?</h3>
+                    <p>Scaling by servings is linear: 8 servings → 12 servings = 1.5×. Scaling by pan size uses area: 8-inch round → 10-inch round = 1.56× (not 1.25×). The diameter ratio gives the wrong answer because pan capacity depends on area (radius²). When a recipe says "makes one 8-inch cake," you're scaling by pan size, not by servings — use the pan presets in the tool above.</p>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- ============ Related Links ============ -->
+        <p style="margin-top:28px;font-size:0.94rem;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:20px;line-height:2;">
+            <strong>Related tools &amp; guides:</strong><br>
+            🥧 <a href="/pan-size-converter">Pan Size Converter</a> — find the exact scale factor for any pan shape swap (area-based, not diameter)<br>
+            📊 <a href="/cost-calculator">Baking Cost Calculator</a> — price your scaled recipe once you've got the amounts right<br>
+            🥚 <a href="/how-many-grams-is-1-egg">Egg Weight in Grams</a> — essential for handling fractional eggs when scaling<br>
+            🧮 <a href="/articles/bakers-percentage-explained">Baker's Percentage Explained</a> — the professional system that makes scaling effortless<br>
+            ⚖️ <a href="/articles/how-to-measure-flour-correctly">How to Measure Flour Correctly</a> — because scaling amplifies measuring mistakes<br>
+            🌡️ <a href="/oven-temperature-conversion">Oven Temperature Conversion</a> — if you're scaling a recipe from a different country<br>
+            📝 <a href="/articles/how-to-price-homemade-baked-goods">How to Price Baked Goods</a> — scaling changes your ingredient costs; price accordingly
+        </p>
+
+        <p style="margin-top:28px;font-size:0.94rem;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:20px;line-height:2;">
+            <strong>Popular conversions:</strong><br>
+            🧈 <a href="/150g-grams-to-cups-butter">150g butter to cups</a> · <a href="/300g-grams-to-cups-butter">300g butter to cups</a> · <a href="/400g-grams-to-cups-butter">400g butter to cups</a><br>
+            🍚 <a href="/150g-grams-to-cups-sugar">150g sugar to cups</a> · <a href="/250g-grams-to-cups-sugar">250g sugar to cups</a> · <a href="/300g-grams-to-cups-sugar">300g sugar to cups</a> · <a href="/400g-grams-to-cups-sugar">400g sugar to cups</a><br>
+            🌾 <a href="/120g-grams-to-cups-flour">120g flour to cups</a><br>
+            💧 <a href="/3-oz-to-ml">3 oz to ml</a> · <a href="/5-oz-to-ml">5 oz to ml</a> · <a href="/12-oz-to-ml-water">12 oz to ml</a> · <a href="/24-oz-to-ml">24 oz to ml</a>
+        </p>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BakeCalc Club</p>
+        <p>
+            <a href="/">Home</a>
+            <a href="/recipe-scaler">Recipe Scaler</a>
+            <a href="/cost-calculator">Cost Calculator</a>
+            <a href="/about">About</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/contact">Contact</a>
+        </p>
+
+            <section class="related-conversions">
+                <h3>Quick Ingredient Converters</h3>
+                <ul class="related-links">
+                    <li><a href="/1-cup-flour-to-grams">1 Cup Flour to Grams</a></li>
+                    <li><a href="/1-cup-sugar-to-grams">1 Cup Sugar to Grams</a></li>
+                    <li><a href="/1-cup-butter-to-grams">1 Cup Butter to Grams</a></li>
+                    <li><a href="/1-oz-to-ml">1 oz to mL</a></li>
+                    <li><a href="/how-many-grams-is-1-egg">How Many Grams Is 1 Egg?</a></li>
+                    <li><a href="/oven-temperature-conversion">Oven Temperature Conversion</a></li>
+                </ul>
+            </section>
+            
+            <section class="try-these-tools">
+                <h3>Related Guides</h3>
+                <ul class="related-links">
+                    <li><a href="/articles/cups-to-grams-complete-guide">Cups to Grams Complete Guide</a></li>
+                    <li><a href="/articles/high-altitude-baking-adjustments">High-Altitude Baking</a></li>
+                </ul>
+            </section>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+    </footer>
+
+</div>
+
+<script src="recipe-scaler.js"></script>
+</body>
+</html>

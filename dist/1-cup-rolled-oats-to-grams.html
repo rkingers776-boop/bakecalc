@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 Cup Rolled Oats to Grams — Old-Fashioned, Quick & Steel-Cut Converter | BakeCalc</title>
+    <meta name="description" content="1 cup of old-fashioned rolled oats weighs 100 grams. Quick oats, steel-cut, and instant — they all pack differently. Exact grams for oatmeal, granola, and baking.">
+
+    <meta property="og:title" content="1 Cup Rolled Oats to Grams — 100g Converter | BakeCalc">
+    <meta property="og:description" content="1 cup rolled oats = 100g. Old-fashioned, quick, steel-cut, and instant oats — exact gram weights for each type.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/1-cup-rolled-oats-to-grams">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1 Cup Rolled Oats to Grams — 100g">
+    <meta name="twitter:description" content="1 cup rolled oats = 100g. Quick, steel-cut, and instant oat gram conversions for baking and breakfast.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/1-cup-rolled-oats-to-grams">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "1 Cup Rolled Oats to Grams", "item": "https://bakecalc.club/1-cup-rolled-oats-to-grams" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many grams is 1 cup of rolled oats?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One US cup of old-fashioned rolled oats weighs approximately 100 grams. Quick oats (more finely cut) weigh about 95g per cup. Steel-cut oats are much denser at roughly 160g per cup because the whole oat groat is chopped into pieces rather than rolled flat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I substitute quick oats for rolled oats in baking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "By weight: mostly yes — 100g of rolled oats and 100g of quick oats will both work in cookies and muffins. By volume: 1 cup of quick oats weighs about 95g vs 100g for rolled — a 5% difference that's usually within the recipe's tolerance. The bigger difference is texture: quick oats absorb liquid faster and bake up softer, while rolled oats retain more chew. For oatmeal cookies, rolled oats give you that distinct toothsome texture; quick oats make a softer, more uniform cookie. Neither is wrong — they're just different results."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do steel-cut oats weigh so much more per cup?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Steel-cut oats are not rolled — they're whole oat groats chopped into 2-3 pieces with steel blades. Because they haven't been steamed and flattened, they're dense, compact pellets that pack much more tightly. At about 160g per cup, steel-cut oats are 60% heavier than rolled oats. You cannot substitute steel-cut oats for rolled oats in baking — they won't soften during the bake time and will add a gritty, crunchy texture that most recipes don't intend."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>1 Cup of Rolled Oats to Grams — Because "a Cup of Oats" Could Mean Three Different Things</h1>
+            <p>Old-fashioned rolled, quick, instant, and steel-cut — they all fill a cup differently. Here's the gram weight for each.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-cups="1">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="cups-input">Cups of Oats</label>
+                        <input type="number" inputmode="decimal" id="cups-input" value="1" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ingredient-type">Type of Oats</label>
+                        <select id="ingredient-type">
+                            <option value="100" selected>Old-Fashioned Rolled Oats (1 cup ≈ 100g)</option>
+                            <option value="95">Quick Oats / Instant Oats (1 cup ≈ 95g)</option>
+                            <option value="160">Steel-Cut Oats / Pinhead Oats (1 cup ≈ 160g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateCupsToGrams(this)">Convert to Grams</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Gram Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="grams-output-frac">100 grams</span> (<span id="grams-output">100</span> g)
+                    </div>
+                    <p class="output-note">*1 cup old-fashioned rolled oats = 100g when lightly spooned. Steel-cut oats are much heavier: 160g/cup.</p>
+                </div>
+            </div>
+
+            <article class="seo-section">
+                <h2>1 Cup Rolled Oats = 100 Grams. The Other Types? Not Even Close.</h2>
+                <p>Old-fashioned rolled oats — the kind in the Quaker cylinder with the smiling man on it — weigh 100 grams per US cup. They're steamed, rolled flat, and dried. The flakes are about the size of a fingernail clipping, and they don't pack particularly tightly in a measuring cup. Which is why they only weigh 100g — less than all-purpose flour (120g), less than sugar (200g), less than almost any other dry baking ingredient.</p>
+
+                <p>But "oats" isn't one ingredient. Quick oats are cut smaller before rolling and pack slightly tighter at 95g per cup. Steel-cut oats are whole groats chopped with a blade — no rolling, no steaming — and they're dense little nuggets at 160g per cup. If a recipe calls for "1 cup oats" and you grab steel-cut by mistake, you've just added 60% more oat material than intended. Your cookies will be rock-hard pebble-studded disasters. Ask me how I know.</p>
+
+                <h2>Which Oat for Which Job</h2>
+                <table style="width:100%; border-collapse:collapse; margin:16px 0;">
+                    <tr style="background:var(--card-bg);"><th style="padding:8px;text-align:left;">Oat Type</th><th style="padding:8px;text-align:left;">Grams / Cup</th><th style="padding:8px;text-align:left;">Best For</th><th style="padding:8px;text-align:left;">NOT For</th></tr>
+                    <tr><td style="padding:8px;">Old-Fashioned Rolled</td><td style="padding:8px;"><strong>100g</strong></td><td style="padding:8px;">Cookies, granola, crisps, muffins</td><td style="padding:8px;">—</td></tr>
+                    <tr style="background:var(--card-bg);"><td style="padding:8px;">Quick Oats</td><td style="padding:8px;"><strong>95g</strong></td><td style="padding:8px;">Softer cookies, quick bread, meatloaf</td><td style="padding:8px;">Granola — turns to dust</td></tr>
+                    <tr><td style="padding:8px;">Instant Oats</td><td style="padding:8px;"><strong>95g</strong></td><td style="padding:8px;">Oatmeal packets only</td><td style="padding:8px;">Any baking — turns to paste</td></tr>
+                    <tr style="background:var(--card-bg);"><td style="padding:8px;">Steel-Cut</td><td style="padding:8px;"><strong>160g</strong></td><td style="padding:8px;">Porridge, savory oat bowls</td><td style="padding:8px;">Cookies, muffins, granola</td></tr>
+                </table>
+
+                <h2>Oatmeal Cookies: Rolled vs Quick — A Side-by-Side</h2>
+                <p>I baked the same cookie recipe twice, once with rolled oats (100g/cup) and once with quick oats (95g/cup) — both measured by weight so the comparison was fair. The rolled oat cookies spread less, had visible oat flakes, and had that distinct chewy-ribbon texture you expect from a classic oatmeal cookie. The quick oat cookies spread more (less structure from the smaller oat pieces), were softer throughout with no distinct flakes, and tasted slightly sweeter because the starch in the smaller oat pieces gelatinized more completely during baking. Both were good. The rolled oat version is what most people picture when they think "oatmeal cookie." The quick oat version is what you get from those frosted oatmeal cookies at the grocery store — soft, uniform, almost cakey. Pick your fighter.</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: How many grams is 1 cup of rolled oats?</h3>
+                        <p>1 US cup of old-fashioned rolled oats = <strong>100 grams</strong> (lightly spooned, not packed). Quick oats: 95g per cup. Steel-cut oats: 160g per cup.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: Can I substitute quick oats for rolled oats in cookies?</h3>
+                        <p>By weight (100g either way): yes. By volume: 1 cup of quick oats (95g) is 5% less oat than 1 cup of rolled (100g) — close enough for most recipes. The texture will be softer and less chewy with quick oats. For the most reliable results across oat types, weigh them.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: Are "old-fashioned oats" and "rolled oats" the same thing?</h3>
+                        <p>Yes — "old-fashioned oats" is Quaker's brand name for standard rolled oats. They're the same product. Both are whole oat groats that have been steamed and rolled flat, weighing 100g per US cup.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 24px; font-size: 0.92rem; color: var(--text-muted);">🥣 Related conversions: <a href="/1-cup-flour-to-grams">1 Cup Flour → Grams</a> · <a href="/1-cup-almond-flour-to-grams">1 Cup Almond Flour → Grams</a> · <a href="/1-cup-coconut-oil-to-grams">1 Cup Coconut Oil → Grams</a> · <a href="/cost-calculator">Cost Calculator</a></p>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+            
+            <section class="related-conversions">
+                <h3>Related Conversions</h3>
+                <ul class="related-links">
+                    <li><a href="1-cup-flour-to-grams.html All-Purpose Flour"></a></li>
+                    <li><a href="/1-cup-almond-flour-to-grams.html">Almond Flour</a></li>
+                    <li><a href="/1-cup-cornstarch-to-grams.html">Cornstarch</a></li>
+                </ul>
+            </section>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1/4 Cup Honey to Grams — Free Baking Conversion Calculator | BakeCalc</title>
+    <meta name="description" content="Convert 1/4 cup of honey to grams. ¼ cup = 85g. Free baking calculator — works on mobile, no sign-up.">
+
+    <meta property="og:title" content="1/4 Cup Honey to Grams — Free Conversion Calculator">
+    <meta property="og:description" content="Convert 1/4 cup of honey to grams. ¼ cup = 85g. Supports wildflower, clover, manuka, and other varietals.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/1-4-cup-honey-to-grams">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1/4 Cup Honey to Grams — Free Conversion Calculator">
+    <meta name="twitter:description" content="Convert 1/4 cup of honey to grams. ¼ cup = 85g.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/1-4-cup-honey-to-grams">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "1/4 Cup Honey to Grams", "item": "https://bakecalc.club/1-4-cup-honey-to-grams" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why does honey weight vary by type?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Different honey varietals have different moisture contents — wildflower honey tends to be slightly thinner than clover, and manuka honey is often denser. The legal limit for honey moisture in the US is 18.6%, but most commercial honey sits around 17%. Each percentage point of moisture changes the density enough to shift a quarter-cup measurement by 1–2 grams. For baking purposes these differences are negligible, but if you are tracking macros precisely, use 340 g/cup as your baseline."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does heating honey change its weight?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Heating honey makes it thinner and easier to pour, but the weight itself does not change unless you boil off water — which requires sustained high heat well above what you would use to simply warm honey for easier measuring. A quarter cup of warm honey still weighs 85 grams. What does change is how much sticks to the measuring cup: warm honey pours cleaner, so you actually get more honey into the bowl instead of leaving a coating on the sides of the cup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I measure sticky honey without losing half of it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Coat your measuring cup with a thin film of neutral oil (vegetable or canola) before adding honey — it slides right out. Alternatively, use the same cup for oil before honey when your recipe calls for both: measure the oil first, leave the residue, then measure the honey. A silicone spatula will scrape the cup nearly clean. If you need precision, the best method is to put your mixing bowl on a scale and pour honey directly by weight — 85 grams for a quarter cup with zero cleanup and zero waste."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>1/4 Cup Honey to Grams Converter</h1>
+            <p>Convert ¼ US cup of honey into grams — for wildflower, clover, manuka, and other varietals with practical tips for measuring without the mess.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-cups="0.25">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="cups-input">Cups of Honey</label>
+                        <input type="number" inputmode="decimal" id="cups-input" value="0.25" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ingredient-type">Honey Varietal (density varies slightly)</label>
+                        <select id="ingredient-type">
+                            <option value="340" selected>Standard / Clover Honey (1 cup ≈ 340g)</option>
+                            <option value="345">Wildflower Honey (1 cup ≈ 345g)</option>
+                            <option value="350">Manuka / Dense Varietals (1 cup ≈ 350g)</option>
+                            <option value="336">Light / Acacia Honey (1 cup ≈ 336g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateCupsToGrams(this)">Convert to Grams</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Gram Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="grams-output-frac">≈ 85 g (quarter cup)</span> (<span id="grams-output">85</span> g)
+                    </div>
+                    <p class="output-note">*Based on standard US cup density for liquid honey at room temperature. Warmer honey pours thinner but weighs the same. All values assume honey is not aerated or whipped.</p>
+                </div>
+            </div>
+            <article class="seo-section">
+                <h2>How Many Grams in 1/4 Cup of Honey?</h2>
+                <p>Honey is one of the densest ingredients you will ever measure by the quarter cup — heavier than water, heavier than maple syrup, heavier than most liquids in your kitchen. <strong>¼ cup of honey = 85 grams</strong>. That is 70% heavier than the same volume of water, which would weigh only about 59 grams. The reason is dissolved sugar content: honey is roughly 82% sugar by weight and only about 17% water, so you are essentially measuring a concentrated sugar syrup. That density is exactly why honey sinks in a glass of iced tea instead of floating on top — and it's why a quarter cup of honey in a bread dough or a marinade contributes substantial sweetness and moisture, not just a whisper of flavor.</p>
+
+                <h2>The Conversion: A Dense Pour</h2>
+                <p>Honey at 340 grams per US cup is satisfyingly predictable — the math is clean enough to do in your head once you know the baseline:</p>
+                <ul>
+                    <li><strong>Grams</strong> = Cups × Grams-per-Cup</li>
+                    <li>Standard / Clover Honey: 0.25 × 340 g = <strong>85 grams</strong></li>
+                    <li>Wildflower Honey: 0.25 × 345 g = <strong>86 grams</strong></li>
+                    <li>Manuka / Dense Varietals: 0.25 × 350 g = <strong>88 grams</strong></li>
+                    <li>Light / Acacia Honey: 0.25 × 336 g = <strong>84 grams</strong></li>
+                </ul>
+
+                <h2>Why a Few Grams of Honey Actually Matter in Baking</h2>
+                <p>Honey is not just a sweetener — it is a functional ingredient that changes the chemistry of whatever you are making. It is hygroscopic (it pulls moisture from the air and holds onto it), which means baked goods made with honey stay soft longer than those made with sugar. But honey is also acidic, with a pH around 3.9, which means it reacts with baking soda to produce carbon dioxide — you get extra leavening that granulated sugar cannot provide. If a recipe calls for <a href="/1-2-cup-honey-to-grams">half a cup</a> of honey and you undershoot by 10 grams, you have lost some browning potential (honey caramelizes faster than sugar), some moisture retention, and some of that acidic kick that activates the baking soda. In a quarter-cup quantity — common in small-batch granola, glazes, and vinaigrettes — being off by 5 grams is a 6% error, enough to make a glaze runny instead of clingy. For <a href="/1-cup-honey-to-grams">full-cup conversions</a> in bread recipes, the margin gets more forgiving, but at the quarter-cup scale, precision buys you consistency.</p>
+
+                <h2>The Varietal Difference: Does Type Really Change the Weight?</h2>
+                <p>It does, but the range is narrow. Clover honey — the standard yellow-bear squeeze bottle — clocks in right at 340 g/cup. Wildflower honey runs slightly denser at around 345 g/cup because wildflower nectar sources often produce honey with lower moisture content. Manuka and other medical-grade or thick-set honeys can hit 350 g/cup, partially because of higher fructose-to-glucose ratios and partially because of suspended pollen and propolis particles that add microscopic mass. Acacia honey sits at the lighter end around 336 g/cup — it is famously slow to crystallize and slightly thinner in the jar. For a quarter cup, the spread between acacia and manuka is only 4 grams — barely a teaspoon of water — so for home baking you can use 85 g across the board and never notice the difference. Our <a href="/1-tbsp-honey-to-grams">tablespoon honey guide</a> covers the smaller-scale conversions if you are working with single-tablespoon quantities.</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: Why does honey weight vary by type?</h3>
+                        <p>A1: Different nectar sources produce honey with different moisture levels. In the US, honey can legally be up to 18.6% water, but most commercial honey hovers around 17%. Each percentage point of extra moisture lowers the density slightly — wildflower honey at 16% moisture is denser than acacia at 18%. For a quarter cup, the difference between varietals is only about 1–4 grams, so for baking you can treat all honey as 85 g per quarter cup without worry. The variation matters more if you are tracking macros or formulating a commercial product.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: Does heating honey change its weight?</h3>
+                        <p>A2: No — warming honey to make it pourable does not change its mass. Heat simply lowers the viscosity so it flows more easily. You would need to boil honey at high heat for an extended period to drive off enough water to change the weight, and by that point you would be making a completely different product (essentially a cooked sugar syrup). Warm honey at 100°F and cold honey straight from the fridge weigh the same per quarter cup — 85 grams either way. The practical benefit of warming is that less honey sticks to the measuring cup, so you get closer to the full 85 g into your recipe instead of leaving a 5-gram coating behind.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: How do I measure sticky honey without losing half of it?</h3>
+                        <p>A3: The oldest trick in the book works best: grease your measuring cup with a thin swipe of neutral oil before adding honey. The honey slides out cleanly and you waste almost nothing. If your recipe calls for both oil and honey, measure the oil first, leave the residual film in the cup, then measure the honey — it is the same principle with one fewer dish to wash. A silicone spatula gets the last bits. But honestly, the single best move is to skip the measuring cup entirely and put your mixing bowl on a digital scale. Pour honey directly into the bowl until the scale reads 85 grams. No cup to scrape, no sticky cleanup, and perfect accuracy every time.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 28px; font-size: 0.94rem; color: var(--text-muted); border-top: 1px solid var(--border-color, #e0e0e0); padding-top: 20px;">📐 See also: <a href="/1-cup-honey-to-grams">1 Cup Honey → Grams</a> &nbsp;|&nbsp; <a href="/1-2-cup-honey-to-grams">1/2 Cup Honey → Grams</a> &nbsp;|&nbsp; <a href="/1-tbsp-honey-to-grams">1 Tbsp Honey → Grams</a> &nbsp;|&nbsp; <a href="/1-4-cup-sugar-to-grams">1/4 Cup Sugar → Grams</a> &nbsp;|&nbsp; <a href="/1-4-cup-maple-syrup-to-grams">1/4 Cup Maple Syrup → Grams</a></p>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+            
+            <section class="related-conversions">
+                <h3>More Honey Conversions</h3>
+                <ul class="related-links">
+                    <li><a href="/1-cup-honey-to-grams.html">1 Cup Honey to Grams</a></li>
+                    <li><a href="/1-2-cup-honey-to-grams.html">1/2 Cup Honey to Grams</a></li>
+                    <li><a href="/1-4-cup-maple-syrup-to-grams.html">Maple Syrup</a></li>
+                    <li><a href="/1-cup-sugar-to-grams.html">Sugar</a></li>
+                    <li><a href="/1-tbsp-honey-to-grams.html">1 Tbsp Honey to Grams</a></li>
+                    <li><a href="/articles/baking-with-honey-instead-of-sugar">Baking with Honey</a></li>
+                </ul>
+            </section>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>

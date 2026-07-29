@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 Cup Almond Flour to Grams — Free Gluten-Free Baking Conversion | BakeCalc</title>
+    <meta name="description" content="Convert almond flour cups to grams. Why almond flour weighs less than wheat flour, the blanched-vs-natural difference, and why you can't substitute it 1:1. Free calculator.">
+
+    <meta property="og:title" content="1 Cup Almond Flour to Grams — Free Conversion Calculator">
+    <meta property="og:description" content="Convert almond flour cups to grams. Blanched almond flour vs almond meal — the weight difference and why it matters for gluten-free baking.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/1-cup-almond-flour-to-grams">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1 Cup Almond Flour to Grams — Free Conversion Calculator">
+    <meta name="twitter:description" content="Convert almond flour cups to grams. Blanched vs natural, plus gluten-free substitution rules.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/1-cup-almond-flour-to-grams">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "1 Cup Almond Flour to Grams", "item": "https://bakecalc.club/1-cup-almond-flour-to-grams" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many grams is 1 cup of almond flour?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "One US cup of blanched almond flour weighs approximately 100-112 grams when lightly spooned and leveled. Super-fine blanched almond flour (like Bob's Red Mill or King Arthur brands) is about 100-105g per cup; coarser almond meal with skins is about 110-115g per cup. Almond flour is notably lighter than wheat flour (120g/cup) because it has no gluten structure and contains significant fat — those fat particles are less dense than starch granules."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's the difference between almond flour and almond meal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Almond flour is made from blanched almonds (skins removed) and ground to a fine, uniform powder. Almond meal is made from whole almonds (skins on) and ground more coarsely. The weight difference is small (about 5-10g per cup), but the baking behavior is dramatically different: almond flour produces a light, tender crumb in macarons and financiers; almond meal gives a heartier, grainier texture suited to rustic cakes and crusts. Most recipes that say 'almond flour' mean blanched, fine-ground almond flour — not almond meal."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I substitute almond flour for regular flour 1:1?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Almond flour contains no gluten, is 50%+ fat, and absorbs liquid differently than wheat flour. You cannot swap it 1:1 in a standard recipe and expect it to work. Gluten-free recipes designed for almond flour account for these differences with extra eggs (for binding) and different liquid ratios. If you want to experiment, a rough starting point: replace up to 25% of the wheat flour with almond flour by weight in a recipe you already know works. Beyond that, the structure collapses."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>1 Cup Almond Flour to Grams Converter</h1>
+            <p>Convert US cups of almond flour to grams — blanched fine-ground vs natural almond meal, with the gluten-free substitution rules that actually work.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-cups="1">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="cups-input">Cups of Almond Flour</label>
+                        <input type="number" inputmode="decimal" id="cups-input" value="1" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ingredient-type">Type</label>
+                        <select id="ingredient-type">
+                            <option value="105" selected>Blanched Almond Flour — Super-Fine (1 cup ≈ 105g)</option>
+                            <option value="100">Blanched Almond Flour — Lightly Spooned (1 cup ≈ 100g)</option>
+                            <option value="112">Almond Meal — With Skins, Coarse (1 cup ≈ 112g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateCupsToGrams(this)">Convert to Grams</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Gram Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="grams-output-frac">105 grams</span> (<span id="grams-output">105</span> g)
+                    </div>
+                    <p class="output-note">*Super-fine blanched almond flour ≈ 105g/cup. Lighter than wheat flour (120g/cup) because of high fat content. Do not pack — spoon and level only.</p>
+                </div>
+            </div>
+            <article class="seo-section">
+                <h2>How Many Grams in 1 Cup of Almond Flour?</h2>
+                <p><strong>1 US cup of blanched super-fine almond flour = about 105 grams.</strong> Now, this number is not as firm as it is for wheat flour (120g) or sugar (200g) because almond flour varies wildly by brand. Bob's Red Mill super-fine clocks in around 100–105g per cup when spooned lightly. King Arthur's almond flour is similar. Store-brand almond flour that's coarser can hit 115g. Almond meal (skins on, coarser grind) is typically 110–115g. Compare all of this to wheat flour at 120g/cup — almond flour is lighter because it's roughly 50% fat, and fat is less dense than starch. This matters when you're converting a gluten-free recipe designed for almond flour: the recipe developer tested with a specific brand, and your brand might differ by 10g per cup. Weigh it.</p>
+
+                <h2>The Conversion Formula</h2>
+                <ul>
+                    <li><strong>Grams</strong> = Cups × Grams-per-Cup</li>
+                    <li>Super-fine blanched: 1 cup × 105 = <strong>105 grams</strong></li>
+                    <li>Lightly spooned (any brand): 1 cup × 100 = <strong>~100 grams</strong></li>
+                    <li>Almond meal (skins on): 1 cup × 112 = <strong>~112 grams</strong></li>
+                </ul>
+
+                <h2>Gluten-Free Baking: Why Almond Flour Is Different</h2>
+                <p>Wheat flour is mostly starch and protein (gluten). When you add water and mix, gluten forms a stretchy network that traps gas and gives structure. Almond flour has zero gluten, zero starch — it's basically ground nuts. Almost all of its weight is fat and protein, and neither of those builds structure the way gluten does. This is why almond flour recipes almost always call for extra eggs: the egg proteins set during baking and create a fragile scaffolding that replaces what gluten would have done. It's also why almond flour baked goods are tender and moist (all that fat) but crumbly and fragile (no gluten network). You can't pick up a slice of almond flour cake with one hand the way you can with a wheat cake — it'll fall apart. That's not a bug. It's the nature of the ingredient.</p>
+                <p>One thing I wish I'd known before my first almond flour baking experiment: almond flour burns faster than wheat flour. All those almond fats start toasting in the oven at a lower temperature than wheat starch browns. If your almond flour cake recipe says 350°F, don't push it to 375°F to save time. You'll get a dark, bitter crust that tastes like burnt nuts — not in a good way. I made this mistake with a batch of macarons that came out looking like tiny hockey pucks. Tasted like them too.</p>
+
+                <h2>Quick Reference: Almond Flour Cups → Grams</h2>
+                <table style="width:100%; border-collapse:collapse; margin:16px 0;">
+                    <tr style="background:var(--card-bg);"><th style="padding:8px;text-align:left;">Cups</th><th style="padding:8px;text-align:left;">Blanched (g)</th><th style="padding:8px;text-align:left;">Almond Meal (g)</th><th style="padding:8px;text-align:left;">Common Use</th></tr>
+                    <tr><td style="padding:8px;">¼ cup</td><td style="padding:8px;">26</td><td style="padding:8px;">28</td><td style="padding:8px;">Small macaron test batch</td></tr>
+                    <tr style="background:var(--card-bg);"><td style="padding:8px;">½ cup</td><td style="padding:8px;">53</td><td style="padding:8px;">56</td><td style="padding:8px;">Mini financiers, half-batch crust</td></tr>
+                    <tr><td style="padding:8px;">¾ cup</td><td style="padding:8px;">79</td><td style="padding:8px;">84</td><td style="padding:8px;">Almond cake, 12 macarons</td></tr>
+                    <tr style="background:var(--card-bg);"><td style="padding:8px;"><strong>1 cup</strong></td><td style="padding:8px;"><strong>105</strong></td><td style="padding:8px;"><strong>112</strong></td><td style="padding:8px;"><strong>Standard macaron batch (24 shells), gluten-free cake</strong></td></tr>
+                    <tr><td style="padding:8px;">1½ cups</td><td style="padding:8px;">158</td><td style="padding:8px;">168</td><td style="padding:8px;">Large torte, fancy layer cake</td></tr>
+                    <tr style="background:var(--card-bg);"><td style="padding:8px;">2 cups</td><td style="padding:8px;">210</td><td style="padding:8px;">224</td><td style="padding:8px;">Double batch, large crust for tart</td></tr>
+                </table>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: How many grams is 1 cup of almond flour?</h3>
+                        <p>A1: About 100–112 grams, depending on the grind and whether skins are included. Super-fine blanched almond flour (most common for baking) is about 105g per cup when spooned. Coarser almond meal with skins is about 110–115g.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: Why is almond flour lighter than regular flour per cup?</h3>
+                        <p>A2: Almond flour is about 50% fat, and fat is lighter than starch per unit of volume. Wheat flour (120g/cup) is mostly starch with some protein. Almond flour's fat content also makes it clump more easily, which is why you should always spoon and level — never scoop.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: Can I use almond meal instead of almond flour in a recipe?</h3>
+                        <p>A3: It depends on the recipe. For macarons, financiers, and delicate cakes: no — the skins and coarse texture of almond meal will ruin the texture. For rustic cakes, crusts, and cookies: yes, almond meal works well, and the skins add a pleasant nuttiness. The weight difference is small (5-10g per cup), but the texture difference is significant.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q4: Can I replace wheat flour with almond flour in my favorite recipe?</h3>
+                        <p>A4: Not 1:1. Almond flour has no gluten and is mostly fat — a cake made entirely with almond flour will be dense and fragile without additional binders (usually eggs). A safe starting point: replace up to 25% of the wheat flour with almond flour by weight and see how it goes. For fully gluten-free baking, use a recipe developed specifically for almond flour — don't try to convert a wheat recipe yourself, at least not the first time.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 24px; font-size: 0.92rem; color: var(--text-muted);">🥜 Also try: <a href="/1-cup-flour-to-grams">1 Cup Wheat Flour → Grams</a> · <a href="/1-cup-coconut-oil-to-grams">1 Cup Coconut Oil → Grams</a> · <a href="/1-cup-cocoa-powder-to-grams">1 Cup Cocoa → Grams</a> · <a href="/articles/how-to-measure-flour-correctly">How to Measure Flour Correctly</a> · <a href="/oven-temperature-conversion">Oven Temperature F↔C</a> · <a href="/cost-calculator">Cost Calculator</a></p>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+            
+            <section class="related-conversions">
+                <h3>More Almond Flour Conversions</h3>
+                <ul class="related-links">
+                    <li><a href="/1-2-cup-almond-flour-to-grams.html">1/2 Cup Almond Flour</a></li>
+                    <li><a href="/1-4-cup-almond-flour-to-grams.html">1/4 Cup Almond Flour</a></li>
+                    <li><a href="/1-cup-almond-meal-to-grams.html">Almond Meal</a></li>
+                    <li><a href="/1-4-cup-coconut-flour-to-grams.html">Coconut Flour</a></li>
+                    <li><a href="/1-cup-flour-to-grams.html">All-Purpose Flour</a></li>
+                </ul>
+            </section>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>

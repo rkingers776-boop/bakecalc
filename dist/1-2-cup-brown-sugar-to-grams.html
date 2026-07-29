@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1/2 Cup Brown Sugar to Grams — Packed vs Loose Weight | BakeCalc</title>
+    <meta name="description" content="Convert 1/2 cup of brown sugar to grams. Packed = 110g, loose ≈ 90g. The packing difference matters more than you think. Free calculator.">
+
+    <meta property="og:title" content="1/2 Cup Brown Sugar to Grams — Packed vs Loose Weight">
+    <meta property="og:description" content="Convert 1/2 cup of brown sugar to grams. Packed = 110g, loose ≈ 90g. That 20-gram gap changes your cookies.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/1-2-cup-brown-sugar-to-grams">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1/2 Cup Brown Sugar to Grams — Packed vs Loose">
+    <meta name="twitter:description" content="Convert 1/2 cup of brown sugar to grams. Packed = 110g, loose ≈ 90g.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/1-2-cup-brown-sugar-to-grams">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "1/2 Cup Brown Sugar to Grams", "item": "https://bakecalc.club/1-2-cup-brown-sugar-to-grams" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many grams is 1/2 cup of packed brown sugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "110 grams when firmly packed. Lightly spooned (not packed) is closer to 90g — a 20-gram difference from the same measuring cup. Always assume packed unless the recipe explicitly says otherwise. That 20-gram gap changes cookie spread, chewiness, and how much your dough browns in the oven."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does light brown and dark brown sugar weigh the same per half cup?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nearly — dark brown has slightly more molasses and compacts to about 115g per packed half cup versus 110g for light brown. The bigger difference is flavor: dark brown means more caramel notes, more moisture retention, and noticeably softer cookies. If a recipe doesn't specify, light brown is the safe default for American baking."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My brown sugar turned into a brick. Can I still use it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — brown sugar hardens because the molasses loses moisture to the air, but the sugar itself is still perfectly fine. Microwave it in 15-second bursts with a damp paper towel draped over the bowl (not touching the sugar). Or seal it overnight in a bag with a slice of fresh bread — the sugar pulls moisture from the bread and softens back to its original texture. Once softened, measure as normal."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>1/2 Cup Brown Sugar to Grams — and Why "Packed" Isn't Optional</h1>
+            <p>Convert ½ US cup of brown sugar into grams. Firmly packed = 110g. Lightly spooned = 90g. That 20-gram gap is the difference between chewy and cakey.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-cups="0.5">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="cups-input">Cups of Brown Sugar</label>
+                        <input type="number" inputmode="decimal" id="cups-input" value="0.5" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ingredient-type">Type of Brown Sugar</label>
+                        <select id="ingredient-type">
+                            <option value="220" selected>Brown Sugar — Firmly Packed (1 cup ≈ 220g)</option>
+                            <option value="180">Brown Sugar — Lightly Spooned (1 cup ≈ 180g)</option>
+                            <option value="230">Dark Brown Sugar, packed (1 cup ≈ 230g)</option>
+                            <option value="240">Muscovado Sugar (1 cup ≈ 240g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateCupsToGrams(this)">Convert to Grams</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Gram Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="grams-output-frac">≈ 110 g (half cup)</span> (<span id="grams-output">110</span> g)
+                    </div>
+                    <p class="output-note">*½ cup firmly packed light brown sugar = 110g. Lightly spooned = ~90g. Dark brown packed = ~115g. Muscovado = ~120g. Always pack unless the recipe says otherwise.</p>
+                </div>
+            </div>
+            <article class="seo-section">
+                <h2>How Many Grams in 1/2 Cup of Brown Sugar?</h2>
+                <p>Half a cup of brown sugar is one of those measurements where the number on the page and the number in your bowl can be wildly different depending on what you do with your hands. <strong>½ cup of firmly packed light brown sugar = 110 grams.</strong> Lightly spooned — same measuring cup, same sugar, no pressing — comes in around 90 grams. That is a 20-gram spread, or roughly 18% of the total weight, from the exact same volume measurement. No other common baking ingredient has a range this wide. Flour can vary by scooping technique, sure, but brown sugar is in a league of its own because the recipe <em>wants</em> you to compress it — "firmly packed" is the instruction, not a suggestion — and how firmly you interpret "firmly" changes the gram count every time.</p>
+
+                <h2>Packed vs Loose: The Numbers</h2>
+                <p>At <a href="/1-cup-brown-sugar-to-grams">one full cup</a>, the packed-to-loose difference is about 40-60 grams. At half a cup, it scales proportionally:</p>
+                <ul>
+                    <li><strong>Grams</strong> = Cups × Grams-per-Cup</li>
+                    <li>Firmly Packed Light Brown: 0.5 × 220 g = <strong>110 grams</strong></li>
+                    <li>Lightly Spooned (Not Packed): 0.5 × 180 g = <strong>90 grams</strong></li>
+                    <li>Dark Brown, Packed: 0.5 × 230 g = <strong>115 grams</strong></li>
+                    <li>Muscovado Sugar: 0.5 × 240 g = <strong>120 grams</strong></li>
+                </ul>
+
+                <h2>What "Firmly Packed" Actually Means (It's Not "Press Really Hard")</h2>
+                <p>Professional recipe testers have an actual definition for this, and it's more specific than most home bakers realize. To firmly pack brown sugar: spoon it into a dry measuring cup until it's heaped above the rim. Press down with the flat back of a spoon — firm but not aggressive, like you're sealing an envelope, not like you're trying to crush a garlic clove. The sugar will compress and sink below the rim. Add more sugar, press again. Repeat until the sugar stays level with the rim after pressing and doesn't sink further. Level the top with a straight edge. When you dump it into your mixing bowl, it should come out as a brick holding the shape of the cup, but it should crumble apart easily when you stir it. If it stays in one solid lump after stirring, you went too hard. If it pours out like sand, you didn't pack at all.</p>
+
+                <h2>Why the 20-Gram Gap Changes Your Cookies</h2>
+                <p>Brown sugar is molasses-coated white sugar. The molasses brings three things to your dough: moisture (for chewiness), acidity (which reacts with baking soda for lift and spread), and flavor (caramel, toffee, warmth). If you use 90 grams of loosely spooned brown sugar when the recipe was written for 110 grams of packed, you've shorted the molasses by roughly 20%. Your cookies will spread less (less acid = less baking soda reaction = less CO2 pushing outward), taste blander, and dry out faster. Conversely, if you over-pack to 120 grams, the extra moisture and acidity can make cookies that spread too much and taste almost fermented-sweet — the molasses overpowers everything. At <a href="/1-cup-sugar-to-grams">larger volumes</a> the proportional error shrinks, but a half cup is a common default in cookie recipes (especially half-batches), so the packing decision lives right in the sweet spot where it matters most.</p>
+
+                <h2>Light vs Dark vs Muscovado: A Half-Cup Showdown</h2>
+                <p>Light brown sugar (~110 g per packed half cup) has about 3.5% molasses. Dark brown (~115 g per packed half cup) is closer to 6.5% — nearly double. Muscovado (~120 g per packed half cup) is an unrefined cane sugar that retains all of its natural molasses; it's stickier, denser, and carries a flavor more like toffee than caramel. In a cookie recipe calling for ½ cup brown sugar, swapping light for dark is a safe flavor upgrade — deeper color, chewier texture, more pronounced caramel notes. Swapping in muscovado is a bigger move: the flavor becomes noticeably more complex (almost smoky-sweet), and the extra moisture may require an extra minute or two of bake time. For weights at other quantities, see <a href="/100g-brown-sugar-to-cups">100g</a>, <a href="/150g-brown-sugar-to-cups">150g</a>, <a href="/200g-brown-sugar-to-cups">200g</a>, or <a href="/250g-brown-sugar-to-cups">250g brown sugar to cups</a>.</p>
+
+                <h2>The Brick-in-the-Pantry Problem</h2>
+                <p>Brown sugar hardens because molasses dehydrates when exposed to air. The sugar molecules themselves are fine — they haven't spoiled or changed chemically. The molasses just dried out and stopped coating them. The fix is to reintroduce moisture. Microwave method: put the hardened lump in a bowl, drape a damp paper towel over the top (not touching the sugar), and microwave in 15-second bursts. The steam rehydrates the molasses. Usually 30-45 seconds total for a half-cup chunk. Overnight method: seal the hardened sugar in a bag or container with a slice of fresh bread or a marshmallow. By morning, the sugar will have pulled moisture from the bread and softened back to scoopable texture. This isn't an old wives' tale — it's straight osmosis. The sugar wants moisture more than the bread does, so it takes it. Once softened, measure normally: spoon, press, level, 110 grams on the scale.</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: How many grams is 1/2 cup of packed brown sugar?</h3>
+                        <p>A1: 110 grams when firmly packed. Lightly spooned (not packed) is closer to 90 g — a 20-gram difference from the same measuring cup. Always assume "packed" unless the recipe explicitly says "loosely packed" or "lightly spooned." That 20-gram gap changes cookie spread, chewiness, and how evenly your dough browns in the oven.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: Does light brown and dark brown sugar weigh the same per half cup?</h3>
+                        <p>A2: Nearly — dark brown has slightly more molasses and compacts to about 115 g per packed half cup vs 110 g for light brown. The bigger difference is flavor and moisture: dark brown means deeper caramel notes, more chew, and softer cookies. If a recipe just says "brown sugar" without specifying, light brown is the standard American default.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: My brown sugar turned into a brick. Can I still use it?</h3>
+                        <p>A3: Yes — it hasn't gone bad, the molasses just dried out. Microwave it in 15-second bursts with a damp paper towel draped over the bowl (steam rehydrates the molasses). Or seal it overnight in a bag with a slice of fresh bread — the sugar pulls moisture from the bread and softens. Once softened, measure normally and it performs identically to fresh brown sugar.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 28px; font-size: 0.94rem; color: var(--text-muted); border-top: 1px solid var(--border-color, #e0e0e0); padding-top: 20px;">📐 See also: <a href="/1-cup-brown-sugar-to-grams">1 Cup Brown Sugar → Grams</a> &nbsp;|&nbsp; <a href="/100g-brown-sugar-to-cups">100g Brown Sugar → Cups</a> &nbsp;|&nbsp; <a href="/150g-brown-sugar-to-cups">150g Brown Sugar → Cups</a> &nbsp;|&nbsp; <a href="/200g-brown-sugar-to-cups">200g Brown Sugar → Cups</a> &nbsp;|&nbsp; <a href="/250g-brown-sugar-to-cups">250g Brown Sugar → Cups</a> &nbsp;|&nbsp; <a href="/1-cup-sugar-to-grams">1 Cup Sugar → Grams</a></p>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+            
+            <section class="related-conversions">
+                <h3>More Brown Sugar Conversions</h3>
+                <ul class="related-links">
+                    <li><a href="/1-cup-brown-sugar-to-grams.html">1 Cup Brown Sugar</a></li>
+                    <li><a href="/1-3-cup-brown-sugar-to-grams.html">1/3 Cup Brown Sugar</a></li>
+                    <li><a href="/1-4-cup-brown-sugar-to-grams.html">1/4 Cup Brown Sugar</a></li>
+                    <li><a href="/1-cup-sugar-to-grams.html">Granulated Sugar</a></li>
+                    <li><a href="/1-cup-powdered-sugar-to-grams.html">Powdered Sugar</a></li>
+                    <li><a href="/1-tbsp-brown-sugar-to-grams.html">1 Tbsp Brown Sugar</a></li>
+                    <li><a href="/articles/how-to-soften-brown-sugar">How to Soften Brown Sugar</a></li>
+                </ul>
+            </section>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>

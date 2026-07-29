@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1/3 Cup Sugar to Grams — Free Baking Conversion Calculator | BakeCalc</title>
+    <meta name="description" content="Convert 1/3 cup of sugar to grams accurately. Granulated, caster, powdered, and coarse sugars supported. Free calculator — get the exact 1/3 cup sugar weight you need.">
+
+    <meta property="og:title" content="1/3 Cup Sugar to Grams — Free Conversion Calculator">
+    <meta property="og:description" content="Convert 1/3 cup of sugar to grams accurately. Granulated, caster, powdered, and coarse sugars supported.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/1-3-cup-sugar-to-grams">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="1/3 Cup Sugar to Grams — Free Conversion Calculator">
+    <meta name="twitter:description" content="Convert 1/3 cup of sugar to grams accurately. Granulated, caster, powdered, and coarse sugars supported.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.svg">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/1-3-cup-sugar-to-grams">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "1/3 Cup Sugar to Grams", "item": "https://bakecalc.club/1-3-cup-sugar-to-grams" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many grams is 1/3 cup of granulated sugar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "67 grams for standard granulated white sugar. Caster (superfine) sugar is also approximately 67g per 1/3 cup since it has a similar density. Powdered (confectioners') sugar is significantly lighter at roughly 40g per 1/3 cup because of its fine, airy texture. Always use granulated sugar values unless your recipe specifically calls for a different type."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does brown sugar weigh more than white sugar per cup?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — when packed. Brown sugar contains molasses, which adds moisture and density. Packed brown sugar weighs about 220g per cup (73g per 1/3 cup), while granulated white sugar weighs 200g per cup (67g per 1/3 cup). That's a 9% difference. However, loosely scooped brown sugar can weigh less than white sugar because the moist granules tend to clump and create air pockets. This is why recipes specify 'packed' — it's a real weight instruction, not just a suggestion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I pack sugar when measuring 1/3 cup?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Never pack granulated white sugar — scoop and level it like flour. Packing white sugar adds about 15-20 extra grams per cup, which turns a carefully balanced cake recipe into a sugar bomb. Brown sugar is the opposite: always pack it firmly into the measuring cup until it holds its shape when turned out. The 'packed' instruction in recipes exists because brown sugar's moisture makes it clump unpredictably — packing removes the air gaps and gives consistent weight. Confectioners' sugar should be spooned and leveled, never packed."
+          }
+        }
+      ]
+    }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-G1GB4E169W');
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+        <header>
+            <h1>1/3 Cup Sugar to Grams Converter</h1>
+            <p>Convert ⅓ US cup of sugar into grams — the measurement that shows up in small-batch cookies, single-layer cakes, and cocktail syrups, finally made precise.</p>
+        </header>
+        <main>
+            <div class="calculator-card" data-default-cups="0.333">
+                <div id="calc-inputs">
+                    <div class="input-group">
+                        <label for="cups-input">Cups of Sugar</label>
+                        <input type="number" inputmode="decimal" id="cups-input" value="0.33" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="ingredient-type">Type of Sugar</label>
+                        <select id="ingredient-type">
+                            <option value="200" selected>Granulated White Sugar (1 cup ≈ 200g)</option>
+                            <option value="200">Caster / Superfine Sugar (1 cup ≈ 200g)</option>
+                            <option value="120">Powdered / Confectioners' Sugar (1 cup ≈ 120g)</option>
+                            <option value="180">Coarse / Turbinado Sugar (1 cup ≈ 180g)</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn-calc" onclick="calculateCupsToGrams(this)">Convert to Grams</button>
+
+                <div class="result-display" id="result-box">
+                    <h3>Gram Equivalent:</h3>
+                    <div class="output-value">
+                        <span id="grams-output-frac">≈ 67 g (third cup)</span> (<span id="grams-output">67</span> g)
+                    </div>
+                    <p class="output-note">*Calculated using standard US customary cup densities. Granulated and caster sugar share the same density — spoon and level, never pack. Powdered sugar is much lighter due to its fine, airy texture.</p>
+                </div>
+            </div>
+            <article class="seo-section">
+                <h2>How Many Grams in 1/3 Cup of Sugar?</h2>
+                <p>One-third cup of granulated sugar weighs <strong>67 grams</strong>. That number is surprisingly tidy compared to flour — sugar crystals are uniform and resist compaction, so there's far less variation between scoops. Caster (superfine) sugar comes in at the same 67 grams since the crystal size doesn't change density enough to matter at this scale. Powdered sugar, however, is a completely different beast: its cornstarch-coated, ultra-fine particles create an airy structure that weighs only <strong>40 grams</strong> per ⅓ cup — nearly 40% lighter than granulated. If you swap granulated for powdered by volume without adjusting, you're using barely half the sugar the recipe expects.</p>
+
+                <h2>The Conversion Formula — Sugar Is More Forgiving Than Flour</h2>
+                <p>Sugar conversions are mercifully straightforward because granulated sugar doesn't have the compaction headaches that flour does. A cup of granulated sugar is 200 grams pretty much regardless of how you fill the cup — the crystals are large enough and dry enough to settle consistently:</p>
+                <ul>
+                    <li><strong>Grams</strong> = Cups × Grams-per-Cup</li>
+                    <li>Granulated / Caster Sugar: 0.333 × 200 g = <strong>67 grams</strong></li>
+                    <li>Powdered / Confectioners' Sugar: 0.333 × 120 g = <strong>40 grams</strong></li>
+                    <li>Coarse / Turbinado Sugar: 0.333 × 180 g = <strong>60 grams</strong></li>
+                </ul>
+
+                <h2>Granulated vs Caster Sugar — Do They Really Weigh the Same?</h2>
+                <p>For practical baking purposes, yes. Caster sugar is simply granulated sugar ground to a finer crystal size — it's the same product, same density, same weight per cup. Professional bakers prefer caster sugar because the smaller crystals dissolve faster in egg foams and creamed butter, but if a recipe calls for ⅓ cup of caster sugar and all you have is granulated, you can substitute by weight (67g) without a second thought. The only time crystal size changes weight noticeably is at the extremes: <strong>coarse turbinado sugar</strong> has larger, irregular crystals with more air between them, so a cup weighs only about 180g (60g per ⅓ cup). If you use turbinado in a creaming-based recipe that calls for granulated, you'll be short about 7 grams of sugar per ⅓ cup — not a disaster, but your cookies will spread slightly differently.</p>
+
+                <h2>Where 1/3 Cup Sugar Actually Shows Up</h2>
+                <p>A third-cup of sugar is the sweet spot (sorry) for small-batch baking: the sugar component in a six-cookie batch of chocolate chip cookies, the sugar in a single-layer 6-inch vanilla cake, or the sweetener in a homemade simple syrup for two cocktails. It's also common in <a href="/articles/how-to-measure-flour-correctly">pancake and waffle batters</a> for two people, where too much sugar causes burning on the griddle and too little leaves them tasting like fried flour. In meringue, ⅓ cup of caster sugar per two egg whites is the classic French meringue ratio — at that small scale, being off by even 5 grams changes the texture from glossy and stable to weepy and collapsing. See also: <a href="/1-cup-sugar-to-grams">1 Cup Sugar → Grams</a> for full-cup conversions across all sugar types.</p>
+
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <div class="faq-item">
+                        <h3>Q1: How many grams is 1/3 cup of granulated sugar?</h3>
+                        <p>A1: 67 grams for standard granulated white sugar. Caster (superfine) sugar weighs the same — about 67g per ⅓ cup. Powdered sugar is much lighter at roughly 40g, and coarse turbinado is about 60g. Always check which type your recipe means.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2: Does brown sugar weigh more than white sugar?</h3>
+                        <p>A2: Yes — when packed. Packed brown sugar contains molasses, adding moisture and density: ~73g per ⅓ cup vs 67g for white sugar. That 6-gram difference matters in moisture-sensitive recipes like cookies (more spread with brown) and cakes (denser crumb with brown). Loosely scooped brown sugar can actually weigh less than white sugar because the moist granules clump and trap air. This is exactly why recipes specify "packed" — it's a real-weight instruction that produces consistent results. If a recipe says "1/3 cup brown sugar, packed," press it in firmly; if it just says "1/3 cup brown sugar," assume packed unless it's a very old or British recipe (where unpacked is sometimes the default).</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3: Should I pack sugar when measuring 1/3 cup?</h3>
+                        <p>A3: White granulated sugar — <strong>never pack it</strong>. Spoon into the cup and level with a straight edge, same as flour. Packing granulated sugar adds about 5 extra grams per ⅓ cup, which throws off the sugar-to-liquid ratio in delicate recipes like Swiss meringue buttercream. Brown sugar — <strong>always pack it</strong> unless the recipe explicitly says "loosely packed." Press it firmly into the measuring cup with the back of a spoon until it holds its shape when you turn it out. Confectioners' sugar — spoon and sift if the recipe says "sifted," otherwise spoon and level gently. The cornstarch in confectioners' sugar makes it prone to compaction, so a heavy hand can add 8-10 extra grams per ⅓ cup.</p>
+                    </div>
+                </div>
+
+                <p style="margin-top: 28px; font-size: 0.94rem; color: var(--text-muted); border-top: 1px solid var(--border-color, #e0e0e0); padding-top: 20px;">📐 See also: <a href="/1-cup-sugar-to-grams">1 Cup Sugar → Grams</a> &nbsp;|&nbsp; <a href="/1-2-cup-sugar-to-grams">1/2 Cup Sugar → Grams</a> &nbsp;|&nbsp; <a href="/1-4-cup-sugar-to-grams">1/4 Cup Sugar → Grams</a> &nbsp;|&nbsp; <a href="/1-3-cup-brown-sugar-to-grams">1/3 Cup Brown Sugar → Grams</a> &nbsp;|&nbsp; <a href="/1-3-cup-flour-to-grams">1/3 Cup Flour → Grams</a> &nbsp;|&nbsp; <a href="/1-3-cup-butter-to-grams">1/3 Cup Butter → Grams</a></p>
+            </article>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+            
+            <section class="related-conversions">
+                <h3>More Sugar Conversions</h3>
+                <ul class="related-links">
+                    <li><a href="/1-cup-sugar-to-grams.html">1 Cup Sugar to Grams</a></li>
+                    <li><a href="/1-2-cup-sugar-to-grams.html">1/2 Cup Sugar to Grams</a></li>
+                    <li><a href="/1-4-cup-sugar-to-grams.html">1/4 Cup Sugar to Grams</a></li>
+                    <li><a href="/1-cup-brown-sugar-to-grams.html">Brown Sugar</a></li>
+                    <li><a href="/1-cup-powdered-sugar-to-grams.html">Powdered Sugar</a></li>
+                    <li><a href="/1-cup-honey-to-grams.html">Honey</a></li>
+                    <li><a href="/100g-grams-to-cups-sugar">100g Sugar to Cups</a></li>
+                </ul>
+            </section>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="bakecalc.js"></script>
+</body>
+</html>
