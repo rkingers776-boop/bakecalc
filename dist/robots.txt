@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-Crawl-delay: 2
-
-# XML sitemap for Google, Bing, and all compliant crawlers
-Sitemap: https://bakecalc.club/sitemap.xml
-Sitemap: https://bakecalc.club/sitemap.txt
