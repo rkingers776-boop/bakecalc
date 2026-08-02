@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Ratio Calculator | BakeCalc</title>
+    <meta name="description" content="Free coffee ratio calculator — perfect pour over, French press & cold brew ratios. Grams to tablespoons, water ratios & brew strength. No sign-up.">
+    <meta property="og:title" content="Coffee Ratio Calculator | BakeCalc">
+    <meta property="og:description" content="Free coffee ratio calculator — perfect pour over, French press & cold brew ratios. Grams to tablespoons, water ratios & brew strength. No sign-up.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/coffee-ratio-calculator">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Coffee Ratio Calculator | BakeCalc">
+    <meta name="twitter:description" content="Free coffee ratio calculator — perfect pour over, French press & cold brew ratios. Grams to tablespoons, water ratios & brew strength. No sign-up.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/coffee-ratio-calculator">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Coffee Ratio Calculator", "item": "https://bakecalc.club/coffee-ratio-calculator" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the best coffee-to-water ratio?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The Specialty Coffee Association's Golden Cup standard is 1:18 (55g coffee per liter of water). But competitive baristas and most specialty cafes brew stronger — 1:15 to 1:16. Pour over: start at 1:16 and adjust. French press: 1:15 (the metal filter lets more oils and fines through, needing a slightly stronger ratio). Cold brew concentrate: 1:5 (dilute 1:1 with water or milk to serve). Aeropress: 1:14. Espresso: 1:2 (dramatically different — 18g coffee in, 36g espresso out)." }
+        },
+        {
+          "@type": "Question",
+          "name": "How many grams of coffee per cup?",
+          "acceptedAnswer": { "@type": "Answer", "text": "For a standard 8 oz (237 mL) mug: use 15g coffee at a 1:16 ratio. For a 12 oz (355 mL) mug: 22g coffee. Most people brewing at home use too little coffee — a rounded tablespoon is only about 5-7g, so '2 tablespoons per cup' gives you 10-14g when you really want 15-22g. A $15 coffee scale that reads to 0.1g is the single biggest improvement you can make to your morning coffee." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does grind size affect the ratio?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Grind size affects extraction speed, not the ratio — but the two interact. A finer grind extracts faster (more surface area). If your coffee tastes sour/under-extracted, grind finer. If bitter/over-extracted, grind coarser. Keep the ratio constant while adjusting grind — change one variable at a time. The ratio determines strength (how much coffee dissolved in water); grind size determines extraction (what got dissolved from the grounds)." }
+        }
+      ]
+    }
+    </script>
+    <script src="/analytics.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+    <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+    <header>
+        <h1>☕ Coffee Ratio Calculator — Stop Eyeballing Your Morning Coffee</h1>
+        <p>Dial in the exact coffee-to-water ratio for pour over, French press, cold brew, Aeropress, and espresso. Because "two scoops" isn't a recipe.</p>
+    </header>
+
+    <main class="cost-calc">
+
+        <section class="cost-section">
+            <div class="cost-section-header">
+                <span class="cost-section-icon">☕</span>
+                <h2>Brew Settings</h2>
+            </div>
+
+            <div class="info-row">
+                <div class="info-field">
+                    <label for="brew-method">Brewing Method</label>
+                    <select id="brew-method">
+                        <option value="16" data-name="Pour Over / Drip" data-note="The standard specialty coffee ratio. Start here and adjust by taste.">Pour Over / Drip (1:16)</option>
+                        <option value="15" data-name="French Press" data-note="Slightly stronger to compensate for the metal filter's fuller body.">French Press (1:15)</option>
+                        <option value="5" data-name="Cold Brew Concentrate" data-note="This makes concentrate — dilute 1:1 with water or milk to serve.">Cold Brew Concentrate (1:5)</option>
+                        <option value="14" data-name="Aeropress" data-note="Aeropress Championship recipes tend toward 1:14 for concentrated results.">Aeropress (1:14)</option>
+                        <option value="17" data-name="Chemex" data-note="Chemex's thick paper filter needs a slightly weaker ratio for balanced extraction.">Chemex (1:17)</option>
+                        <option value="2" data-name="Espresso" data-note="Espresso ratio is coffee-in to espresso-out. 18g in → 36g out is standard.">Espresso (1:2, coffee:espresso output)</option>
+                        <option value="10" data-name="Moka Pot" data-note="Moka pots use a fixed water chamber; the ratio is determined by how much coffee you pack.">Moka Pot (~1:10)</option>
+                        <option value="18" data-name="SCA Golden Cup" data-note="The Specialty Coffee Association standard: 55g/L. Mild, balanced.">SCA Golden Cup Standard (1:18)</option>
+                    </select>
+                </div>
+                <div class="info-field info-field--sm">
+                    <label for="water-amount">Water Amount</label>
+                    <input type="number" id="water-amount" value="300" min="30" step="10" inputmode="numeric">
+                </div>
+                <div class="info-field info-field--sm">
+                    <label for="water-unit">Water Unit</label>
+                    <select id="water-unit">
+                        <option value="1">mL (grams)</option>
+                        <option value="29.5735">fl oz</option>
+                        <option value="236.588">US cups</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Quick water presets -->
+            <div class="quick-scale-row" style="margin-top:10px;">
+                <span class="quick-scale-label">Quick:</span>
+                <button class="btn-scale-quick" onclick="setWater(237)">8 oz mug</button>
+                <button class="btn-scale-quick" onclick="setWater(355)">12 oz mug</button>
+                <button class="btn-scale-quick" onclick="setWater(500)">500 mL</button>
+                <button class="btn-scale-quick" onclick="setWater(1000)">1 L / 34 oz</button>
+                <button class="btn-scale-quick" onclick="setWater(1500)">1.5 L</button>
+            </div>
+
+            <button class="btn-calc" id="brew-calc-btn" style="margin-top:14px;">Calculate Coffee Amount</button>
+
+            <div class="result-total" style="margin-top:16px;">
+                <span class="result-label">You need:</span>
+                <span class="result-val result-val--lg result-val--accent" id="coffee-grams" style="font-family:var(--font-h);">18.8</span>
+                <span style="font-size:0.9rem;color:var(--text-secondary);"> grams of coffee</span>
+            </div>
+
+            <div class="result-grid result-grid--2col" style="margin-top:8px;">
+                <div class="result-item result-item--highlight">
+                    <span class="result-label">Water</span>
+                    <span class="result-val" id="water-display" style="font-size:1rem;">300 mL</span>
+                </div>
+                <div class="result-item result-item--highlight">
+                    <span class="result-label">Brew Ratio</span>
+                    <span class="result-val" id="ratio-display" style="font-size:1rem;">1:16</span>
+                </div>
+            </div>
+
+            <div class="result-display" style="margin-top:10px;">
+                <h3>🥄 Roughly in tablespoons:</h3>
+                <p style="margin:0;font-size:0.95rem;">About <strong><span id="coffee-tbsp">3</span> tablespoons</strong> of whole beans (<span id="coffee-scoops">1.5</span> coffee scoops). <span style="color:var(--text-muted);">But use a scale — tablespoon measurements for coffee can be off by 30% depending on grind size and bean density. A scale costs less than a bag of specialty coffee.</span></p>
+            </div>
+
+            <div id="brew-note" class="pan-info-callout" style="margin-top:12px;">
+                <span id="brew-note-text">The standard specialty coffee ratio. Start here and adjust by taste.</span>
+            </div>
+        </section>
+
+        <article class="seo-section">
+            <h2>My Year of Bad Coffee (And the One Thing That Fixed It)</h2>
+            <p>For about a year, I made coffee every morning with a pour-over dripper and consistently produced cups that were either watery and sour or bitter and undrinkable. I blamed the beans. I blamed the grinder. I blamed the water temperature. I bought a gooseneck kettle — which helped, but didn't fix it. I bought a burr grinder — which helped a lot, but still didn't fix it.</p>
+            <p>The problem was the ratio. I was using "two heaping tablespoons" of beans per mug — which, it turns out, was anywhere from 10 to 16 grams depending on the bean density, the grind size, and how generous my "heaping" was that morning. A 10g:300mL brew is a 1:30 ratio — weak, thin, sour. A 16g:300mL is roughly 1:19 — decent but still on the weak side for my taste.</p>
+            <p>I bought a $15 coffee scale with 0.1g precision. The next morning, I weighed 20g of beans (1:15 ratio for 300mL water). The coffee was perfect. Not "better" — <em>perfect</em>. Same beans, same grinder, same kettle, same dripper. The only variable that changed was the ratio being exact instead of estimated. I have not eyeballed coffee since.</p>
+
+            <h2>The Ratios That Actually Work</h2>
+            <div class="table-wrap" style="margin:16px 0;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.92rem;">
+                <thead>
+                    <tr><th style="text-align:left;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Method</th><th style="text-align:right;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Ratio (coffee:water)</th><th style="text-align:right;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Coffee for 300mL</th><th style="text-align:left;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Notes</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">Pour Over / Drip</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">1:16</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">18.8 g</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">Start here. Adjust by taste: weaker → 1:17, stronger → 1:15.</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">French Press</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">1:15</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">20.0 g</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">Metal filter = more body. Stronger ratio compensates.</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">Chemex</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">1:17</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">17.6 g</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">Thick paper filter slows flow — slightly weaker ratio.</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">Aeropress</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">1:14</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">21.4 g</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">Makes ~200mL. Dilute with hot water for an Americano-style drink.</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">Cold Brew Concentrate</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">1:5</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">60.0 g</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">Concentrate. Dilute 1:1 with water/milk to serve.</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">Espresso</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">1:2</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">18 g → 36 g out</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">Ratio is grounds in : espresso out. Not grounds : water in.</td></tr>
+                    <tr><td style="padding:6px 12px;">SCA Golden Cup</td><td style="text-align:right;padding:6px 12px;">1:18</td><td style="text-align:right;padding:6px 12px;font-weight:600;">16.7 g</td><td style="padding:6px 12px;color:var(--text-muted);">Industry standard. Balanced but mild — many find it weak.</td></tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h2>Grind Size: The Other Dial</h2>
+            <p>Ratio controls <strong>strength</strong> (how much coffee is dissolved in the water). Grind size controls <strong>extraction</strong> (what got dissolved from the grounds). They're separate variables but they interact:</p>
+            <ul>
+                <li><strong>Too fine → over-extracted → bitter, hollow, astringent.</strong> The water pulled out too much, including bitter tannins you don't want. Grind coarser.</li>
+                <li><strong>Too coarse → under-extracted → sour, salty, thin.</strong> The water didn't pull enough out. Grind finer.</li>
+            </ul>
+            <p><strong>Troubleshooting rule:</strong> if your coffee tastes bad, change ONE variable at a time. Decide if it's a strength problem (ratio) or an extraction problem (grind). Sour = under-extracted = grind finer. Bitter = over-extracted = grind coarser. Weak = ratio too high (too much water) = use more coffee. This simple diagnostic framework will fix 90% of home brewing problems.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-box">
+                <div class="faq-item">
+                    <h3>What's the best coffee-to-water ratio?</h3>
+                    <p>1:16 (18.8g coffee per 300mL water) is the consensus starting point for pour over and drip. Adjust based on taste — 1:15 for stronger, 1:17 for milder. French press: 1:15. Cold brew: 1:5 (concentrate). Use the calculator above for your specific method and water amount.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why weigh coffee instead of using tablespoons?</h3>
+                    <p>A tablespoon of coffee can be 5-7g depending on grind size, bean density, and roast level. A 300mL brew at 1:16 needs 18.8g — that's 2.7 to 3.8 "tablespoons," a range too wide for consistency. A $15 0.1g scale eliminates this variable entirely.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Does grind size change the ratio?</h3>
+                    <p>No. Ratio controls strength. Grind size controls extraction. Keep your ratio constant and adjust grind to fix taste: sour → finer grind, bitter → coarser grind.</p>
+                </div>
+            </div>
+        </article>
+
+        <p style="margin-top:28px;font-size:0.94rem;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:20px;line-height:2;">
+            <strong>Related tools:</strong><br>
+            ⚖️ <a href="/oz-to-grams">oz to Grams</a> — coffee beans are often sold in ounces<br>
+            💧 <a href="/ml-to-grams">mL to Grams</a> — water is 1g/mL, but other brewing liquids differ<br>
+            🧮 <a href="/cooking-converter">Universal Cooking Converter</a> — all kitchen conversions<br>
+            🔄 <a href="/ingredient-substitute">Ingredient Substitutes</a> — oat milk vs whole milk in your latte<br>
+            📐 <a href="/recipe-scaler">Recipe Scaler</a> — scaling cold brew batches for a crowd
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        <section class="related-conversions">
+            <h3>Kitchen Tools</h3>
+            <ul class="related-links">
+                <li><a href="/calorie-calculator">Calorie Calculator</a></li>
+                <li><a href="/cooking-converter">Cooking Converter</a></li>
+                <li><a href="/ingredient-substitute">Substitutes</a></li>
+                <li><a href="/cost-calculator">Cost Calculator</a></li>
+                <li><a href="/recipe-scaler">Recipe Scaler</a></li>
+                <li><a href="/oz-to-grams">oz to Grams</a></li>
+                <li><a href="/tbsp-to-ml">tbsp to mL</a></li>
+                <li><a href="/cups-to-ml">Cups to mL</a></li>
+            </ul>
+        </section>
+        <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+    </footer>
+</div>
+
+<script>
+(function() {
+    var method = document.getElementById('brew-method');
+    var waterAmount = document.getElementById('water-amount');
+    var waterUnit = document.getElementById('water-unit');
+    var coffeeGrams = document.getElementById('coffee-grams');
+    var waterDisplay = document.getElementById('water-display');
+    var ratioDisplay = document.getElementById('ratio-display');
+    var coffeeTbsp = document.getElementById('coffee-tbsp');
+    var coffeeScoops = document.getElementById('coffee-scoops');
+    var brewNote = document.getElementById('brew-note-text');
+
+    function update() {
+        var ratio = parseFloat(method.value);
+        var unitFactor = parseFloat(waterUnit.value);
+        var waterMl = parseFloat(waterAmount.value) * unitFactor;
+        var sel = method.options[method.selectedIndex];
+
+        if (isNaN(waterMl) || waterMl <= 0 || isNaN(ratio) || ratio <= 0) {
+            coffeeGrams.textContent = '—';
+            return;
+        }
+
+        var coffee = waterMl / ratio;
+        coffeeGrams.textContent = coffee.toFixed(1);
+
+        var unitLabel = waterUnit.options[waterUnit.selectedIndex].text;
+        waterDisplay.textContent = Math.round(waterMl) + ' mL';
+        ratioDisplay.textContent = '1:' + ratio;
+        coffeeTbsp.textContent = Math.round(coffee / 6);
+        coffeeScoops.textContent = (coffee / 12).toFixed(1);
+        brewNote.textContent = sel.getAttribute('data-note') || '';
+    }
+
+    method.addEventListener('change', update);
+    waterAmount.addEventListener('input', update);
+    waterUnit.addEventListener('change', update);
+    document.getElementById('brew-calc-btn').addEventListener('click', function(e) { e.preventDefault(); update(); });
+
+    window.setWater = function(ml) {
+        waterAmount.value = ml;
+        waterUnit.value = '1';
+        update();
+    };
+
+    update();
+})();
+</script>
+</body>
+</html>

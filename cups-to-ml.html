@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cups to mL Converter — Free US & Metric Cup Conversion | BakeCalc</title>
+    <meta name="description" content="Convert cups to milliliters instantly — US customary, metric & imperial cup sizes. Free calculator for recipes. No sign-up.">
+    <meta property="og:title" content="Cups to mL Converter — US & Metric Cup Conversion | BakeCalc">
+    <meta property="og:description" content="Convert cups to milliliters instantly — US customary, metric & imperial cup sizes. Free calculator for recipes. No sign-up.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/cups-to-ml">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cups to mL Converter — US &amp; Metric Cup Conversion | BakeCalc">
+    <meta name="twitter:description" content="Convert cups to milliliters instantly — US customary, metric & imperial cup sizes. Free calculator for recipes. No sign-up.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/cups-to-ml">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Cups to mL", "item": "https://bakecalc.club/cups-to-ml" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many mL in 1 US cup?",
+          "acceptedAnswer": { "@type": "Answer", "text": "One US customary cup equals exactly 236.588 milliliters (often rounded to 237 mL or 240 mL depending on context). This is 8 US fluid ounces, or 16 tablespoons. Not to be confused with the US legal cup (240 mL, used for nutrition labels), the metric cup (250 mL, used in Canada/Australia/NZ), or the Japanese cup (200 mL, used in rice cookers and traditional recipes). Four different 'cups,' four different volumes." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why are there different cup sizes?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The US cup (236.6 mL) was standardized in the late 19th century by Fannie Farmer, who wanted American home cooks to use standardized measuring cups instead of random teacups. The metric cup (250 mL) was created when Commonwealth countries metricated — 250 mL is a clean metric number. The US legal cup (240 mL) was defined by the FDA for nutrition labeling because 240 is evenly divisible by many common fractions. The Japanese cup (200 mL) is a traditional measure that predates Western influence and is still used in rice cookers. Each exists for a different reason, and none is 'wrong' — but using the wrong one for a recipe can definitely be wrong." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use a metric measuring cup (250 mL) for US recipes?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It depends how precise the recipe is. The difference between 250 mL and 236.6 mL is about 5.7%. For soups, stews, and savory cooking, this difference is negligible. For bread and delicate pastry where hydration ratios matter, a 5.7% error in your liquid measurement can produce noticeably different results. If you bake a lot from US recipes, get a set of US measuring cups. They're about $8, and they eliminate the conversion math entirely." }
+        }
+      ]
+    }
+    </script>
+    <script src="/analytics.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+    <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+    <header>
+        <h1>Cups to mL — The "Standard Cup" That Isn't Standard At All</h1>
+        <p>A cup is 236.6 mL. Or 240 mL. Or 250 mL. Or 200 mL. Depends who's writing the recipe. Here's how to tell which one they mean.</p>
+    </header>
+
+    <main>
+        <div class="calculator-card">
+            <div id="calc-inputs">
+                <div class="input-group">
+                    <label for="cups-input">Cups</label>
+                    <input type="number" inputmode="decimal" id="cups-input" value="1" min="0.01" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="cup-type">Cup Standard</label>
+                    <select id="cup-type">
+                        <option value="236.588" selected>US Customary Cup (236.6 mL) — American recipes</option>
+                        <option value="240">US Legal Cup (240 mL) — nutrition labels / FDA</option>
+                        <option value="250">Metric Cup (250 mL) — Canada, Australia, NZ, South Africa</option>
+                        <option value="200">Japanese Cup (200 mL) — rice cookers, traditional recipes</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn-calc" onclick="convertCupsToMl()">Convert to mL</button>
+            <div class="result-display" id="result-box">
+                <h3>Milliliter Equivalent:</h3>
+                <div class="output-value"><span id="ml-output">236.6</span> mL</div>
+                <p class="output-note">Also = <span id="floz-output">8</span> fl oz · <span id="tbsp-output">16</span> tbsp</p>
+            </div>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>Fannie Farmer and the Invention of the Measuring Cup</h2>
+            <p>Before 1896, American recipes didn't use "cups" in any standardized way. A cookbook might say "a cup of flour" and mean literally any teacup from your cupboard. Some teacups held 4 ounces, some held 8, some held 6. Recipes were written as rough suggestions, and cooking was an apprenticeship learned at your mother's elbow, not from precise written instructions.</p>
+            <p>Fannie Farmer changed that. Her 1896 <em>Boston Cooking-School Cook Book</em> introduced standardized measuring cups and spoons to American home cooking for the first time. She defined a cup as 8 fluid ounces, a tablespoon as 1/2 fluid ounce, and a teaspoon as 1/6 fluid ounce. This system — the US customary cup — is what almost every American recipe published since 1900 uses. It's 236.588 mL.</p>
+            <p>Farmer didn't invent the measurements. She borrowed them from apothecary measures and the existing fluid ounce system. What she did was popularize them and insist that home cooks buy standardized tools instead of grabbing whatever was in the cupboard. She was, in effect, America's first recipe standardization evangelist — and she succeeded so completely that we now take measuring cups for granted.</p>
+
+            <h2>Four Different Cups — How to Tell Which One Your Recipe Means</h2>
+            <div class="table-wrap" style="margin:16px 0;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.92rem;">
+                <thead>
+                    <tr><th style="text-align:left;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Cup Type</th><th style="text-align:right;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">mL</th><th style="text-align:left;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">How to Recognize It</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">US Customary</td><td style="text-align:right;padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">236.6 mL</td><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">Recipe is from a US cookbook or US-based website. Uses cups, tablespoons, teaspoons, ounces. "1 cup flour" in any American baking recipe means this cup.</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">US Legal (FDA)</td><td style="text-align:right;padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">240 mL</td><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">Only on US nutrition labels. If the label says "1 cup (240 mL)," that's the FDA rounding. Not used in recipes.</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">Metric</td><td style="text-align:right;padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">250 mL</td><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">Recipe is from Canada, Australia, NZ, UK, South Africa, or most of Europe. Often paired with grams and mL measurements. "1 cup (250 mL)" or just "1 cup" in a metric cookbook.</td></tr>
+                    <tr><td style="padding:7px 12px;font-weight:600;">Japanese</td><td style="text-align:right;padding:7px 12px;font-weight:600;">200 mL</td><td style="padding:7px 12px;color:var(--text-muted);">Recipe is Japanese. Used in rice cookers (the plastic cup that comes with the cooker is 1 gō = 180 mL, not the same thing). Often uses the kanji 合 (gō) or explicitly says 200 mL.</td></tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h2>When the Difference Actually Matters</h2>
+            <p>The difference between a US cup (236.6 mL) and a metric cup (250 mL) is about 5.7%. For a single cup of milk in a pancake batter that serves four, this difference is undetectable. For bread dough where the hydration ratio needs to be within 2-3% for consistent results, a 5.7% error in your water measurement is significant.</p>
+            <p>Here's a concrete example: a basic sourdough recipe calls for 3 cups of water to 8 cups of flour (75% hydration). If you use metric cups (750 mL) instead of US cups (710 mL), you're adding an extra 40 mL of water — nearly 3 tablespoons. Your hydration jumps from 75% to 79%. The dough will be stickier, harder to shape, and the crumb will be more open (which might actually be what you want, but it won't match the recipe photo).</p>
+            <p>The Japanese cup difference is even bigger: 200 mL vs 236.6 mL is an 18% difference. A delicate Japanese cheesecake recipe using US cups will be completely different from the author's intention. This is why Japanese baking blogs almost always list grams — the cup is too ambiguous.</p>
+
+            <h2>The Rice Cooker Cup — A Special Case</h2>
+            <p>If you own a rice cooker, the plastic cup that came with it is probably marked in gō (合). One gō = 180 mL. This is a traditional Japanese unit for measuring rice, and it's different from both the Japanese cooking cup (200 mL) and the US cup (236.6 mL). One gō of uncooked rice makes about one bowl of cooked rice — it's a serving-based unit, not a volume-based one.</p>
+            <p>Never use the rice cooker cup for baking unless a recipe specifically calls for gō measurements. I have absolutely done this. The cake was not good.</p>
+
+            <h2>Quick Conversion Table (US Customary Cup)</h2>
+            <div class="table-wrap" style="margin:16px 0;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.92rem;">
+                <thead>
+                    <tr><th style="text-align:left;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Cups (US)</th><th style="text-align:right;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">mL</th><th style="text-align:right;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Fluid oz</th><th style="text-align:left;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Roughly...</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);">¼ cup</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">59 mL</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">2 fl oz</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">An espresso shot (roughly)</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);">⅓ cup</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">79 mL</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">2.7 fl oz</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">A small juice glass</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);">½ cup</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">118 mL</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">4 fl oz</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">One stick of butter, melted</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);">1 cup</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">237 mL</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">8 fl oz</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">A standard US measuring cup</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);">2 cups (1 pint)</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">473 mL</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">16 fl oz</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">A standard water bottle</td></tr>
+                    <tr><td style="padding:6px 12px;">4 cups (1 quart)</td><td style="text-align:right;padding:6px 12px;font-weight:600;">946 mL</td><td style="text-align:right;padding:6px 12px;">32 fl oz</td><td style="padding:6px 12px;color:var(--text-muted);">Nearly a liter (just 54 mL short)</td></tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-box">
+                <div class="faq-item">
+                    <h3>How many mL is 1 US cup?</h3>
+                    <p>Exactly 236.588 milliliters. Most recipes round to 237 mL or 240 mL. This is 8 US fluid ounces.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why do different countries have different cup sizes?</h3>
+                    <p>The US cup (236.6 mL) comes from the US customary system (8 fl oz). The metric cup (250 mL) was an intentional simplification when Commonwealth countries adopted metric — 250 is a clean number divisible by 2, 4, 5, and 10. The Japanese cup (200 mL) predates Western contact. The FDA cup (240 mL) is a rounding convenience for nutrition labels.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I use a metric cup for American recipes?</h3>
+                    <p>For soups, stews, and casual cooking: yes. For bread and pastry where hydration ratios matter: no — the 5.7% difference will change your results. For best results when baking from US recipes, buy a set of US measuring cups ($8-12).</p>
+                </div>
+            </div>
+        </article>
+
+        <p style="margin-top:28px;font-size:0.94rem;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:20px;line-height:2;">
+            <strong>Related tools:</strong><br>
+            🥄 <a href="/tbsp-to-ml">Tablespoons to mL</a> — 1 US tbsp = 14.79 mL<br>
+            💧 <a href="/1-oz-to-ml">Fluid oz to mL</a> — 1 fl oz = 29.57 mL (⅛ cup)<br>
+            🧈 <a href="/1-cup-butter-to-grams">1 Cup Butter to Grams</a> — 227g<br>
+            🌾 <a href="/1-cup-flour-to-grams">1 Cup Flour to Grams</a> — AP flour = 120g/cup<br>
+            ⚖️ <a href="/ml-to-grams">mL to Grams</a> — only works directly for water<br>
+            🧮 <a href="/cooking-converter">Universal Cooking Converter</a> — all six conversion types
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        <section class="related-conversions">
+            <h3>More Unit Converters</h3>
+            <ul class="related-links">
+                <li><a href="/oz-to-grams">oz to Grams</a></li>
+                <li><a href="/tbsp-to-ml">tbsp to mL</a></li>
+                <li><a href="/lbs-to-kg">lbs to kg</a></li>
+                <li><a href="/ml-to-grams">mL to Grams</a></li>
+                <li><a href="/1-oz-to-ml">1 oz to mL</a></li>
+                <li><a href="/1-cup-flour-to-grams">Flour Cups → Grams</a></li>
+                <li><a href="/1-cup-sugar-to-grams">Sugar Cups → Grams</a></li>
+                <li><a href="/oven-temperature-conversion">Oven Temperature</a></li>
+                <li><a href="/calorie-calculator">Calorie Calculator</a></li>
+                <li><a href="/coffee-ratio-calculator">Coffee Ratio Calc</a></li>
+            </ul>
+        </section>
+        <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+    </footer>
+</div>
+
+<script>
+function convertCupsToMl() {
+    var cups = parseFloat(document.getElementById('cups-input').value);
+    var mlPerCup = parseFloat(document.getElementById('cup-type').value);
+    if (isNaN(cups) || cups <= 0) {
+        document.getElementById('ml-output').textContent = '—';
+        document.getElementById('floz-output').textContent = '—';
+        document.getElementById('tbsp-output').textContent = '—';
+        return;
+    }
+    var ml = cups * mlPerCup;
+    document.getElementById('ml-output').textContent = ml.toFixed(1);
+    document.getElementById('floz-output').textContent = (ml / 29.5735).toFixed(1);
+    document.getElementById('tbsp-output').textContent = (ml / 14.7868).toFixed(1);
+}
+document.getElementById('cups-input').addEventListener('input', convertCupsToMl);
+document.getElementById('cup-type').addEventListener('change', convertCupsToMl);
+convertCupsToMl();
+</script>
+</body>
+</html>

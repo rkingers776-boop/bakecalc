@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingredient Substitute Finder | BakeCalc</title>
+    <meta name="description" content="Free ingredient substitute finder — 80+ baking & cooking swaps with exact ratios. Find the right replacement for any ingredient. No sign-up.">
+    <meta property="og:title" content="Ingredient Substitute Finder | BakeCalc">
+    <meta property="og:description" content="Free ingredient substitute finder — 80+ baking & cooking swaps with exact ratios. Find the right replacement for any ingredient. No sign-up.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/ingredient-substitute">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ingredient Substitute Finder | BakeCalc">
+    <meta name="twitter:description" content="Free ingredient substitute finder — 80+ baking & cooking swaps with exact ratios. Find the right replacement for any ingredient. No sign-up.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/ingredient-substitute">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Ingredient Substitute Finder", "item": "https://bakecalc.club/ingredient-substitute" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What's the best egg substitute for baking?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It depends on what the egg is doing in the recipe. For binding (cookies, muffins): flax egg (1 tbsp ground flax + 3 tbsp water, rest 5 min) or applesauce (1/4 cup per egg). For leavening (cakes): vinegar + baking soda (1 tbsp vinegar + 1 tsp baking soda per egg). For structure and chew: silken tofu (1/4 cup blended per egg). For meringues and macarons: aquafaba (3 tbsp chickpea liquid per egg). No single substitute works for everything — match the substitute to the egg's role in the recipe." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I substitute butter for oil in baking?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You can substitute butter for oil, but with adjustments: use 1 cup melted butter + 2 tbsp to replace 1 cup of oil. Why the extra? Butter is ~80% fat and ~16% water; oil is 100% fat. The 2 tbsp extra butter makes up for the water content. Your baked good will have more flavor (butter tastes better than neutral oil) but will be slightly less moist and will stale faster. Cookies made with butter spread less and are chewier; cookies made with oil are cakier. For the reverse substitution (oil for butter): use 3/4 cup oil for every 1 cup butter, because you're replacing 80% fat with 100% fat and need less." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I make my own buttermilk?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The standard method: 1 cup milk + 1 tablespoon lemon juice or white vinegar. Stir, let sit 5-10 minutes until it thickens slightly and looks curdled. This is functionally identical to store-bought buttermilk for baking. The acid activates baking soda and tenderizes gluten. For a thicker substitute closer to real cultured buttermilk: use 1/2 cup plain yogurt + 1/2 cup milk. This is my preferred method — the yogurt adds the same bacterial tang that real buttermilk has." }
+        }
+      ]
+    }
+    </script>
+    <script src="/analytics.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+    <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+    <header>
+        <h1>🔄 Ingredient Substitute Finder — What to Use When You're Out of Everything</h1>
+        <p>Out of eggs? No butter? Buttermilk went bad? Type the ingredient you're missing and get every tested substitute with exact ratios — and honest notes about when each one fails.</p>
+    </header>
+
+    <main>
+
+        <section class="cost-section" style="margin-bottom:12px;">
+            <div class="cost-section-header">
+                <span class="cost-section-icon">🔍</span>
+                <h2>What are you missing?</h2>
+            </div>
+            <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:14px;">Popular searches — click one, or type your own:</p>
+            <div id="sub-quick" style="margin-bottom:12px;"></div>
+            <input type="text" id="sub-search" placeholder="e.g., 'egg', 'butter', 'buttermilk', 'heavy cream'..." style="width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius);font-size:1rem;font-family:var(--font-body);background:var(--card-bg);color:var(--text);" autocomplete="off">
+        </section>
+
+        <div id="sub-results" style="margin-top:8px;"></div>
+
+        <article class="seo-section" style="margin-top:36px;">
+            <h2>The Midnight Baking Emergency Kit</h2>
+            <p>It's 10 PM. You've promised cookies for the school bake sale tomorrow. You've already creamed the butter and sugar. You reach for the eggs and — there's one. The recipe calls for three. You have three options: drive to the store (closed), cancel the bake sale (your kid will never forgive you), or figure out what else in your kitchen can do an egg's job.</p>
+            <p>This page exists for that exact moment. I've tested every substitute listed here at least once — some of them multiple times, some of them exactly once before deciding they were terrible. The notes on each substitute tell you which is which.</p>
+            <p><strong>A word of warning:</strong> Substitutions change the final product. A flax egg does not taste like a chicken egg. Applesauce instead of butter produces a denser, chewier cookie. Often the result is different-but-still-good; sometimes it's different-and-bad. The notes try to steer you toward the substitutions worth making and away from the ones that sound clever on a food blog but produce a cake with the texture of a damp sponge.</p>
+
+            <h2>How Substitution Actually Works (The Framework Nobody Explains)</h2>
+            <p>Every ingredient in a recipe serves at least one function. Usually several at once. A good substitute replaces the <em>function</em>, not just the volume. An egg in a cake does three things simultaneously: binds ingredients together (the protein coagulates), provides structure (the water in the egg turns to steam, creating lift), and adds richness (the yolk's fat). You can replace any one of these functions easily. Replacing all three at once is much harder.</p>
+            <p>This is why there's no single "best egg substitute." There's "the best egg substitute for binding in cookies" (flax egg) and "the best egg substitute for leavening in cake" (vinegar + baking soda) and "the best egg substitute for richness in custard" (silken tofu). The framework is: <strong>identify what the missing ingredient does, then find something else that does the same thing.</strong></p>
+            <p>Butter provides: fat (richness, tenderness), water (steam for leavening), and milk solids (browning, flavor). Oil provides only fat — no water, no milk solids. That's why oil-based cakes are moister but blander and paler than butter-based ones. Understanding the functions is the difference between smart substitutions and recipe-ruining ones.</p>
+
+            <h2>When Not to Substitute</h2>
+            <p>Some ingredients don't have good substitutes. Here are the ones where you should genuinely go to the store instead:</p>
+            <ul>
+                <li><strong>Butter in croissants and puff pastry.</strong> The water content of butter (16%) creates the steam that separates the layers. Margarine or shortening won't produce the same lamination. I've tried. It was sad.</li>
+                <li><strong>Eggs in angel food cake or meringue.</strong> Aquafaba is the only viable substitute, and even then, the meringue is more fragile and the flavor is subtly different. If you need a perfect meringue, use eggs.</li>
+                <li><strong>Wheat flour in bread (if you need gluten).</strong> Gluten-free bread exists and can be good, but it's a completely different process — different hydration, different mixing, different expectations. GF 1:1 blends work for cakes, cookies, and muffins, but not for crusty artisan bread.</li>
+                <li><strong>White vinegar in canning.</strong> Canning recipes rely on exact acidity levels for safety. Use exactly what the tested recipe specifies. This is not a place for creative substitution.</li>
+            </ul>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-box">
+                <div class="faq-item">
+                    <h3>What's the best egg substitute for baking?</h3>
+                    <p>It depends on the egg's role. For binding: flax egg or applesauce. For leavening: vinegar + baking soda. For structure: silken tofu. For meringues: aquafaba. Use the search above for exact ratios for your specific recipe type.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I substitute butter for oil?</h3>
+                    <p>Yes. For butter → oil: use 3/4 cup oil per cup of butter (because oil is 100% fat, butter is 80%). For oil → butter: use 1 cup + 2 tbsp melted butter per cup of oil. See the full entry above for texture differences.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I make buttermilk from regular milk?</h3>
+                    <p>1 cup milk + 1 tbsp lemon juice or white vinegar. Stir, rest 5-10 minutes. The better method: 1/2 cup yogurt + 1/2 cup milk. This mimics the bacterial tang of real cultured buttermilk more closely.</p>
+                </div>
+            </div>
+        </article>
+
+        <p style="margin-top:28px;font-size:0.94rem;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:20px;line-height:2;">
+            <strong>Related tools:</strong><br>
+            🥚 <a href="/egg-substitute-guide">Egg Substitute Guide</a> — deep dive on every egg alternative with step-by-step instructions<br>
+            🥩 <a href="/calorie-calculator">Calorie Calculator</a> — nutritional impact of your substitution (applesauce has way fewer calories than butter)<br>
+            🧮 <a href="/cooking-converter">Universal Cooking Converter</a> — convert the units while you're swapping ingredients<br>
+            🌾 <a href="/1-cup-flour-to-grams">Flour to Grams</a> · <a href="/1-cup-butter-to-grams">Butter to Grams</a> — if your substitute comes in different units<br>
+            📐 <a href="/recipe-scaler">Recipe Scaler</a> — scaling up a recipe after you've figured out the subs
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        <section class="related-conversions">
+            <h3>Kitchen Tools</h3>
+            <ul class="related-links">
+                <li><a href="/calorie-calculator">Calorie Calculator</a></li>
+                <li><a href="/cooking-converter">Cooking Converter</a></li>
+                <li><a href="/cost-calculator">Cost Calculator</a></li>
+                <li><a href="/recipe-scaler">Recipe Scaler</a></li>
+                <li><a href="/coffee-ratio-calculator">Coffee Ratio</a></li>
+                <li><a href="/egg-substitute-guide">Egg Sub Guide</a></li>
+                <li><a href="/oz-to-grams">oz to Grams</a></li>
+                <li><a href="/tbsp-to-ml">tbsp to mL</a></li>
+            </ul>
+        </section>
+        <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+    </footer>
+</div>
+
+<script src="/ingredient-substitute.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "BakeCalc Club — Baking Conversion Calculators",
+  "short_name": "BakeCalc",
+  "description": "Free baking conversion calculators — cups to grams, ounces to mL, recipe cost calculator, sourdough hydration & baking guides.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#fef9f2",
+  "theme_color": "#c7733e",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/bakecalc-og.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

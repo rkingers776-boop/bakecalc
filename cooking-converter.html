@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Universal Cooking Converter — 6 Conversions, One Page | BakeCalc</title>
+    <meta name="description" content="Free universal cooking converter — cups to grams, ounces to mL, tbsp to tsp & more. All six kitchen conversions on one page. No sign-up.">
+    <meta property="og:title" content="Universal Cooking Converter — 6 Tools in 1 | BakeCalc">
+    <meta property="og:description" content="Free universal cooking converter — cups to grams, ounces to mL, tbsp to tsp & more. All six kitchen conversions on one page. No sign-up.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/cooking-converter">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Universal Cooking Converter — 6 Tools in 1 | BakeCalc">
+    <meta name="twitter:description" content="Free universal cooking converter — cups to grams, ounces to mL, tbsp to tsp & more. All six kitchen conversions on one page. No sign-up.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/cooking-converter">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Universal Cooking Converter", "item": "https://bakecalc.club/cooking-converter" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which cooking conversions does this tool handle?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Six conversions on one page: (1) Fluid ounces to milliliters, (2) Tablespoons to milliliters — US, UK, and Australian, (3) Cups to milliliters — US customary, metric, and Japanese, (4) Grams to ounces for weight, (5) Pounds to kilograms for bulk ingredients, (6) Cups to grams for 20 common baking ingredients including flour, sugar, butter, honey, and oil." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why combine all six converters on one page?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because real recipes mix measurement systems. A single recipe might list flour in cups, butter in ounces, milk in mL, and vanilla in teaspoons. Flipping between six different converter pages wastes time. This page puts every conversion you'll need for a typical recipe on one screen — scroll to the one you need, get the number, and keep cooking." }
+        }
+      ]
+    }
+    </script>
+    <script src="/analytics.js" defer></script>
+    <style>
+        .conv-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: var(--card-shadow);
+        }
+        .conv-section h2 {
+            font-family: var(--font-h);
+            color: var(--primary);
+            font-size: 1.15rem;
+            margin: 0 0 6px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-light);
+        }
+        .conv-section .conv-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin: 0 0 16px 0;
+        }
+        .conv-row {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+        .conv-row .input-group { flex: 1; min-width: 140px; margin-bottom: 0; }
+        .conv-row .input-group label { font-size: 0.82rem; }
+        .conv-row .input-group input,
+        .conv-row .input-group select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            font-family: var(--font-body);
+            background: var(--card-bg);
+            color: var(--text);
+        }
+        .conv-row .input-group select {
+            -webkit-appearance: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23a89888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 32px;
+        }
+        .conv-result {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            background: var(--result-bg);
+            border-radius: var(--radius-sm);
+            margin-top: 10px;
+            font-size: 0.92rem;
+        }
+        .conv-result .label { color: var(--text-muted); font-size: 0.82rem; }
+        .conv-result .value { font-weight: 700; color: var(--primary); font-size: 1.15rem; font-family: var(--font-h); }
+        @media (max-width: 540px) {
+            .conv-section { padding: 16px 14px; }
+            .conv-row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+    <header>
+        <h1>Universal Cooking Converter — All Six Kitchen Conversions, One Page</h1>
+        <p>Fluid ounces to mL, tbsp to mL, cups to mL, grams to oz, pounds to kg, and cups to grams — scroll to whatever you need. No flipping between six different pages while your sauce boils over.</p>
+    </header>
+
+    <main>
+
+        <!-- 1. Fluid oz → mL -->
+        <section class="conv-section" id="floz">
+            <h2>💧 Fluid Ounces → Milliliters</h2>
+            <p class="conv-desc">1 US fluid ounce = 29.57 mL. For water, milk, oil, and any liquid measured by volume. Not the same as weight ounces.</p>
+            <div class="conv-row">
+                <div class="input-group">
+                    <label for="floz-input">Fluid Ounces (fl oz)</label>
+                    <input type="number" inputmode="decimal" id="floz-input" value="8" min="0.1" step="0.1">
+                </div>
+            </div>
+            <div class="conv-result">
+                <span class="label">=</span>
+                <span class="value" id="floz-ml-out">236.6 mL</span>
+                <span style="font-size:0.82rem;color:var(--text-muted);margin-left:auto;">(also = <span id="floz-cups-out">1</span> US cup)</span>
+            </div>
+        </section>
+
+        <!-- 2. tbsp → mL -->
+        <section class="conv-section" id="tbsp">
+            <h2>🥄 Tablespoons → Milliliters</h2>
+            <p class="conv-desc">1 US tbsp = 14.79 mL. UK/metric = 15 mL. Australian = 20 mL. Check which country your recipe is from.</p>
+            <div class="conv-row">
+                <div class="input-group">
+                    <label for="tbsp-input">Tablespoons</label>
+                    <input type="number" inputmode="decimal" id="tbsp-input" value="2" min="0.1" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label for="tbsp-type">Standard</label>
+                    <select id="tbsp-type">
+                        <option value="14.7868">US (14.79 mL)</option>
+                        <option value="15">UK / Metric (15 mL)</option>
+                        <option value="20">Australian (20 mL)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="conv-result">
+                <span class="label">=</span>
+                <span class="value" id="tbsp-ml-out">29.6 mL</span>
+            </div>
+        </section>
+
+        <!-- 3. Cups → mL -->
+        <section class="conv-section" id="cups">
+            <h2>☕ Cups → Milliliters</h2>
+            <p class="conv-desc">US cup = 236.6 mL (most online recipes). Metric cup = 250 mL (Canada, Australia). Japanese cup = 200 mL.</p>
+            <div class="conv-row">
+                <div class="input-group">
+                    <label for="cups-input">Cups</label>
+                    <input type="number" inputmode="decimal" id="cups-input" value="1" min="0.01" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="cup-type">Standard</label>
+                    <select id="cup-type">
+                        <option value="236.588">US Customary (236.6 mL)</option>
+                        <option value="240">US Legal / FDA (240 mL)</option>
+                        <option value="250">Metric (250 mL)</option>
+                        <option value="200">Japanese (200 mL)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="conv-result">
+                <span class="label">=</span>
+                <span class="value" id="cups-ml-out">236.6 mL</span>
+                <span style="font-size:0.82rem;color:var(--text-muted);margin-left:auto;">(= 8 fl oz · 16 tbsp)</span>
+            </div>
+        </section>
+
+        <!-- 4. Grams → oz -->
+        <section class="conv-section" id="grams-oz">
+            <h2>⚖️ Grams → Ounces (Weight)</h2>
+            <p class="conv-desc">1 oz = 28.35 g. Weight ounces, not fluid ounces. For meat, cheese, chocolate, butter — anything you'd put on a scale.</p>
+            <div class="conv-row">
+                <div class="input-group">
+                    <label for="grams-input">Grams (g)</label>
+                    <input type="number" inputmode="decimal" id="grams-input" value="100" min="0.1" step="0.1">
+                </div>
+            </div>
+            <div class="conv-result">
+                <span class="label">=</span>
+                <span class="value" id="grams-oz-out">3.53 oz</span>
+            </div>
+        </section>
+
+        <!-- 5. lbs → kg -->
+        <section class="conv-section" id="lbs-kg">
+            <h2>📦 Pounds → Kilograms</h2>
+            <p class="conv-desc">1 lb = 0.4536 kg. For bulk flour bags, whole chickens, roasts, and grocery runs where the scale shows metric.</p>
+            <div class="conv-row">
+                <div class="input-group">
+                    <label for="lbs-input">Pounds (lbs)</label>
+                    <input type="number" inputmode="decimal" id="lbs-input" value="5" min="0.1" step="0.1">
+                </div>
+            </div>
+            <div class="conv-result">
+                <span class="label">=</span>
+                <span class="value" id="lbs-kg-out">2.27 kg</span>
+            </div>
+        </section>
+
+        <!-- 6. Cups → Grams (ingredient-specific) -->
+        <section class="conv-section" id="cups-grams">
+            <h2>🧁 Cups → Grams (20 Ingredients)</h2>
+            <p class="conv-desc">Because 1 cup of flour ≠ 1 cup of butter in grams. Select your ingredient to get the correct density-based conversion.</p>
+            <div class="conv-row">
+                <div class="input-group">
+                    <label for="cg-cups-input">Cups</label>
+                    <input type="number" inputmode="decimal" id="cg-cups-input" value="1" min="0.01" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="cg-ingredient">Ingredient</label>
+                    <select id="cg-ingredient">
+                        <option value="all-purpose-flour">All-Purpose Flour (120g/cup)</option>
+                        <option value="bread-flour">Bread Flour (130g/cup)</option>
+                        <option value="cake-flour">Cake Flour (110g/cup)</option>
+                        <option value="almond-flour">Almond Flour (96g/cup)</option>
+                        <option value="granulated-sugar">Granulated Sugar (200g/cup)</option>
+                        <option value="brown-sugar-packed">Brown Sugar, packed (220g/cup)</option>
+                        <option value="powdered-sugar">Powdered Sugar (120g/cup)</option>
+                        <option value="butter" selected>Butter (227g/cup)</option>
+                        <option value="water">Water (236g/cup)</option>
+                        <option value="milk">Milk (244g/cup)</option>
+                        <option value="vegetable-oil">Vegetable Oil (218g/cup)</option>
+                        <option value="honey">Honey (340g/cup)</option>
+                        <option value="maple-syrup">Maple Syrup (315g/cup)</option>
+                        <option value="cocoa-powder">Cocoa Powder (100g/cup)</option>
+                        <option value="rolled-oats">Rolled Oats (90g/cup)</option>
+                        <option value="cornstarch">Cornstarch (128g/cup)</option>
+                        <option value="rice-uncooked">Rice, uncooked (200g/cup)</option>
+                        <option value="cream-cheese">Cream Cheese (232g/cup)</option>
+                        <option value="yogurt">Yogurt (245g/cup)</option>
+                        <option value="sour-cream">Sour Cream (240g/cup)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="conv-result">
+                <span class="label">=</span>
+                <span class="value" id="cg-grams-out">227 g</span>
+            </div>
+        </section>
+
+        <article class="seo-section">
+            <h2>The Problem With Cooking Converters (And How This One Is Different)</h2>
+            <p>Most cooking converters do exactly one thing. Ounces to grams. Or cups to mL. Or tablespoons to milliliters. If your recipe uses three different measurement systems — which a shocking number do — you're opening three different converter tabs while your butter browns too fast and your timer goes off.</p>
+            <p>This page puts the six conversions you'll actually use on one screen:</p>
+            <ol>
+                <li><strong>Fluid oz → mL</strong> — for when a British recipe says "8 fl oz milk" and your measuring jug is in mL.</li>
+                <li><strong>tbsp → mL</strong> — for when an Australian recipe's tablespoon (20 mL) doesn't match your American measuring spoon (14.79 mL).</li>
+                <li><strong>Cups → mL</strong> — for when a Japanese rice cooker cup (200 mL) is different from your US measuring cup (236.6 mL).</li>
+                <li><strong>Grams → oz</strong> — for when a European recipe says 100g chocolate and your brain thinks in ounces.</li>
+                <li><strong>Pounds → kg</strong> — for bulk buying, meat, and produce at metric-using stores.</li>
+                <li><strong>Cups → grams (ingredient-specific)</strong> — because 1 cup of honey in grams is not the same as 1 cup of flour in grams.</li>
+            </ol>
+            <p>Scroll to the section you need, type your number, and the answer is there. No sign-up, no paywall, no app download. It works on your phone at the grocery store and on your laptop with floury hands.</p>
+
+            <h2>When To Weigh Instead of Converting</h2>
+            <p>This tool is fast, but it has limits. For dry ingredients — especially flour, cocoa powder, and powdered sugar — volume-to-weight conversions are always estimates. A "cup of flour" can weigh anywhere from 110g to 150g depending on how it got into the cup. The converter uses the standard spoon-and-level density (120g/cup), which is what recipe developers assume you're doing. If you scoop flour straight from the bag, your actual weight will be 15-25% higher than the converter says.</p>
+            <p>If you bake more than once a week: buy a digital kitchen scale. They cost $12. Put your mixing bowl on it, tare between ingredients, and add everything by weight. You'll get consistent results every single time, and you'll wash half as many measuring cups. This is the single piece of baking advice I give everyone, and the people who take it never go back.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-box">
+                <div class="faq-item">
+                    <h3>Which cooking conversions does this tool handle?</h3>
+                    <p>Fluid oz to mL, tablespoons to mL (US/UK/Australian), cups to mL (US/metric/Japanese), grams to ounces (weight), pounds to kilograms, and cups to grams for 20 common baking ingredients. Six converters, one scrollable page.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why not just use one universal formula for mL→grams?</h3>
+                    <p>Because mL→grams depends on the ingredient's density. Water is 1 g/mL. Oil is 0.92 g/mL. Honey is 1.42 g/mL. Flour is 0.53 g/mL. A single formula would be wrong 90% of the time. The cups→grams section above uses the correct density for each ingredient individually.</p>
+                </div>
+            </div>
+        </article>
+
+        <p style="margin-top:28px;font-size:0.94rem;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:20px;line-height:2;">
+            <strong>Need more detailed conversions? Try our dedicated pages:</strong><br>
+            💧 <a href="/1-oz-to-ml">Fluid oz to mL</a> · <a href="/tbsp-to-ml">tbsp to mL</a> · <a href="/cups-to-ml">Cups to mL</a><br>
+            ⚖️ <a href="/oz-to-grams">oz to Grams</a> · <a href="/lbs-to-kg">lbs to kg</a> · <a href="/ml-to-grams">mL to Grams</a><br>
+            🧈 <a href="/1-cup-butter-to-grams">Butter cups→grams</a> · <a href="/1-cup-flour-to-grams">Flour cups→grams</a> · <a href="/1-cup-sugar-to-grams">Sugar cups→grams</a><br>
+            🥩 <a href="/calorie-calculator">Calorie Calculator</a> · 🔄 <a href="/ingredient-substitute">Ingredient Substitutes</a>
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        <section class="related-conversions">
+            <h3>Quick Ingredient Converters</h3>
+            <ul class="related-links">
+                <li><a href="/1-cup-flour-to-grams">1 Cup Flour to Grams</a></li>
+                <li><a href="/1-cup-sugar-to-grams">1 Cup Sugar to Grams</a></li>
+                <li><a href="/1-cup-butter-to-grams">1 Cup Butter to Grams</a></li>
+                <li><a href="/1-oz-to-ml">1 oz to mL</a></li>
+                <li><a href="/oz-to-grams">oz to Grams</a></li>
+                <li><a href="/tbsp-to-ml">tbsp to mL</a></li>
+                <li><a href="/lbs-to-kg">lbs to kg</a></li>
+                <li><a href="/oven-temperature-conversion">Oven Temperature</a></li>
+                <li><a href="/calorie-calculator">Calorie Calculator</a></li>
+                <li><a href="/coffee-ratio-calculator">Coffee Ratio Calc</a></li>
+            </ul>
+        </section>
+        <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+    </footer>
+</div>
+
+<script src="/cooking-converter.js"></script>
+</body>
+</html>

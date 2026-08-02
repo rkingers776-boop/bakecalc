@@ -589,6 +589,59 @@ header p {
   border-color: var(--success);
 }
 
+/* Featured (new) article card — highlighted with primary border & gradient */
+.knowhow-card--featured {
+  border: 2px solid var(--primary);
+  background: linear-gradient(180deg, var(--primary-light) 0%, var(--card-bg) 100%);
+}
+
+/* "New" badge on featured articles */
+.knowhow-tag--new {
+  color: #fff;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Utility: hero quick-link strip (formerly inline styles) */
+.tools-quick-links {
+  text-align: center;
+  margin: 8px 0 0;
+}
+.tools-quick-links p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+.tools-quick-links p + p {
+  margin-top: 4px;
+}
+.tools-quick-links--top {
+  margin-top: 24px;
+}
+.tools-quick-links a {
+  font-weight: 600;
+}
+
+.hero-actions + .hero-actions {
+  margin-top: 16px;
+}
+.hero-actions .hero-actions-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  width: 100%;
+  text-align: center;
+  margin-bottom: 4px;
+}
+.hero-actions--secondary {
+  margin-top: 16px;
+}
+.btn-inline {
+  display: inline-flex;
+}
+.quick-link {
+  font-weight: 600;
+}
+
 /* ============================================================
    Article (blog post) styles
    ============================================================ */

@@ -132,6 +132,15 @@
   }
 
   /* ---- Public API (exposed to onclick handlers) ---- */
+  function escapeHtml(str) {
+    return String(str == null ? '' : str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   window.CostCalc = {
 
     init: function () {
@@ -295,11 +304,11 @@
 
       var ingRows = '';
       for (var j = 0; j < ings.length; j++) {
-        ingRows += '<tr><td>' + ings[j].name + '</td><td>' + ings[j].qty + ' ' + ings[j].unit + '</td><td>$' + (ings[j].qty * ings[j].price).toFixed(2) + '</td></tr>';
+        ingRows += '<tr><td>' + escapeHtml(ings[j].name) + '</td><td>' + escapeHtml(ings[j].qty) + ' ' + escapeHtml(ings[j].unit) + '</td><td>$' + (ings[j].qty * ings[j].price).toFixed(2) + '</td></tr>';
       }
 
       var card = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>'
-        + (s.recipeName || 'Recipe Card') + ' — BakeCalc Club</title>'
+        + escapeHtml(s.recipeName || 'Recipe Card') + ' — BakeCalc Club</title>'
         + '<style>'
         + 'body{font-family:Georgia,serif;color:#2c1e0f;max-width:600px;margin:40px auto;padding:0 20px;line-height:1.6}'
         + 'h1{color:#c7733e;border-bottom:2px solid #f0e4d4;padding-bottom:8px;margin-bottom:4px}'
@@ -312,7 +321,7 @@
         + '.footer{text-align:center;color:#a89888;font-size:0.8rem;margin-top:40px;border-top:1px solid #f0e4d4;padding-top:16px}'
         + '@media print{body{margin:20px auto}}'
         + '</style></head><body>'
-        + '<h1>' + (s.recipeName || 'Recipe Card') + '</h1>'
+        + '<h1>' + escapeHtml(s.recipeName || 'Recipe Card') + '</h1>'
         + '<p class="meta">Servings: ' + s.servings + ' &nbsp;|&nbsp; Cost per serving: <strong>$' + perSrv.toFixed(2) + '</strong></p>'
         + '<h2>Ingredients</h2>'
         + '<table><thead><tr><th>Ingredient</th><th>Qty</th><th>Cost</th></tr></thead><tbody>'

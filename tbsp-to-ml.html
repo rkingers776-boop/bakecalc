@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablespoons to mL Converter — Free Cooking Conversion Tool | BakeCalc</title>
+    <meta name="description" content="Convert tablespoons to milliliters — US, metric & Australian tablespoon standards. Free cooking conversion tool. No sign-up.">
+    <meta property="og:title" content="Tablespoons to mL Converter — Free Cooking Conversion | BakeCalc">
+    <meta property="og:description" content="Convert tablespoons to milliliters — US, metric & Australian tablespoon standards. Free cooking conversion tool. No sign-up.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/tbsp-to-ml">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tablespoons to mL Converter — Free Cooking Conversion | BakeCalc">
+    <meta name="twitter:description" content="Convert tablespoons to milliliters — US, metric & Australian tablespoon standards. Free cooking conversion tool. No sign-up.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/tbsp-to-ml">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Tablespoons to mL", "item": "https://bakecalc.club/tbsp-to-ml" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many mL is 1 tablespoon?",
+          "acceptedAnswer": { "@type": "Answer", "text": "One US tablespoon equals exactly 14.79 milliliters. In practice, most US recipes round to 15 mL. But this isn't universal: a UK tablespoon is 15 mL, an Australian tablespoon is 20 mL, and a metric tablespoon is exactly 15 mL. When a recipe says '1 tbsp,' the author assumes you're using the tablespoon from their country — and the difference between 15 and 20 mL (33%) is enough to throw off a recipe." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why are US and Australian tablespoons different sizes?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The US tablespoon was standardized at 14.79 mL (1/2 fluid ounce) as part of the US customary system. Australia adopted the metric system in the 1970s and settled on a clean 20 mL tablespoon — exactly 4 teaspoons at 5 mL each. The UK uses 15 mL. This means an Australian tablespoon is 35% larger than a US one. If you're cooking from an Australian recipe with US measuring spoons, use 1 tbsp + 1 tsp to approximate 20 mL. Three different countries, three different tablespoons, and cookbook authors rarely specify which one they mean." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use a regular eating spoon instead of a measuring tablespoon?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. A flatware tablespoon from your silverware drawer holds anywhere from 8 to 18 mL depending on the manufacturer and style. Measuring spoons are standardized; eating spoons are decorative. For baking, always use proper measuring spoons. For soup? Use whichever spoon you want." }
+        }
+      ]
+    }
+    </script>
+    <script src="/analytics.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+    <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+    <header>
+        <h1>Tablespoons to mL — Because Not All Tablespoons Are Equal</h1>
+        <p>Your tablespoon might be 15 mL. Or 20 mL. Or 14.79 mL. Depends which country made your measuring spoons. Here's the full story.</p>
+    </header>
+
+    <main>
+        <div class="calculator-card">
+            <div id="calc-inputs">
+                <div class="input-group">
+                    <label for="tbsp-input">Tablespoons</label>
+                    <input type="number" inputmode="decimal" id="tbsp-input" value="1" min="0.01" step="0.01">
+                </div>
+                <div class="input-group">
+                    <label for="tbsp-type">Tablespoon Standard</label>
+                    <select id="tbsp-type">
+                        <option value="14.7868" selected>US (14.79 mL = 1/2 fl oz)</option>
+                        <option value="15">UK / Metric (exactly 15 mL)</option>
+                        <option value="20">Australian (20 mL = 4 tsp)</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn-calc" onclick="convertTbspToMl()">Convert to mL</button>
+            <div class="result-display" id="result-box">
+                <h3>Milliliter Equivalent:</h3>
+                <div class="output-value"><span id="ml-output">14.79</span> mL</div>
+                <p class="output-note">Select the correct tablespoon standard for your recipe's origin country.</p>
+            </div>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>The Tablespoon Problem: Three Countries, Three Sizes</h2>
+            <p>Most people assume a tablespoon is a tablespoon. It's not. Three different standards exist, and they're different enough to matter:</p>
+            <div class="table-wrap" style="margin:16px 0;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.92rem;">
+                <thead>
+                    <tr><th style="text-align:left;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Country</th><th style="text-align:right;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">1 tbsp = mL</th><th style="text-align:left;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Why</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">United States</td><td style="text-align:right;padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">14.79 mL</td><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">1/2 US fluid ounce. Standard since 1896.</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">United Kingdom / Metric</td><td style="text-align:right;padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">15 mL</td><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">Rounded from 14.79. Used in most metric cookbooks.</td></tr>
+                    <tr><td style="padding:7px 12px;font-weight:600;">Australia</td><td style="text-align:right;padding:7px 12px;font-weight:600;">20 mL</td><td style="padding:7px 12px;color:var(--text-muted);">4 teaspoons × 5 mL. Adopted with metrication in 1970s.</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p>The difference between a US tablespoon (14.79 mL) and an Australian one (20 mL) is <strong>35%</strong>. That's the difference between a properly seasoned dish and an overseasoned one. If you're baking from an Australian Women's Weekly cookbook with American measuring spoons, you're adding a third less of every tablespoon-measured ingredient than the recipe intends.</p>
+
+            <h2>When This Actually Matters (And When It Doesn't)</h2>
+            <p><strong>Doesn't matter much:</strong> soup, stew, sauce, marinade. A 5 mL difference in soy sauce for a stir-fry that serves four is barely detectable. Use whatever spoon you have.</p>
+            <p><strong>Matters a lot:</strong> baking powder, baking soda, vanilla extract, salt in bread dough, gelatin, food coloring, any recipe where the tablespoon-measured ingredient is chemically active. A 35% overdose of baking powder makes cakes rise and collapse. A 35% underdose of gelatin means your panna cotta never sets.</p>
+            <p><strong>Matters critically:</strong> medicine. Never use a kitchen tablespoon for liquid medication. A US tablespoon (14.79 mL) vs an Australian tablespoon (20 mL) vs a random flatware spoon (8-18 mL) could mean under- or over-dosing. Use the dosing cup or syringe that comes with the medicine.</p>
+
+            <h2>The Flatware Spoon Trap</h2>
+            <p>Go to your silverware drawer right now and grab a tablespoon — the big spoon you eat soup with. Fill it with water and pour it into a measuring spoon. I'll wait.</p>
+            <p>It probably held somewhere between 8 and 18 mL, didn't it? That's because flatware spoons are designed by industrial designers trying to make them look good, not metrologists trying to make them accurate. A heavy, deep-bowled soup spoon might hold 18 mL. A slim, shallow "continental" style spoon might hold 8 mL. Neither one is a measuring tablespoon, and neither should be used as one.</p>
+            <p>Measuring spoons cost about $5 for a set. Flatware tablespoons are for eating, not measuring. This is one of those things where being cheap costs you more in ruined ingredients than the tool would have cost in the first place.</p>
+
+            <h2>Quick Conversion Reference</h2>
+            <div class="table-wrap" style="margin:16px 0;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.92rem;">
+                <thead>
+                    <tr><th style="text-align:left;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Tablespoons</th><th style="text-align:right;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">US (mL)</th><th style="text-align:right;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">UK/Metric (mL)</th><th style="text-align:right;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Australian (mL)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">¼ tbsp</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">3.7</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">3.75</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">5</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">½ tbsp</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">7.4</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">7.5</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">10</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">1 tbsp</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">14.8</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">15</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">20</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">2 tbsp</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">29.6</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">30</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">40</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">3 tbsp</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">44.4</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">45</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">60</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">4 tbsp (¼ cup)</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">59.1</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">60</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">80</td></tr>
+                    <tr><td style="padding:6px 12px;font-weight:600;">8 tbsp (½ cup)</td><td style="text-align:right;padding:6px 12px;">118.3</td><td style="text-align:right;padding:6px 12px;">120</td><td style="text-align:right;padding:6px 12px;">160</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p style="font-size:0.82rem;color:var(--text-muted);">Notice how the Australian column diverges quickly — ½ cup (8 Australian tbsp) = 160 mL vs 118 mL US. That's a 36% difference. If you're following an Australian recipe and using US tablespoons, multiply the number of tablespoons by 1.35 to get the correct amount in US tablespoons. Or just use the converter above.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-box">
+                <div class="faq-item">
+                    <h3>How many mL is 1 US tablespoon?</h3>
+                    <p>One US customary tablespoon equals 14.79 milliliters (exactly 1/2 US fluid ounce). Most US recipes round to 15 mL in practice, but the legal definition is 14.7867648 mL.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why is an Australian tablespoon 20 mL?</h3>
+                    <p>When Australia metricated in the 1970s, they defined 1 teaspoon = 5 mL and 1 tablespoon = 4 teaspoons = 20 mL. This is actually more logical than the US system (where 1 tbsp = 3 tsp = 14.79 mL, making a US teaspoon 4.93 mL). The metric system values clean base-10 relationships.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I use a regular spoon instead of a measuring tablespoon?</h3>
+                    <p>No. Flatware tablespoons vary from 8 to 18 mL. Measuring spoons are standardized. For baking and any recipe where precision matters, use proper measuring spoons. The $5 they cost is less than the ingredients you'll waste on a failed recipe.</p>
+                </div>
+            </div>
+        </article>
+
+        <p style="margin-top:28px;font-size:0.94rem;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:20px;line-height:2;">
+            <strong>Related tools:</strong><br>
+            🥄 <a href="/cups-to-ml">Cups to mL</a> — for larger liquid conversions (1 cup to 1 gallon)<br>
+            💧 <a href="/1-oz-to-ml">Fluid oz to mL</a> — 1 fl oz = 29.57 mL = 2 tbsp<br>
+            ⚖️ <a href="/oz-to-grams">Ounces to Grams</a> — weight conversion, not volume<br>
+            🧮 <a href="/cooking-converter">Universal Cooking Converter</a> — all conversions in one place<br>
+            🍞 <a href="/1-tbsp-butter-to-grams">1 tbsp Butter to Grams</a> — 1 tbsp butter ≈ 14g<br>
+            🌾 <a href="/1-tbsp-flour-to-grams">1 tbsp Flour to Grams</a> — 1 tbsp flour ≈ 8g
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        <section class="related-conversions">
+            <h3>More Unit Converters</h3>
+            <ul class="related-links">
+                <li><a href="/oz-to-grams">oz to Grams</a></li>
+                <li><a href="/cups-to-ml">Cups to mL</a></li>
+                <li><a href="/lbs-to-kg">lbs to kg</a></li>
+                <li><a href="/ml-to-grams">mL to Grams</a></li>
+                <li><a href="/1-oz-to-ml">1 oz to mL</a></li>
+                <li><a href="/1-tbsp-flour-to-grams">tbsp flour → grams</a></li>
+                <li><a href="/1-tbsp-butter-to-grams">tbsp butter → grams</a></li>
+                <li><a href="/oven-temperature-conversion">Oven Temperature</a></li>
+                <li><a href="/calorie-calculator">Calorie Calculator</a></li>
+                <li><a href="/coffee-ratio-calculator">Coffee Ratio Calc</a></li>
+            </ul>
+        </section>
+        <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+    </footer>
+</div>
+
+<script>
+function convertTbspToMl() {
+    var tbsp = parseFloat(document.getElementById('tbsp-input').value);
+    var mlPerTbsp = parseFloat(document.getElementById('tbsp-type').value);
+    if (isNaN(tbsp) || tbsp <= 0) { document.getElementById('ml-output').textContent = '—'; return; }
+    document.getElementById('ml-output').textContent = (tbsp * mlPerTbsp).toFixed(1);
+}
+document.getElementById('tbsp-input').addEventListener('input', convertTbspToMl);
+document.getElementById('tbsp-type').addEventListener('change', convertTbspToMl);
+convertTbspToMl();
+</script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 # BakeCalc Club — Baking Conversion Calculators
 
-**Measure with confidence. Every cup, every gram, every conversion.** Free, browser-local baking measurement calculators. 130+ tools covering cups-to-grams, ounces-to-ml, pan size, recipe scaling, baker's percentage, and sourdough hydration. No accounts, no tracking.
+**Measure with confidence. Every cup, every gram, every conversion.** Free, browser-local baking measurement calculators. 140+ pages covering cups-to-grams, ounces-to-ml, pan size, recipe scaling, baker's percentage, and sourdough hydration. No accounts, no tracking.
 
 🍰 **Live site:** [bakecalc.club](https://bakecalc.club/)  
 📦 **GitHub Pages mirror:** [rkingers776-boop.github.io/bakecalc](https://rkingers776-boop.github.io/bakecalc/)
@@ -190,7 +190,7 @@ bakecalc/
 ├── 1-*-to-grams.html                       # 100+ ingredient converters
 ├── *-oz-to-ml*.html                        # Liquid converters
 ├── *-grams-to-cups*.html                   # Weight-to-volume converters
-├── articles/                               # 21 baking guides & articles
+├── articles/                               # 23 baking guides & articles
 └── bakecalc-og.svg                         # Social share image
 ```
 

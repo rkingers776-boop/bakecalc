@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ounces to Grams Converter — Free Weight Conversion Tool | BakeCalc</title>
+    <meta name="description" content="Convert ounces to grams instantly for baking & cooking. Free weight converter with 1 oz = 28.35 g, rounded for kitchen use. No sign-up.">
+    <meta property="og:title" content="Ounces to Grams Converter — Free Weight Conversion | BakeCalc">
+    <meta property="og:description" content="Convert ounces to grams instantly for baking & cooking. Free weight converter with 1 oz = 28.35 g, rounded for kitchen use. No sign-up.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/oz-to-grams">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ounces to Grams Converter — Free Weight Conversion | BakeCalc">
+    <meta name="twitter:description" content="Convert ounces to grams instantly for baking & cooking. Free weight converter with 1 oz = 28.35 g, rounded for kitchen use. No sign-up.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/oz-to-grams">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Ounces to Grams", "item": "https://bakecalc.club/oz-to-grams" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many grams are in 1 ounce?",
+          "acceptedAnswer": { "@type": "Answer", "text": "One ounce (weight, avoirdupois) equals exactly 28.35 grams. A fluid ounce is different — it measures volume, not weight, and equals 29.57 milliliters. When a US recipe says '4 oz butter,' it means 4 weight ounces (about 113 grams, or 1 stick). When it says '4 fl oz milk,' it means a half cup of liquid (about 118 mL). Same word, two completely different things." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is 1 oz the same as 28 grams or 30 grams?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Neither is wrong, but 28.35 grams is the exact conversion. Many nutrition labels and casual recipes round to 28g. Some kitchen scales only show whole grams and round to 28 or 29. In practice: for small amounts (under 4 oz), the 0.35g difference per ounce adds up — 4 oz should be 113g, not 112g. For large amounts, use 28.35g/oz and round to the nearest gram." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why can't I use a liquid measuring cup for ounces of flour?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Because weight ounces (like in '8 oz flour') and fluid ounces (like in '8 fl oz water') are not the same unit. A fluid ounce measures volume — how much space something takes up. A weight ounce measures mass — how heavy it is. 8 fluid ounces of flour weighs about 4.2 weight ounces (120 grams), not 8. This is the single most common mistake Americans make when converting between US and metric recipes. If a recipe says 'oz' without 'fl,' assume it means weight." }
+        }
+      ]
+    }
+    </script>
+    <script src="/analytics.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+    <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+    <header>
+        <h1>Ounces to Grams — No More Guessing at the Scale</h1>
+        <p>Convert weight ounces to grams. Not fluid ounces — those are completely different. (Yes, it's confusing. I'll explain.)</p>
+    </header>
+
+    <main>
+        <div class="calculator-card">
+            <div id="calc-inputs">
+                <div class="input-group">
+                    <label for="oz-input">Weight in Ounces (oz)</label>
+                    <input type="number" inputmode="decimal" id="oz-input" value="1" min="0.01" step="0.01">
+                </div>
+            </div>
+            <button class="btn-calc" onclick="convertOzToGrams()">Convert to Grams</button>
+            <div class="result-display" id="result-box">
+                <h3>Weight in Grams:</h3>
+                <div class="output-value"><span id="g-output">28</span> g</div>
+                <p class="output-note">1 oz = 28.35 grams. Rounded to nearest gram for kitchen use.</p>
+            </div>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>I Ruined a British Christmas Cake Because of This Conversion</h2>
+            <p>December 2019. My wife's colleague had emailed her a family Christmas cake recipe from Yorkshire — all in grams. My wife handed me a bag of dried fruit and said "we need 12 ounces of this." I looked at the recipe: 340g currants, 225g raisins, 110g mixed peel. I had no idea what 12 ounces was in grams. I guessed. I guessed wrong. The cake was dense enough to use as a doorstop, and I spent the next two hours learning everything about ounce-to-gram conversion out of pure spite.</p>
+            <p>The number you need: <strong>1 ounce = 28.35 grams</strong>. That's it. That's the whole conversion. But knowing the number isn't the same as knowing when to use it — and more importantly, when <em>not</em> to.</p>
+
+            <h2>The Conversion Math (It's Multiplication, Not Magic)</h2>
+            <p>Take the number of ounces. Multiply by 28.35. That's your grams. Here are the numbers you'll actually use in a kitchen:</p>
+            <div class="table-wrap" style="margin:16px 0;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.92rem;">
+                <thead>
+                    <tr><th style="text-align:left;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Ounces (oz)</th><th style="text-align:right;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Grams (g)</th><th style="text-align:left;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Real Kitchen Example</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);">1 oz</td><td style="text-align:right;padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">28 g</td><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">One slice of bread, roughly</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);">2 oz</td><td style="text-align:right;padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">57 g</td><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">A medium egg out of its shell</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);">4 oz</td><td style="text-align:right;padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">113 g</td><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">One stick of butter. Half a cup.</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);">8 oz</td><td style="text-align:right;padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">227 g</td><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">Two sticks of butter. A US block of cream cheese.</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);">12 oz</td><td style="text-align:right;padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">340 g</td><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">A standard bag of chocolate chips.</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);">16 oz (1 lb)</td><td style="text-align:right;padding:7px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">454 g</td><td style="padding:7px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">A pound of ground beef. Four sticks of butter.</td></tr>
+                    <tr><td style="padding:7px 12px;">32 oz (2 lb)</td><td style="text-align:right;padding:7px 12px;font-weight:600;">907 g</td><td style="padding:7px 12px;color:var(--text-muted);">A large loaf of sourdough. Two bags of flour.</td></tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h2>Weight Ounces vs. Fluid Ounces — The Thing Nobody Explains</h2>
+            <p>Here's what tripped me up for years: the word "ounce" means two completely different things depending on context.</p>
+            <p><strong>Weight ounce (oz)</strong> — how heavy something is. 16 weight ounces = 1 pound. Used for flour, butter, meat, cheese, chocolate, produce. This page converts weight ounces.</p>
+            <p><strong>Fluid ounce (fl oz)</strong> — how much space a liquid takes up. 8 fluid ounces = 1 cup. Used for water, milk, oil, vanilla extract. <a href="/1-oz-to-ml">Our fluid ounce to mL converter</a> handles that.</p>
+            <p>The confusion gets worse: 8 fluid ounces of water <em>happens</em> to weigh about 8.3 weight ounces (236g ÷ 28.35 = 8.3). So for water, the numbers are almost the same. For flour? 8 fluid ounces (1 cup) of flour weighs about 4.2 weight ounces (120g). The numbers aren't even close. Every American who's tried to bake from a British cookbook has learned this the hard way.</p>
+            <p><strong>Rule of thumb:</strong> if the recipe just says "oz" without "fl" before it, it's probably weight. If it's an American recipe from before 1980, it might be fluid ounces for liquids only. European recipes don't use ounces at all. When in doubt: weigh it.</p>
+
+            <h2>28 grams, 28.35 grams, or 30 grams?</h2>
+            <p>Different contexts use different rounding:</p>
+            <ul>
+                <li><strong>Baking:</strong> use 28.35g/oz exactly, or 28g for quick mental math. The difference is 1.25% — negligible for a single ounce, but it adds up: at 16 oz (1 pound), 28g/oz gives you 448g when the real answer is 454g. That 6-gram difference matters in bread and delicate pastry.</li>
+                <li><strong>Nutrition labels (US):</strong> the FDA rounds to 28g/oz on the standard conversion. A "4 oz (112g)" serving of chicken on a label is the FDA doing its thing.</li>
+                <li><strong>Cannabis / precious metals / postage:</strong> these use troy ounces (31.1g) — a completely different ounce from the kitchen one. If a recipe says "oz," it never means troy. That's a separate rabbit hole.</li>
+                <li><strong>Restaurant portions:</strong> often round to 30g/oz for easy math. A "6 oz burger" is roughly 170-180g raw weight.</li>
+            </ul>
+
+            <h2>Why I Weigh Everything Now</h2>
+            <p>After that Christmas cake incident, I bought a $12 digital scale. It's the single best kitchen purchase I've made. Here's what changed:</p>
+            <ul>
+                <li>No more washing measuring cups between dry and wet ingredients.</li>
+                <li>Recipes come out the same every time — 120g of flour is 120g of flour. A cup of flour can be anything from 110g to 150g depending on how you scoop.</li>
+                <li>I can use any recipe from any country. British, French, Japanese — grams are grams everywhere.</li>
+                <li>Fewer bowls. Put the mixing bowl on the scale, tare between ingredients, pour directly. One bowl for most batters and doughs.</li>
+            </ul>
+            <p>If you're on the fence about buying a kitchen scale: get one. Even the cheapest one that reads to 1 gram will improve your baking more than any other gadget under $50.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-box">
+                <div class="faq-item">
+                    <h3>How many grams in 1 ounce?</h3>
+                    <p>Exactly 28.3495 grams. Most kitchens round to 28g for quick math or 28.35g for precision. Use 28.35g/oz when converting ingredient weights for baking.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is 1 oz the same as 28g or 30g?</h3>
+                    <p>28g is a slight undercount (1.2% low). 30g is a slight overcount (5.8% high). Neither will ruin a stew, but in baking — especially bread — use 28g for small amounts (1-2 oz) and 28.35g for larger amounts (4+ oz) to keep the error from compounding.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why can't I use a liquid measuring cup for ounces of flour?</h3>
+                    <p>Because "fluid ounces" (volume) and "weight ounces" (mass) are different units that share a name. One cup = 8 fluid ounces. One cup of flour = about 4.2 weight ounces. If a recipe says "8 oz flour," it means weigh out 227g on a scale — not fill a 1-cup liquid measure. American recipes are especially bad at distinguishing these; assume "oz" means weight for dry ingredients and fluid ounces only for liquids explicitly labeled "fl oz."</p>
+                </div>
+            </div>
+        </article>
+
+        <p style="margin-top:28px;font-size:0.94rem;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:20px;line-height:2;">
+            <strong>Related tools &amp; converters:</strong><br>
+            ⚖️ <a href="/lbs-to-kg">Pounds to Kilograms</a> — for larger quantities (meat, bulk flour, produce)<br>
+            🧈 <a href="/1-cup-butter-to-grams">1 Cup Butter to Grams</a> — 1 cup butter = 227g (8 oz, 2 sticks)<br>
+            🌾 <a href="/1-cup-flour-to-grams">1 Cup Flour to Grams</a> — 1 cup AP flour = 120g (4.2 oz)<br>
+            🍚 <a href="/1-cup-sugar-to-grams">1 Cup Sugar to Grams</a> — 1 cup sugar = 200g (7 oz)<br>
+            💧 <a href="/1-oz-to-ml">Fluid Ounces to mL</a> — if you actually need fluid ounce conversion<br>
+            🧮 <a href="/cooking-converter">Universal Cooking Converter</a> — 6 conversions on one page
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        <section class="related-conversions">
+            <h3>More Unit Converters</h3>
+            <ul class="related-links">
+                <li><a href="/tbsp-to-ml">tbsp to mL</a></li>
+                <li><a href="/cups-to-ml">Cups to mL</a></li>
+                <li><a href="/lbs-to-kg">lbs to kg</a></li>
+                <li><a href="/ml-to-grams">mL to Grams</a></li>
+                <li><a href="/1-oz-to-ml">1 oz to mL</a></li>
+                <li><a href="/1-cup-flour-to-grams">Flour Cups → Grams</a></li>
+                <li><a href="/1-cup-butter-to-grams">Butter Cups → Grams</a></li>
+                <li><a href="/oven-temperature-conversion">Oven Temperature</a></li>
+                <li><a href="/calorie-calculator">Calorie Calculator</a></li>
+                <li><a href="/coffee-ratio-calculator">Coffee Ratio Calc</a></li>
+            </ul>
+        </section>
+        <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+    </footer>
+</div>
+
+<script>
+function convertOzToGrams() {
+    var oz = parseFloat(document.getElementById('oz-input').value);
+    if (isNaN(oz) || oz <= 0) { document.getElementById('g-output').textContent = '—'; return; }
+    document.getElementById('g-output').textContent = Math.round(oz * 28.3495);
+}
+document.getElementById('oz-input').addEventListener('input', convertOzToGrams);
+convertOzToGrams();
+</script>
+</body>
+</html>

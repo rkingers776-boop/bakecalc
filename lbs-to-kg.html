@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pounds to Kilograms Converter — Free Weight Conversion | BakeCalc</title>
+    <meta name="description" content="Convert pounds to kilograms instantly for baking & cooking. Free weight converter with exact 0.45359237 kg/lb conversion. No sign-up.">
+    <meta property="og:title" content="Pounds to Kilograms Converter — Free Weight Conversion | BakeCalc">
+    <meta property="og:description" content="Convert pounds to kilograms instantly for baking & cooking. Free weight converter with exact 0.45359237 kg/lb conversion. No sign-up.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/lbs-to-kg">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pounds to Kilograms Converter — Free Weight Conversion | BakeCalc">
+    <meta name="twitter:description" content="Convert pounds to kilograms instantly for baking & cooking. Free weight converter with exact 0.45359237 kg/lb conversion. No sign-up.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/lbs-to-kg">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Pounds to Kilograms", "item": "https://bakecalc.club/lbs-to-kg" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many kilograms in 1 pound?",
+          "acceptedAnswer": { "@type": "Answer", "text": "One pound equals exactly 0.453592 kilograms. For quick mental math, divide pounds by 2.2 to get kilograms (1 lb ÷ 2.2 ≈ 0.455 kg, close enough for grocery shopping). To go the other direction: 1 kg = 2.205 lbs. A 5-pound bag of flour is about 2.27 kg." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I convert a recipe that uses pounds to kilograms?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Multiply pounds by 0.4536 to get kilograms. For smaller amounts: convert pounds to ounces first (×16), then convert ounces to grams (×28.35). Example: 1.5 lbs ground beef = 1.5 × 453.6 = 680 grams. Most kitchen scales have a unit switch button — press it to toggle between lb/oz and g/kg, which is easier than doing the math yourself." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does the US still use pounds when the rest of the world uses kilograms?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The US legally uses the US customary system, which is defined in terms of metric units (1 lb = 0.45359237 kg by law since 1959). The US attempted metrication in the 1970s — the Metric Conversion Act of 1975 was signed into law — but it made metric conversion voluntary rather than mandatory. Without a mandate, consumers had no reason to switch, and manufacturers followed consumer preference. Today, American food packages show both pounds and grams (check any package — the metric weight is there, usually in parentheses). American scientists, doctors, and military all use metric. It's only consumer life that stayed with pounds." }
+        }
+      ]
+    }
+    </script>
+    <script src="/analytics.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+    <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+    <header>
+        <h1>Pounds to Kilograms — Because Not Everyone Shops at Kroger</h1>
+        <p>Convert pounds (lbs) to kilograms (kg) for recipes, grocery shopping, and bulk buying. The conversion is simple — knowing when to use it is the real skill.</p>
+    </header>
+
+    <main>
+        <div class="calculator-card">
+            <div id="calc-inputs">
+                <div class="input-group">
+                    <label for="lbs-input">Weight in Pounds (lbs)</label>
+                    <input type="number" inputmode="decimal" id="lbs-input" value="1" min="0.01" step="0.01">
+                </div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+                <span style="font-size:0.82rem;color:var(--text-muted);font-weight:600;line-height:2;">Quick:</span>
+                <button onclick="quickConvert(1)" style="padding:4px 12px;border:1.5px solid var(--border);border-radius:20px;background:var(--card-bg);color:var(--text-secondary);font-size:0.82rem;font-weight:600;cursor:pointer;">1 lb</button>
+                <button onclick="quickConvert(2.2)" style="padding:4px 12px;border:1.5px solid var(--border);border-radius:20px;background:var(--card-bg);color:var(--text-secondary);font-size:0.82rem;font-weight:600;cursor:pointer;">1 kg ≈ 2.2 lb</button>
+                <button onclick="quickConvert(5)" style="padding:4px 12px;border:1.5px solid var(--border);border-radius:20px;background:var(--card-bg);color:var(--text-secondary);font-size:0.82rem;font-weight:600;cursor:pointer;">5 lb (flour bag)</button>
+                <button onclick="quickConvert(10)" style="padding:4px 12px;border:1.5px solid var(--border);border-radius:20px;background:var(--card-bg);color:var(--text-secondary);font-size:0.82rem;font-weight:600;cursor:pointer;">10 lb</button>
+                <button onclick="quickConvert(25)" style="padding:4px 12px;border:1.5px solid var(--border);border-radius:20px;background:var(--card-bg);color:var(--text-secondary);font-size:0.82rem;font-weight:600;cursor:pointer;">25 lb (bulk flour)</button>
+            </div>
+            <button class="btn-calc" onclick="convertLbs()">Convert to Kilograms</button>
+            <div class="result-display" id="result-box">
+                <h3>Weight in Kilograms & Grams:</h3>
+                <div class="output-value"><span id="kg-output">0.45</span> kg (<span id="g-output">454</span> g)</div>
+                <p class="output-note">1 lb = 0.45359237 kg. The calculator uses this exact conversion — just rounded for display.</p>
+            </div>
+        </div>
+
+        <article class="seo-section">
+
+            <h2>The Farmers Market Problem</h2>
+            <p>I live in a country that uses metric but my brain was raised on pounds. At the farmers market, the beef guy sells in kilograms. The apple lady sells in kilograms. The flour mill sells in kilograms. But my grandmother's recipes — the ones I actually cook from — are all in pounds. "Three pounds of chuck roast." "A pound and a half of apples." "Five pounds of bread flour."</p>
+            <p>I got tired of doing the math on my phone while holding a bag of apples in the other hand, so here's the shortcut I now use: divide pounds by 2.2 to get kilograms. Multiply kilograms by 2.2 to get pounds. It's not perfectly exact (the real factor is 2.20462) but it's close enough for everything except pharmaceutical dosing. Nobody's ever complained that my 3-pound roast was actually 2.98 pounds.</p>
+
+            <h2>The Conversion — With Numbers People Actually Use</h2>
+            <p>The math: <strong>kg = lbs × 0.453592</strong>. But you're not here for the formula. You're here because you're standing in a grocery aisle with a recipe that says "2 lbs potatoes" and the scale only shows grams. Here's what you actually need:</p>
+            <div class="table-wrap" style="margin:16px 0;">
+            <table style="width:100%;border-collapse:collapse;font-size:0.92rem;">
+                <thead>
+                    <tr><th style="text-align:left;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Pounds (lbs)</th><th style="text-align:right;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Kilograms (kg)</th><th style="text-align:right;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">Grams (g)</th><th style="text-align:left;padding:8px 12px;background:var(--result-bg);border-bottom:2px solid var(--border-light);">What That Looks Like</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">¼ lb (4 oz)</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">0.11</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">113 g</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">One stick of butter. A small chicken breast.</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">½ lb (8 oz)</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">0.23</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">227 g</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">Two sticks of butter. A block of cream cheese.</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">1 lb</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">0.45</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">454 g</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">A package of ground beef. A loaf of sandwich bread.</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">2 lbs</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">0.91</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">907 g</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">A large sourdough boule. Four sticks of butter.</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">5 lbs</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">2.27</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">2,268 g</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">A standard bag of flour. A whole chicken.</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">10 lbs</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);">4.54</td><td style="text-align:right;padding:6px 12px;border-bottom:1px solid var(--border-light);font-weight:600;">4,536 g</td><td style="padding:6px 12px;border-bottom:1px solid var(--border-light);color:var(--text-muted);">A large bag of potatoes. A Thanksgiving turkey breast.</td></tr>
+                    <tr><td style="padding:6px 12px;font-weight:600;">25 lbs</td><td style="text-align:right;padding:6px 12px;">11.34</td><td style="text-align:right;padding:6px 12px;font-weight:600;">11,340 g</td><td style="padding:6px 12px;color:var(--text-muted);">A bulk bag of bread flour from a restaurant supply store.</td></tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h2>Pounds, Stone, and the UK's Awkward Transition</h2>
+            <p>Britain is in a weird middle ground: legally metric since 1995, but culturally still imperial for many things. A British recipe might say "1.5 kg flour" while a British person at a pub will tell you they weigh "12 stone." (A stone is 14 pounds, by the way — 12 stone = 168 pounds = 76.2 kg.)</p>
+            <p>If you're converting a recipe from a British source, check whether the weights look like round metric numbers (500g, 1kg, 250g) or round imperial numbers (1 lb, 8 oz, 2 lb). Round metric numbers mean the author intended metric. Round imperial numbers mean the metric on the label is a conversion and might be slightly off from the author's real intention. Scale accordingly.</p>
+
+            <h2>The ÷2.2 Mental Math Shortcut</h2>
+            <p>For 90% of cooking purposes, dividing by 2.2 is accurate enough. Examples:</p>
+            <ul>
+                <li>5 lbs ÷ 2.2 = 2.27 kg (exact: 2.268 kg — off by 0.1%)</li>
+                <li>10 lbs ÷ 2.2 = 4.55 kg (exact: 4.536 kg — off by 0.3%)</li>
+                <li>1 lb ÷ 2.2 = 0.455 kg = 455 g (exact: 454 g — off by 1 g in a pound)</li>
+            </ul>
+            <p>If you need more precision, use the converter at the top of this page. If you're standing in the grocery store trying to figure out if that 2.5 kg bag of flour is enough for a recipe that calls for 5 pounds: 2.5 × 2.2 = 5.5 lbs. Yes, you're fine. You even have half a pound extra. This is the only kind of kitchen math that actually matters in real life.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-box">
+                <div class="faq-item">
+                    <h3>How do I convert pounds to kilograms?</h3>
+                    <p>Multiply pounds by 0.453592. For quick estimates, divide pounds by 2.2. Example: 10 lbs × 0.4536 = 4.54 kg. To go from kg to lbs: multiply kg by 2.2046.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why does the US still use pounds?</h3>
+                    <p>US metrication in the 1970s was voluntary, not mandatory. Without a legal requirement, consumers had no reason to switch, and manufacturers followed demand. Most US packaged foods show both pounds and grams — check the label.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I convert pounds to grams directly?</h3>
+                    <p>Multiply pounds by 453.592. 1 lb = 454 g (rounded). For ounces to grams: 1 oz = 28.35 g. Use our <a href="/oz-to-grams">oz to grams converter</a> for smaller amounts.</p>
+                </div>
+            </div>
+        </article>
+
+        <p style="margin-top:28px;font-size:0.94rem;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:20px;line-height:2;">
+            <strong>Related tools:</strong><br>
+            ⚖️ <a href="/oz-to-grams">Ounces to Grams</a> — for smaller weights (1 oz = 28.35 g)<br>
+            💧 <a href="/ml-to-grams">mL to Grams</a> — volume to weight for liquids<br>
+            🧈 <a href="/1-cup-butter-to-grams">1 Cup Butter to Grams</a> — 227g = ½ lb<br>
+            🥩 <a href="/calorie-calculator">Calorie Calculator</a> — nutritional info for your ingredients by weight<br>
+            🧮 <a href="/cooking-converter">Universal Cooking Converter</a> — all conversions in one tool
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        <section class="related-conversions">
+            <h3>More Unit Converters</h3>
+            <ul class="related-links">
+                <li><a href="/oz-to-grams">oz to Grams</a></li>
+                <li><a href="/tbsp-to-ml">tbsp to mL</a></li>
+                <li><a href="/cups-to-ml">Cups to mL</a></li>
+                <li><a href="/ml-to-grams">mL to Grams</a></li>
+                <li><a href="/1-oz-to-ml">1 oz to mL</a></li>
+                <li><a href="/1-cup-flour-to-grams">Flour Cups → Grams</a></li>
+                <li><a href="/oven-temperature-conversion">Oven Temperature</a></li>
+                <li><a href="/calorie-calculator">Calorie Calculator</a></li>
+                <li><a href="/coffee-ratio-calculator">Coffee Ratio Calc</a></li>
+            </ul>
+        </section>
+        <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+    </footer>
+</div>
+
+<script>
+function convertLbs() {
+    var lbs = parseFloat(document.getElementById('lbs-input').value);
+    if (isNaN(lbs) || lbs <= 0) { document.getElementById('kg-output').textContent = '—'; document.getElementById('g-output').textContent = '—'; return; }
+    var kg = lbs * 0.45359237;
+    var g = kg * 1000;
+    document.getElementById('kg-output').textContent = kg.toFixed(2);
+    document.getElementById('g-output').textContent = Math.round(g);
+}
+function quickConvert(lbs) {
+    document.getElementById('lbs-input').value = lbs;
+    convertLbs();
+}
+document.getElementById('lbs-input').addEventListener('input', convertLbs);
+convertLbs();
+</script>
+</body>
+</html>
