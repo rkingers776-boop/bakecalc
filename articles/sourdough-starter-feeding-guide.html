@@ -372,27 +372,7 @@
                     </div>
                 </div>
                 <p style="font-size:0.72rem;color:#a09080;margin:8px 0 0;text-align:center;">Flour and water are always equal weight (100% hydration). Use filtered water at room temperature.</p>
-                <script>
-                (function(){
-                    var ratioSel = document.getElementById('sc-ratio');
-                    var starterIn = document.getElementById('sc-starter');
-                    function updateCalc() {
-                        var r = parseInt(ratioSel.value);
-                        var s = parseFloat(starterIn.value) || 0;
-                        if (s <= 0) s = 0;
-                        var f = Math.round(s * r);
-                        var w = f;
-                        var t = s + f + w;
-                        document.getElementById('sc-starter-out').textContent = s;
-                        document.getElementById('sc-flour').textContent = f;
-                        document.getElementById('sc-water').textContent = w;
-                        document.getElementById('sc-total').textContent = t;
-                    }
-                    ratioSel.addEventListener('change', updateCalc);
-                    starterIn.addEventListener('input', updateCalc);
-                    updateCalc();
-                })();
-                </script>
+                <script src="/sourdough-starter-guide-calc.js" defer></script>
             </div>
             <p style="font-size:0.82rem;color:var(--text-muted);text-align:center;margin-top:-12px;">This calculator runs entirely in your browser — no data leaves the page. All the site's converters work the same way: <a href="/1-cup-flour-to-grams">flour cups→grams</a>, <a href="/bakers-percentage-calculator">baker's percentage calculator</a>, and more.</p>
 
