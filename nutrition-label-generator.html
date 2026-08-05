@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Label Generator — Free FDA-Format Recipe Labels | BakeCalc</title>
+    <meta name="description" content="Free nutrition label generator — turn any recipe into an FDA-format label with calories, macros & %DV. Printable. 45+ baking ingredients. No sign-up.">
+    <meta property="og:title" content="Nutrition Label Generator — Free FDA-Format Recipe Labels | BakeCalc">
+    <meta property="og:description" content="Turn any recipe into an FDA-format nutrition label with calories, macros, %DV, and print. Free, no sign-up.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/nutrition-label-generator">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nutrition Label Generator — Free FDA-Format Recipe Labels | BakeCalc">
+    <meta name="twitter:description" content="Turn any recipe into an FDA-format nutrition label with calories, macros, %DV, and print. Free, no sign-up.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/nutrition-label-generator">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Nutrition Label Generator", "item": "https://bakecalc.club/nutrition-label-generator" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does the nutrition label generator work?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Add each ingredient in your recipe with its amount, and the generator calculates calories, fat, saturated fat, cholesterol, sodium, carbs, fiber, sugar, protein, and key vitamins from USDA-backed per-100g data. It then formats everything into a standard FDA nutrition label with Daily Values based on a 2,000-calorie diet." }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the nutrition values accurate?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Values come from USDA FoodData Central — the same source used by major nutrition apps. Accuracy is within the normal range for food databases (±10-15%). Natural variation in ingredients and measurement method (packed vs spooned flour, for example) means these are estimates, not lab results." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I print the label for my baked goods?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes — click the Print Label button and the FDA-style label is formatted for clean printing. For commercial sale in the US you must have your products tested in an accredited lab and consult FDA labeling regulations; this tool is for recipe planning and home use." }
+        }
+      ]
+    }
+    </script>
+    <script src="/analytics.js" defer></script>
+    <style>
+        .nl-layout { display: grid; grid-template-columns: 1fr 340px; gap: 28px; align-items: start; }
+        @media (max-width: 860px) { .nl-layout { grid-template-columns: 1fr; } }
+
+        .nl-name { width: 100%; }
+        .nl-autocomplete { position: absolute; top: 100%; left: 0; right: 0; max-height: 240px; overflow-y: auto; background: var(--card-bg); border: 1.5px solid var(--border); border-top: none; border-radius: 0 0 var(--radius) var(--radius); z-index: 20; }
+
+        /* FDA label styling */
+        .nl-label {
+            font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+            border: 2px solid #000;
+            background: #fff;
+            color: #000;
+            padding: 10px 14px;
+            width: 100%;
+            max-width: 320px;
+            font-size: 13px;
+            line-height: 1.35;
+            box-sizing: border-box;
+        }
+        .nl-label h2 { font-family: Arial, sans-serif; font-size: 30px; font-weight: 800; margin: 0; line-height: 1.1; color: #000; letter-spacing: -0.5px; }
+        .nl-label .nl-serv { font-size: 12px; font-weight: 700; border-bottom: 8px solid #000; padding: 4px 0 2px; }
+        .nl-label .nl-serv div:first-child { font-weight: 400; }
+        .nl-cal { border-bottom: 1px solid #000; padding: 4px 0; }
+        .nl-cal .cal-big { font-size: 26px; font-weight: 800; }
+        .nl-divider { border-top: 8px solid #000; margin: 2px 0; }
+        .nl-row { display: flex; justify-content: space-between; padding: 2px 0; border-bottom: 1px solid #888; }
+        .nl-row.indent { padding-left: 14px; }
+        .nl-row.deep { padding-left: 28px; }
+        .nl-row b { font-weight: 700; }
+        .nl-dv { text-align: right; font-weight: 700; min-width: 34px; }
+        .nl-sub { border-bottom: 1px solid #000; padding: 3px 0; font-size: 11px; }
+        .nl-footer { border-top: 8px solid #000; margin-top: 4px; padding-top: 4px; font-size: 9.5px; }
+        .nl-footer p { margin: 0 0 2px; color: #000; font-size: 9.5px; line-height: 1.3; }
+
+        @media print {
+            body * { visibility: hidden; }
+            .nl-label, .nl-label * { visibility: visible; }
+            .nl-label { position: absolute; left: 0; top: 0; margin: 0; border-width: 2px; }
+            .nl-sidebar, .nl-print-hint { display: none !important; }
+        }
+        .nl-print-hint { font-size: 0.82rem; color: var(--text-muted); margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+    <header>
+        <h1>🏷️ Nutrition Label Generator — FDA-Format Labels for Your Bakes</h1>
+        <p>Add your recipe's ingredients, get a clean FDA-style nutrition label with calories, macros, and Daily Values — printable in one click. 45+ baking ingredients, USDA-backed data, no sign-up.</p>
+    </header>
+
+    <main class="cost-calc">
+        <div class="nl-layout">
+            <!-- ============ Input side ============ -->
+            <section class="cost-section">
+                <div class="cost-section-header">
+                    <span class="cost-section-icon">🥣</span>
+                    <h2>Your Recipe</h2>
+                </div>
+
+                <div style="margin-bottom:10px;">
+                    <label for="nl-servings">Number of servings</label>
+                    <input type="number" id="nl-servings" value="8" min="1" step="1" inputmode="numeric" style="max-width:120px;">
+                </div>
+
+                <div style="overflow-x:auto;">
+                    <table style="width:100%;">
+                        <thead>
+                            <tr>
+                                <th style="text-align:left;">Ingredient</th>
+                                <th style="text-align:left;">Amount</th>
+                                <th style="text-align:left;">Unit</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="nl-ingredients"></tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
+                    <button class="btn-calc" id="nl-add" style="background:var(--bg-warm); color:var(--text); border:1.5px solid var(--border);">+ Add Ingredient</button>
+                    <button class="btn-calc" id="nl-calc">Generate Label</button>
+                    <button class="btn-calc" id="nl-print" style="background:var(--success);">🖨️ Print Label</button>
+                </div>
+                <p class="nl-print-hint">Tip: units auto-convert — g, kg, oz, lb, ml, cups, tbsp, tsp (baking powder/salt/tsp weights are ingredient-specific).</p>
+
+                <div id="nl-result" style="display:none;margin-top:16px;">
+                    <div style="font-size:0.85rem;color:var(--text-muted);margin-bottom:8px;">
+                        Values per serving (2,000-calorie daily diet used for %DV).
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ Label preview side ============ -->
+            <aside class="nl-sidebar">
+                <div class="nl-label" id="nl-label">
+                    <h2>Nutrition Facts</h2>
+                    <div class="nl-serv">
+                        <div id="nl-servings-label">Serving size —</div>
+                        <div id="nl-serving">—</div>
+                    </div>
+                    <div class="nl-cal">
+                        <span style="font-weight:700;">Calories</span>
+                        <span class="cal-big" id="nl-calories">—</span>
+                    </div>
+                    <div class="nl-divider"></div>
+                    <div class="nl-row" style="border-bottom:8px solid #000;">
+                        <b>Total Fat</b>
+                        <span id="nl-total-fat">0g</span>
+                        <span class="nl-dv" id="nl-total-fat-dv">0%</span>
+                    </div>
+                    <div class="nl-row indent">
+                        <span>Saturated Fat</span>
+                        <span id="nl-sat-fat">0g</span>
+                        <span class="nl-dv" id="nl-sat-fat-dv">0%</span>
+                    </div>
+                    <div class="nl-row indent">
+                        <span>Trans Fat</span>
+                        <span id="nl-trans-fat">0g</span>
+                        <span class="nl-dv"></span>
+                    </div>
+                    <div class="nl-row">
+                        <b>Cholesterol</b>
+                        <span id="nl-cholesterol">0mg</span>
+                        <span class="nl-dv" id="nl-cholesterol-dv">0%</span>
+                    </div>
+                    <div class="nl-row">
+                        <b>Sodium</b>
+                        <span id="nl-sodium">0mg</span>
+                        <span class="nl-dv" id="nl-sodium-dv">0%</span>
+                    </div>
+                    <div class="nl-row" style="border-bottom:8px solid #000;">
+                        <b>Total Carbohydrate</b>
+                        <span id="nl-carbs">0g</span>
+                        <span class="nl-dv" id="nl-carbs-dv">0%</span>
+                    </div>
+                    <div class="nl-row indent">
+                        <span>Dietary Fiber</span>
+                        <span id="nl-fiber">0g</span>
+                        <span class="nl-dv" id="nl-fiber-dv">0%</span>
+                    </div>
+                    <div class="nl-row indent">
+                        <span>Total Sugars</span>
+                        <span id="nl-total-sugar">0g</span>
+                        <span class="nl-dv"></span>
+                    </div>
+                    <div class="nl-row deep">
+                        <span>Added Sugars</span>
+                        <span id="nl-added-sugar">0g</span>
+                        <span class="nl-dv" id="nl-added-sugar-dv">0%</span>
+                    </div>
+                    <div class="nl-row" style="border-bottom:8px solid #000;">
+                        <b>Protein</b>
+                        <span id="nl-protein">0g</span>
+                        <span class="nl-dv" id="nl-protein-dv">0%</span>
+                    </div>
+                    <div class="nl-sub">* The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</div>
+                    <div class="nl-row" style="border:none;">
+                        <span>Vitamin D</span>
+                        <span class="nl-dv" id="nl-vitd">0%</span>
+                    </div>
+                    <div class="nl-row" style="border:none;">
+                        <span>Calcium</span>
+                        <span class="nl-dv" id="nl-calcium">0%</span>
+                    </div>
+                    <div class="nl-row" style="border:none;">
+                        <span>Iron</span>
+                        <span class="nl-dv" id="nl-iron">0%</span>
+                    </div>
+                    <div class="nl-row" style="border:none;">
+                        <span>Potassium</span>
+                        <span class="nl-dv" id="nl-potassium">0%</span>
+                    </div>
+                    <div class="nl-footer">
+                        <p><span id="nl-cal-from-fat">0</span> calories from fat</p>
+                        <p>Generated by <strong>BakeCalc Club</strong> — bakecalc.club</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- ============ SEO article ============ -->
+        <article class="seo-section">
+            <h2>Why Generate a Nutrition Label for Your Bakes?</h2>
+            <p>If you sell baked goods at farmers markets, bake sales, or online — or if you're meal-prepping and want to know what's actually in your banana bread — a nutrition label answers the question everyone asks: <strong>"how many calories is that?"</strong> This generator takes your recipe ingredients and produces a standard FDA-format label in seconds. No account, no app, no uploads. Everything runs in your browser.</p>
+
+            <h2>How to Use It</h2>
+            <ol>
+                <li><strong>Add each ingredient</strong> — type the name (auto-suggested from 45+ baking ingredients) and enter the amount.</li>
+                <li><strong>Set your servings</strong> — how many slices or portions the recipe makes.</li>
+                <li><strong>Generate &amp; print</strong> — the FDA-style label appears instantly; hit Print Label for a clean black-and-white page.</li>
+            </ol>
+            <p>Units are flexible: grams, kilograms, ounces, pounds, milliliters, cups, tablespoons, and teaspoons. For baking powder, salt, and other teaspoon-measured leaveners, the generator uses ingredient-specific teaspoon weights so small amounts stay accurate.</p>
+
+            <h2>What the % Daily Value Means</h2>
+            <p>The %DV is based on a 2,000-calorie daily diet and tells you how much a single serving contributes to your daily needs. For example, if the label shows Total Fat 20%, that serving provides one-fifth of your recommended daily fat intake. The FDA updates these reference values periodically — this tool uses the current FDA daily values (78g fat, 275g carbs, 50g protein, 2,300mg sodium, and so on).</p>
+
+            <h2>Data Sources &amp; Accuracy</h2>
+            <p>Ingredient values come from <strong>USDA FoodData Central</strong>, the same database powering MyFitnessPal, Cronometer, and most nutrition platforms. Because ingredients naturally vary (a large egg vs a jumbo egg, packed vs spooned flour), treat results as solid estimates — within about ±10-15% of a lab analysis. For products you sell commercially in the US, FDA regulations require testing in an accredited laboratory; this tool is designed for recipe planning, meal prep, and home baking.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-box">
+                <div class="faq-item">
+                    <h3>Is this label legally compliant for selling baked goods?</h3>
+                    <p>No. This tool produces an educational estimate in FDA format for planning purposes. If you sell products commercially in the US, the FDA requires nutrition information from an accredited laboratory analysis, and full compliance involves additional regulations (food allergen labeling, facility registration, etc.). Use this generator to understand and plan your recipe's nutrition — then work with a lab for your actual labels.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I add ingredients that aren't in the list?</h3>
+                    <p>You can type any ingredient name, but nutrition values only calculate for the 45+ ingredients with USDA data built in. We're expanding the database regularly — if there's a baking ingredient you use often, <a href="/contact">tell us</a> and we'll add it.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Does cooking change the nutrition values?</h3>
+                    <p>Water loss during baking concentrates nutrients per gram but doesn't destroy calories — the label reflects the raw ingredient weights you entered, which is the standard way recipes are analyzed. For most home baking (cakes, cookies, breads), the difference is small and your label stays a solid estimate.</p>
+                </div>
+            </div>
+        </article>
+
+        <p style="margin-top:28px;font-size:0.94rem;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:20px;line-height:2;">
+            <strong>Related tools:</strong><br>
+            📊 <a href="/cost-calculator">Recipe Cost Calculator</a> — price your bakes, not just label them<br>
+            🥩 <a href="/calorie-calculator">Calorie &amp; Macro Calculator</a> — look up single foods<br>
+            📐 <a href="/recipe-scaler">Recipe Scaler</a> — adjust servings before labeling<br>
+            🔄 <a href="/ingredient-substitute">Ingredient Substitutes</a> — swap in lower-calorie alternatives<br>
+            🧮 <a href="/cooking-converter">Universal Cooking Converter</a> — convert any unit
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        <section class="related-conversions">
+            <h3>Kitchen Tools &amp; Converters</h3>
+            <ul class="related-links">
+                <li><a href="/calorie-calculator">Calorie &amp; Macro Calculator</a></li>
+                <li><a href="/cost-calculator">Recipe Cost Calculator</a></li>
+                <li><a href="/cooking-converter">Universal Cooking Converter</a></li>
+                <li><a href="/ingredient-substitute">Ingredient Substitutes</a></li>
+                <li><a href="/coffee-ratio-calculator">Coffee Ratio Calculator</a></li>
+                <li><a href="/recipe-scaler">Recipe Scaler</a></li>
+                <li><a href="/pan-size-converter">Pan Size Converter</a></li>
+            </ul>
+        </section>
+        <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+    </footer>
+</div>
+
+<script src="/nutrition-label-generator.js"></script>
+</body>
+</html>
