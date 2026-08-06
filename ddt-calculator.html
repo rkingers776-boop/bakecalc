@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desired Dough Temperature Calculator — Perfect Water Temp | BakeCalc</title>
+    <meta name="description" content="Hit your target dough temperature every time. Enter DDT, room, flour & mixer — get the exact water temp. Sourdough, brioche & pizza presets. Free.">
+    <meta property="og:title" content="Desired Dough Temperature Calculator — Perfect Water Temp | BakeCalc">
+    <meta property="og:description" content="Hit your target dough temperature every time. Enter DDT, room, flour & mixer — get the exact water temperature. Free, no sign-up.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/ddt-calculator">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Desired Dough Temperature Calculator — Perfect Water Temp | BakeCalc">
+    <meta name="twitter:description" content="Enter DDT, room, flour & mixer — get the exact water temperature for consistent bread every time. Free, no sign-up.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/ddt-calculator">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Desired Dough Temperature Calculator", "item": "https://bakecalc.club/ddt-calculator" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is desired dough temperature (DDT)?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Desired dough temperature is the internal temperature you want your dough to reach immediately after mixing — usually 24-26°C (75-78°F) for most breads. Because yeast activity roughly doubles for every 8°C (14°F) rise in temperature, a consistent DDT means predictable fermentation: the same rise time every time you bake the same recipe, regardless of season." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I calculate the water temperature for my dough?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The DDT formula solves for water temperature: Water = (DDT × 3) − Room − Flour − Friction for straight doughs, or (DDT × 4) − Room − Flour − Friction − Preferment when using a poolish, biga, or sourdough starter. The multiplier is the number of variables contributing heat to the dough. Use this calculator: enter your target DDT, room and flour temperatures, pick your mixing method, and it does the math." }
+        },
+        {
+          "@type": "Question",
+          "name": "What DDT should I aim for?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sourdough bread: 23-25°C. Lean bread (baguette, pain de mie): 24-26°C. Ciabatta: 24-25°C. Enriched bread: 25-27°C. Brioche: 20-22°C (cool, so butter stays solid). Pizza dough for long cold ferment: 22-24°C; same-day pizza: 24-26°C. Rye: 26-28°C. These are starting points — cold kitchens may need a degree warmer, warm summer kitchens a degree cooler." }
+        },
+        {
+          "@type": "Question",
+          "name": "What if the calculator says the water needs to be below freezing or above 45°C?",
+          "acceptedAnswer": { "@type": "Answer", "text": "If the water temperature comes out below 0°C, your room and flour are too warm or your friction factor too high — chill the flour for 30 minutes, lower mixer speed, or reduce the DDT. If it comes out above 45°C, water that hot will kill yeast and wild cultures — warm the flour or accept a cooler dough. In both cases the answer is to adjust the other variables, not to use water that breaks the formula." }
+        }
+      ]
+    }
+    </script>
+    <script src="/analytics.js" defer></script>
+    <style>
+        .ddt-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; }
+        .ddt-row .info-field { flex: 1 1 140px; margin-bottom: 0; }
+        .ddt-warning {
+            display: none;
+            margin-top: 14px;
+            padding: 12px 16px;
+            border-radius: var(--radius);
+            background: #fdf3e7;
+            border: 1.5px solid #e8c99b;
+            color: #7a4a12;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .ddt-result-box {
+            display: none;
+            margin-top: 20px;
+            padding: 20px 24px;
+            border-radius: var(--radius-lg);
+            background: var(--result-bg);
+            border: 1px solid var(--border);
+        }
+        .ddt-water-big {
+            font-family: var(--font-h);
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .ddt-formula {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+        .ddt-preset-hint {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        .toggle-pills { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+        .toggle-pill {
+            padding: 7px 16px;
+            border-radius: 20px;
+            border: 1.5px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            cursor: pointer;
+            transition: all var(--ease-fast);
+        }
+        .toggle-pill.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+    <header>
+        <h1>🌡️ Desired Dough Temperature Calculator — Nail the Water Temp</h1>
+        <p>Dough temperature controls fermentation speed. This calculator works out the exact water temperature you need — enter your target DDT, room and flour temperatures, pick your mixer, and it does the math. No sign-up, runs in your browser.</p>
+    </header>
+
+    <main class="cost-calc">
+
+        <section class="cost-section">
+            <div class="cost-section-header">
+                <span class="cost-section-icon">🌡️</span>
+                <h2>Find Your Water Temperature</h2>
+            </div>
+
+            <!-- unit toggle -->
+            <div class="toggle-pills" style="margin-bottom:16px;">
+                <span class="toggle-pill active" id="unit-c" onclick="document.getElementById('unit-c').classList.add('active');document.getElementById('unit-f').classList.remove('active');DDTCalc.setUnit&&DDTCalc.setUnit('C');">°C</span>
+                <span class="toggle-pill" id="unit-f" onclick="document.getElementById('unit-f').classList.add('active');document.getElementById('unit-c').classList.remove('active');DDTCalc.setUnit&&DDTCalc.setUnit('F');">°F</span>
+            </div>
+
+            <!-- method -->
+            <div class="toggle-pills" style="margin-bottom:16px;">
+                <label class="toggle-pill active" id="method-straight" onclick="document.getElementById('method-straight').classList.add('active');document.getElementById('method-preferment').classList.remove('active');DDTCalc.setMethod&&DDTCalc.setMethod('straight');">Straight dough (×3)</label>
+                <label class="toggle-pill" id="method-preferment" onclick="document.getElementById('method-preferment').classList.add('active');document.getElementById('method-straight').classList.remove('active');DDTCalc.setMethod&&DDTCalc.setMethod('preferment');">With preferment (×4)</label>
+            </div>
+            <p class="ddt-preset-hint" id="ddt-factor-note" style="margin-bottom:16px;">Formula: Water = (DDT × 3) − Room − Flour − Friction</p>
+
+            <!-- preset -->
+            <div class="info-row">
+                <div class="info-field" style="max-width:320px;">
+                    <label for="ddt-preset">Dough type (auto-fills DDT)</label>
+                    <select id="ddt-preset" style="width:100%;">
+                        <option value="">Custom / choose one…</option>
+                        <option value="Sourdough bread">Sourdough bread</option>
+                        <option value="Lean bread (baguette, pain de mie)">Lean bread (baguette, pain de mie)</option>
+                        <option value="Ciabatta / high-hydration">Ciabatta / high-hydration</option>
+                        <option value="Enriched bread (milk, egg)">Enriched bread (milk, egg)</option>
+                        <option value="Brioche">Brioche</option>
+                        <option value="Pizza (long cold ferment)">Pizza (long cold ferment)</option>
+                        <option value="Pizza (same-day)">Pizza (same-day)</option>
+                        <option value="Rye bread">Rye bread</option>
+                    </select>
+                    <p class="ddt-preset-hint" id="ddt-preset-hint"></p>
+                </div>
+            </div>
+
+            <!-- inputs -->
+            <div class="ddt-row" style="margin-top:14px;">
+                <div class="info-field" style="max-width:150px;">
+                    <label for="ddt-input">Target DDT <span id="ddt-unit">°C</span></label>
+                    <input type="number" id="ddt-input" value="25" min="10" max="35" step="0.5" inputmode="decimal">
+                </div>
+                <div class="info-field" style="max-width:150px;">
+                    <label for="room-temp">Room temp <span id="room-unit">°C</span></label>
+                    <input type="number" id="room-temp" value="21" min="-10" max="45" step="0.5" inputmode="decimal">
+                </div>
+                <div class="info-field" style="max-width:150px;">
+                    <label for="flour-temp">Flour temp <span id="flour-unit">°C</span></label>
+                    <input type="number" id="flour-temp" value="21" min="-10" max="45" step="0.5" inputmode="decimal">
+                </div>
+            </div>
+
+            <!-- friction -->
+            <div class="info-row" style="margin-top:14px;">
+                <div class="info-field" style="max-width:320px;">
+                    <label for="friction-method">Mixing method (friction heat)</label>
+                    <select id="friction-method" style="width:100%;">
+                        <option value="hand">Hand kneading (~+3°C)</option>
+                        <option value="kitchenaid" selected>Stand mixer / KitchenAid (~+12°C)</option>
+                        <option value="spiral">Spiral mixer (~+8°C)</option>
+                        <option value="custom">Custom friction…</option>
+                    </select>
+                </div>
+                <div class="info-field" id="friction-custom-row" style="max-width:150px;display:none;">
+                    <label for="friction-custom">Friction <span id="friction-unit">°C</span></label>
+                    <input type="number" id="friction-custom" value="10" min="0" max="30" step="0.5" inputmode="decimal">
+                </div>
+            </div>
+
+            <!-- preferment (hidden by default) -->
+            <div class="ddt-row" id="preferment-row" style="margin-top:14px;display:none;">
+                <div class="info-field" style="max-width:150px;">
+                    <label for="preferment-temp">Preferment temp <span id="preferment-unit">°C</span></label>
+                    <input type="number" id="preferment-temp" value="22" min="-10" max="45" step="0.5" inputmode="decimal">
+                </div>
+            </div>
+
+            <button class="btn-calc" id="ddt-calc-btn" style="margin-top:16px;">Calculate Water Temperature</button>
+
+            <div class="ddt-result-box" id="ddt-result">
+                <div class="result-total" style="margin-bottom:6px;">
+                    <span class="result-label">Water Temperature</span>
+                    <span class="result-val result-val--lg result-val--accent ddt-water-big" id="ddt-water">—</span>
+                </div>
+                <div class="ddt-formula" id="ddt-formula"></div>
+                <div class="ddt-warning" id="ddt-warning">
+                    <strong>⚠️ Heads-up:</strong><br>
+                    <span id="ddt-warning-text"></span>
+                </div>
+            </div>
+        </section>
+
+        <article class="seo-section">
+            <h2>Why Dough Temperature Matters More Than Your Recipe</h2>
+            <p>Two bakers, same recipe, same ingredients — one gets an airy, open crumb and the other gets a dense brick. Nine times out of ten, the difference is dough temperature, not technique.</p>
+            <p>Yeast is a living organism, and its activity roughly <strong>doubles for every 8°C (14°F) rise in temperature</strong>. A dough that finishes mixing at 22°C ferments noticeably slower than one at 26°C — same recipe, wildly different rise times. Control the dough temperature and fermentation becomes predictable: the same loaf in January and July, in a cold kitchen or a hot one.</p>
+
+            <h2>How to Use This Calculator</h2>
+            <ol>
+                <li><strong>Pick your dough type</strong> — the preset fills a sensible DDT (sourdough runs cooler, brioche cooler still, enriched breads warmer).</li>
+                <li><strong>Measure room and flour temperature</strong> — use an instant-read thermometer. Flour stored next to the oven can drift 5-8°C from the air without you noticing.</li>
+                <li><strong>Choose your mixing method</strong> — a KitchenAid adds roughly 12°C of friction heat during a standard mix. Hand kneading adds only ~3°C. This is the step most home calculators get wrong.</li>
+                <li><strong>Read the water temperature</strong> — mix with water at that temperature and your dough lands at the DDT after mixing.</li>
+            </ol>
+
+            <h2>DDT Reference (What Bakers Actually Aim For)</h2>
+            <table style="width:100%; border-collapse:collapse; margin:14px 0; font-size:0.9rem;">
+                <thead>
+                    <tr style="background:var(--card-bg);">
+                        <th style="padding:8px;text-align:left;">Dough type</th>
+                        <th style="padding:8px;text-align:left;">DDT</th>
+                        <th style="padding:8px;text-align:left;">Why</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:8px;">Sourdough bread</td><td style="padding:8px;">23–25°C</td><td style="padding:8px;">Cooler = slower, deeper flavour development</td></tr>
+                    <tr style="background:var(--card-bg);"><td style="padding:8px;">Lean bread (baguette, pain de mie)</td><td style="padding:8px;">24–26°C</td><td style="padding:8px;">Standard for flour-water-salt-yeast doughs</td></tr>
+                    <tr><td style="padding:8px;">Ciabatta / high-hydration</td><td style="padding:8px;">24–25°C</td><td style="padding:8px;">Warm enough for spring, cool enough to handle</td></tr>
+                    <tr style="background:var(--card-bg);"><td style="padding:8px;">Enriched bread (milk, egg)</td><td style="padding:8px;">25–27°C</td><td style="padding:8px;">Extra warmth helps yeast push through fat &amp; sugar</td></tr>
+                    <tr><td style="padding:8px;">Brioche</td><td style="padding:8px;">20–22°C</td><td style="padding:8px;">Cool so the butter stays solid during mixing</td></tr>
+                    <tr style="background:var(--card-bg);"><td style="padding:8px;">Pizza (long cold ferment)</td><td style="padding:8px;">22–24°C</td><td style="padding:8px;">Cool start for 24-72h cold fermentation</td></tr>
+                    <tr><td style="padding:8px;">Pizza (same-day)</td><td style="padding:8px;">24–26°C</td><td style="padding:8px;">Warmer for a 4-6h room-temperature rise</td></tr>
+                    <tr style="background:var(--card-bg);"><td style="padding:8px;">Rye bread</td><td style="padding:8px;">26–28°C</td><td style="padding:8px;">Rye ferments faster and likes it warmer</td></tr>
+                </tbody>
+            </table>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-box">
+                <div class="faq-item">
+                    <h3>What is desired dough temperature (DDT)?</h3>
+                    <p>DDT is the internal temperature you want your dough to reach right after mixing — usually 24-26°C for most breads. It's the single most reliable variable for repeatable fermentation.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Why does the multiplier change from ×3 to ×4?</h3>
+                    <p>The multiplier equals the number of things contributing heat to the dough. Straight dough has four contributors (water, room, flour, friction) — you know three, solve for the fourth, so it's ×3. With a preferment there are five contributors, so the formula becomes ×4.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What if the calculated water temperature is impossible?</h3>
+                    <p>Below 0°C? Chill your flour or lower the DDT. Above 45°C? That's hot enough to kill yeast — warm the flour or accept a cooler dough. Adjust the variables, not the formula.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How do I find my mixer's friction factor?</h3>
+                    <p>Measure once: record dough temperature immediately after mixing, and again at the same point in a batch where you used warmer/cooler water. The difference between what the formula predicts (with friction = 0) and what actually happened is your friction factor. KitchenAid users can start at ~12°C and adjust from there.</p>
+                </div>
+            </div>
+        </article>
+
+        <p style="margin-top:28px;font-size:0.94rem;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:20px;line-height:2;">
+            <strong>Related tools &amp; guides:</strong><br>
+            🍞 <a href="/articles/why-dough-temperature-matters">Why Dough Temperature Matters</a> — the science behind this calculator<br>
+            🫙 <a href="/sourdough-hydration-calculator">Sourdough Hydration Calculator</a> — get your water amount right too<br>
+            🧮 <a href="/bakers-percentage-calculator">Baker's Percentage Calculator</a> — build the formula first<br>
+            🍞 <a href="/articles/sourdough-starter-feeding-guide">Sourdough Starter Feeding Guide</a> — keep your starter healthy<br>
+            🍞 <a href="/articles/no-knead-bread-method">No-Knead Bread Guide</a> — the other way to bake great bread
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        <section class="related-conversions">
+            <h3>Bread &amp; Dough Tools</h3>
+            <ul class="related-links">
+                <li><a href="/ddt-calculator">Desired Dough Temperature Calculator</a></li>
+                <li><a href="/sourdough-hydration-calculator">Sourdough Hydration Calculator</a></li>
+                <li><a href="/bakers-percentage-calculator">Baker's Percentage Calculator</a></li>
+                <li><a href="/recipe-scaler">Recipe Scaler</a></li>
+                <li><a href="/1-tsp-instant-yeast-to-grams">Yeast Tsp → Grams</a></li>
+                <li><a href="/1-cup-flour-to-grams">Flour Cups → Grams</a></li>
+            </ul>
+        </section>
+        <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+    </footer>
+</div>
+
+<script src="/ddt-calculator.js"></script>
+</body>
+</html>
