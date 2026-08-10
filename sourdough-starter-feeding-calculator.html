@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sourdough Starter Feeding Calculator — Grams &amp; Peak | BakeCalc</title>
+    <meta name="description" content="Feed your sourdough starter right — get exact starter/flour/water grams for any ratio (1:1:1 to 1:10:10) plus peak-time estimate by temperature. Free.">
+    <meta property="og:title" content="Sourdough Starter Feeding Calculator — Ratio, Grams &amp; Peak Time | BakeCalc">
+    <meta property="og:description" content="Exact starter/flour/water grams for any feeding ratio, plus peak-time estimate by temperature. Free, no sign-up.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/sourdough-starter-feeding-calculator">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sourdough Starter Feeding Calculator — Ratio, Grams &amp; Peak Time | BakeCalc">
+    <meta name="twitter:description" content="Exact starter/flour/water grams for any feeding ratio, plus peak-time estimate by temperature. Free.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.png">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/sourdough-starter-feeding-calculator">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Sourdough Starter Feeding Calculator", "item": "https://bakecalc.club/sourdough-starter-feeding-calculator" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does a 1:1:1 sourdough feeding mean?",
+          "acceptedAnswer": { "@type": "Answer", "text": "1:1:1 means equal weights of starter, flour, and water by weight. For example, 50g starter + 50g flour + 50g water = 150g of fed starter at 100% hydration. It's the standard daily maintenance feed — it peaks fast (about 4 hours at 25°C) and produces a slightly tangier starter. Use a kitchen scale; volume measurements are unreliable because flour density varies." }
+        },
+        {
+          "@type": "Question",
+          "name": "When should I use 1:5:5 instead of 1:1:1?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Use 1:5:5 when you want a slower, gentler feed — it peaks in roughly 10-12 hours at 72°F instead of 4-5 hours. That makes it perfect for an overnight feed before a bake day, or for building starter strength. A 1:1:1 is for daily maintenance when the starter is already strong. Warmer kitchens need higher ratios (more food) to slow fermentation down; cooler kitchens can use lower ratios." }
+        },
+        {
+          "@type": "Question",
+          "name": "How much starter should I keep when feeding?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Most home bakers keep 25-100g of starter and discard the rest before feeding. There's no 'right' answer — keep what you need for your recipe plus a buffer. If you bake one loaf at a time, maintaining 50-100g is plenty. This calculator lets you set a target fed-starter weight and it works out the exact seed, flour, and water to use (and how much to discard if you enter your current jar weight)." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I know when my starter has peaked?",
+          "acceptedAnswer": { "@type": "Answer", "text": "A peaked starter has a domed top, visible bubbles on the surface and sides, and smells mildly tangy — like yogurt or ripe fruit. It should roughly double or triple in volume. The poke test works too: a spoonful dropped in water floats if there's enough trapped gas. Peak-time estimates from this calculator are a planning aid, not a prescription — temperature, flour type, and starter health shift the real timing by ±25%." }
+        }
+      ]
+    }
+    </script>
+    <script src="/analytics.js" defer></script>
+    <style>
+        .feed-result-box {
+            display: none;
+            margin-top: 20px;
+            padding: 20px 24px;
+            border-radius: var(--radius-lg);
+            background: var(--result-bg);
+            border: 1px solid var(--border);
+        }
+        .feed-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 14px;
+        }
+        @media (max-width: 560px) { .feed-grid { grid-template-columns: repeat(2, 1fr); } }
+        .feed-item {
+            text-align: center;
+            padding: 14px 10px;
+            border-radius: var(--radius);
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
+        }
+        .feed-item .num { font-family: var(--font-h); font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .feed-item .lbl { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; }
+        .feed-advice { margin-top: 14px; padding: 10px 14px; border-radius: var(--radius); background: #fdf3e7; font-size: 0.9rem; color: #7a4a12; }
+        .feed-peak-row { margin-top: 14px; padding: 10px 14px; border-radius: var(--radius); background: var(--card-bg); border: 1px solid var(--border-light); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+    <header>
+        <h1>🫙 Sourdough Starter Feeding Calculator — Get the Grams Right</h1>
+        <p>Feeding a starter is three numbers: how much starter you keep, how much flour you add, how much water. This calculator does the math for any ratio from 1:1:1 to 1:10:10 — and estimates peak time from your kitchen temperature. No sign-up, runs in your browser.</p>
+    </header>
+
+    <main class="cost-calc">
+
+        <section class="cost-section">
+            <div class="cost-section-header">
+                <span class="cost-section-icon">🫙</span>
+                <h2>Your Feed</h2>
+            </div>
+
+            <div class="info-row">
+                <div class="info-field" style="max-width:220px;">
+                    <label for="feed-ratio">Feeding ratio (starter:flour:water)</label>
+                    <select id="feed-ratio" style="width:100%;">
+                        <option value="1" selected>1:1:1 — daily maintenance</option>
+                        <option value="2">1:2:2 — slower cycle</option>
+                        <option value="3">1:3:3 — mid-range</option>
+                        <option value="5">1:5:5 — overnight / build strength</option>
+                        <option value="10">1:10:10 — fridge revival</option>
+                    </select>
+                </div>
+                <div class="info-field" style="max-width:180px;">
+                    <label for="feed-target">Target fed-starter weight (g)</label>
+                    <input type="number" id="feed-target" value="200" min="20" step="10" inputmode="numeric">
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:4px;">Leave empty if entering jar weight below</p>
+                </div>
+                <div class="info-field" style="max-width:180px;">
+                    <label for="feed-starter">Current starter on hand (g)</label>
+                    <input type="number" id="feed-starter" value="" min="0" step="5" inputmode="numeric" placeholder="optional">
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-top:4px;">Takes priority — computes from what you have</p>
+                </div>
+            </div>
+
+            <div class="info-row" style="margin-top:14px;">
+                <div class="info-field" style="max-width:180px;">
+                    <label for="feed-temp">Kitchen temperature</label>
+                    <input type="number" id="feed-temp" value="22" min="0" max="40" step="1" inputmode="numeric">
+                </div>
+                <div class="info-field" style="max-width:120px;">
+                    <label for="feed-unit">Unit</label>
+                    <select id="feed-unit" style="width:100%;">
+                        <option value="C" selected>°C</option>
+                        <option value="F">°F</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="btn-calc" id="feed-calc-btn" style="margin-top:16px;">Calculate My Feed</button>
+
+            <div class="feed-result-box" id="feed-result">
+                <div style="font-size:0.9rem;color:var(--text-muted);margin-bottom:4px;">
+                    Feeding <strong id="feed-ratio-label" style="color:var(--text);">1 : 1 : 1</strong> (starter : flour : water, by weight)
+                </div>
+                <div class="feed-grid">
+                    <div class="feed-item">
+                        <div class="num" id="feed-seed">—</div>
+                        <div class="lbl">starter to keep</div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="num" id="feed-flour">—</div>
+                        <div class="lbl">flour to add</div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="num" id="feed-water">—</div>
+                        <div class="lbl">water to add</div>
+                    </div>
+                    <div class="feed-item">
+                        <div class="num" id="feed-total">—</div>
+                        <div class="lbl">total after feed</div>
+                    </div>
+                </div>
+                <div class="feed-peak-row" id="feed-peak-row">
+                    <strong>Estimated peak:</strong> <span id="feed-peak" style="color:var(--primary);font-weight:700;">—</span>
+                    &nbsp;<span style="color:var(--text-muted);font-size:0.85rem;" id="feed-peak-note"></span>
+                </div>
+                <div class="feed-advice" id="feed-advice"></div>
+            </div>
+        </section>
+
+        <article class="seo-section">
+            <h2>Feeding Ratios, Explained the Way I Wish Someone Had</h2>
+            <p>A feeding ratio like 1:5:5 means <strong>starter : flour : water by weight</strong> — one part starter, five parts flour, five parts water. The ratio is the single biggest lever you have over your starter's schedule. Here's how to think about it:</p>
+            <ul>
+                <li><strong>1:1:1</strong> is the fast lane — equal weights of everything. Peaks in ~4 hours at 25°C. Use it for daily maintenance when your starter is strong, or when you're baking the same day.</li>
+                <li><strong>1:5:5</strong> is the slow lane — five times more food than starter. Peaks in 10-12 hours, which lines up perfectly with an overnight feed: feed before bed, it's ready when you wake up.</li>
+                <li><strong>1:10:10</strong> is fridge-revival territory — very little starter, lots of food, very gentle. Use it to bring a cold, acidic starter back to life.</li>
+            </ul>
+            <p>Warmer kitchens need higher ratios (more food slows fermentation down); cooler kitchens can use lower ones. If your 1:1:1 starter peaks and collapses in 3 hours, it's hungry — step up to 1:3:3 or 1:5:5. This is the same guidance in our <a href="/articles/sourdough-starter-feeding-guide">full starter feeding guide</a>, which walks through the day-by-day schedule for new starters and fixes for the seven most common problems.</p>
+
+            <h2>Why Weight, Not Volume</h2>
+            <p>A cup of flour can weigh anywhere from 110g (sifted) to 155g (packed) — a 40% difference that completely changes your ratio. Sourdough ratios are defined by weight precisely because volume is unreliable. If you're still using cups for your starter, switch to a scale for a week and you'll never go back. Need to convert an American recipe's cups to grams while you're at it? Use the <a href="/1-cup-flour-to-grams">flour</a>, <a href="/1-cup-sugar-to-grams">sugar</a>, or <a href="/1-cup-butter-to-grams">butter</a> converters.</p>
+
+            <h2>Peak-Time: Estimate It, Then Judge the Starter</h2>
+            <p>This calculator estimates peak time using a Q10 model — fermentation rate roughly doubles per 10°C rise. It's a planning tool, not a promise: real timing shifts ±25% with starter health, flour protein, and humidity. The reliable signs of a peaked starter are the same ones bakers have used for a century:</p>
+            <ul>
+                <li><strong>Domed top</strong> that's just starting to recede</li>
+                <li><strong>Visible bubbles</strong> on the surface and sides of the jar</li>
+                <li><strong>Smell</strong> mildly tangy — like yogurt or ripe fruit, not vinegar or nail polish remover</li>
+                <li><strong>Float test:</strong> a teaspoon dropped in water floats when there's enough trapped gas</li>
+            </ul>
+            <p>Use the estimate to plan your day; use the starter's behavior to decide when it's actually ready.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-box">
+                <div class="faq-item">
+                    <h3>What does a 1:1:1 sourdough feeding mean?</h3>
+                    <p>Equal weights of starter, flour, and water. 50g + 50g + 50g = 150g fed starter at 100% hydration. It's the standard daily feed — fast peak, slightly tangier flavor.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>When should I use 1:5:5 instead of 1:1:1?</h3>
+                    <p>Use 1:5:5 for overnight feeds and building strength — it peaks in 10-12 hours instead of 4-5. Use 1:1:1 for daily maintenance of a strong starter. Warmer kitchens: higher ratios. Cooler kitchens: lower ratios.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How much starter should I keep when feeding?</h3>
+                    <p>25-100g is plenty for home baking — keep what your recipe needs plus a buffer. Enter your current jar weight in the calculator to get a discard estimate. Save the discard for pancakes, crackers, or <a href="/articles/baking-with-honey-instead-of-sugar">creative baking</a>.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>My starter peaks too fast — what's wrong?</h3>
+                    <p>Nothing's wrong — it's hungry. If it peaks and collapses in under 4 hours at 1:1:1, step up to a higher ratio (1:3:3 or 1:5:5) to give it more food and slow the cycle down. Our <a href="/articles/sourdough-troubleshooting">sourdough troubleshooting</a> guide covers this and eight other common problems.</p>
+                </div>
+            </div>
+        </article>
+
+        <p style="margin-top:28px;font-size:0.94rem;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:20px;line-height:2;">
+            <strong>Related tools &amp; guides:</strong><br>
+            🫙 <a href="/articles/sourdough-starter-feeding-guide">Sourdough Starter Feeding Guide</a> — the full day-by-day &amp; problem-fix guide<br>
+            🍞 <a href="/sourdough-hydration-calculator">Sourdough Hydration Calculator</a> — build your dough recipe after the feed<br>
+            🌡️ <a href="/ddt-calculator">Desired Dough Temperature Calculator</a> — control fermentation with water temp<br>
+            🔍 <a href="/articles/sourdough-troubleshooting">Sourdough Troubleshooting</a> — 10 loaf problems &amp; exact fixes<br>
+            🧮 <a href="/bakers-percentage-calculator">Baker's Percentage Calculator</a> — the formula behind every bread<br>
+            🍞 <a href="/articles/no-knead-bread-method">No-Knead Bread Guide</a> — the other way to great bread
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+        <section class="related-conversions">
+            <h3>Sourdough &amp; Bread Tools</h3>
+            <ul class="related-links">
+                <li><a href="/sourdough-starter-feeding-calculator">Starter Feeding Calculator</a></li>
+                <li><a href="/sourdough-hydration-calculator">Sourdough Hydration Calculator</a></li>
+                <li><a href="/ddt-calculator">Desired Dough Temperature Calculator</a></li>
+                <li><a href="/bakers-percentage-calculator">Baker's Percentage Calculator</a></li>
+                <li><a href="/high-altitude-baking-calculator">High Altitude Calculator</a></li>
+                <li><a href="/recipe-scaler">Recipe Scaler</a></li>
+            </ul>
+        </section>
+        <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer" title="View source code on GitHub">📂 View on GitHub</a></p>
+    </footer>
+</div>
+
+<script src="/sourdough-starter-feeding-calculator.js"></script>
+</body>
+</html>
