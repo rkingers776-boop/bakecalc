@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Calorie & Macro Calculator — 90+ Foods | BakeCalc</title>
-    <meta name="description" content="Free calorie & macro calculator for 90+ common baking ingredients and foods. Estimate calories, protein, fat & carbs. No sign-up, works in your browser.">
-    <meta property="og:title" content="Free Calorie & Macro Calculator — 90+ Foods | BakeCalc">
-    <meta property="og:description" content="Free calorie & macro calculator for 90+ common baking ingredients and foods. Estimate calories, protein, fat & carbs. No sign-up, works in your browser.">
+    <title>Free Calorie & Macro Calculator — 180+ Foods | BakeCalc</title>
+    <meta name="description" content="Free calorie & macro calculator for 180+ foods, from chicken breast to chocolate chip cookies. Calories, protein, carbs, fat & fiber. No sign-up.">
+    <meta property="og:title" content="Free Calorie & Macro Calculator — 180+ Foods | BakeCalc">
+    <meta property="og:description" content="Free calorie & macro calculator for 180+ foods, from chicken breast to chocolate chip cookies. Calories, protein, carbs, fat & fiber. No sign-up.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bakecalc.club/calorie-calculator">
     <meta property="og:site_name" content="BakeCalc Club">
     <meta property="og:image" content="https://bakecalc.club/bakecalc-og.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Free Calorie &amp; Macro Calculator — 90+ Foods | BakeCalc">
-    <meta name="twitter:description" content="Free calorie & macro calculator for 90+ common baking ingredients and foods. Estimate calories, protein, fat & carbs. No sign-up, works in your browser.">
+    <meta name="twitter:title" content="Free Calorie &amp; Macro Calculator — 180+ Foods | BakeCalc">
+    <meta name="twitter:description" content="Free calorie & macro calculator for 180+ foods, from chicken breast to chocolate chip cookies. Calories, protein, carbs, fat & fiber. No sign-up.">
     <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.png">
     <link rel="stylesheet" href="/style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
@@ -36,18 +36,18 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How accurate is this calorie calculator?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Our food data comes from the USDA National Nutrient Database and major nutrition research databases (SR28, NCCDB). Values are per 100g of the raw/uncooked food unless otherwise noted. Accuracy is comparable to major nutrition tracking apps. However, natural variation in food — one chicken breast vs another, one avocado vs another — means the numbers are estimates, not guarantees. Use them for meal planning and macro tracking; don't use them for medical dietary management without consulting a professional." }
+          "name": "How many calories are in a slice of my homemade cake?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Add up the ingredients once, then divide by the number of slices. A two-layer vanilla cake runs about 350-400 calories a slice before frosting, and the frosting adds another 150-250. Weigh each ingredient and total them in the calculator." }
         },
         {
           "@type": "Question",
-          "name": "Does cooking change the calorie content of food?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Cooking doesn't destroy calories, but it changes weight through water loss. A 200g raw chicken breast might weigh 150g after cooking (lost water), but its calories stay roughly the same (it went from ~240 kcal raw to ~248 kcal cooked per 150g — the slight increase is because fat renders and concentrates). Our database lists both raw and cooked values where the difference matters. Always check whether your food weight is raw or cooked — using a raw calorie value for cooked weight will overestimate your intake. When in doubt, weigh food raw. It's more consistent." }
+          "name": "Does whole wheat flour have fewer calories than white?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Barely. All-purpose flour is about 455 calories a cup; whole wheat is closer to 420. The real difference is fiber, not calories." }
         },
         {
           "@type": "Question",
-          "name": "How do I track calories without a food scale?",
-          "acceptedAnswer": { "@type": "Answer", "text": "You can estimate: a deck of cards = ~100g cooked meat. A fist = ~1 cup. A thumb = ~1 tablespoon. A tennis ball = ~1/2 cup. But these are rough estimates — studies show people underestimate calorie intake by 20-40% when eyeballing portions. A digital food scale costs $12 and is the single most effective tool for accurate calorie tracking. If you're serious about counting macros, the scale matters more than any app or calculator." }
+          "name": "Why is butter so calorie-dense?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Butter is about 81% fat, and fat has 9 calories per gram versus 4 for carbs and protein. One tablespoon is roughly 100 calories." }
         }
       ]
     }
@@ -100,6 +100,20 @@
         .macro-legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.82rem; color: var(--text-secondary); margin-top: 6px; }
         .macro-legend span { display: flex; align-items: center; gap: 5px; }
         .macro-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
+        .portion-label { font-size: 0.82rem; color: var(--text-muted); display: block; margin-bottom: 6px; }
+        .portion-btns { display: flex; flex-wrap: wrap; gap: 6px; }
+        .portion-btn {
+            padding: 6px 12px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--card-bg);
+            color: var(--text-secondary);
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all var(--ease-fast);
+        }
+        .portion-btn:hover { border-color: var(--border-focus); color: var(--text); background: var(--primary-light); }
     </style>
 </head>
 <body>
@@ -109,7 +123,7 @@
 
     <header>
         <h1>🥩 Calorie & Macro Calculator — Know What's in Your Food</h1>
-        <p>Search 90+ common foods, enter the weight in grams, and get an instant breakdown: calories, protein, carbs, fat, and fiber. No sign-up, no tracking, no app.</p>
+        <p>Search 180+ common foods, enter the weight in grams, and get an instant breakdown: calories, protein, carbs, fat, and fiber. No sign-up, no tracking, no app.</p>
     </header>
 
     <main class="cost-calc">
@@ -120,7 +134,7 @@
                 <h2>Find Your Food</h2>
             </div>
             <div class="food-search-wrap">
-                <input type="text" id="food-search" placeholder="Type a food name — e.g., 'chicken breast', 'avocado', 'rice'..." autocomplete="off">
+                <input type="text" id="food-search" placeholder="Type a food name — e.g., 'chicken breast', 'pancakes', 'hummus', 'banana'..." autocomplete="off">
                 <div class="food-results" id="food-results"></div>
             </div>
             <div class="info-row">
@@ -128,6 +142,10 @@
                     <label for="food-grams">Weight (grams)</label>
                     <input type="number" id="food-grams" value="100" min="1" step="1" inputmode="numeric">
                 </div>
+            </div>
+            <div id="portion-wrap" style="display:none;margin-top:10px;">
+                <span class="portion-label">Quick portion:</span>
+                <div class="portion-btns" id="portion-btns"></div>
             </div>
             <button class="btn-calc" id="calc-btn" style="margin-top:8px;">Calculate Macros</button>
 
@@ -153,6 +171,10 @@
                     <span>Fiber: <strong id="cr-fiber">—</strong>g</span>
                 </div>
 
+                <div style="font-size:0.8rem;color:var(--text-muted);margin-top:10px;">
+                    Daily values (2,000 kcal diet): <span id="cr-dv">—</span>
+                </div>
+
                 <div class="result-grid" style="margin-top:14px;">
                     <div class="result-item result-item--highlight">
                         <span class="result-label">Calories from Protein</span>
@@ -171,55 +193,55 @@
         </section>
 
         <article class="seo-section">
-            <h2>Why I Built a Calorie Calculator on a Baking Site</h2>
-            <p>Because every baker eventually asks the same question: "how many calories are in this cake?" Usually right before eating a second slice. Most calorie apps make you create an account, log in, set up a profile, and navigate through five screens before you can look up "flour." This calculator has none of that. Type a food. Enter grams. Done.</p>
-            <p>The food data comes from the USDA National Nutrient Database — the same source MyFitnessPal, Cronometer, and most nutrition apps use. We've curated 90+ of the most commonly searched foods and included both raw and cooked values where the difference matters (meat loses ~25% of its weight during cooking but keeps its calories; using raw values for cooked weight will overestimate your intake by about a third).</p>
+            <h2>Why a Baking Site Has a Calorie Counter</h2>
+            <p>Every baker hits the same question, usually while reaching for a second slice: "how many calories are in this cake?" Calorie apps don't make it easy to answer. Account, profile, five screens of setup, and only then can you look up "flour." This page skips all of that. Type a food, enter grams, done.</p>
+            <p>The numbers come from the USDA National Nutrient Database and NCCDB, the same references behind most nutrition apps. We kept 180+ foods people actually search for, with both raw and cooked entries where it matters. A raw chicken breast drops about a quarter of its weight in the pan while keeping its calories, so pasting the raw number onto a cooked portion overcounts by roughly a third.</p>
 
-            <h2>How to Actually Use This (Not Just Play With It)</h2>
+            <h2>How to Use It Without Overthinking</h2>
             <ol>
-                <li><strong>Weigh your food raw whenever possible.</strong> Water loss during cooking changes weight but not calories. A 200g raw chicken breast might weigh 150g cooked — but it's still ~240 calories. Weighing raw removes this variable entirely.</li>
-                <li><strong>For mixed dishes, weigh each ingredient separately</strong> and look them up one by one. Yes, it's tedious. But a "chicken stir-fry" in a calorie database is someone else's recipe with someone else's oil quantity. Your version has different amounts of everything.</li>
-                <li><strong>Don't track vegetables closely.</strong> A 50-calorie error on broccoli is irrelevant. A 50-calorie error on olive oil is two teaspoons. Focus your accuracy on calorie-dense ingredients: oils, butter, nuts, cheese, sugar, and grains.</li>
-                <li><strong>The scale matters more than the calculator.</strong> If you guess your portion size, the calculator will happily give you a precise-looking number that's wrong by 30%. A $12 digital scale fixes this.</li>
+                <li><strong>Weigh raw when you can.</strong> Water loss changes weight, not calories. A 200g raw chicken breast might weigh 150g after cooking, but it's still ~240 calories. Weighing raw removes that variable entirely.</li>
+                <li><strong>Look up mixed dishes piece by piece.</strong> A "chicken stir-fry" in any database is somebody else's recipe with somebody else's oil. Yours has different amounts of everything, so weigh each part and add it up.</li>
+                <li><strong>Spend your accuracy on the dense stuff.</strong> A 50-calorie miss on broccoli is nothing. A 50-calorie miss on <a href="/1-cup-butter-to-grams">butter</a> (717 kcal per 100g) or <a href="/1-cup-vegetable-oil-to-grams">oil</a> is two teaspoons. Watch the fats, nuts, cheese, and <a href="/1-cup-sugar-to-grams">sugar</a> first.</li>
+                <li><strong>The scale beats the calculator.</strong> Guess your portion and you'll get a precise-looking number that's off by 30%. A $12 digital scale fixes that overnight.</li>
             </ol>
 
-            <h2>The Macro Math (For People Who Want to Know)</h2>
-            <p>The numbers come from standard nutritional analysis:</p>
+            <h2>The Macro Math</h2>
+            <p>Every food's calories come from four macros:</p>
             <ul>
-                <li><strong>Protein:</strong> 4 calories per gram</li>
-                <li><strong>Carbohydrates:</strong> 4 calories per gram</li>
-                <li><strong>Fat:</strong> 9 calories per gram</li>
-                <li><strong>Fiber:</strong> 2 calories per gram (soluble fiber is partially fermented by gut bacteria; insoluble fiber passes through undigested — the 2 cal/g is a consensus average used in most nutrition databases)</li>
+                <li><strong>Protein</strong> — 4 cal/g</li>
+                <li><strong>Carbohydrates</strong> — 4 cal/g</li>
+                <li><strong>Fat</strong> — 9 cal/g</li>
+                <li><strong>Fiber</strong> — about 2 cal/g (soluble fiber is partly fermented by gut bacteria; insoluble passes through)</li>
             </ul>
-            <p>Multiply grams of each macro by its calorie value, and the total should roughly match the listed calorie count. It won't match perfectly — food labels round, databases average, and natural foods vary. A 10-20 calorie discrepancy per 100g is normal and not worth worrying about.</p>
+            <p>Multiply each macro by its number and you'll land close to the listed total. You won't match exactly — labels round, databases average, and real food varies. A 10–20 calorie gap per 100g is normal and not worth chasing.</p>
 
-            <h2>What This Calculator Can't Do</h2>
-            <p>It can't track your daily intake. It can't set calorie goals. It can't scan barcodes. It can't log meals over time. Those features require accounts, databases, and ongoing maintenance — which is why every app that does them charges money or sells your data. This calculator does one thing: takes a food and a weight, and returns the macros. If you need daily tracking, use Cronometer (free, most accurate database) or MacroFactor (paid, best adherence algorithms). Use this calculator for quick lookups while you're cooking or meal-prepping.</p>
+            <h2>What This Tool Won't Do</h2>
+            <p>It won't track your day, set calorie goals, scan barcodes, or log meals over time. Those features need accounts, upkeep, and a business model, which is why the apps that offer them charge or sell your data. This calculator does one job: food in, weight in, macros out. For full daily tracking, Cronometer (free, accurate database) or MacroFactor (paid, best adherence tools) are the usual picks. Keep this page open while you cook or meal-prep.</p>
 
-            <h2>Frequently Asked Questions</h2>
+            <h2>Baking-Specific Questions</h2>
             <div class="faq-box">
                 <div class="faq-item">
-                    <h3>How accurate is this calorie calculator?</h3>
-                    <p>Data is from USDA SR28 and NCCDB — the same sources used by major nutrition tracking apps. Accuracy is within typical food database range (±10-15% for mixed foods, ±5% for single ingredients). Natural variation in food means these are estimates, not guarantees.</p>
+                    <h3>How many calories are in a slice of my homemade cake?</h3>
+                    <p>Add up the ingredients once, then divide by the number of slices. A two-layer vanilla cake runs roughly 350–400 calories a slice before frosting, and the frosting can add another 150–250. Weigh each ingredient — <a href="/1-cup-flour-to-grams">flour</a>, butter, sugar, eggs — and this calculator totals it for you.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>Does cooking change calories?</h3>
-                    <p>No, but it changes weight (water loss). Weigh food raw for the most consistent results. If you must weigh cooked food, look for "cooked" entries in the database — the values account for water loss.</p>
+                    <h3>Does whole wheat flour have fewer calories than white?</h3>
+                    <p>Barely. All-purpose is about 455 calories a cup; whole wheat is closer to 420. The real gap is fiber, not calories — whole wheat keeps you fuller longer. If you're counting, the flour swap matters less than how much butter or sugar rides along.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>How do I track calories without a scale?</h3>
-                    <p>You can estimate with hand-size portions (palm = protein, fist = carbs, thumb = fats), but studies show 20-40% undercounting when estimating. A $12 food scale is the most effective calorie-tracking investment available.</p>
+                    <h3>Why is butter so calorie-dense?</h3>
+                    <p>It's about 81% fat, and fat packs 9 calories a gram versus 4 for carbs and protein. One tablespoon of <a href="/1-tbsp-butter-to-grams">butter</a> is roughly 100 calories, which is why croissants and shortbread add up fast. Use it, just measure it.</p>
                 </div>
             </div>
         </article>
 
         <p style="margin-top:28px;font-size:0.94rem;color:var(--text-muted);border-top:1px solid var(--border-light);padding-top:20px;line-height:2;">
             <strong>Related tools:</strong><br>
-            🏷️ <a href="/nutrition-label-generator">Nutrition Label Generator</a> — turn your whole recipe into an FDA-format label<br>
-            ⚖️ <a href="/oz-to-grams">oz to Grams</a> — if your food package uses ounces<br>
-            📦 <a href="/lbs-to-kg">lbs to kg</a> — for bulk meat and produce<br>
-            🔄 <a href="/ingredient-substitute">Ingredient Substitutes</a> — lower-calorie swaps for common ingredients<br>
-            🥚 <a href="/egg-substitute-guide">Egg Substitute Guide</a> — calories and macros for every egg alternative<br>
+            🏷️ <a href="/nutrition-label-generator">Nutrition Label Generator</a> — turn a whole recipe into an FDA-format label<br>
+            🔄 <a href="/ingredient-substitute">Ingredient Substitutes</a> — lower-calorie swaps for butter, eggs, and oil<br>
+            🧈 <a href="/1-cup-butter-to-grams">Butter to Grams</a> — the most calorie-dense thing in most recipes<br>
+            ⚖️ <a href="/oz-to-grams">oz to Grams</a> — if your package lists ounces instead of grams<br>
+            📦 <a href="/lbs-to-kg">lbs to kg</a> — for bulk meat, produce, and meal prep<br>
             🧮 <a href="/cooking-converter">Universal Cooking Converter</a> — all kitchen unit conversions
         </p>
     </main>
