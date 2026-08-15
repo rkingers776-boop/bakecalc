@@ -6,3 +6,6 @@ node_modules/
 
 # Deployment artifact
 dist/
+
+# Wrangler local state
+.wrangler/
