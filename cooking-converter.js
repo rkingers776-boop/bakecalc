@@ -89,87 +89,116 @@ var CookingConverter = (function() {
     if (!ozIn || !mlOut) return;
 
     function update() {
-      var oz = parseFloat(ozIn.value);
-      if (isNaN(oz) || oz <= 0) { mlOut.textContent = '—'; return; }
-      mlOut.textContent = flozToMl(oz) + ' mL';
-      if (cupsOut) cupsOut.textContent = (oz / 8).toFixed(2);
+      var v = parseFloat(ozIn.value);
+      if (isNaN(v) || v <= 0) { mlOut.textContent = '—'; return; }
+      mlOut.textContent = flozToMl(v) + ' mL';
+      if (cupsOut) cupsOut.textContent = (v / 8).toFixed(2);
     }
     ozIn.addEventListener('input', update);
     update();
   }
 
-  function bindTbspMl() {
-    var tbspIn = document.getElementById('tbsp-input');
-    var mlOut = document.getElementById('tbsp-ml-out');
-    var tbspType = document.getElementById('tbsp-type');
-    if (!tbspIn || !mlOut) return;
+  /* ---- reverse-mode input bindings (mL → oz, etc.) ---- */
+  function bindMlToFloz() {
+    var mlIn = document.getElementById('ml-floz-input');
+    var ozOut = document.getElementById('ml-floz-oz-out');
+    if (!mlIn || !ozOut) return;
     function update() {
-      var v = parseFloat(tbspIn.value);
-      if (isNaN(v) || v <= 0) { mlOut.textContent = '—'; return; }
-      var mlPerTbsp = tbspType ? parseFloat(tbspType.value) : 14.7868;
-      mlOut.textContent = (v * mlPerTbsp).toFixed(1) + ' mL';
+      var v = parseFloat(mlIn.value);
+      if (isNaN(v) || v <= 0) { ozOut.textContent = '—'; return; }
+      ozOut.textContent = mlToFloz(v) + ' fl oz';
     }
-    tbspIn.addEventListener('input', update);
+    mlIn.addEventListener('input', update);
+    update();
+  }
+
+  function bindMlToTbsp() {
+    var mlIn = document.getElementById('ml-tbsp-input');
+    var tbspOut = document.getElementById('ml-tbsp-out');
+    var tbspType = document.getElementById('ml-tbsp-type');
+    if (!mlIn || !tbspOut) return;
+    function update() {
+      var v = parseFloat(mlIn.value);
+      if (isNaN(v) || v <= 0) { tbspOut.textContent = '—'; return; }
+      var mlPerTbsp = tbspType ? parseFloat(tbspType.value) : 14.7868;
+      tbspOut.textContent = (v / mlPerTbsp).toFixed(2) + ' tbsp';
+    }
+    mlIn.addEventListener('input', update);
     if (tbspType) tbspType.addEventListener('change', update);
     update();
   }
 
-  function bindCupsMl() {
-    var cupsIn = document.getElementById('cups-input');
-    var mlOut = document.getElementById('cups-ml-out');
-    var cupType = document.getElementById('cup-type');
-    if (!cupsIn || !mlOut) return;
+  function bindMlToCups() {
+    var mlIn = document.getElementById('ml-cups-input');
+    var cupsOut = document.getElementById('ml-cups-out');
+    var cupType = document.getElementById('ml-cup-type');
+    if (!mlIn || !cupsOut) return;
     function update() {
-      var v = parseFloat(cupsIn.value);
-      if (isNaN(v) || v <= 0) { mlOut.textContent = '—'; return; }
+      var v = parseFloat(mlIn.value);
+      if (isNaN(v) || v <= 0) { cupsOut.textContent = '—'; return; }
       var mlPerCup = cupType ? parseFloat(cupType.value) : 236.588;
-      mlOut.textContent = (v * mlPerCup).toFixed(1) + ' mL';
+      cupsOut.textContent = (v / mlPerCup).toFixed(3) + ' cups';
     }
-    cupsIn.addEventListener('input', update);
+    mlIn.addEventListener('input', update);
     if (cupType) cupType.addEventListener('change', update);
     update();
   }
 
-  function bindGramsOz() {
-    var gIn = document.getElementById('grams-input');
-    var ozOut = document.getElementById('grams-oz-out');
-    if (!gIn || !ozOut) return;
+  function bindOzToGrams() {
+    var ozIn = document.getElementById('oz-grams-input');
+    var gOut = document.getElementById('oz-grams-out');
+    if (!ozIn || !gOut) return;
     function update() {
-      var v = parseFloat(gIn.value);
-      if (isNaN(v) || v <= 0) { ozOut.textContent = '—'; return; }
-      ozOut.textContent = gToOz(v) + ' oz';
+      var v = parseFloat(ozIn.value);
+      if (isNaN(v) || v <= 0) { gOut.textContent = '—'; return; }
+      gOut.textContent = ozToG(v) + ' g';
+    }
+    ozIn.addEventListener('input', update);
+    update();
+  }
+
+  function bindKgToLbs() {
+    var kgIn = document.getElementById('kg-lbs-input');
+    var lbsOut = document.getElementById('kg-lbs-out');
+    if (!kgIn || !lbsOut) return;
+    function update() {
+      var v = parseFloat(kgIn.value);
+      if (isNaN(v) || v <= 0) { lbsOut.textContent = '—'; return; }
+      lbsOut.textContent = kgToLbs(v) + ' lbs';
+    }
+    kgIn.addEventListener('input', update);
+    update();
+  }
+
+  function bindGramsToCups() {
+    var gIn = document.getElementById('gc-grams-input');
+    var ingSel = document.getElementById('gc-ingredient');
+    var cupsOut = document.getElementById('gc-cups-out');
+    if (!gIn || !ingSel || !cupsOut) return;
+    function update() {
+      var grams = parseFloat(gIn.value);
+      var ing = ingSel.value;
+      if (isNaN(grams) || grams <= 0) { cupsOut.textContent = '—'; return; }
+      var density = CUP_DENSITIES[ing] || 236;
+      cupsOut.textContent = (grams / density).toFixed(3) + ' cups';
     }
     gIn.addEventListener('input', update);
-    update();
-  }
-
-  function bindLbsKg() {
-    var lbsIn = document.getElementById('lbs-input');
-    var kgOut = document.getElementById('lbs-kg-out');
-    if (!lbsIn || !kgOut) return;
-    function update() {
-      var v = parseFloat(lbsIn.value);
-      if (isNaN(v) || v <= 0) { kgOut.textContent = '—'; return; }
-      kgOut.textContent = lbsToKg(v) + ' kg';
-    }
-    lbsIn.addEventListener('input', update);
-    update();
-  }
-
-  function bindCupsToGrams() {
-    var cupsIn = document.getElementById('cg-cups-input');
-    var ingSel = document.getElementById('cg-ingredient');
-    var gOut = document.getElementById('cg-grams-out');
-    if (!cupsIn || !ingSel || !gOut) return;
-    function update() {
-      var cups = parseFloat(cupsIn.value);
-      var ing = ingSel.value;
-      if (isNaN(cups) || cups <= 0) { gOut.textContent = '—'; return; }
-      gOut.textContent = cupsToGrams(cups, ing) + ' g';
-    }
-    cupsIn.addEventListener('input', update);
     ingSel.addEventListener('change', update);
     update();
+  }
+
+  /* ---- reverse-mode toggling ---- */
+  function initToggle(btnId, forwardId, reverseId) {
+    var btn = document.getElementById(btnId);
+    var fwd = document.getElementById(forwardId);
+    var rev = document.getElementById(reverseId);
+    if (!btn || !fwd || !rev) return;
+    btn.addEventListener('click', function () {
+      var isReverse = rev.style.display !== 'none';
+      rev.style.display = isReverse ? 'none' : '';
+      fwd.style.display = isReverse ? '' : 'none';
+      btn.textContent = isReverse ? '⇄ Switch direction' : '⇄ Switch back';
+    });
   }
 
   function init() {
@@ -179,9 +208,22 @@ var CookingConverter = (function() {
     bindGramsOz();
     bindLbsKg();
     bindCupsToGrams();
+    bindMlToFloz();
+    bindMlToTbsp();
+    bindMlToCups();
+    bindOzToGrams();
+    bindKgToLbs();
+    bindGramsToCups();
+
+    initToggle('toggle-floz', 'floz-forward', 'floz-reverse');
+    initToggle('toggle-tbsp', 'tbsp-forward', 'tbsp-reverse');
+    initToggle('toggle-cups', 'cups-forward', 'cups-reverse');
+    initToggle('toggle-g-oz', 'goz-forward', 'goz-reverse');
+    initToggle('toggle-lbs', 'lbs-forward', 'lbs-reverse');
+    initToggle('toggle-cg', 'cg-forward', 'cg-reverse');
   }
 
-  return { init: init, flozToMl: flozToMl, ozToG: ozToG, lbsToKg: lbsToKg, cupsToGrams: cupsToGrams };
+  return { init: init, flozToMl: flozToMl, mlToFloz: mlToFloz, ozToG: ozToG, lbsToKg: lbsToKg, cupsToGrams: cupsToGrams };
 })();
 
 document.addEventListener('DOMContentLoaded', function() {

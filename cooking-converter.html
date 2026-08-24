@@ -109,6 +109,19 @@
         }
         .conv-result .label { color: var(--text-muted); font-size: 0.82rem; }
         .conv-result .value { font-weight: 700; color: var(--primary); font-size: 1.15rem; font-family: var(--font-h); }
+        .conv-toggle {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 5px 12px;
+            font-size: 0.8rem;
+            color: var(--primary);
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all var(--ease-fast);
+        }
+        .conv-toggle:hover { background: var(--primary-light); border-color: var(--border-focus); }
         @media (max-width: 540px) {
             .conv-section { padding: 16px 14px; }
             .conv-row { flex-direction: column; }
@@ -121,150 +134,282 @@
     <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
 
     <header>
-        <h1>Universal Cooking Converter — All Six Kitchen Conversions, One Page</h1>
-        <p>Fluid ounces to mL, tbsp to mL, cups to mL, grams to oz, pounds to kg, and cups to grams — scroll to whatever you need. No flipping between six different pages while your sauce boils over.</p>
+        <h1>Universal Cooking Converter — All Six Kitchen Conversions, Both Directions</h1>
+        <p>Fluid ounces ↔ mL, tbsp ↔ mL, cups ↔ mL, grams ↔ oz, pounds ↔ kg, and cups ↔ grams — every one works both ways. Click "switch direction" on any converter. No flipping between six different pages while your sauce boils over.</p>
     </header>
 
     <main>
 
         <!-- 1. Fluid oz → mL -->
         <section class="conv-section" id="floz">
-            <h2>💧 Fluid Ounces → Milliliters</h2>
+            <h2>💧 Fluid Ounces ↔ Milliliters</h2>
             <p class="conv-desc">1 US fluid ounce = 29.57 mL. For water, milk, oil, and any liquid measured by volume. Not the same as weight ounces.</p>
-            <div class="conv-row">
-                <div class="input-group">
-                    <label for="floz-input">Fluid Ounces (fl oz)</label>
-                    <input type="number" inputmode="decimal" id="floz-input" value="8" min="0.1" step="0.1">
+            <div id="floz-forward">
+                <div class="conv-row">
+                    <div class="input-group">
+                        <label for="floz-input">Fluid Ounces (fl oz)</label>
+                        <input type="number" inputmode="decimal" id="floz-input" value="8" min="0.1" step="0.1">
+                    </div>
+                </div>
+                <div class="conv-result">
+                    <span class="label">=</span>
+                    <span class="value" id="floz-ml-out">236.6 mL</span>
+                    <span style="font-size:0.82rem;color:var(--text-muted);margin-left:auto;">(also = <span id="floz-cups-out">1</span> US cup)</span>
                 </div>
             </div>
-            <div class="conv-result">
-                <span class="label">=</span>
-                <span class="value" id="floz-ml-out">236.6 mL</span>
-                <span style="font-size:0.82rem;color:var(--text-muted);margin-left:auto;">(also = <span id="floz-cups-out">1</span> US cup)</span>
+            <div id="floz-reverse" style="display:none;">
+                <div class="conv-row">
+                    <div class="input-group">
+                        <label for="ml-floz-input">Milliliters (mL)</label>
+                        <input type="number" inputmode="decimal" id="ml-floz-input" value="240" min="0.1" step="0.1">
+                    </div>
+                </div>
+                <div class="conv-result">
+                    <span class="label">=</span>
+                    <span class="value" id="ml-floz-oz-out">8.12 fl oz</span>
+                </div>
             </div>
+            <button class="conv-toggle" id="toggle-floz" type="button">⇄ Switch direction</button>
         </section>
 
         <!-- 2. tbsp → mL -->
         <section class="conv-section" id="tbsp">
-            <h2>🥄 Tablespoons → Milliliters</h2>
+            <h2>🥄 Tablespoons ↔ Milliliters</h2>
             <p class="conv-desc">1 US tbsp = 14.79 mL. UK/metric = 15 mL. Australian = 20 mL. Check which country your recipe is from.</p>
-            <div class="conv-row">
-                <div class="input-group">
-                    <label for="tbsp-input">Tablespoons</label>
-                    <input type="number" inputmode="decimal" id="tbsp-input" value="2" min="0.1" step="0.1">
+            <div id="tbsp-forward">
+                <div class="conv-row">
+                    <div class="input-group">
+                        <label for="tbsp-input">Tablespoons</label>
+                        <input type="number" inputmode="decimal" id="tbsp-input" value="2" min="0.1" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label for="tbsp-type">Standard</label>
+                        <select id="tbsp-type">
+                            <option value="14.7868">US (14.79 mL)</option>
+                            <option value="15">UK / Metric (15 mL)</option>
+                            <option value="20">Australian (20 mL)</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="tbsp-type">Standard</label>
-                    <select id="tbsp-type">
-                        <option value="14.7868">US (14.79 mL)</option>
-                        <option value="15">UK / Metric (15 mL)</option>
-                        <option value="20">Australian (20 mL)</option>
-                    </select>
+                <div class="conv-result">
+                    <span class="label">=</span>
+                    <span class="value" id="tbsp-ml-out">29.6 mL</span>
                 </div>
             </div>
-            <div class="conv-result">
-                <span class="label">=</span>
-                <span class="value" id="tbsp-ml-out">29.6 mL</span>
+            <div id="tbsp-reverse" style="display:none;">
+                <div class="conv-row">
+                    <div class="input-group">
+                        <label for="ml-tbsp-input">Milliliters (mL)</label>
+                        <input type="number" inputmode="decimal" id="ml-tbsp-input" value="30" min="0.1" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label for="ml-tbsp-type">Standard</label>
+                        <select id="ml-tbsp-type">
+                            <option value="14.7868">US (14.79 mL)</option>
+                            <option value="15">UK / Metric (15 mL)</option>
+                            <option value="20">Australian (20 mL)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="conv-result">
+                    <span class="label">=</span>
+                    <span class="value" id="ml-tbsp-out">2.03 tbsp</span>
+                </div>
             </div>
+            <button class="conv-toggle" id="toggle-tbsp" type="button">⇄ Switch direction</button>
         </section>
 
         <!-- 3. Cups → mL -->
         <section class="conv-section" id="cups">
-            <h2>☕ Cups → Milliliters</h2>
+            <h2>☕ Cups ↔ Milliliters</h2>
             <p class="conv-desc">US cup = 236.6 mL (most online recipes). Metric cup = 250 mL (Canada, Australia). Japanese cup = 200 mL.</p>
-            <div class="conv-row">
-                <div class="input-group">
-                    <label for="cups-input">Cups</label>
-                    <input type="number" inputmode="decimal" id="cups-input" value="1" min="0.01" step="0.01">
+            <div id="cups-forward">
+                <div class="conv-row">
+                    <div class="input-group">
+                        <label for="cups-input">Cups</label>
+                        <input type="number" inputmode="decimal" id="cups-input" value="1" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="cup-type">Standard</label>
+                        <select id="cup-type">
+                            <option value="236.588">US Customary (236.6 mL)</option>
+                            <option value="240">US Legal / FDA (240 mL)</option>
+                            <option value="250">Metric (250 mL)</option>
+                            <option value="200">Japanese (200 mL)</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="cup-type">Standard</label>
-                    <select id="cup-type">
-                        <option value="236.588">US Customary (236.6 mL)</option>
-                        <option value="240">US Legal / FDA (240 mL)</option>
-                        <option value="250">Metric (250 mL)</option>
-                        <option value="200">Japanese (200 mL)</option>
-                    </select>
+                <div class="conv-result">
+                    <span class="label">=</span>
+                    <span class="value" id="cups-ml-out">236.6 mL</span>
+                    <span style="font-size:0.82rem;color:var(--text-muted);margin-left:auto;">(= 8 fl oz · 16 tbsp)</span>
                 </div>
             </div>
-            <div class="conv-result">
-                <span class="label">=</span>
-                <span class="value" id="cups-ml-out">236.6 mL</span>
-                <span style="font-size:0.82rem;color:var(--text-muted);margin-left:auto;">(= 8 fl oz · 16 tbsp)</span>
+            <div id="cups-reverse" style="display:none;">
+                <div class="conv-row">
+                    <div class="input-group">
+                        <label for="ml-cups-input">Milliliters (mL)</label>
+                        <input type="number" inputmode="decimal" id="ml-cups-input" value="250" min="0.1" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label for="ml-cup-type">Standard</label>
+                        <select id="ml-cup-type">
+                            <option value="236.588">US Customary (236.6 mL)</option>
+                            <option value="240">US Legal / FDA (240 mL)</option>
+                            <option value="250">Metric (250 mL)</option>
+                            <option value="200">Japanese (200 mL)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="conv-result">
+                    <span class="label">=</span>
+                    <span class="value" id="ml-cups-out">1.057 cups</span>
+                </div>
             </div>
+            <button class="conv-toggle" id="toggle-cups" type="button">⇄ Switch direction</button>
         </section>
 
         <!-- 4. Grams → oz -->
         <section class="conv-section" id="grams-oz">
-            <h2>⚖️ Grams → Ounces (Weight)</h2>
+            <h2>⚖️ Grams ↔ Ounces (Weight)</h2>
             <p class="conv-desc">1 oz = 28.35 g. Weight ounces, not fluid ounces. For meat, cheese, chocolate, butter — anything you'd put on a scale.</p>
-            <div class="conv-row">
-                <div class="input-group">
-                    <label for="grams-input">Grams (g)</label>
-                    <input type="number" inputmode="decimal" id="grams-input" value="100" min="0.1" step="0.1">
+            <div id="goz-forward">
+                <div class="conv-row">
+                    <div class="input-group">
+                        <label for="grams-input">Grams (g)</label>
+                        <input type="number" inputmode="decimal" id="grams-input" value="100" min="0.1" step="0.1">
+                    </div>
+                </div>
+                <div class="conv-result">
+                    <span class="label">=</span>
+                    <span class="value" id="grams-oz-out">3.53 oz</span>
                 </div>
             </div>
-            <div class="conv-result">
-                <span class="label">=</span>
-                <span class="value" id="grams-oz-out">3.53 oz</span>
+            <div id="goz-reverse" style="display:none;">
+                <div class="conv-row">
+                    <div class="input-group">
+                        <label for="oz-grams-input">Ounces (oz)</label>
+                        <input type="number" inputmode="decimal" id="oz-grams-input" value="4" min="0.1" step="0.1">
+                    </div>
+                </div>
+                <div class="conv-result">
+                    <span class="label">=</span>
+                    <span class="value" id="oz-grams-out">113 g</span>
+                </div>
             </div>
+            <button class="conv-toggle" id="toggle-g-oz" type="button">⇄ Switch direction</button>
         </section>
 
         <!-- 5. lbs → kg -->
         <section class="conv-section" id="lbs-kg">
-            <h2>📦 Pounds → Kilograms</h2>
+            <h2>📦 Pounds ↔ Kilograms</h2>
             <p class="conv-desc">1 lb = 0.4536 kg. For bulk flour bags, whole chickens, roasts, and grocery runs where the scale shows metric.</p>
-            <div class="conv-row">
-                <div class="input-group">
-                    <label for="lbs-input">Pounds (lbs)</label>
-                    <input type="number" inputmode="decimal" id="lbs-input" value="5" min="0.1" step="0.1">
+            <div id="lbs-forward">
+                <div class="conv-row">
+                    <div class="input-group">
+                        <label for="lbs-input">Pounds (lbs)</label>
+                        <input type="number" inputmode="decimal" id="lbs-input" value="5" min="0.1" step="0.1">
+                    </div>
+                </div>
+                <div class="conv-result">
+                    <span class="label">=</span>
+                    <span class="value" id="lbs-kg-out">2.27 kg</span>
                 </div>
             </div>
-            <div class="conv-result">
-                <span class="label">=</span>
-                <span class="value" id="lbs-kg-out">2.27 kg</span>
+            <div id="lbs-reverse" style="display:none;">
+                <div class="conv-row">
+                    <div class="input-group">
+                        <label for="kg-lbs-input">Kilograms (kg)</label>
+                        <input type="number" inputmode="decimal" id="kg-lbs-input" value="2" min="0.1" step="0.1">
+                    </div>
+                </div>
+                <div class="conv-result">
+                    <span class="label">=</span>
+                    <span class="value" id="kg-lbs-out">4.41 lbs</span>
+                </div>
             </div>
+            <button class="conv-toggle" id="toggle-lbs" type="button">⇄ Switch direction</button>
         </section>
 
         <!-- 6. Cups → Grams (ingredient-specific) -->
         <section class="conv-section" id="cups-grams">
-            <h2>🧁 Cups → Grams (20 Ingredients)</h2>
+            <h2>🧁 Cups ↔ Grams (20 Ingredients)</h2>
             <p class="conv-desc">Because 1 cup of flour ≠ 1 cup of butter in grams. Select your ingredient to get the correct density-based conversion.</p>
-            <div class="conv-row">
-                <div class="input-group">
-                    <label for="cg-cups-input">Cups</label>
-                    <input type="number" inputmode="decimal" id="cg-cups-input" value="1" min="0.01" step="0.01">
+            <div id="cg-forward">
+                <div class="conv-row">
+                    <div class="input-group">
+                        <label for="cg-cups-input">Cups</label>
+                        <input type="number" inputmode="decimal" id="cg-cups-input" value="1" min="0.01" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="cg-ingredient">Ingredient</label>
+                        <select id="cg-ingredient">
+                            <option value="all-purpose-flour">All-Purpose Flour (120g/cup)</option>
+                            <option value="bread-flour">Bread Flour (130g/cup)</option>
+                            <option value="cake-flour">Cake Flour (110g/cup)</option>
+                            <option value="almond-flour">Almond Flour (96g/cup)</option>
+                            <option value="granulated-sugar">Granulated Sugar (200g/cup)</option>
+                            <option value="brown-sugar-packed">Brown Sugar, packed (220g/cup)</option>
+                            <option value="powdered-sugar">Powdered Sugar (120g/cup)</option>
+                            <option value="butter" selected>Butter (227g/cup)</option>
+                            <option value="water">Water (236g/cup)</option>
+                            <option value="milk">Milk (244g/cup)</option>
+                            <option value="vegetable-oil">Vegetable Oil (218g/cup)</option>
+                            <option value="honey">Honey (340g/cup)</option>
+                            <option value="maple-syrup">Maple Syrup (315g/cup)</option>
+                            <option value="cocoa-powder">Cocoa Powder (100g/cup)</option>
+                            <option value="rolled-oats">Rolled Oats (90g/cup)</option>
+                            <option value="cornstarch">Cornstarch (128g/cup)</option>
+                            <option value="rice-uncooked">Rice, uncooked (200g/cup)</option>
+                            <option value="cream-cheese">Cream Cheese (232g/cup)</option>
+                            <option value="yogurt">Yogurt (245g/cup)</option>
+                            <option value="sour-cream">Sour Cream (240g/cup)</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="cg-ingredient">Ingredient</label>
-                    <select id="cg-ingredient">
-                        <option value="all-purpose-flour">All-Purpose Flour (120g/cup)</option>
-                        <option value="bread-flour">Bread Flour (130g/cup)</option>
-                        <option value="cake-flour">Cake Flour (110g/cup)</option>
-                        <option value="almond-flour">Almond Flour (96g/cup)</option>
-                        <option value="granulated-sugar">Granulated Sugar (200g/cup)</option>
-                        <option value="brown-sugar-packed">Brown Sugar, packed (220g/cup)</option>
-                        <option value="powdered-sugar">Powdered Sugar (120g/cup)</option>
-                        <option value="butter" selected>Butter (227g/cup)</option>
-                        <option value="water">Water (236g/cup)</option>
-                        <option value="milk">Milk (244g/cup)</option>
-                        <option value="vegetable-oil">Vegetable Oil (218g/cup)</option>
-                        <option value="honey">Honey (340g/cup)</option>
-                        <option value="maple-syrup">Maple Syrup (315g/cup)</option>
-                        <option value="cocoa-powder">Cocoa Powder (100g/cup)</option>
-                        <option value="rolled-oats">Rolled Oats (90g/cup)</option>
-                        <option value="cornstarch">Cornstarch (128g/cup)</option>
-                        <option value="rice-uncooked">Rice, uncooked (200g/cup)</option>
-                        <option value="cream-cheese">Cream Cheese (232g/cup)</option>
-                        <option value="yogurt">Yogurt (245g/cup)</option>
-                        <option value="sour-cream">Sour Cream (240g/cup)</option>
-                    </select>
+                <div class="conv-result">
+                    <span class="label">=</span>
+                    <span class="value" id="cg-grams-out">227 g</span>
                 </div>
             </div>
-            <div class="conv-result">
-                <span class="label">=</span>
-                <span class="value" id="cg-grams-out">227 g</span>
+            <div id="cg-reverse" style="display:none;">
+                <div class="conv-row">
+                    <div class="input-group">
+                        <label for="gc-grams-input">Grams (g)</label>
+                        <input type="number" inputmode="decimal" id="gc-grams-input" value="227" min="0.1" step="0.1">
+                    </div>
+                    <div class="input-group">
+                        <label for="gc-ingredient">Ingredient</label>
+                        <select id="gc-ingredient">
+                            <option value="all-purpose-flour">All-Purpose Flour (120g/cup)</option>
+                            <option value="bread-flour">Bread Flour (130g/cup)</option>
+                            <option value="cake-flour">Cake Flour (110g/cup)</option>
+                            <option value="almond-flour">Almond Flour (96g/cup)</option>
+                            <option value="granulated-sugar">Granulated Sugar (200g/cup)</option>
+                            <option value="brown-sugar-packed">Brown Sugar, packed (220g/cup)</option>
+                            <option value="powdered-sugar">Powdered Sugar (120g/cup)</option>
+                            <option value="butter" selected>Butter (227g/cup)</option>
+                            <option value="water">Water (236g/cup)</option>
+                            <option value="milk">Milk (244g/cup)</option>
+                            <option value="vegetable-oil">Vegetable Oil (218g/cup)</option>
+                            <option value="honey">Honey (340g/cup)</option>
+                            <option value="maple-syrup">Maple Syrup (315g/cup)</option>
+                            <option value="cocoa-powder">Cocoa Powder (100g/cup)</option>
+                            <option value="rolled-oats">Rolled Oats (90g/cup)</option>
+                            <option value="cornstarch">Cornstarch (128g/cup)</option>
+                            <option value="rice-uncooked">Rice, uncooked (200g/cup)</option>
+                            <option value="cream-cheese">Cream Cheese (232g/cup)</option>
+                            <option value="yogurt">Yogurt (245g/cup)</option>
+                            <option value="sour-cream">Sour Cream (240g/cup)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="conv-result">
+                    <span class="label">=</span>
+                    <span class="value" id="gc-cups-out">1.000 cups</span>
+                </div>
             </div>
+            <button class="conv-toggle" id="toggle-cg" type="button">⇄ Switch direction</button>
         </section>
 
         <article class="seo-section">
