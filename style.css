@@ -5,7 +5,7 @@
    ============================================================ */
 
 /* === Fonts (self-hosted) ===
-   Playfair Display is served from /fonts/ rather than fonts.googleapis.com.
+   Playfair Display is served from /fonts/, not from a third-party font CDN.
    Self-hosting keeps every page free of third-party font requests: no external
    connection, no render-blocking @import, and no visitor IP shared with a third
    party — which is what the privacy policy promises. */
