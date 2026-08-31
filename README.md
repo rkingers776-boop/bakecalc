@@ -1,6 +1,6 @@
 # BakeCalc Club — Baking Conversion Calculators
 
-**Measure with confidence. Every cup, every gram, every conversion.** Free, browser-local baking measurement calculators. 140+ pages covering cups-to-grams, ounces-to-ml, pan size, recipe scaling, baker's percentage, and sourdough hydration. No accounts, no tracking.
+**Measure with confidence. Every cup, every gram, every conversion.** Free, browser-local baking measurement calculators. **154 pages** — 101 ingredient conversion references, 21 interactive calculators, 27 know-how articles, and 5 about/legal pages. No accounts. No ads. No data sold.
 
 🍰 **Live site:** [bakecalc.club](https://bakecalc.club/)  
 📦 **GitHub Pages mirror:** [rkingers776-boop.github.io/bakecalc](https://rkingers776-boop.github.io/bakecalc/)
@@ -39,7 +39,7 @@ All density values are verified against USDA FoodData Central and major ingredie
 | [1 Cup Butter](1-cup-butter-to-grams.html) | Butter | 227 |
 | [1 Cup Cocoa Powder](1-cup-cocoa-powder-to-grams.html) | Cocoa powder | 100 |
 | [1 Cup Almond Flour](1-cup-almond-flour-to-grams.html) | Almond flour | 96 |
-| [1 Cup Almond Meal](1-cup-almond-meal-to-grams.html) | Almond meal | 100 |
+| [1 Cup Almond Meal](1-cup-almond-meal-to-grams.html) | Almond meal (skins on) | 112 |
 | [1 Cup Honey](1-cup-honey-to-grams.html) | Honey | 340 |
 | [1 Cup Powdered Sugar](1-cup-powdered-sugar-to-grams.html) | Powdered sugar | 120 |
 | [1 Cup Coconut Oil](1-cup-coconut-oil-to-grams.html) | Coconut oil | 218 |
@@ -174,6 +174,8 @@ All density values are verified against USDA FoodData Central and major ingredie
 - **Single shared stylesheet** (`style.css`) — design tokens, responsive layout
 - **Modular JS** — `bakecalc.js`, `bakers-percentage-calc.js`, `recipe-scaler.js`, `pan-converter.js`, `cost-calc.js`
 - **Ingredient density database** — 30+ ingredients verified against USDA FoodData Central
+- **Self-hosted fonts** — Playfair Display served from `/fonts/`, so no page makes a third-party font request
+- **Client-side site search** — `/search` plus a generated `search-index.js` (~32 KB); no search backend
 - **PWA-ready** — SVG favicon, responsive design, OG metadata on all pages
 - **Hosted on Cloudflare** — HTTPS, CDN, custom domain `bakecalc.club`
 
@@ -186,19 +188,23 @@ bakecalc/
 ├── recipe-scaler.js                        # Recipe scaling logic
 ├── pan-converter.js                        # Pan size conversion logic
 ├── cost-calc.js                            # Recipe costing logic
-├── robots.txt / sitemap.xml / sitemap.txt  # SEO
-├── 1-*-to-grams.html                       # 100+ ingredient converters
+├── analytics.js                            # GA4 loader (opt-out aware, load-once guard)
+├── search.html / search.js / search-index.js  # Site search (noindex)
+├── fonts/                                  # Self-hosted Playfair Display woff2
+├── robots.txt / sitemap.xml / sitemap.txt  # SEO (154 URLs)
+├── 1-*-to-grams.html                       # 101 ingredient conversion pages
 ├── *-oz-to-ml*.html                        # Liquid converters
 ├── *-grams-to-cups*.html                   # Weight-to-volume converters
-├── articles/                               # 23 baking guides & articles
+├── articles/                               # 27 baking guides & articles
 └── bakecalc-og.svg                         # Social share image
 ```
 
 ## Design Principles
 
-- **No accounts, no tracking** — your recipes stay in your browser
+- **Recipes stay in your browser** — no account, no upload, no server round-trip for your inputs
+- **Honest measurement** — one GA4 property, advertising features off, GPC and Do Not Track honoured automatically; see `/privacy`
 - **Instant results** — no loading spinners, no server round-trips
-- **USDA-verified densities** — every ingredient weight backed by reference data
+- **USDA-verified densities** — every ingredient weight backed by reference data, and consistent across every page
 - **Work offline** — full functionality without internet once loaded
 
 ---

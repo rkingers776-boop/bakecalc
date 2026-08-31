@@ -4,8 +4,39 @@
    Mobile-first responsive — 全站适配移动端
    ============================================================ */
 
-/* === Google Fonts === */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+/* === Fonts (self-hosted) ===
+   Playfair Display is served from /fonts/ rather than fonts.googleapis.com.
+   Self-hosting keeps every page free of third-party font requests: no external
+   connection, no render-blocking @import, and no visitor IP shared with a third
+   party — which is what the privacy policy promises. */
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/playfair-display-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/playfair-display-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/playfair-display-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/playfair-display-500-italic.woff2') format('woff2');
+}
 
 /* ============================================================
    CSS Variables
@@ -1770,4 +1801,133 @@ footer a:hover { color: var(--primary); }
   .pan-table .pan-factor {
     font-size: 1.05rem;
   }
+}
+
+/* ============================================================
+   Site Search (/search)
+   ============================================================ */
+.search-lede {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin: -6px 0 20px;
+}
+
+.search-box { margin-bottom: 14px; }
+
+.search-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+#search-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--card-bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color var(--ease), box-shadow var(--ease);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#search-input:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+#search-input::placeholder { color: var(--text-muted); }
+
+.search-status {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin: 0 0 18px;
+  min-height: 1.2em;
+}
+
+.search-chips { margin: 0 0 26px; }
+
+.search-chips[hidden] { display: none; }
+
+.search-chips-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  margin: 0 0 10px;
+}
+
+.search-chips button {
+  display: inline-block;
+  margin: 0 8px 8px 0;
+  padding: 7px 14px;
+  font-size: 0.88rem;
+  font-family: var(--font-body);
+  color: var(--text-secondary);
+  background: var(--bg-warm);
+  border: 1px solid var(--border-light);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background var(--ease), color var(--ease), border-color var(--ease);
+}
+
+.search-chips button:hover {
+  background: var(--primary-light);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.search-group { margin-bottom: 28px; }
+
+.search-group h2 {
+  font-size: 1.05rem;
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border-light);
+}
+
+.search-list { list-style: none; margin: 0; padding: 0; }
+
+.search-list li { margin: 0; }
+
+.search-list a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background var(--ease-fast);
+}
+
+.search-list a:hover { background: var(--bg-warm); }
+
+.search-title {
+  display: block;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.97rem;
+}
+
+.search-list a:hover .search-title { color: var(--primary-hover); }
+
+.search-url {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@media (max-width: 540px) {
+  #search-input { padding: 12px 14px; font-size: 0.95rem; }
+  .search-group h2 { font-size: 1rem; }
+  .search-title { font-size: 0.93rem; }
 }

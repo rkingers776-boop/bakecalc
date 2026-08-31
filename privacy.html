@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy | BakeCalc</title>
-    <meta name="description" content="BakeCalc Club privacy policy — we do not collect or share any personal information.">
+    <title>Privacy Policy | BakeCalc Club</title>
+    <meta name="description" content="How BakeCalc Club handles your data: calculator inputs never leave your browser, page views are measured with privacy-limited Google Analytics, and nothing is sold.">
 
     <meta property="og:title" content="Privacy Policy - BakeCalc Club">
-    <meta property="og:description" content="BakeCalc Club privacy policy — we do not collect or share any personal information.">
+    <meta property="og:description" content="Recipe inputs stay in your browser. Page views are measured with privacy-limited Google Analytics. We sell nothing and run no ads.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bakecalc.club/privacy">
     <meta property="og:site_name" content="BakeCalc Club">
@@ -15,7 +15,7 @@
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Privacy Policy - BakeCalc Club">
-    <meta name="twitter:description" content="We do not collect or share any personal information.">
+    <meta name="twitter:description" content="Recipe inputs stay in your browser. Page views are measured with privacy-limited Google Analytics. We sell nothing and run no ads.">
     <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.png">
 
     <link rel="stylesheet" href="/style.css">
@@ -41,19 +41,72 @@
             <h1>Privacy Policy</h1>
         </header>
         <main>
-            <p>Effective Date: May 2026</p>
+            <p><strong>Effective date:</strong> August 31, 2026 &nbsp;·&nbsp; <strong>Last updated:</strong> August 31, 2026</p>
 
-            <h2>Information We Collect</h2>
-            <p>BakeCalc Club does not collect, store, or share any personal information. Our conversion tools run entirely in your browser and no data is sent to any server.</p>
+            <h2>The short version</h2>
+            <p>Every BakeCalc calculator runs entirely in your browser. The flour weight, the recipe cost, the hydration percentage — none of it is uploaded anywhere, because there is no server-side piece to upload it to.</p>
+            <p>We do measure traffic. Each page loads Google Analytics so we can see which conversions people actually need and which ones nobody touches. That tool sets cookies and reports an approximate location. It runs with advertising features switched off, and it respects Global Privacy Control and Do Not Track automatically: if your browser sends either signal, Analytics never loads.</p>
+            <p>We run no ads. We sell nothing. We share your information with no advertisers, data brokers, or anyone else.</p>
 
-            <h2>Cookies</h2>
-            <p>We do not use cookies or any tracking technologies.</p>
+            <h2>What stays on your device</h2>
+            <p>All conversions and cost calculations happen in JavaScript on your own device. Nothing you type into a calculator field is transmitted, logged, or stored on a server — not even temporarily. Closing the tab discards it.</p>
+            <p>There are no accounts, no sign-up form, no newsletter capture, and no comment system, so there is no profile for us to attach anything to.</p>
 
-            <h2>Third-Party Services</h2>
-            <p>We do not integrate with any third-party analytics, advertising networks, or external services.</p>
+            <h2>Analytics: what Google Analytics collects</h2>
+            <p>We use Google Analytics 4 (measurement ID <code>G-G1GB4E169W</code>) to understand aggregate usage. When it loads, it records:</p>
+            <ul>
+                <li><strong>Which page you viewed</strong>, and how you arrived — referring site, search engine, or direct.</li>
+                <li><strong>Approximate location</strong> — country and region, derived from your IP address. Google discards the IP address itself before the event is stored, so it is never available to us.</li>
+                <li><strong>Device and browser details</strong> — operating system, browser family, screen size, and language.</li>
+                <li><strong>Whether you are a new or returning visitor</strong>, tracked through the cookies listed below.</li>
+            </ul>
+            <p>Analytics is configured with advertising storage, ad user data, and ad personalisation all denied, so the data is not used to build advertising profiles and is not joined to Google's advertising identifiers. Event data is retained for the window configured in our property — Google's default for standard properties is 2 months, extendable to 14 months — and is then deleted automatically.</p>
+            <p>Google handles this data as our service provider, under its own <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>, and may process it on servers outside your country.</p>
+
+            <h2>Cookies in use</h2>
+            <div class="table-wrap">
+            <table class="ingredient-table">
+                <thead>
+                    <tr><th class="th-name">Cookie</th><th class="th-unit">Set by</th><th class="th-price">Purpose</th><th class="th-qty">Lifetime</th></tr>
+                </thead>
+                <tbody>
+                    <tr class="ingredient-row"><td><code>_ga</code></td><td class="cell-unit">Google Analytics</td><td>Distinguishes visitors</td><td class="cell-subtotal">2 years</td></tr>
+                    <tr class="ingredient-row"><td><code>_ga_*</code></td><td class="cell-unit">Google Analytics</td><td>Keeps session state</td><td class="cell-subtotal">2 years</td></tr>
+                    <tr class="ingredient-row"><td><code>__cf_bm</code></td><td class="cell-unit">Cloudflare</td><td>Bot protection</td><td class="cell-subtotal">30 min</td></tr>
+                    <tr class="ingredient-row"><td><code>cf_clearance</code></td><td class="cell-unit">Cloudflare</td><td>Security challenge result</td><td class="cell-subtotal">Varies</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p>We set no first-party cookies of our own. There are no preference cookies, no login cookies, and no saved calculator state — the tools do not remember your inputs between visits.</p>
+
+            <h2>Hosting and server logs</h2>
+            <p>The site is served through <strong>Cloudflare</strong>, which acts as our CDN and reverse proxy. Like any web host, Cloudflare necessarily sees your IP address, the page requested, and your user agent in order to deliver the page. Those standard request logs are used for security, abuse prevention, and troubleshooting.</p>
+            <p>Fonts are <strong>self-hosted</strong> from this domain instead of being pulled from Google Fonts or another font CDN, so loading a page sends no request to a third-party font service.</p>
+
+            <h2>How to opt out of analytics</h2>
+            <p>There are four ways to switch measurement off, and the first needs no action from you:</p>
+            <ul>
+                <li><strong>Global Privacy Control or Do Not Track.</strong> If your browser sends either signal, our analytics loader detects it and skips Google Analytics entirely. No cookie is set and no page view is sent.</li>
+                <li><strong>Google's opt-out add-on.</strong> Google publishes the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Analytics Opt-out Browser Add-on</a> for all major browsers.</li>
+                <li><strong>Browser controls.</strong> Blocking or clearing cookies for <code>bakecalc.club</code> stops the visitor cookie, and private browsing modes usually block it by default.</li>
+                <li><strong>Content blockers.</strong> Any tracker-blocking extension or DNS-level filter removes Google Analytics before it runs.</li>
+            </ul>
+            <p>Opting out costs you nothing. Every calculator behaves identically with analytics blocked.</p>
+
+            <h2>Your rights</h2>
+            <p><strong>In the EEA, UK, or Switzerland</strong> (GDPR / UK GDPR): you may request access to the personal data we hold about you, ask to have it corrected or erased, request restriction of processing, object to processing, and ask for a portable copy. You can also lodge a complaint with your local data protection authority.</p>
+            <p><strong>In California</strong> (CCPA / CPRA): you have the right to know what personal information is collected, to have it deleted, and to have it corrected. You also have the right to opt out of the sale or sharing of personal information — we do not sell or share personal information as those terms are defined, and we do not use it for cross-context behavioural advertising.</p>
+            <p>Because the data is pseudonymous analytics keyed to a random cookie value, we usually cannot identify you from it. Where we cannot verify who a request belongs to, we will say so plainly rather than guess.</p>
+            <p>To make any of these requests, email us. We respond within 30 days.</p>
+
+            <h2>Children</h2>
+            <p>BakeCalc Club is a general-audience kitchen tool. It is not directed at children under 13 (or under 16 in the EEA), and we do not knowingly collect personal information from them.</p>
+
+            <h2>Changes to this policy</h2>
+            <p>If we add or remove a measurement tool, or change what data one receives, this page is updated and the date at the top revised. Material changes are also noted on the <a href="/">home page</a>.</p>
 
             <h2>Contact</h2>
-            <p>If you have questions about this privacy policy, please contact us at <a href="mailto:rkingers776@gmail.com">rkingers776@gmail.com</a>.</p>
+            <p>Questions about this policy, or a data request: <a href="mailto:rkingers776@gmail.com">rkingers776@gmail.com</a>.</p>
         </main>
         <footer>
             <p>&copy; 2026 BakeCalc Club</p>

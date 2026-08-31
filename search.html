@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search — BakeCalc Club</title>
+    <meta name="description" content="Search all 154 BakeCalc pages: ingredient conversions, baking calculators, and know-how articles.">
+    <meta name="robots" content="noindex, follow">
+
+    <meta property="og:title" content="Search - BakeCalc Club">
+    <meta property="og:description" content="Search every BakeCalc conversion page, calculator, and article.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/search">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/bakecalc-og.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Search - BakeCalc Club">
+    <meta name="twitter:description" content="Search every BakeCalc conversion page, calculator, and article.">
+    <meta name="twitter:image" content="https://bakecalc.club/bakecalc-og.png">
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/search">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Search", "item": "https://bakecalc.club/search" }
+      ]
+    }
+    </script>
+    <script src="/analytics.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+        <header>
+            <h1>Search BakeCalc</h1>
+            <p class="search-lede">Every conversion page, calculator, and article on the site. Results update as you type.</p>
+        </header>
+        <main>
+            <div class="search-box">
+                <label class="search-label" for="search-input">Find a conversion, calculator, or article</label>
+                <input type="search" id="search-input" autocomplete="off" spellcheck="false"
+                       placeholder="cup of flour, high altitude, sourdough, cost…">
+            </div>
+
+            <p class="search-status" id="search-status" role="status" aria-live="polite"></p>
+
+            <div class="search-chips" id="search-chips">
+                <p class="search-chips-label">Popular searches</p>
+                <button type="button" data-q="cup of flour">Cup of flour</button>
+                <button type="button" data-q="high altitude">High altitude</button>
+                <button type="button" data-q="sourdough">Sourdough</button>
+                <button type="button" data-q="brown sugar">Brown sugar</button>
+                <button type="button" data-q="cost">Recipe cost</button>
+                <button type="button" data-q="calories">Calories</button>
+                <button type="button" data-q="pan size">Pan size</button>
+                <button type="button" data-q="egg substitute">Egg substitute</button>
+            </div>
+
+            <div id="search-results" class="search-results"></div>
+        </main>
+        <footer>
+            <p>&copy; 2026 BakeCalc Club | <a href="/about">About Us</a> | <a href="/privacy">Privacy Policy</a> | <a href="/contact">Contact Us</a></p>
+<p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer nofollow" title="View source code on GitHub">📂 View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="/search-index.js"></script>
+    <script src="/search.js"></script>
+</body>
+</html>
