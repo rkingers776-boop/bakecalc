@@ -21,16 +21,16 @@ var CookingConverter = (function() {
   }
 
   /* ---- tbsp ↔ ml ---- */
-  function tbspToMl(tbsp) {
-    return round2(tbsp * 14.7868);
+  function tbspToMl(tbsp, mlPerTbsp) {
+    return round2(tbsp * (mlPerTbsp || 14.7868));
   }
   function mlToTbsp(ml) {
     return round2(ml / 14.7868);
   }
 
   /* ---- cups ↔ ml ---- */
-  function cupsToMl(cups) {
-    return Math.round(cups * 236.588);
+  function cupsToMl(cups, mlPerCup) {
+    return round1(cups * (mlPerCup || 236.588));
   }
   function mlToCups(ml) {
     return round3(ml / 236.588);
@@ -96,6 +96,82 @@ var CookingConverter = (function() {
       if (cupsOut) cupsOut.textContent = (v / 8).toFixed(2);
     }
     ozIn.addEventListener('input', update);
+    update();
+  }
+
+  function bindTbspMl() {
+    var tbspIn = document.getElementById('tbsp-input');
+    var typeSel = document.getElementById('tbsp-type');
+    var mlOut = document.getElementById('tbsp-ml-out');
+    if (!tbspIn || !mlOut) return;
+
+    function update() {
+      var v = parseFloat(tbspIn.value);
+      if (isNaN(v) || v <= 0) { mlOut.textContent = '\u2014'; return; }
+      mlOut.textContent = tbspToMl(v, typeSel ? parseFloat(typeSel.value) : 0) + ' mL';
+    }
+    tbspIn.addEventListener('input', update);
+    if (typeSel) typeSel.addEventListener('change', update);
+    update();
+  }
+
+  function bindCupsMl() {
+    var cupsIn = document.getElementById('cups-input');
+    var typeSel = document.getElementById('cup-type');
+    var mlOut = document.getElementById('cups-ml-out');
+    if (!cupsIn || !mlOut) return;
+
+    function update() {
+      var v = parseFloat(cupsIn.value);
+      if (isNaN(v) || v <= 0) { mlOut.textContent = '\u2014'; return; }
+      mlOut.textContent = cupsToMl(v, typeSel ? parseFloat(typeSel.value) : 0) + ' mL';
+    }
+    cupsIn.addEventListener('input', update);
+    if (typeSel) typeSel.addEventListener('change', update);
+    update();
+  }
+
+  function bindGramsOz() {
+    var gIn = document.getElementById('grams-input');
+    var ozOut = document.getElementById('grams-oz-out');
+    if (!gIn || !ozOut) return;
+
+    function update() {
+      var v = parseFloat(gIn.value);
+      if (isNaN(v) || v <= 0) { ozOut.textContent = '\u2014'; return; }
+      ozOut.textContent = gToOz(v) + ' oz';
+    }
+    gIn.addEventListener('input', update);
+    update();
+  }
+
+  function bindLbsKg() {
+    var lbsIn = document.getElementById('lbs-input');
+    var kgOut = document.getElementById('lbs-kg-out');
+    if (!lbsIn || !kgOut) return;
+
+    function update() {
+      var v = parseFloat(lbsIn.value);
+      if (isNaN(v) || v <= 0) { kgOut.textContent = '\u2014'; return; }
+      kgOut.textContent = lbsToKg(v) + ' kg';
+    }
+    lbsIn.addEventListener('input', update);
+    update();
+  }
+
+  function bindCupsToGrams() {
+    var cupsIn = document.getElementById('cg-cups-input');
+    var ingSel = document.getElementById('cg-ingredient');
+    var gOut = document.getElementById('cg-grams-out');
+    if (!cupsIn || !ingSel || !gOut) return;
+
+    function update() {
+      var cups = parseFloat(cupsIn.value);
+      if (isNaN(cups) || cups <= 0) { gOut.textContent = '\u2014'; return; }
+      gOut.textContent = cupsToGrams(cups, ingSel.value) + ' g';
+    }
+    cupsIn.addEventListener('input', update);
+    ingSel.addEventListener('change', update);
     update();
   }
 
@@ -202,26 +278,52 @@ var CookingConverter = (function() {
     });
   }
 
-  function init() {
-    bindFluidOz();
-    bindTbspMl();
-    bindCupsMl();
-    bindGramsOz();
-    bindLbsKg();
-    bindCupsToGrams();
-    bindMlToFloz();
-    bindMlToTbsp();
-    bindMlToCups();
-    bindOzToGrams();
-    bindKgToLbs();
-    bindGramsToCups();
+  /* One calculator failing to bind must not take the other eleven down with
+     it. That is exactly what happened here: a single call to a function that
+     did not exist stopped every binding after it, and the page shipped with
+     one working converter out of six. */
+  function attempt(label, fn) {
+    try {
+      fn();
+    } catch (err) {
+      if (window.console && console.warn) {
+        console.warn('cooking converter: could not bind ' + label, err);
+      }
+    }
+  }
 
-    initToggle('toggle-floz', 'floz-forward', 'floz-reverse');
-    initToggle('toggle-tbsp', 'tbsp-forward', 'tbsp-reverse');
-    initToggle('toggle-cups', 'cups-forward', 'cups-reverse');
-    initToggle('toggle-g-oz', 'goz-forward', 'goz-reverse');
-    initToggle('toggle-lbs', 'lbs-forward', 'lbs-reverse');
-    initToggle('toggle-cg', 'cg-forward', 'cg-reverse');
+  function init() {
+    attempt('fluid oz → mL', bindFluidOz);
+    attempt('tbsp → mL', bindTbspMl);
+    attempt('cups → mL', bindCupsMl);
+    attempt('g → oz', bindGramsOz);
+    attempt('lbs → kg', bindLbsKg);
+    attempt('cups → g', bindCupsToGrams);
+    attempt('mL → fl oz', bindMlToFloz);
+    attempt('mL → tbsp', bindMlToTbsp);
+    attempt('mL → cups', bindMlToCups);
+    attempt('oz → g', bindOzToGrams);
+    attempt('kg → lbs', bindKgToLbs);
+    attempt('g → cups', bindGramsToCups);
+
+    attempt('fl oz toggle', function () {
+      initToggle('toggle-floz', 'floz-forward', 'floz-reverse');
+    });
+    attempt('tbsp toggle', function () {
+      initToggle('toggle-tbsp', 'tbsp-forward', 'tbsp-reverse');
+    });
+    attempt('cups toggle', function () {
+      initToggle('toggle-cups', 'cups-forward', 'cups-reverse');
+    });
+    attempt('g/oz toggle', function () {
+      initToggle('toggle-g-oz', 'goz-forward', 'goz-reverse');
+    });
+    attempt('lbs toggle', function () {
+      initToggle('toggle-lbs', 'lbs-forward', 'lbs-reverse');
+    });
+    attempt('cups/g toggle', function () {
+      initToggle('toggle-cg', 'cg-forward', 'cg-reverse');
+    });
   }
 
   return { init: init, flozToMl: flozToMl, mlToFloz: mlToFloz, ozToG: ozToG, lbsToKg: lbsToKg, cupsToGrams: cupsToGrams };
