@@ -39,7 +39,7 @@
           "name": "How do I scale a baking recipe up or down?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Divide your target yield by the original yield to get the scale factor, then multiply every ingredient amount by that factor. Example: original recipe serves 12, you need 18 — factor is 18/12 = 1.5×. Multiply 2 cups flour by 1.5 to get 3 cups. This works for most ingredients, but watch out for leaveners (baking powder/soda), spices, and salt — they sometimes need less than a pure linear scale. Use the free Recipe Scaler at BakeCalc Club to handle the math and fraction conversions automatically."
+            "text": "Divide your target yield by the original yield to get the scale factor, then multiply every ingredient amount by that factor. Example: original serves 12, you need 18 — factor is 18/12 = 1.5×. Multiply 2 cups flour by 1.5 = 3 cups. Most ingredients scale linearly, but leaveners, spices, and baking time need adjustments (see the sections above)."
           }
         },
         {
@@ -47,23 +47,23 @@
           "name": "Can I just double all the ingredients in a recipe?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Mostly yes — but three things don't always scale linearly. (1) Leaveners: when doubling a cake, use about 1.75× the baking powder, not 2× — a full double can cause the batter to rise and collapse. (2) Spices and salt: taste is not linear; start with 1.5× and adjust. (3) Baking time: a doubled recipe in a larger pan takes longer, but not twice as long — start checking at 1.3× the original time, not 2×. For pan size conversions, the math is different: going from 8-inch to 10-inch requires 1.56× the batter because pan area scales with radius squared, not diameter."
+            "text": "For most ingredients — yes. For leaveners (baking powder/soda), use about 1.75× instead of 2× when doubling to avoid over-rising and collapse. For spices and salt, start at 1.5× and taste. For baking time, do NOT double it — a doubled recipe in the same pan size (two pans) takes roughly the same time; in one larger pan, start checking at ~1.3× the original time."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I convert an 8-inch cake recipe to a 9-inch pan?",
+          "name": "How do I convert a cake recipe for a different pan size?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Scale the recipe by 1.27×. Here's why: the area of an 8-inch round pan is π × 4² = 50.3 square inches. A 9-inch pan is π × 4.5² = 63.6 square inches. Ratio: 63.6 ÷ 50.3 = 1.27. If you multiply by 1.25 (the ratio of diameters), you'll be slightly short. Always use area (π × radius²), not diameter. The BakeCalc Recipe Scaler has built-in pan presets that apply the correct area-based factors automatically."
+            "text": "Compare the areas, not the diameters. For round pans: area = π × radius². An 8-inch pan (radius 4) has an area of ~50 sq in. A 9-inch pan (radius 4.5) has ~64 sq in. The scale factor is 64/50 = 1.28×. For rectangular pans: area = length × width. The tool above has built-in presets for all common pan swaps."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I handle half an egg when scaling a recipe?",
+          "name": "How do I handle half an egg when scaling?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Crack the egg(s) into a small bowl, beat lightly with a fork until the white and yolk are uniform, then weigh out what you need. One large egg out of the shell weighs approximately 50 grams. So half an egg is 25g of beaten egg. A quarter egg is about 12-13g. This is far more accurate (and less wasteful) than trying to visually split an egg in half. A kitchen scale that reads to 1 gram is essential here — they cost about $12 and pay for themselves in avoided baking failures."
+            "text": "Beat the eggs together, then weigh out what you need. One large egg out of the shell = ~50g. Half an egg = 25g beaten egg. This is far more accurate than trying to eyeball it. See our complete egg weight guide for all sizes (medium through jumbo)."
           }
         },
         {
@@ -71,7 +71,7 @@
           "name": "Does baking time change when I scale a recipe?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — but not proportionally. If you double a cake recipe and bake it in two 8-inch pans (same thickness), the baking time stays roughly the same. If you pour all the batter into one larger/deeper pan, the center takes longer to cook through. A good rule of thumb: for every 50% increase in batter depth, add about 25% more baking time — but start checking 10 minutes before the original time anyway. The surface-area-to-volume ratio changes when you scale, especially for cakes baked in a single pan. Always use the toothpick/skewer test regardless of what the timer says."
+            "text": "It depends on whether you're baking in the same pan size (multiple pans) or a larger single pan. Multiple pans of the same thickness: same time. One larger/deeper pan: longer time. Rule of thumb — for every 50% increase in batter depth, add ~25% more time. Always use the toothpick test: insert in the center, it should come out clean or with a few moist crumbs."
           }
         },
         {
@@ -79,7 +79,7 @@
           "name": "What's the difference between scaling by servings and scaling by pan size?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Scaling by servings is linear: if recipe A serves 8 and you need 12, multiply everything by 1.5×. Scaling by pan size is area-based: an 8-inch round pan holds 50 sq in of batter, a 10-inch holds 79 sq in — so you need 1.56× the recipe, not 1.25× (which is what the diameter ratio would suggest). The diameter ratio gives the wrong answer because pan capacity depends on area (radius squared), not diameter. For rectangular pans, multiply length × width to get area, then ratio the areas."
+            "text": "Scaling by servings is linear: 8 servings → 12 servings = 1.5×. Scaling by pan size uses area: 8-inch round → 10-inch round = 1.56× (not 1.25×). The diameter ratio gives the wrong answer because pan capacity depends on area (radius²). When a recipe says \"makes one 8-inch cake,\" you're scaling by pan size, not by servings — use the pan presets in the tool above."
           }
         }
       ]

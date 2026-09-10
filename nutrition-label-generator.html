@@ -36,18 +36,27 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How does the nutrition label generator work?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Add each ingredient in your recipe with its amount, and the generator calculates calories, fat, saturated fat, cholesterol, sodium, carbs, fiber, sugar, protein, and key vitamins from USDA-backed per-100g data. It then formats everything into a standard FDA nutrition label with Daily Values based on a 2,000-calorie diet." }
+          "name": "Is this label legally compliant for selling baked goods?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. This tool produces an educational estimate in FDA format for planning purposes. If you sell products commercially in the US, the FDA requires nutrition information from an accredited laboratory analysis, and full compliance involves additional regulations (food allergen labeling, facility registration, etc.). Use this generator to understand and plan your recipe's nutrition — then work with a lab for your actual labels."
+          }
         },
         {
           "@type": "Question",
-          "name": "Are the nutrition values accurate?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Values come from USDA FoodData Central — the same source used by major nutrition apps. Accuracy is within the normal range for food databases (±10-15%). Natural variation in ingredients and measurement method (packed vs spooned flour, for example) means these are estimates, not lab results." }
+          "name": "Can I add ingredients that aren't in the list?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can type any ingredient name, but nutrition values only calculate for the 45+ ingredients with USDA data built in. We're expanding the database regularly — if there's a baking ingredient you use often, tell us and we'll add it."
+          }
         },
         {
           "@type": "Question",
-          "name": "Can I print the label for my baked goods?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Yes — click the Print Label button and the FDA-style label is formatted for clean printing. For commercial sale in the US you must have your products tested in an accredited lab and consult FDA labeling regulations; this tool is for recipe planning and home use." }
+          "name": "Does cooking change the nutrition values?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Water loss during baking concentrates nutrients per gram but doesn't destroy calories — the label reflects the raw ingredient weights you entered, which is the standard way recipes are analyzed. For most home baking (cakes, cookies, breads), the difference is small and your label stays a solid estimate."
+          }
         }
       ]
     }

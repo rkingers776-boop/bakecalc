@@ -37,22 +37,42 @@
         {
           "@type": "Question",
           "name": "What is desired dough temperature (DDT)?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Desired dough temperature is the internal temperature you want your dough to reach immediately after mixing — usually 24-26°C (75-78°F) for most breads. Because yeast activity roughly doubles for every 8°C (14°F) rise in temperature, a consistent DDT means predictable fermentation: the same rise time every time you bake the same recipe, regardless of season." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "DDT is the internal temperature you want your dough to reach right after mixing — usually 24-26°C for most breads. It's the single most reliable variable for repeatable fermentation."
+          }
         },
         {
           "@type": "Question",
-          "name": "How do I calculate the water temperature for my dough?",
-          "acceptedAnswer": { "@type": "Answer", "text": "The DDT formula solves for water temperature: Water = (DDT × 3) − Room − Flour − Friction for straight doughs, or (DDT × 4) − Room − Flour − Friction − Preferment when using a poolish, biga, or sourdough starter. The multiplier is the number of variables contributing heat to the dough. Use this calculator: enter your target DDT, room and flour temperatures, pick your mixing method, and it does the math." }
+          "name": "Why does the multiplier change from ×3 to ×4?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The multiplier equals the number of things contributing heat to the dough. Straight dough has four contributors (water, room, flour, friction) — you know three, solve for the fourth, so it's ×3. With a preferment there are five contributors, so the formula becomes ×4."
+          }
         },
         {
           "@type": "Question",
-          "name": "What DDT should I aim for?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sourdough bread: 23-25°C. Lean bread (baguette, pain de mie): 24-26°C. Ciabatta: 24-25°C. Enriched bread: 25-27°C. Brioche: 20-22°C (cool, so butter stays solid). Pizza dough for long cold ferment: 22-24°C; same-day pizza: 24-26°C. Rye: 26-28°C. These are starting points — cold kitchens may need a degree warmer, warm summer kitchens a degree cooler." }
+          "name": "What if the calculated water temperature is impossible?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Below 0°C? Chill your flour or lower the DDT. Above 45°C? That's hot enough to kill yeast — warm the flour or accept a cooler dough. Adjust the variables, not the formula."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I find my mixer's friction factor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Measure once: record dough temperature immediately after mixing, and again at the same point in a batch where you used warmer/cooler water. The difference between what the formula predicts (with friction = 0) and what actually happened is your friction factor. KitchenAid users can start at ~12°C and adjust from there."
+          }
         },
         {
           "@type": "Question",
           "name": "What if the calculator says the water needs to be below freezing or above 45°C?",
-          "acceptedAnswer": { "@type": "Answer", "text": "If the water temperature comes out below 0°C, your room and flour are too warm or your friction factor too high — chill the flour for 30 minutes, lower mixer speed, or reduce the DDT. If it comes out above 45°C, water that hot will kill yeast and wild cultures — warm the flour or accept a cooler dough. In both cases the answer is to adjust the other variables, not to use water that breaks the formula." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If the water temperature comes out below 0°C, your room and flour are too warm or your friction factor too high — chill the flour for 30 minutes, lower mixer speed, or reduce the DDT. If it comes out above 45°C, water that hot will kill yeast and wild cultures — warm the flour or accept a cooler dough. In both cases the answer is to adjust the other variables, not to use water that breaks the formula."
+          }
         }
       ]
     }

@@ -36,18 +36,27 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How many grams are in 1 ounce?",
-          "acceptedAnswer": { "@type": "Answer", "text": "One ounce (weight, avoirdupois) equals exactly 28.35 grams. A fluid ounce is different — it measures volume, not weight, and equals 29.57 milliliters. When a US recipe says '4 oz butter,' it means 4 weight ounces (about 113 grams, or 1 stick). When it says '4 fl oz milk,' it means a half cup of liquid (about 118 mL). Same word, two completely different things." }
+          "name": "How many grams in 1 ounce?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Exactly 28.3495 grams. Most kitchens round to 28g for quick math or 28.35g for precision. Use 28.35g/oz when converting ingredient weights for baking."
+          }
         },
         {
           "@type": "Question",
-          "name": "Is 1 oz the same as 28 grams or 30 grams?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Neither is wrong, but 28.35 grams is the exact conversion. Many nutrition labels and casual recipes round to 28g. Some kitchen scales only show whole grams and round to 28 or 29. In practice: for small amounts (under 4 oz), the 0.35g difference per ounce adds up — 4 oz should be 113g, not 112g. For large amounts, use 28.35g/oz and round to the nearest gram." }
+          "name": "Is 1 oz the same as 28g or 30g?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "28g is a slight undercount (1.2% low). 30g is a slight overcount (5.8% high). Neither will ruin a stew, but in baking — especially bread — use 28g for small amounts (1-2 oz) and 28.35g for larger amounts (4+ oz) to keep the error from compounding."
+          }
         },
         {
           "@type": "Question",
           "name": "Why can't I use a liquid measuring cup for ounces of flour?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Because weight ounces (like in '8 oz flour') and fluid ounces (like in '8 fl oz water') are not the same unit. A fluid ounce measures volume — how much space something takes up. A weight ounce measures mass — how heavy it is. 8 fluid ounces of flour weighs about 4.2 weight ounces (120 grams), not 8. This is the single most common mistake Americans make when converting between US and metric recipes. If a recipe says 'oz' without 'fl,' assume it means weight." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because \"fluid ounces\" (volume) and \"weight ounces\" (mass) are different units that share a name. One cup = 8 fluid ounces. One cup of flour = about 4.2 weight ounces. If a recipe says \"8 oz flour,\" it means weigh out 227g on a scale — not fill a 1-cup liquid measure. American recipes are especially bad at distinguishing these; assume \"oz\" means weight for dry ingredients and fluid ounces only for liquids explicitly labeled \"fl oz.\""
+          }
         }
       ]
     }

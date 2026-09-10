@@ -37,12 +37,18 @@
         {
           "@type": "Question",
           "name": "Which cooking conversions does this tool handle?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Six conversions, each working in both directions: (1) Fluid ounces to milliliters, (2) Tablespoons to milliliters — US, UK, and Australian, (3) Cups to milliliters — US customary, metric, and Japanese, (4) Grams to ounces for weight, (5) Pounds to kilograms for bulk ingredients, (6) Cups to grams for 20 common baking ingredients including flour, sugar, butter, honey, and oil." }
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fluid oz to mL, tablespoons to mL (US/UK/Australian), cups to mL (US/metric/Japanese), grams to ounces (weight), pounds to kilograms, and cups to grams for 20 common baking ingredients. Six converters, one scrollable page."
+          }
         },
         {
           "@type": "Question",
-          "name": "Why combine all six converters on one page?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Because real recipes mix measurement systems. A single recipe might list flour in cups, butter in ounces, milk in mL, and vanilla in teaspoons. Flipping between six different converter pages wastes time. This page puts every conversion you'll need for a typical recipe on one screen — and each one switches direction — so you scroll to what you need, get the number, and keep cooking." }
+          "name": "Why not just use one universal formula for mL→grams?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Because mL→grams depends on the ingredient's density. Water is 1 g/mL. Oil is 0.92 g/mL. Honey is 1.42 g/mL. Flour is 0.53 g/mL. A single formula would be wrong 90% of the time. The cups→grams section above uses the correct density for each ingredient individually."
+          }
         }
       ]
     }
