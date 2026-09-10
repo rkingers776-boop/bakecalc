@@ -57,6 +57,7 @@ var CookingConverter = (function() {
     'all-purpose-flour': 120,
     'bread-flour': 130,
     'cake-flour': 110,
+    'whole-wheat-flour': 120,
     'granulated-sugar': 200,
     'brown-sugar-packed': 220,
     'powdered-sugar': 120,

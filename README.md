@@ -198,7 +198,7 @@ bakecalc/
 ├── search.html / search.js / search-index.js  # Site search (noindex)
 ├── fonts/                                  # Self-hosted Playfair Display woff2
 ├── robots.txt / sitemap.xml / sitemap.txt  # SEO (156 URLs)
-├── 1-*-to-grams.html                       # 101 ingredient conversion pages
+├── 1-*-to-grams.html                       # 104 ingredient conversion pages
 ├── *-oz-to-ml*.html                        # Liquid converters
 ├── *-grams-to-cups*.html                   # Weight-to-volume converters
 ├── articles/                               # 29 baking guides & articles
