@@ -1613,8 +1613,25 @@ footer a:hover { color: var(--primary); }
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   text-align: center;
+  /* Wide diagrams scroll sideways rather than shrink to nothing, the same
+     treatment .table-wrap already gives wide tables. Every figure on this site
+     is a 660-700 unit SVG drawn with 8-9px labels; with plain max-width:100%
+     a 390px phone scaled the whole thing to 340px, so the labels rendered at
+     4.2px -- decoration, not information, on the device most readers arrive on. */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .article-figure svg {
+  /* 13 of the 32 figures were laid out as inline elements and centred by the
+     parent's text-align. Inline content wider than its box overflows to the
+     LEFT, past the scroll origin, where no scrollbar can ever reach it -- so
+     they must be blocks centred with auto margins, which resolve to zero once
+     the box overflows. min-width keeps every label at the size it was drawn
+     rather than at 100% of whatever the phone gives it. */
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  min-width: 700px;
   border-radius: 4px;
 }
 .article-figure figcaption {
@@ -1635,6 +1652,10 @@ footer a:hover { color: var(--primary); }
   .calculator-card { box-shadow: none; border: 1px solid #ccc; }
   body { background: #fff; }
   .tool-category { break-inside: avoid; }
+  /* Paper has no scrollbar: a figure wider than the page would simply be
+     clipped, so let it shrink again. */
+  .article-figure { overflow: visible; }
+  .article-figure svg { min-width: 0; }
 }
 
 /* ============================================================
