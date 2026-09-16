@@ -754,4 +754,12 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- ====== NEW: Sep 16 — How to Store Bread (and Why the Fridge Makes It Worse) ====== -->
+  <url>
+    <loc>https://bakecalc.club/articles/how-to-store-bread-and-keep-it-fresh</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
