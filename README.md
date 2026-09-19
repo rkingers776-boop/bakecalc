@@ -1,6 +1,6 @@
 # BakeCalc Club — Baking Conversion Calculators
 
-**Measure with confidence. Every cup, every gram, every conversion.** Free, browser-local baking measurement calculators. **161 pages** — 105 ingredient conversion references, 21 interactive calculators, 30 know-how articles, and 5 about/legal pages. No accounts. No ads. No data sold.
+**Measure with confidence. Every cup, every gram, every conversion.** Free, browser-local baking measurement calculators. **162 pages** — 105 ingredient conversion references, 21 interactive calculators, 31 know-how articles, and 5 about/legal pages. No accounts. No ads. No data sold.
 
 🍰 **Live site:** [bakecalc.club](https://bakecalc.club/)  
 📦 **GitHub Pages mirror:** [rkingers776-boop.github.io/bakecalc](https://rkingers776-boop.github.io/bakecalc/)
@@ -164,6 +164,7 @@ All density values are verified against USDA FoodData Central and major ingredie
 | [No-Knead Bread Method](articles/no-knead-bread-method.html) | Folding technique, long fermentation |
 | [Tangzhong & Yudane](articles/tangzhong-yudane-japanese-milk-bread.html) | Japanese milk bread gelatinization |
 | [How to Store Bread](articles/how-to-store-bread-and-keep-it-fresh.html) | Why the fridge stales a loaf fastest, and what to do instead |
+| [How to Test Your Oven Temperature](articles/how-to-test-oven-temperature.html) | Why ovens cycle ±30°F, and how to measure the real average |
 | [How to Price Homemade Baked Goods](articles/how-to-price-homemade-baked-goods.html) | Cost × 3 rule, packaging, labor |
 | [Cake Flour vs All-Purpose vs Bread Flour](articles/cake-flour-vs-all-purpose-vs-bread-flour.html) | Protein levels and the swaps that work |
 | [Is My Yeast Still Good?](articles/is-my-yeast-still-good.html) | The 10-minute proof test and storage rules |
@@ -198,11 +199,11 @@ bakecalc/
 ├── analytics.js                            # GA4 loader (opt-out aware, load-once guard)
 ├── search.html / search.js / search-index.js  # Site search (noindex)
 ├── fonts/                                  # Self-hosted Playfair Display woff2
-├── robots.txt / sitemap.xml / sitemap.txt  # SEO (160 URLs)
+├── robots.txt / sitemap.xml / sitemap.txt  # SEO (161 URLs)
 ├── 1-*-to-grams.html                       # 105 ingredient conversion pages
 ├── *-oz-to-ml*.html                        # Liquid converters
 ├── *-grams-to-cups*.html                   # Weight-to-volume converters
-├── articles/                               # 30 baking guides & articles
+├── articles/                               # 31 baking guides & articles
 └── bakecalc-og.svg                         # Social share image
 ```
 
