@@ -1,0 +1,27 @@
+# bakecalc.club — Cloudflare Workers static-assets deployment
+#
+# Deploy (PowerShell):
+#   $env:XDG_CONFIG_HOME = "C:\Users\Administrator\AppData\Roaming\xdg.config"
+#   & "C:\Users\Administrator\.workbuddy\binaries\node\workspace\node_modules\.bin\wrangler.cmd" deploy
+#
+# URL scheme: the whole site (sitemap, canonicals, og:url, internal links)
+# uses extensionless URLs /dir/file for pages and /dir/ for directory
+# indexes. The default html_handling=auto-trailing-slash serves exactly that:
+#   /                      -> 200 (index.html)
+#   /articles/             -> 200 (articles/index.html)
+#   /articles/foo          -> 200 (articles/foo.html)
+#   /articles/foo.html     -> 307 -> /articles/foo (canonicalisation)
+# Keep the DEFAULT html_handling. Setting "none" would 404 every
+# extensionless URL in the sitemap (verified the hard way, 2026-09-21).
+
+name = "bakecalc-club"
+compatibility_date = "2025-07-04"
+
+routes = [
+  { pattern = "bakecalc.club", custom_domain = true }
+]
+
+[assets]
+directory = "./dist"
+# Unknown paths serve dist/404.html with a 404 status.
+not_found_handling = "404-page"
