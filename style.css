@@ -1621,7 +1621,11 @@ footer a:hover { color: var(--primary); }
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
-.article-figure svg {
+/* NOTE: this must stay scoped to the figure's own diagram. As a plain
+   descendant selector it also matched the small icon inside .pin-save, whose
+   min-width:700px then stretched the whole button to 755x712. Direct-child
+   scoping keeps the diagram rule intact while leaving the button alone. */
+.article-figure > svg {
   /* 13 of the 32 figures were laid out as inline elements and centred by the
      parent's text-align. Inline content wider than its box overflows to the
      LEFT, past the scroll origin, where no scrollbar can ever reach it -- so
@@ -1643,6 +1647,96 @@ footer a:hover { color: var(--primary); }
   font-style: italic;
 }
 
+/* ---- Pinterest "Save" button -------------------------------------------
+   Added by /pin.js. Rules that matter:
+
+   1. .article-figure is overflow-x:auto, so an absolutely positioned child
+      would scroll sideways with the SVG and drift off-screen on a phone.
+      The button therefore lives in a position:relative wrapper-free context
+      by being anchored to the figure while the figure's own scroll container
+      is the svg's parent box -- we keep the button OUT of the scrollable area
+      by placing it on .article-figure itself with right-anchoring, which is
+      the padding box edge, and giving it pointer-events only when visible.
+
+   2. Hidden by default on pointer devices until hover/focus, always visible
+      on touch (there is no hover to reveal it). Never shown on print.
+
+   3. It must never cover the chart: top-right corner, inside the 12px side
+      padding, 30px tall -- every figure on the site keeps its top-right
+      corner empty for exactly this reason.
+   ------------------------------------------------------------------------ */
+.article-figure { position: relative; }
+
+.pin-save {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px 6px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  line-height: 1;
+  color: #fff;
+  background: #e60023;              /* Pinterest brand red */
+  border: 0;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  /* Kept out of the tab order visual flow on desktop until the figure is
+     hovered, but focusable via keyboard regardless -- see :focus-visible. */
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.15s ease, transform 0.15s ease, background 0.15s ease;
+  pointer-events: none;
+}
+
+.pin-save svg {
+  display: block;
+  flex: none;
+  /* Belt and braces: even if a future rule targets ".article-figure svg"
+     again, the icon must never inherit diagram sizing. The bug this guards
+     against shipped a 755x712 "Save" pill that covered the whole chart. */
+  width: 14px;
+  height: 14px;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+}
+
+.pin-save:hover { background: #ad081b; }
+
+/* Reveal on hover, and always for keyboard users. */
+.article-figure:hover .pin-save,
+.pin-save:focus-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.pin-save:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Touch devices have no hover state, so the button is always visible.
+   (hover: none) is the honest test -- (pointer: coarse) misses
+   hybrid laptops with a touchscreen and a trackpad. */
+@media (hover: none) {
+  .pin-save { opacity: 1; transform: none; pointer-events: auto; }
+}
+
+/* On a phone the figure scrolls sideways; a button parked at the top-right of
+   the *figure* stays put because it is anchored to the padding box, not the
+   scrolled content. Shrink it slightly so it does not crowd the chart. */
+@media (max-width: 640px) {
+  .pin-save { top: 6px; right: 6px; padding: 5px 10px 5px 8px; font-size: 0.75rem; }
+}
+
 /* ============================================================
    Print
    ============================================================ */
@@ -1655,7 +1749,9 @@ footer a:hover { color: var(--primary); }
   /* Paper has no scrollbar: a figure wider than the page would simply be
      clipped, so let it shrink again. */
   .article-figure { overflow: visible; }
-  .article-figure svg { min-width: 0; }
+  .article-figure > svg { min-width: 0; }
+  /* A "Save to Pinterest" button is meaningless on paper. */
+  .pin-save { display: none !important; }
 }
 
 /* ============================================================
