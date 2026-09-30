@@ -1,6 +1,6 @@
 # BakeCalc Club — Baking Conversion Calculators
 
-**Measure with confidence. Every cup, every gram, every conversion.** Free, browser-local baking measurement calculators. **162 pages** — 105 ingredient conversion references, 21 interactive calculators, 31 know-how articles, and 5 about/legal pages. No accounts. No ads. No data sold.
+**Measure with confidence. Every cup, every gram, every conversion.** Free, browser-local baking measurement calculators. **162 pages** — 104 ingredient conversion references, 21 interactive calculators, 32 know-how articles, and 5 about/legal pages. No accounts. No ads. No data sold.
 
 🍰 **Live site:** [bakecalc.club](https://bakecalc.club/)  
 📦 **GitHub Pages mirror:** [rkingers776-boop.github.io/bakecalc](https://rkingers776-boop.github.io/bakecalc/)
@@ -199,11 +199,11 @@ bakecalc/
 ├── analytics.js                            # GA4 loader (opt-out aware, load-once guard)
 ├── search.html / search.js / search-index.js  # Site search (noindex)
 ├── fonts/                                  # Self-hosted Playfair Display woff2
-├── robots.txt / sitemap.xml / sitemap.txt  # SEO (161 URLs)
-├── 1-*-to-grams.html                       # 105 ingredient conversion pages
+├── robots.txt / sitemap.xml / sitemap.txt  # SEO (162 URLs)
+├── 1-*-to-grams.html                       # 104 ingredient conversion pages
 ├── *-oz-to-ml*.html                        # Liquid converters
 ├── *-grams-to-cups*.html                   # Weight-to-volume converters
-├── articles/                               # 31 baking guides & articles
+├── articles/                               # 32 baking guides & articles
 └── bakecalc-og.svg                         # Social share image
 ```
 
