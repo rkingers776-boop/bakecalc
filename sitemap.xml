@@ -128,7 +128,7 @@
   <!-- ================================================================ -->
   <url>
     <loc>https://bakecalc.club/articles/</loc>
-    <lastmod>2026-09-29</lastmod>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -772,6 +772,14 @@
   <url>
     <loc>https://bakecalc.club/articles/why-cake-is-dry</loc>
     <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ====== NEW: Oct 3 — Whipping Egg Whites to Stiff Peaks ====== -->
+  <url>
+    <loc>https://bakecalc.club/articles/how-to-whip-egg-whites-stiff-peaks</loc>
+    <lastmod>2026-10-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
