@@ -36,6 +36,66 @@
     { name: 'Lemon Juice',                    unit: 'mL',   price: 0.005 }
   ];
 
+  /* ---- Serving chart ----
+     The Serving Helper exists because "servings" is the vaguest number in
+     any costing sheet, and it is the divisor for cost-per-serving.
+
+     Counts are copied from Wilton's published cake serving chart for
+     4-inch-high cakes (two 2-inch layers). Party slices run about
+     1.5 x 2 in, wedding slices about 1 x 2 in. Nothing here is
+     interpolated: if a pan is not in the chart, it is not in the dropdown.
+     Wilton's own note on height: a cake 3 to 6 inches tall yields the same
+     count as any other height in that range, but a cake under 3 inches
+     yields half. That is the only place height enters the maths. */
+  var SERVING_CHART = {
+    round: {
+      '4':  { party: 8,  wedding: 8 },
+      '6':  { party: 12, wedding: 12 },
+      '8':  { party: 20, wedding: 24 },
+      '9':  { party: 24, wedding: 32 },
+      '10': { party: 28, wedding: 38 },
+      '12': { party: 40, wedding: 56 },
+      '14': { party: 63, wedding: 78 },
+      '16': { party: 77, wedding: 100 }
+    },
+    square: {
+      '6':  { party: 12, wedding: 18 },
+      '8':  { party: 20, wedding: 32 },
+      '10': { party: 30, wedding: 50 },
+      '12': { party: 48, wedding: 72 },
+      '14': { party: 63, wedding: 98 },
+      '16': { party: 80, wedding: 128 }
+    },
+    sheet: {
+      '7x11':  { party: 24, wedding: 32 },
+      '9x13':  { party: 36, wedding: 50 },
+      '11x15': { party: 54, wedding: 74 },
+      '12x18': { party: 72, wedding: 98 }
+    }
+  };
+
+  var PAN_SIZES = {
+    round:  ['4', '6', '8', '9', '10', '12', '14', '16'],
+    square: ['6', '8', '10', '12', '14', '16'],
+    sheet:  ['7x11', '9x13', '11x15', '12x18']
+  };
+
+  function panLabel(shape, size) {
+    if (shape === 'sheet') return size.split('x').join('" \u00d7 ') + '" sheet';
+    return size + '" ' + shape;
+  }
+
+  /* Returns { party, wedding } for a pan, already adjusted for a short cake. */
+  function servingCounts(shape, size, height) {
+    var row = SERVING_CHART[shape] && SERVING_CHART[shape][size];
+    if (!row) return null;
+    var factor = (height === 'short') ? 0.5 : 1;
+    return {
+      party:   Math.floor(row.party * factor),
+      wedding: Math.floor(row.wedding * factor)
+    };
+  }
+
   /* ---- Default state ---- */
   var DEFAULT_INGREDIENTS = [
     { name: 'All-Purpose Flour',    qty: 500, unit: 'g',   price: 0.002 },
@@ -165,6 +225,13 @@
           el.addEventListener('input', function () { self.onSettingsChange(); });
         }
       }
+
+      // Serving helper — shape rebuilds the pan list, everything else just reads through.
+      this.renderPanOptions();
+      $('sh-shape').addEventListener('change', function () { self.renderPanOptions(); });
+      $('sh-pan').addEventListener('change', function () { self.updateServingHelper(); });
+      $('sh-cut').addEventListener('change', function () { self.updateServingHelper(); });
+      $('sh-height').addEventListener('change', function () { self.updateServingHelper(); });
     },
 
     onSelectChange: function (sel) {
@@ -214,6 +281,63 @@
       state.settings.profitPct    = parseFloat($('profit-pct').value) || 0;
       saveState();
       this.recalc();
+    },
+
+    /* ---- Serving Helper ---- */
+    renderPanOptions: function () {
+      var shape = $('sh-shape').value;
+      var sizes = PAN_SIZES[shape] || [];
+      var sel = $('sh-pan');
+      var html = '';
+      for (var i = 0; i < sizes.length; i++) {
+        html += '<option value="' + sizes[i] + '">' + panLabel(shape, sizes[i]) + '</option>';
+      }
+      sel.innerHTML = html;
+      // Default to the pan most home bakers actually reach for.
+      var preferred = (shape === 'sheet') ? '9x13' : '8';
+      for (var j = 0; j < sel.options.length; j++) {
+        if (sel.options[j].value === preferred) { sel.selectedIndex = j; break; }
+      }
+      this.updateServingHelper();
+    },
+
+    updateServingHelper: function () {
+      var shape  = $('sh-shape').value;
+      var size   = $('sh-pan').value;
+      var cut    = $('sh-cut').value;
+      var height = $('sh-height').value;
+      if (!size) return;
+      var counts = servingCounts(shape, size, height);
+      if (!counts) return;
+      var alt = (cut === 'party') ? 'wedding' : 'party';
+      $('sh-count').textContent = counts[cut];
+      $('sh-note').textContent = panLabel(shape, size) + ', ' + cut + ' cut'
+        + (height === 'short' ? ', single layer' : '')
+        + ' \u2014 the ' + alt + ' cut gives ' + counts[alt];
+    },
+
+    useServings: function () {
+      var shape  = $('sh-shape').value;
+      var size   = $('sh-pan').value;
+      var cut    = $('sh-cut').value;
+      var height = $('sh-height').value;
+      if (!size) return;
+      var counts = servingCounts(shape, size, height);
+      if (!counts) return;
+
+      var n = counts[cut];
+      var field = $('servings');
+      field.value = n;
+      state.settings.servings = n;
+      saveState();
+      this.recalc();
+
+      // Restart the flash animation even if the button is clicked twice.
+      field.classList.remove('field-flash');
+      void field.offsetWidth;
+      field.classList.add('field-flash');
+      var f = field;
+      setTimeout(function () { f.classList.remove('field-flash'); }, 900);
     },
 
     addRow: function () {

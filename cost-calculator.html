@@ -67,6 +67,49 @@
             </div>
         </section>
 
+        <!-- ============ Serving Helper ============ -->
+        <section class="cost-section">
+            <div class="cost-section-header">
+                <span class="cost-section-icon">🍰</span>
+                <h2>Serving Helper</h2>
+                <button class="btn-add-row" onclick="CostCalc.useServings()" title="Copy this count into the Servings field above">↓ Use this count</button>
+            </div>
+            <p class="servings-intro">Not sure how many servings your pan gives? Pick the pan, the cut, and how tall the cake is, then copy the count into Servings above. Cost per serving is only as honest as this number.</p>
+            <div class="servings-grid">
+                <div class="info-field">
+                    <label for="sh-shape">Cake shape</label>
+                    <select id="sh-shape">
+                        <option value="round">Round</option>
+                        <option value="square">Square</option>
+                        <option value="sheet">Sheet pan</option>
+                    </select>
+                </div>
+                <div class="info-field">
+                    <label for="sh-pan">Pan size</label>
+                    <select id="sh-pan"></select>
+                </div>
+                <div class="info-field">
+                    <label for="sh-cut">Slice size</label>
+                    <select id="sh-cut">
+                        <option value="party">Party (1&frac12;&times;2 in)</option>
+                        <option value="wedding">Wedding (1&times;2 in)</option>
+                    </select>
+                </div>
+                <div class="info-field">
+                    <label for="sh-height">Cake height</label>
+                    <select id="sh-height">
+                        <option value="tall">2+ layers (3&ndash;6 in)</option>
+                        <option value="short">Single layer (2 in)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="servings-out">
+                <span class="servings-out-num">≈ <strong id="sh-count">20</strong> servings</span>
+                <span class="servings-out-alt" id="sh-note">8&quot; round, party cut</span>
+            </div>
+            <p class="servings-caveat">Counts follow <a href="https://wilton.com/baking-inspiration/cake-baking-serving-guide/" target="_blank" rel="noopener nofollow">Wilton&rsquo;s published cake serving chart</a> for 4-inch-high cakes. A cake under 3 inches tall yields half that. Bakeries quote different cuts &mdash; ask which one a price is based on before you compare.</p>
+        </section>
+
         <!-- ============ Ingredient List ============ -->
         <section class="cost-section">
             <div class="cost-section-header">
@@ -193,6 +236,12 @@
 
             <h2>Pricing Tips for Cottage Food Bakers</h2>
             <p>A common rule of thumb: your retail price should be roughly <strong>3&times; ingredient cost</strong> to cover labor, overhead, and profit. But every product is different — high-labor items like decorated cookies may need a 4&times; multiplier, while simple bread loaves may work at 2.5&times;. Use this tool to find the number that works for your specific recipe.</p>
+
+            <h2>How Many Servings Does Your Cake Actually Yield?</h2>
+            <p>A cake does not have one fixed number of servings. It has a number of servings <em>per cut</em>, and the same 8-inch round gives 20 pieces or 24 depending on which cut you use. That single detail causes more disagreements between home bakers and their customers than any other, and it is why two bakers can quote the same cake at very different prices per serving.</p>
+            <p>The generous <strong>party cut</strong> — roughly 1&frac12; &times; 2 inches — is what you would plate at a birthday, a slice big enough to be dessert on its own. The thinner <strong>wedding cut</strong>, about 1 &times; 2 inches, is the formal portion handed out to a long guest list or served alongside other desserts. Neither is wrong. They simply feed different numbers of people from the same pan.</p>
+            <p>Two things surprise people who have not costed a cake before. First, <strong>layers do not change the count.</strong> A two-layer cake is twice as tall, not twice as wide, and you still cut one wedge through the whole stack. Servings come from the area of the pan's top surface, not from its height — a 4-inch-tall 10-inch round feeds exactly as many people as a 6-inch-tall one cut the same way. Only when a cake drops below 3 inches tall does the serving count fall, and then it roughly halves, because the slices are too short to plate. Second, <strong>square pans beat round pans</strong> at every size, because there is no curved edge left behind to waste. A 10-inch square yields 30 party servings against a 10-inch round's 28, and the gap widens as pans get larger.</p>
+            <p>If you price by the serving, settle the cut before you quote and write it on the order. <a href="/articles/how-to-price-homemade-baked-goods">Our pricing guide</a> walks through that calculation with worked examples. If you are changing pan sizes at the same time, the <a href="/pan-size-converter">pan size converter</a> keeps the batter proportional by area, and the <a href="/recipe-scaler">recipe scaler</a> handles the rest.</p>
         </article>
 
     </main>
