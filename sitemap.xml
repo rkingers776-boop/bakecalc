@@ -128,7 +128,7 @@
   <!-- ================================================================ -->
   <url>
     <loc>https://bakecalc.club/articles/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -780,6 +780,14 @@
   <url>
     <loc>https://bakecalc.club/articles/how-to-whip-egg-whites-stiff-peaks</loc>
     <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ====== NEW: Oct 10 — Why Caramel Crystallizes ====== -->
+  <url>
+    <loc>https://bakecalc.club/articles/why-caramel-crystallizes</loc>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
