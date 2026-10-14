@@ -2,6 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <item>
+      <title>How to Tell When Bread Is Done — Internal Temperature by Type</title>
+      <link>https://bakecalc.club/articles/how-to-tell-when-bread-is-done</link>
+      <guid isPermaLink="true">https://bakecalc.club/articles/how-to-tell-when-bread-is-done</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0000</pubDate>
+      <description>Lean dough, enriched dough, rye and quick breads finish at different center temperatures. The ranges, where to put the probe, and why the hollow thump test fails on a butter-enriched loaf.</description>
+    </item>
+    <item>
       <title>Why Does Caramel Crystallize? Sugar Stages and How to Fix It</title>
       <link>https://bakecalc.club/articles/why-caramel-crystallizes</link>
       <guid isPermaLink="true">https://bakecalc.club/articles/why-caramel-crystallizes</guid>
@@ -19,7 +26,7 @@
     <link>https://bakecalc.club/</link>
     <description>Practical baking guides from a working kitchen: measuring, ingredient science, technique, troubleshooting, and pricing.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://bakecalc.club/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Why Is My Cake Dry? 8 Causes and How to Fix Each One</title>

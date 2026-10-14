@@ -128,7 +128,7 @@
   <!-- ================================================================ -->
   <url>
     <loc>https://bakecalc.club/articles/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -788,6 +788,14 @@
   <url>
     <loc>https://bakecalc.club/articles/why-caramel-crystallizes</loc>
     <lastmod>2026-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ====== NEW: Oct 14 — How to Tell When Bread Is Done ====== -->
+  <url>
+    <loc>https://bakecalc.club/articles/how-to-tell-when-bread-is-done</loc>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
