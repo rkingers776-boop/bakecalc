@@ -70,7 +70,7 @@
     <script src="/pin.js" defer></script>
     <style>
         .nl-layout { display: grid; grid-template-columns: 1fr 340px; gap: 28px; align-items: start; }
-        @media (max-width: 860px) { .nl-layout { grid-template-columns: 1fr; } }
+        @media (max-width: 860px) { .nl-layout { grid-template-columns: 1fr; } .nl-layout > * { min-width: 0; } }
 
         .nl-name { width: 100%; }
         .nl-autocomplete { position: absolute; top: 100%; left: 0; right: 0; max-height: 240px; overflow-y: auto; background: var(--card-bg); border: 1.5px solid var(--border); border-top: none; border-radius: 0 0 var(--radius) var(--radius); z-index: 20; }
@@ -136,7 +136,7 @@
                     <input type="number" id="nl-servings" value="8" min="1" step="1" inputmode="numeric" style="max-width:120px;">
                 </div>
 
-                <div style="overflow-x:auto;">
+                <div class="table-wrap">
                     <table style="width:100%;">
                         <thead>
                             <tr>
