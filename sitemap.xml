@@ -128,7 +128,7 @@
   <!-- ================================================================ -->
   <url>
     <loc>https://bakecalc.club/articles/</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -158,7 +158,7 @@
   <!-- New articles (Jun 29) -->
   <url>
     <loc>https://bakecalc.club/articles/baking-powder-vs-baking-soda</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -347,7 +347,7 @@
   <!-- ====== NEW: Jul 11 — New article ====== -->
   <url>
     <loc>https://bakecalc.club/articles/buttermilk-substitute-baking</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -509,7 +509,7 @@
   <!-- ====== NEW: Jul 26 — High-Altitude Baking ====== -->
   <url>
     <loc>https://bakecalc.club/articles/high-altitude-baking-adjustments</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -749,7 +749,7 @@
 
   <url>
     <loc>https://bakecalc.club/articles/cake-flour-vs-all-purpose-vs-bread-flour</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -804,6 +804,14 @@
   <url>
     <loc>https://bakecalc.club/articles/cake-stuck-to-pan</loc>
     <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ====== NEW: Oct 26 — How to Make Self-Rising Flour ====== -->
+  <url>
+    <loc>https://bakecalc.club/articles/how-to-make-self-rising-flour</loc>
+    <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
