@@ -128,7 +128,7 @@
   <!-- ================================================================ -->
   <url>
     <loc>https://bakecalc.club/articles/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -812,6 +812,14 @@
   <url>
     <loc>https://bakecalc.club/articles/how-to-make-self-rising-flour</loc>
     <lastmod>2026-10-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ====== NEW: Oct 28 — Why Your Cookies Turned Out Hard ====== -->
+  <url>
+    <loc>https://bakecalc.club/articles/why-cookies-turn-out-hard</loc>
+    <lastmod>2026-10-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
