@@ -4,19 +4,7 @@
    All data stays in localStorage.
    ============================================================ */
 
-/* ============================================================
-   GA4 — Google Analytics 4 (G-G1GB4E169W)
-   ============================================================ */
-(function() {
-  var s = document.createElement('script');
-  s.async = true;
-  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-G1GB4E169W';
-  document.head.appendChild(s);
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-G1GB4E169W');
-})();
+/* Analytics lives in /analytics.js. Do not add a second GA config here. */
 
 (function () {
   'use strict';

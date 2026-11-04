@@ -114,11 +114,8 @@
      * window features, but the URL still opens in a new tab either way. */
     a.addEventListener('click', function () {
       try {
-        if (window.gtag) {
-          window.gtag('event', 'pin_save', {
-            event_category: 'engagement',
-            event_label: location.pathname
-          });
+        if (window.bcTrack) {
+          window.bcTrack('pin_save', { page: location.pathname });
         }
       } catch (e) { /* analytics is optional */ }
     });

@@ -213,7 +213,6 @@ bakecalc/
 - **Honest measurement** — one GA4 property, advertising features off, GPC and Do Not Track honoured automatically; see `/privacy`
 - **Instant results** — no loading spinners, no server round-trips
 - **USDA-verified densities** — every ingredient weight backed by reference data, and consistent across every page
-- **Work offline** — full functionality without internet once loaded
 
 ---
 
