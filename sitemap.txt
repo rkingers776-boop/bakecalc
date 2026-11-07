@@ -2,6 +2,7 @@ https://bakecalc.club/
 https://bakecalc.club/about
 https://bakecalc.club/contact
 https://bakecalc.club/privacy
+https://bakecalc.club/home-bakery-business
 https://bakecalc.club/cost-calculator
 https://bakecalc.club/1-cup-butter-to-grams
 https://bakecalc.club/1-2-cup-butter-to-grams
@@ -168,3 +169,4 @@ https://bakecalc.club/articles/how-to-make-self-rising-flour
 https://bakecalc.club/articles/why-cookies-turn-out-hard
 https://bakecalc.club/articles/how-to-freeze-cake-and-baked-goods
 https://bakecalc.club/articles/how-ripe-should-bananas-be-for-banana-bread
+https://bakecalc.club/articles/salted-vs-unsalted-butter

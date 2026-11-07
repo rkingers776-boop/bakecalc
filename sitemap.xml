@@ -29,6 +29,14 @@
     <priority>0.2</priority>
   </url>
 
+  <url>
+    <loc>https://bakecalc.club/home-bakery-business</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+
   <!-- ====== COST CALCULATOR ====== -->
   <url>
     <loc>https://bakecalc.club/cost-calculator</loc>
@@ -128,7 +136,7 @@
   <!-- ================================================================ -->
   <url>
     <loc>https://bakecalc.club/articles/</loc>
-    <lastmod>2026-11-01</lastmod>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -836,6 +844,14 @@
   <url>
     <loc>https://bakecalc.club/articles/how-ripe-should-bananas-be-for-banana-bread</loc>
     <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ====== NEW: Nov 7 — Salted vs Unsalted Butter ====== -->
+  <url>
+    <loc>https://bakecalc.club/articles/salted-vs-unsalted-butter</loc>
+    <lastmod>2026-11-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -11,7 +11,10 @@
 (function () {
   'use strict';
 
-  var INDEX = window.BAKECALC_INDEX || [];
+  var INDEX = [[
+    '/home-bakery-business', 'Home Bakery Business Toolkit — Cost, Price & Labels', 'Calculators',
+    'home bakery business toolkit sell baked goods cost price margin nutrition labels recipe scaling orders'
+  ]].concat(window.BAKECALC_INDEX || []);
   var GROUP_ORDER = ['Calculators', 'Ingredient conversions', 'Baking know-how', 'About BakeCalc'];
   var MAX_RESULTS = 60;
 

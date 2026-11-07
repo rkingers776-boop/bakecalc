@@ -121,6 +121,18 @@
     var a = closest(e.target, 'a');
     var ctrl = closest(e.target, 'button, [role="button"]') || a;
 
+    var labelled = closest(e.target, '[data-bc-event]');
+
+    /* Explicitly labelled product-funnel links are intentionally tracked
+     * before the generic link rules below. Event names stay in markup so a
+     * new campaign or workflow can be measured without another tracker. */
+    if (labelled) {
+      track(labelled.getAttribute('data-bc-event'), {
+        page: PAGE,
+        target: labelled.getAttribute('data-bc-target') || labelled.getAttribute('href') || '',
+        placement: labelled.getAttribute('data-bc-placement') || 'unspecified'
+      });
+    }
     if (a && /(^|\.)amazon\./i.test(a.hostname || '')) {
       track('affiliate_click', { link_url: a.href, page: PAGE });
     }

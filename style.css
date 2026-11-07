@@ -435,6 +435,88 @@ header p {
   text-align: center;
 }
 
+/* ============================================================
+   Home Bakery Business Path
+   ============================================================ */
+.business-path {
+  margin: 8px 0 40px;
+  padding: 30px 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, var(--primary-light), var(--card-bg));
+}
+
+.business-path-grid,
+.workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.business-path-card,
+.workflow-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  background: var(--card-bg);
+  color: var(--text);
+  text-decoration: none;
+  transition: transform var(--ease), box-shadow var(--ease), border-color var(--ease);
+}
+
+.business-path-card:hover,
+.workflow-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(120, 70, 30, 0.10);
+}
+
+.business-path-card > span:last-child {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.business-path-step,
+.workflow-step {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.business-path-cta {
+  margin: 20px 0 0;
+  text-align: center;
+  font-weight: 700;
+}
+
+.business-path-cta a { color: var(--primary-hover); }
+
+.business-intro { margin-bottom: 24px; }
+.business-kicker { margin-bottom: 4px; color: var(--primary); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.workflow-card h2 { margin: 6px 0 0; font-size: 1.1rem; }
+.workflow-card p { margin: 0 0 8px; color: var(--text-secondary); line-height: 1.55; }
+.business-support { margin-top: 34px; }
+.business-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.business-links a { padding: 9px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--card-bg); font-weight: 600; }
+
+@media (max-width: 700px) {
+  .business-path { padding: 24px 16px; }
+  .business-path-grid,
+  .workflow-grid { grid-template-columns: 1fr; }
+  .business-path-card,
+  .workflow-card { padding: 16px; }
+}
+
 
 /* ============================================================
    Section Title

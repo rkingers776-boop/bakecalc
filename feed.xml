@@ -2,6 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <item>
+      <title>Salted vs Unsalted Butter: When It Matters</title>
+      <link>https://bakecalc.club/articles/salted-vs-unsalted-butter</link>
+      <guid isPermaLink="true">https://bakecalc.club/articles/salted-vs-unsalted-butter</guid>
+      <pubDate>Sat, 07 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Salted butter is 643 mg of sodium per 100 g; unsalted is 11 mg. That sixty-fold gap is the only real difference, which makes the swap a subtraction rather than a substitution — a quarter teaspoon per stick, and nothing at all in the buttercream.</description>
+    </item>
+    <item>
       <title>How Ripe Should Bananas Be for Banana Bread?</title>
       <link>https://bakecalc.club/articles/how-ripe-should-bananas-be-for-banana-bread</link>
       <guid isPermaLink="true">https://bakecalc.club/articles/how-ripe-should-bananas-be-for-banana-bread</guid>
@@ -61,7 +68,7 @@
     <link>https://bakecalc.club/</link>
     <description>Practical baking guides from a working kitchen: measuring, ingredient science, technique, troubleshooting, and pricing.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 01 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://bakecalc.club/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Why Is My Cake Dry? 8 Causes and How to Fix Each One</title>
