@@ -144,7 +144,7 @@
   <!-- ================================================================ -->
   <url>
     <loc>https://bakecalc.club/articles/</loc>
-    <lastmod>2026-11-07</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -860,6 +860,14 @@
   <url>
     <loc>https://bakecalc.club/articles/salted-vs-unsalted-butter</loc>
     <lastmod>2026-11-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ====== NEW: Nov 18 — Pie Crust Ratio ====== -->
+  <url>
+    <loc>https://bakecalc.club/articles/pie-crust-ratio-butter-water</loc>
+    <lastmod>2026-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

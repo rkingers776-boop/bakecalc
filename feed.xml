@@ -2,6 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <item>
+      <title>Pie Crust Ratio: Butter and Water by Weight, Not 3-2-1</title>
+      <link>https://bakecalc.club/articles/pie-crust-ratio-butter-water</link>
+      <guid isPermaLink="true">https://bakecalc.club/articles/pie-crust-ratio-butter-water</guid>
+      <pubDate>Wed, 18 Nov 2026 00:00:00 +0000</pubDate>
+      <description>The 3-2-1 pie crust rule uses 67 percent fat against the flour; a tested all-butter crust uses 76 percent, and its ice water is a range of 19 to 38 percent rather than one number. The weights for each batch size, how to judge water by feel, and why crusts shrink.</description>
+    </item>
+    <item>
       <title>Salted vs Unsalted Butter: When It Matters</title>
       <link>https://bakecalc.club/articles/salted-vs-unsalted-butter</link>
       <guid isPermaLink="true">https://bakecalc.club/articles/salted-vs-unsalted-butter</guid>
@@ -68,7 +75,7 @@
     <link>https://bakecalc.club/</link>
     <description>Practical baking guides from a working kitchen: measuring, ingredient science, technique, troubleshooting, and pricing.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 07 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Nov 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://bakecalc.club/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Why Is My Cake Dry? 8 Causes and How to Fix Each One</title>
