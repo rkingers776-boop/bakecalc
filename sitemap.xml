@@ -45,6 +45,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- ====== CAKE SERVINGS CALCULATOR ====== -->
+  <url>
+    <loc>https://bakecalc.club/cake-servings-calculator</loc>
+    <lastmod>2026-11-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- ================================================================ -->
   <!--  BUTTER TOOLS  -->
   <!-- ================================================================ -->

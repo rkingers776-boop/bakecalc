@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cake Servings Calculator — How Many Slices in Any Pan | BakeCalc</title>
+    <meta name="description" content="Pick any pan and get its real serving count for party and wedding cuts, plus batter, frosting, bake time and how many pans your guest list needs.">
+
+    <meta property="og:title" content="Cake Servings Calculator — How Many Slices in Any Pan">
+    <meta property="og:description" content="Any pan, any shape, two cut styles. Get servings, batter in cups, frosting, bake time, and how many cakes to bake for your guest count.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/cake-servings-calculator">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/pin/og-f3edc99a5e.png">
+    <link rel="pin:media" href="https://bakecalc.club/pin/pin-f3edc99a5e.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cake Servings Calculator">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cake Servings Calculator — How Many Slices in Any Pan">
+    <meta name="twitter:description" content="Any pan shape, party or wedding cut: servings, cups of batter, frosting, bake time. Free, no sign-up.">
+    <meta name="twitter:image" content="https://bakecalc.club/pin/og-f3edc99a5e.png">
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧁</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/cake-servings-calculator">
+    <link rel="alternate" type="application/rss+xml" title="BakeCalc Club — Baking Know-How" href="https://bakecalc.club/feed.xml">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Cake Servings Calculator", "item": "https://bakecalc.club/cake-servings-calculator" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many servings are in a 9x13 sheet cake?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "36 party servings or 50 wedding servings, following Wilton's published chart. That assumes a 2-inch layer and the standard cuts: about 1 1/2 x 2 inches for a party, 1 x 2 inches for a wedding. Cut a strict 2 x 2 inch grid instead and you get about 24 pieces, so agree on the cut before you quote a number."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many servings does an 8-inch round cake serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "20 party servings or 24 wedding servings for a two-layer, 4-inch-high cake. The count comes from the top surface, not the height, so a taller 8-inch cake serves the same number as long as it is at least 3 inches tall. Below 3 inches, halve it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much cake do I need for 100 guests?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Three 9x13 sheets at the party cut, which is 108 servings, or two sheets at the wedding cut, which is exactly 100. If you would rather bake rounds, it takes five 10-inch rounds at 28 party servings each and you will have leftovers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do more layers mean more servings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. You cut each slice through the whole stack, so servings come from the pan's top surface and the cut size. A 6-inch round that is 3 inches tall and one that is 6 inches tall both serve 12. The only height rule that changes the count is the 3-inch mark: shorter cakes are cut in half."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much frosting do I need for a two-layer 8-inch cake?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "About 3 1/2 cups to ice and decorate. A 9x13 sheet takes around 7 cups. Consistency matters as much as volume: a loose American buttercream covers more area per cup than a stiff one, so make a little extra rather than exactly enough."
+          }
+        }
+      ]
+    }
+    </script>
+    <script src="/analytics.js" defer></script>
+    <script src="/pin.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+    <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+    <header>
+        <h1>🍰 Cake Servings Calculator</h1>
+        <p>Pick your pan. Get the servings for both cut styles, the batter and frosting it takes, and how many cakes your guest list actually needs.</p>
+    </header>
+
+    <main class="cost-calc">
+
+        <!-- ============ Pan picker ============ -->
+        <section class="cost-section">
+            <div class="cost-section-header">
+                <span class="cost-section-icon">🥧</span>
+                <h2>Your Pan</h2>
+            </div>
+            <div class="servings-grid">
+                <div class="info-field">
+                    <label for="cs-shape">Pan shape</label>
+                    <select id="cs-shape"></select>
+                </div>
+                <div class="info-field">
+                    <label for="cs-pan">Pan size</label>
+                    <select id="cs-pan"></select>
+                </div>
+                <div class="info-field">
+                    <label for="cs-cut">Slice style</label>
+                    <select id="cs-cut">
+                        <option value="party">Party (1&frac12; &times; 2 in)</option>
+                        <option value="wedding">Wedding (1 &times; 2 in)</option>
+                    </select>
+                </div>
+                <div class="info-field">
+                    <label for="cs-height">Cake height</label>
+                    <select id="cs-height">
+                        <option value="tall">3 in or taller</option>
+                        <option value="short">Under 3 in</option>
+                    </select>
+                </div>
+            </div>
+            <p class="servings-caveat">Figures follow <a href="https://wilton.com/baking-inspiration/cake-baking-serving-guide/" target="_blank" rel="noopener nofollow">Wilton&rsquo;s published cake serving chart</a> for 4-inch-high cakes, and their separate chart for 3-inch-deep pans. Cakes shorter than 3 inches yield half the servings listed for that pan.</p>
+        </section>
+
+        <!-- ============ Results ============ -->
+        <section class="cost-section cost-section--results" id="result-container">
+            <div class="cost-section-header">
+                <span class="cost-section-icon">🍰</span>
+                <h2>What This Pan Gives You</h2>
+                <div class="result-actions">
+                    <button class="btn-print" onclick="window.print()">🖨️ Print</button>
+                </div>
+            </div>
+
+            <div class="result-total" id="cs-total">
+                <span class="result-label" id="cs-total-label">Party servings</span>
+                <span class="result-val result-val--lg"><span id="cs-servings">20</span></span>
+            </div>
+
+            <div class="result-grid">
+                <div class="result-item">
+                    <span class="result-label">Other cut</span>
+                    <span class="result-val" id="cs-other">24 wedding</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Batter, per 2-in layer</span>
+                    <span class="result-val" id="cs-cups">4 cups</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Batter, two layers</span>
+                    <span class="result-val" id="cs-cups2">8 cups</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Frosting</span>
+                    <span class="result-val" id="cs-icing">3&frac12; cups</span>
+                </div>
+                <div class="result-item result-item--highlight">
+                    <span class="result-label">Bake at</span>
+                    <span class="result-val result-val--accent" id="cs-temp">350F</span>
+                </div>
+                <div class="result-item result-item--highlight">
+                    <span class="result-label">Bake for</span>
+                    <span class="result-val result-val--accent" id="cs-time">37&ndash;42 min</span>
+                </div>
+            </div>
+            <p class="servings-caveat" id="cs-note">8 in. round, two layers, party cut.</p>
+        </section>
+
+        <!-- ============ Guest list ============ -->
+        <section class="cost-section">
+            <div class="cost-section-header">
+                <span class="cost-section-icon">👥</span>
+                <h2>Your Guest List</h2>
+            </div>
+            <div class="info-row">
+                <div class="info-field info-field--sm">
+                    <label for="cs-guests">Guests to serve</label>
+                    <input type="number" id="cs-guests" value="40" min="1" max="2000" step="1">
+                </div>
+            </div>
+            <div class="servings-out">
+                <span class="servings-out-num">You need <strong id="cs-pans">2</strong> of this pan</span>
+                <span class="servings-out-alt" id="cs-pans-note">2 &times; 20 servings = 40</span>
+            </div>
+            <p class="servings-caveat" id="cs-plan">The smallest single pan that covers 40 guests is a 10 in. round, at 28 party servings.</p>
+        </section>
+
+        <!-- ============ Content ============ -->
+        <article class="seo-section">
+            <h2>A Cake Does Not Have One Serving Count</h2>
+            <p>The same 8-inch round cake is either a 20-person cake or a 24-person cake, and nothing about the cake changes. Only the knife does. A party slice runs about 1&frac12; &times; 2 inches &mdash; dessert on its own plate, the way you would serve it at a birthday. A wedding slice is about 1 &times; 2 inches, cut for a long guest list where cake arrives alongside everything else on the table.</p>
+            <p>That single detail causes more friction between home bakers and customers than any other question about cake. Two bakers can quote the same 10-inch cake at very different prices per serving and both be right, because one is quoting party slices and the other is quoting wedding slices. Settle the cut before you quote a number, and write it on the order.</p>
+            <p>The calculator above shows you both numbers for whatever pan you pick. If you are pricing the cake rather than baking it, take that count into the <a href="/cost-calculator">cost calculator</a> &mdash; cost per serving is only honest when the serving count is honest.</p>
+
+            <h2>Layers Change Height, Not the Count</h2>
+            <p>A two-layer 8-inch cake is twice as tall as a single layer, not twice as wide. You cut one wedge through the whole stack, so the number of pieces comes from the area of the pan&rsquo;s top surface, and the height only decides how generous each piece feels.</p>
+            <p>Wilton puts a number on this: a 6-inch round cake that measures 6 inches high yields the same servings as a 6-inch round that measures 3 inches high. Both are 12. The rule cuts off below 3 inches &mdash; a cake shorter than that yields half the servings listed for its pan, because a 2-inch-tall slice of a single layer is too short to plate as dessert. That is the only height rule that changes the count.</p>
+
+            <h2>Square Beats Round at Every Size</h2>
+            <p>Round pans leave curved edges that cannot be cut into full slices without waste. Square pans have no waste. At small sizes the gap is invisible, and then it widens:</p>
+            <ul>
+                <li>An 8-inch round gives 20 party servings; an 8-inch square gives 20 as well, but 32 wedding servings against the round&rsquo;s 24.</li>
+                <li>A 10-inch round gives 28 party servings. A 10-inch square gives 30.</li>
+                <li>A 16-inch round gives 77 party servings. A 16-inch square gives 80 &mdash; and 128 wedding servings against 100.</li>
+            </ul>
+            <p>If a customer is choosing between a 10-inch round and a 10-inch square for the same price, the square feeds two more people and cuts into even squares, which matters when someone is plating 30 portions in a hurry.</p>
+
+            <h2>Sheet Pans: The Number Nobody Believes</h2>
+            <p>A 9 &times; 13 sheet cake is 36 party servings or 50 wedding servings in the chart. Cut that pan into a strict 2 &times; 2 inch grid and you get about 24 pieces. Both numbers are real; they describe different cuts. The chart&rsquo;s party figure works out to roughly 3&frac14; square inches per portion, which is a bakery-style slice, slightly smaller than the 1&frac12; &times; 2 inch cut used for round pans.</p>
+            <p>This is why sheet cakes are the cheapest way to feed a crowd and why the per-serving price on them looks impossibly low. If you are quoting a sheet, say which grid you will cut. &ldquo;36 pieces&rdquo; and &ldquo;24 pieces&rdquo; from the same pan are a 50% difference in perceived value.</p>
+
+            <h2>How Much Batter Does the Pan Take?</h2>
+            <p>The cups column in the chart is batter for <strong>one 2-inch layer</strong>, not for the finished cake. An 8-inch round takes 4 cups per layer, so a two-layer cake needs 8 cups. A 9 &times; 13 sheet takes 10 cups for a single 2-inch layer &mdash; double it only if you are building a two-layer sheet cake, which most people are not.</p>
+            <p>Do not confuse batter with pan capacity. An 8-inch round pan holds about 7 cups if you filled it to the rim; you fill it halfway to two-thirds because the batter has to rise. That is why 4 cups of batter belongs in a 7-cup pan. If you are working from a recipe and need to know whether it fits a different pan, the <a href="/pan-size-converter">pan size converter</a> compares capacity and area, and the <a href="/recipe-scaler">recipe scaler</a> adjusts the ingredient list once you know the factor.</p>
+
+            <h2>How Much Frosting?</h2>
+            <p>Frosting is the number people underestimate, then run out of halfway around the cake. Per Wilton: a two-layer 8-inch round takes about 3&frac12; cups to ice and decorate; a 9 &times; 13 sheet takes about 7 cups; a 10-inch round takes 5 cups; a 12-inch round takes 6. Larger pans scale faster than you expect because the side surface grows with the diameter.</p>
+            <p>Those figures assume a medium-consistency buttercream at normal thickness. A loose American buttercream spreads thinner and covers more area per cup; a stiff ganache or a Swiss meringue piped into borders eats more. Batch sizes are the practical answer: most home buttercream recipes make about 3 cups, so a 9 &times; 13 sheet is roughly one and a half batches. Our <a href="/articles/how-to-fix-broken-buttercream">buttercream troubleshooting guide</a> covers what to do when the batch you made splits.</p>
+
+            <h2>How Many Cakes for 50, 100, 150 Guests?</h2>
+            <p>Using 9 &times; 13 sheets as the building block (36 party servings, 50 wedding servings), the arithmetic is simple and a little sobering:</p>
+            <div class="table-wrap">
+                <table class="pan-table">
+                    <thead>
+                        <tr>
+                            <th>Guests</th>
+                            <th>Party cut (1&frac12; &times; 2 in)</th>
+                            <th>Wedding cut (1 &times; 2 in)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>25</td><td>1 sheet &mdash; 36 servings</td><td>1 sheet &mdash; 50 servings</td></tr>
+                        <tr><td>50</td><td>2 sheets &mdash; 72</td><td>1 sheet &mdash; 50</td></tr>
+                        <tr><td>75</td><td>3 sheets &mdash; 108</td><td>2 sheets &mdash; 100</td></tr>
+                        <tr><td>100</td><td>3 sheets &mdash; 108</td><td>2 sheets &mdash; 100</td></tr>
+                        <tr><td>150</td><td>5 sheets &mdash; 180</td><td>3 sheets &mdash; 150</td></tr>
+                        <tr><td>200</td><td>6 sheets &mdash; 216</td><td>4 sheets &mdash; 200</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>The jump from 50 to 75 guests costs three sheets rather than two, because two sheets give 72 and you are three servings short. This is where a sheet pan gets awkward: you either bake a spare cake for a handful of people or move up to an 11 &times; 15 (54 party servings) and cut the count from three pans to two. The calculator above does this arithmetic for whichever pan you picked, so you can compare the same guest list against a round, a square and a sheet before you decide.</p>
+            <p>If you sell the cake rather than serve it, the <a href="/home-bakery-business">home bakery business guide</a> covers depositing, labeling and pricing, and <a href="/articles/how-to-price-homemade-baked-goods">how to price homemade baked goods</a> has the per-serving math with worked examples.</p>
+
+            <h2>The Full Chart: Every Shape</h2>
+            <p>All shapes below are 4-inch-high cakes built from two 2-inch layers, except where noted. Servings are Wilton&rsquo;s published figures; cups are batter per single 2-inch layer; frosting is their estimate to ice and decorate.</p>
+            <div class="table-wrap">
+                <table class="pan-table">
+                    <thead>
+                        <tr>
+                            <th>Shape</th>
+                            <th>Pan size</th>
+                            <th>Party</th>
+                            <th>Wedding</th>
+                            <th>Batter / layer</th>
+                            <th>Bake</th>
+                            <th>Frosting</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Round</td><td>4 in.</td><td>8</td><td>8</td><td>&frac34; cups</td><td>350F &middot; 22&ndash;26 min</td><td>1&frac12; cups</td></tr>
+                        <tr><td>Round</td><td>6 in.</td><td>12</td><td>12</td><td>2&frac14; cups</td><td>350F &middot; 35&ndash;40 min</td><td>2&frac12; cups</td></tr>
+                        <tr><td>Round</td><td>8 in.</td><td>20</td><td>24</td><td>4 cups</td><td>350F &middot; 37&ndash;42 min</td><td>3&frac12; cups</td></tr>
+                        <tr><td>Round</td><td>9 in.</td><td>24</td><td>32</td><td>5 cups</td><td>350F &middot; 40&ndash;45 min</td><td>4 cups</td></tr>
+                        <tr><td>Round</td><td>10 in.</td><td>28</td><td>38</td><td>6 cups</td><td>350F &middot; 40&ndash;45 min</td><td>5 cups</td></tr>
+                        <tr><td>Round</td><td>12 in.</td><td>40</td><td>56</td><td>8 cups</td><td>350F &middot; 40&ndash;45 min</td><td>6 cups</td></tr>
+                        <tr><td>Round</td><td>14 in.</td><td>63</td><td>78</td><td>11&frac12; cups</td><td>325F &middot; 50&ndash;55 min</td><td>8&frac12; cups</td></tr>
+                        <tr><td>Round</td><td>16 in.</td><td>77</td><td>100</td><td>16 cups</td><td>325F &middot; 55&ndash;60 min</td><td>9&frac12; cups</td></tr>
+                        <tr><td>Square</td><td>6 in.</td><td>12</td><td>18</td><td>3 cups</td><td>350F &middot; 40&ndash;45 min</td><td>3&frac12; cups</td></tr>
+                        <tr><td>Square</td><td>8 in.</td><td>20</td><td>32</td><td>6 cups</td><td>350F &middot; 45&ndash;50 min</td><td>4&frac12; cups</td></tr>
+                        <tr><td>Square</td><td>10 in.</td><td>30</td><td>50</td><td>9 cups</td><td>350F &middot; 50&ndash;55 min</td><td>6 cups</td></tr>
+                        <tr><td>Square</td><td>12 in.</td><td>48</td><td>72</td><td>11&frac12; cups</td><td>325F &middot; 55&ndash;60 min</td><td>7&frac12; cups</td></tr>
+                        <tr><td>Square</td><td>14 in.</td><td>63</td><td>98</td><td>16 cups</td><td>325F &middot; 55&ndash;60 min</td><td>9 cups</td></tr>
+                        <tr><td>Square</td><td>16 in.</td><td>80</td><td>128</td><td>22 cups</td><td>325F &middot; 60&ndash;70 min</td><td>11&frac12; cups</td></tr>
+                        <tr><td>Sheet pan</td><td>7 x 11 in.</td><td>24</td><td>32</td><td>5&frac12; cups</td><td>350F &middot; 45&ndash;50 min</td><td>5 cups</td></tr>
+                        <tr><td>Sheet pan</td><td>9 x 13 in.</td><td>36</td><td>50</td><td>10 cups</td><td>350F &middot; 40&ndash;45 min</td><td>7 cups</td></tr>
+                        <tr><td>Sheet pan</td><td>11 x 15 in.</td><td>54</td><td>74</td><td>11&frac12; cups</td><td>325F &middot; 50&ndash;55 min</td><td>9 cups</td></tr>
+                        <tr><td>Sheet pan</td><td>12 x 18 in.</td><td>72</td><td>98</td><td>16 cups</td><td>325F &middot; 55&ndash;60 min</td><td>11 cups</td></tr>
+                        <tr><td>Heart</td><td>6 in.</td><td>8</td><td>14</td><td>2 cups</td><td>350F &middot; 30&ndash;35 min</td><td>3 cups</td></tr>
+                        <tr><td>Heart</td><td>8 in.</td><td>18</td><td>22</td><td>4 cups</td><td>350F &middot; 40&ndash;45 min</td><td>4 cups</td></tr>
+                        <tr><td>Heart</td><td>9 in.</td><td>20</td><td>28</td><td>4&frac14; cups</td><td>350F &middot; 40&ndash;45 min</td><td>5&frac12; cups</td></tr>
+                        <tr><td>Heart</td><td>10 in.</td><td>24</td><td>38</td><td>6&frac12; cups</td><td>350F &middot; 45&ndash;50 min</td><td>7 cups</td></tr>
+                        <tr><td>Heart</td><td>12 in.</td><td>24</td><td>56</td><td>9&frac14; cups</td><td>325F &middot; 55&ndash;60 min</td><td>8&frac12; cups</td></tr>
+                        <tr><td>Heart</td><td>14 in.</td><td>48</td><td>72</td><td>13&frac12; cups</td><td>325F &middot; 55&ndash;60 min</td><td>9&frac12; cups</td></tr>
+                        <tr><td>Heart</td><td>16 in.</td><td>64</td><td>94</td><td>17 cups</td><td>325F &middot; 60&ndash;65 min</td><td>13 cups</td></tr>
+                        <tr><td>Oval</td><td>7.75 x 5.5 in.</td><td>9</td><td>13</td><td>2&frac34; cups</td><td>350F &middot; 30&ndash;35 min</td><td>2&frac12; cups</td></tr>
+                        <tr><td>Oval</td><td>10.75 x 7.8 in.</td><td>20</td><td>26</td><td>5 cups</td><td>350F &middot; 40&ndash;45 min</td><td>4 cups</td></tr>
+                        <tr><td>Oval</td><td>13.5 x 9.8 in.</td><td>30</td><td>45</td><td>8&frac14; cups</td><td>325F &middot; 50&ndash;55 min</td><td>5&frac12; cups</td></tr>
+                        <tr><td>Oval</td><td>16.5 x 12.4 in.</td><td>44</td><td>70</td><td>13&frac14; cups</td><td>325F &middot; 50&ndash;55 min</td><td>7&frac12; cups</td></tr>
+                        <tr><td>Petal</td><td>6 in.</td><td>6</td><td>8</td><td>1&frac12; cups</td><td>350F &middot; 30&ndash;35 min</td><td>3 cups</td></tr>
+                        <tr><td>Petal</td><td>9 in.</td><td>14</td><td>18</td><td>3&frac34; cups</td><td>350F &middot; 35&ndash;40 min</td><td>4&frac12; cups</td></tr>
+                        <tr><td>Petal</td><td>12 in.</td><td>38</td><td>40</td><td>7&frac14; cups</td><td>350F &middot; 45&ndash;50 min</td><td>6 cups</td></tr>
+                        <tr><td>Petal</td><td>15 in.</td><td>48</td><td>64</td><td>10&#8532; cups</td><td>325F &middot; 55&ndash;60 min</td><td>8 cups</td></tr>
+                        <tr><td>Hexagon</td><td>6 in.</td><td>10</td><td>12</td><td>2 cups</td><td>350F &middot; 30&ndash;35 min</td><td>2&frac12; cups</td></tr>
+                        <tr><td>Hexagon</td><td>9 in.</td><td>20</td><td>26</td><td>4&frac12; cups</td><td>350F &middot; 40&ndash;45 min</td><td>4 cups</td></tr>
+                        <tr><td>Hexagon</td><td>12 in.</td><td>34</td><td>40</td><td>8 cups</td><td>350F &middot; 50&ndash;55 min</td><td>5&frac12; cups</td></tr>
+                        <tr><td>Hexagon</td><td>15 in.</td><td>48</td><td>70</td><td>14 cups</td><td>350F &middot; 55&ndash;60 min</td><td>7 cups</td></tr>
+                        <tr><td>Paisley</td><td>9 x 6 in.</td><td>9</td><td>13</td><td>2&frac34; cups</td><td>350F &middot; 35&ndash;40 min</td><td>4&frac12; cups</td></tr>
+                        <tr><td>Paisley</td><td>12.5 x 9.5 in.</td><td>28</td><td>38</td><td>7 cups</td><td>350F &middot; 45&ndash;50 min</td><td>7 cups</td></tr>
+                        <tr><td>Paisley</td><td>16.5 x 12.5 in.</td><td>40</td><td>56</td><td>10&frac12; cups</td><td>325F &middot; 55&ndash;60 min</td><td>9 cups</td></tr>
+                        <tr><td>Diamond</td><td>10.25 x 7.4 in.</td><td>12</td><td>18</td><td>3 cups</td><td>350F &middot; 30&ndash;35 min</td><td>3 cups</td></tr>
+                        <tr><td>Diamond</td><td>15 x 11 in.</td><td>20</td><td>32</td><td>6 cups</td><td>350F &middot; 45&ndash;50 min</td><td>6 cups</td></tr>
+                        <tr><td>Diamond</td><td>19.25 x 14.25 in.</td><td>42</td><td>66</td><td>11 cups</td><td>325F &middot; 55&ndash;60 min</td><td>9&frac12; cups</td></tr>
+                        <tr><td>Pillow</td><td>6.75 x 6.75 in.</td><td>13</td><td>19</td><td>2&frac12; cups</td><td>350F &middot; 33&ndash;38 min</td><td>3 cups</td></tr>
+                        <tr><td>Pillow</td><td>10 x 10 in.</td><td>30</td><td>40</td><td>5&frac12; cups</td><td>350F &middot; 39&ndash;44 min</td><td>6&frac12; cups</td></tr>
+                        <tr><td>Pillow</td><td>13.25 x 13.25 in.</td><td>64</td><td>72</td><td>10 cups</td><td>325F &middot; 41&ndash;46 min</td><td>9&frac12; cups</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2>3-Inch-Deep Pans Are a Different Chart</h2>
+            <p>Deep pans hold more batter and bake longer, and Wilton publishes a separate table for them. They are filled only halfway, and the finished cake is one layer torted and filled to reach 3 inches. If you bake in a 3-inch pan but use the numbers from the table above, you will underfill the pan and overbake the cake.</p>
+            <div class="table-wrap">
+                <table class="pan-table">
+                    <thead>
+                        <tr>
+                            <th>Pan size</th>
+                            <th>Party</th>
+                            <th>Wedding</th>
+                            <th>Batter</th>
+                            <th>Bake</th>
+                            <th>Frosting</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>6 in.</td><td>12</td><td>12</td><td>3 cups</td><td>350F &middot; 40&ndash;45 min</td><td>3&frac12; cups</td></tr>
+                        <tr><td>8 in.</td><td>20</td><td>24</td><td>5 cups</td><td>350F &middot; 55&ndash;60 min</td><td>4 cups</td></tr>
+                        <tr><td>10 in.</td><td>28</td><td>38</td><td>8 cups</td><td>350F &middot; 55&ndash;60 min</td><td>4&frac12; cups</td></tr>
+                        <tr><td>12 in.</td><td>40</td><td>56</td><td>10 cups</td><td>350F &middot; 70&ndash;75 min</td><td>5&frac14; cups</td></tr>
+                        <tr><td>14 in.</td><td>63</td><td>78</td><td>15 cups</td><td>325F &middot; 60&ndash;65 min</td><td>6&frac14; cups</td></tr>
+                        <tr><td>16 in.</td><td>77</td><td>100</td><td>18 cups</td><td>325F &middot; 60&ndash;70 min</td><td>7 cups</td></tr>
+                        <tr><td>18 in. half</td><td>110</td><td>146</td><td>12 cups</td><td>350F &middot; 60&ndash;65 min</td><td>7&frac12; cups</td></tr>
+                        <tr><td>9 in. contour</td><td>11</td><td>17</td><td>5&frac34; cups</td><td>350F &middot; 55&ndash;60 min</td><td>3 cups</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Note that the serving counts for deep pans match the 2-inch pans of the same diameter almost exactly &mdash; a 10-inch round is 28 party servings either way. Only the batter, the time at temperature and the frosting change.</p>
+
+            <h2>What the Chart Does Not Cover</h2>
+            <ul>
+                <li><strong>Stacked tiers.</strong> A three-tier cake is not one pan, and stacking covers the top of each tier below the board. Treat each tier separately and expect slightly fewer usable portions on the covered ones.</li>
+                <li><strong>Novelty and carved cakes.</strong> Carving wastes cake, so a carved design serves fewer than the pan it started in.</li>
+                <li><strong>Cupcakes.</strong> A standard cupcake takes about 1/4 cup of batter. A two-layer 8-inch recipe, roughly 8 cups, makes about 32.</li>
+                <li><strong>Deep pans of unusual shapes.</strong> Wilton publishes deep-pan figures for round pans only. For square or novelty deep pans, weigh the batter and compare against the pan&rsquo;s capacity rather than trusting a serving column.</li>
+                <li><strong>Bundt and tube pans.</strong> They are measured by capacity in cups, not by diameter, and servings depend on how deep you cut the wedges.</li>
+            </ul>
+
+            <h2>Where These Numbers Come From</h2>
+            <p>Serving counts, batter volumes, frosting amounts, oven temperatures and bake times are all taken from Wilton&rsquo;s published cake serving guide, which reflects their test kitchen&rsquo;s cuts: party slices about 1&frac12; &times; 2 inches, wedding slices about 1 &times; 2 inches. The chart&rsquo;s own note is worth repeating: serving counts are a guide, and actual results vary with the person holding the knife.</p>
+            <p>Pan capacity figures elsewhere on this site are geometric and calculated separately. If you need to know what a pan <em>holds</em> rather than what batter a recipe should put in it, use the <a href="/pan-size-converter">pan size converter</a>.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-box">
+                <div class="faq-item">
+                    <h3>How many servings are in a 9x13 sheet cake?</h3>
+                    <p>36 party servings or 50 wedding servings, following Wilton&rsquo;s published chart. That assumes a 2-inch layer and the standard cuts: about 1 1/2 x 2 inches for a party, 1 x 2 inches for a wedding. Cut a strict 2 x 2 inch grid instead and you get about 24 pieces, so agree on the cut before you quote a number.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How many servings does an 8-inch round cake serve?</h3>
+                    <p>20 party servings or 24 wedding servings for a two-layer, 4-inch-high cake. The count comes from the top surface, not the height, so a taller 8-inch cake serves the same number as long as it is at least 3 inches tall. Below 3 inches, halve it.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How much cake do I need for 100 guests?</h3>
+                    <p>Three 9x13 sheets at the party cut, which is 108 servings, or two sheets at the wedding cut, which is exactly 100. If you would rather bake rounds, it takes five 10-inch rounds at 28 party servings each and you will have leftovers.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do more layers mean more servings?</h3>
+                    <p>No. You cut each slice through the whole stack, so servings come from the pan&rsquo;s top surface and the cut size. A 6-inch round that is 3 inches tall and one that is 6 inches tall both serve 12. The only height rule that changes the count is the 3-inch mark: shorter cakes are cut in half.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How much frosting do I need for a two-layer 8-inch cake?</h3>
+                    <p>About 3 1/2 cups to ice and decorate. A 9x13 sheet takes around 7 cups. Consistency matters as much as volume: a loose American buttercream covers more area per cup than a stiff one, so make a little extra rather than exactly enough.</p>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <aside class="article-crosslink" style="margin-bottom: 32px;">
+        <p><strong>🔪 Changing pans as well as servings?</strong> The <a href="/pan-size-converter">pan size converter</a> compares area and capacity across round, square, loaf and bundt, and tells you what a swap does to bake time. If you are scaling the recipe at the same time, <a href="/recipe-scaler">the recipe scaler</a> handles the ingredient math.</p>
+    </aside>
+
+    <footer>
+        <p>&copy; 2026 BakeCalc Club</p>
+        <p>
+            <a href="/">Home</a>
+            <a href="/cost-calculator">Cost Calculator</a>
+            <a href="/about">About</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/contact">Contact</a>
+        </p>
+
+            <section class="related-conversions">
+                <h3>Quick Ingredient Converters</h3>
+                <ul class="related-links">
+                    <li><a href="/1-cup-flour-to-grams">1 Cup Flour to Grams</a></li>
+                    <li><a href="/1-cup-sugar-to-grams">1 Cup Sugar to Grams</a></li>
+                    <li><a href="/1-cup-butter-to-grams">1 Cup Butter to Grams</a></li>
+                    <li><a href="/1-oz-to-ml">1 oz to mL</a></li>
+                    <li><a href="/how-many-grams-is-1-egg">How Many Grams Is 1 Egg?</a></li>
+                    <li><a href="/oven-temperature-conversion">Oven Temperature Conversion</a></li>
+                </ul>
+            </section>
+
+            <section class="try-these-tools">
+                <h3>Related Guides</h3>
+                <ul class="related-links">
+                    <li><a href="/pan-size-converter">Pan Size Converter</a></li>
+                    <li><a href="/cost-calculator">Baking Cost Calculator</a></li>
+                    <li><a href="/articles/how-to-price-homemade-baked-goods">How to Price Homemade Baked Goods</a></li>
+                    <li><a href="/articles/how-to-fix-broken-buttercream">How to Fix Broken Buttercream</a></li>
+                </ul>
+            </section>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer nofollow" title="View source code on GitHub">📂 View on GitHub</a></p>
+    </footer>
+</div>
+
+<script src="/cake-servings-calc.js"></script>
+</body>
+</html>

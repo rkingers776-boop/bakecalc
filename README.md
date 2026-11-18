@@ -1,6 +1,6 @@
 # BakeCalc Club — Baking Conversion Calculators
 
-**Measure with confidence. Every cup, every gram, every conversion.** Free, browser-local baking measurement calculators. **172 pages** — 104 ingredient conversion references, 21 interactive calculators, 41 know-how articles, and 6 about, legal and hub pages. No accounts. No ads. No data sold.
+**Measure with confidence. Every cup, every gram, every conversion.** Free, browser-local baking measurement calculators. **173 pages** — 104 ingredient conversion references, 22 interactive calculators, 41 know-how articles, and 6 about, legal and hub pages. No accounts. No ads. No data sold.
 
 🍰 **Live site:** [bakecalc.club](https://bakecalc.club/)  
 📦 **GitHub Pages mirror:** [rkingers776-boop.github.io/bakecalc](https://rkingers776-boop.github.io/bakecalc/)
@@ -133,6 +133,7 @@ All density values are verified against USDA FoodData Central and major ingredie
 | [Baker's Percentage Calculator](bakers-percentage-calculator.html) | Scale recipes by flour weight, calculate hydration |
 | [Recipe Scaler](recipe-scaler.html) | Multiply or divide any recipe proportionally |
 | [Pan Size Converter](pan-size-converter.html) | Adapt recipes between round, square, and rectangular pans |
+| [Cake Servings Calculator](cake-servings-calculator.html) | Servings, batter and frosting for every pan shape and size |
 | [Sourdough Hydration Calculator](sourdough-hydration-calculator.html) | Starter ratio, total hydration, flour blend calculator |
 | [Oven Temperature Conversion](oven-temperature-conversion.html) | Fahrenheit ↔ Celsius ↔ Gas Mark with fan/conventional |
 | [Recipe Cost Calculator](cost-calculator.html) | Price your baked goods by ingredient cost |
