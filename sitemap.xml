@@ -872,4 +872,13 @@
     <priority>0.7</priority>
   </url>
 
+
+  <!-- ====== NEW: Nov 20 - Pizza Dough Calculator ====== -->
+  <url>
+    <loc>https://bakecalc.club/pizza-dough-calculator</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

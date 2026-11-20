@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Dough Calculator — Exact Ball Weight for Any Pan | BakeCalc</title>
+    <meta name="description" content="Enter the pan and pick a style: get the dough ball weight, then the flour, water, salt and yeast that makes it. Thickness-factor method, no sign-up.">
+
+    <meta property="og:title" content="Pizza Dough Calculator — Exact Ball Weight for Any Pan">
+    <meta property="og:description" content="Any pan, any style. Get the ball weight from the pan area, then the full recipe in grams at the baker's percentages that style expects.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bakecalc.club/pizza-dough-calculator">
+    <meta property="og:site_name" content="BakeCalc Club">
+    <meta property="og:image" content="https://bakecalc.club/pin/og-37f8402419.png">
+    <link rel="pin:media" href="https://bakecalc.club/pin/pin-37f8402419.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Pizza Dough Calculator">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pizza Dough Calculator — Exact Ball Weight for Any Pan">
+    <meta name="twitter:description" content="Pan area times thickness factor gives the ball weight. Then flour, water, salt and yeast, all in grams. Free, no sign-up.">
+    <meta name="twitter:image" content="https://bakecalc.club/pin/og-37f8402419.png">
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍕</text></svg>">
+    <link rel="canonical" href="https://bakecalc.club/pizza-dough-calculator">
+    <link rel="alternate" type="application/rss+xml" title="BakeCalc Club — Baking Know-How" href="https://bakecalc.club/feed.xml">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "BakeCalc Club", "item": "https://bakecalc.club/" },
+        { "@type": "ListItem", "position": 2, "name": "Pizza Dough Calculator", "item": "https://bakecalc.club/pizza-dough-calculator" }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much dough do I need for a 12-inch pizza?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends entirely on the style, and the spread is wide. A 12-inch round has 113 square inches of surface. At New York thickness that is 289 g of dough; Neapolitan takes 250 g; thin and crispy takes 208 g; a pan or Detroit style takes 433 g. Same pan, same diameter, more than double the dough between the thinnest and thickest of those."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much dough for a 16-inch pizza?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "513 g for New York style, 445 g for Neapolitan, 367 g for thin and crispy. A 16-inch round is 201 square inches, which is 1.78 times the area of a 12-inch, so it needs 1.78 times the dough. Doubling the diameter does not double the dough; squaring the ratio does."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is one ounce of dough per inch of pizza accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only near 14 inches. The rule asks for a fixed weight per inch of diameter, but the dough sits on an area that grows with the square of the diameter, so the rule quietly thins out as pizzas get bigger. It works out to a thickness factor of 4 divided by pi times the diameter: 0.127 at 10 inches, 0.106 at 12, and 0.080 at 16. Compared with a New York thickness factor of 0.09, it gives 18 percent too much dough at 12 inches and 12 percent too little at 16."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use active dry yeast instead of instant yeast?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, one for one by weight. Red Star says instant yeast may be substituted 1:1 for active dry, and King Arthur tells bakers to substitute instant 1:1 by weight or volume for any active dry. The 1.25 multiplier still circulating online does not come from the manufacturers. What does change is timing: active dry is roughly 15 minutes slower to get going."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much yeast for a 48-hour cold ferment?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "About 0.2 percent of the flour weight in instant yeast, which is 1 g for 500 g of flour. The working rule is to halve the yeast each time you double the fridge time: 0.3 percent at 24 hours, 0.2 at 48, 0.1 at 72. Using a same-day dose of 0.5 percent and then refrigerating for three days is the usual reason a cold-fermented dough collapses."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        /* Page-scoped only. The shared .pan-table has no numeric-column rules,
+           so right-align and stop the gram figures from wrapping. */
+        .pd-table .num { text-align: right; white-space: nowrap; }
+        .pd-table thead th:first-child { min-width: 92px; }
+        .pd-split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+        .pd-hint { margin: 4px 0 0; font-size: 0.84rem; color: var(--text-muted); }
+        @media (max-width: 520px) {
+            .pd-split { grid-template-columns: 1fr; }
+        }
+    </style>
+
+    <script src="/analytics.js" defer></script>
+    <script src="/pin.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+    <nav><a href="/">&larr; Back to BakeCalc Club</a></nav>
+
+    <header>
+        <h1>🍕 Pizza Dough Calculator</h1>
+        <p>Give it the pan and the style. It works out the ball weight from the pan area, then the flour, water, salt and yeast that gets you there.</p>
+    </header>
+
+    <main class="cost-calc">
+
+        <!-- ============ Pan and style ============ -->
+        <section class="cost-section">
+            <div class="cost-section-header">
+                <span class="cost-section-icon">🍕</span>
+                <h2>Your Pan</h2>
+            </div>
+            <div class="servings-grid">
+                <div class="info-field">
+                    <label for="pd-shape">Pan shape</label>
+                    <select id="pd-shape">
+                        <option value="round">Round screen or stone</option>
+                        <option value="rect">Rectangular pan</option>
+                    </select>
+                </div>
+                <div class="info-field">
+                    <label for="pd-style">Style</label>
+                    <select id="pd-style"></select>
+                </div>
+            </div>
+            <div class="pd-split" id="pd-round-row" style="margin-top: 10px;">
+                <div class="info-field">
+                    <label for="pd-diameter">Diameter (in)</label>
+                    <input type="number" id="pd-diameter" value="12" min="6" max="24" step="0.5">
+                </div>
+                <div class="info-field">
+                    <label for="pd-pizzas">Pizzas</label>
+                    <input type="number" id="pd-pizzas" value="2" min="1" max="40" step="1">
+                </div>
+            </div>
+            <div class="pd-split" id="pd-rect-row" style="margin-top: 10px; display: none;">
+                <div class="info-field">
+                    <label for="pd-length">Pan length (in)</label>
+                    <input type="number" id="pd-length" value="13" min="6" max="24" step="0.5">
+                </div>
+                <div class="info-field">
+                    <label for="pd-width">Pan width (in)</label>
+                    <input type="number" id="pd-width" value="18" min="6" max="24" step="0.5">
+                </div>
+            </div>
+            <p class="pd-hint" id="pd-style-note">New York: foldable slice with a defined rim.</p>
+        </section>
+
+        <!-- ============ Ball weight ============ -->
+        <section class="cost-section cost-section--results" id="result-container">
+            <div class="cost-section-header">
+                <span class="cost-section-icon">⚖️</span>
+                <h2>Ball Weight</h2>
+                <div class="result-actions">
+                    <button class="btn-print" onclick="window.print()">🖨️ Print</button>
+                </div>
+            </div>
+
+            <div class="result-total" id="pd-total">
+                <span class="result-label">Dough per pizza</span>
+                <span class="result-val result-val--lg"><span id="pd-ball">289</span> g</span>
+            </div>
+
+            <div class="result-grid">
+                <div class="result-item">
+                    <span class="result-label">In ounces</span>
+                    <span class="result-val" id="pd-balloz">10.2 oz</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Pan area</span>
+                    <span class="result-val" id="pd-area">113 in&sup2;</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Thickness factor</span>
+                    <span class="result-val" id="pd-tf">0.090</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Flour inside that ball</span>
+                    <span class="result-val" id="pd-flour">172 g</span>
+                </div>
+                <div class="result-item result-item--highlight">
+                    <span class="result-label">All pizzas</span>
+                    <span class="result-val result-val--accent" id="pd-totaldough">578 g</span>
+                </div>
+                <div class="result-item result-item--highlight">
+                    <span class="result-label">Total flour</span>
+                    <span class="result-val result-val--accent" id="pd-totalflour">344 g</span>
+                </div>
+            </div>
+            <p class="servings-caveat" id="pd-note">12-inch round at New York thickness, 2 pizzas.</p>
+        </section>
+
+        <!-- ============ Recipe ============ -->
+        <section class="cost-section">
+            <div class="cost-section-header">
+                <span class="cost-section-icon">📋</span>
+                <h2>Your Recipe</h2>
+            </div>
+            <div class="servings-grid">
+                <div class="info-field">
+                    <label for="pd-ferment">Fermentation</label>
+                    <select id="pd-ferment"></select>
+                </div>
+                <div class="info-field">
+                    <label for="pd-yeastform">Yeast you have</label>
+                    <select id="pd-yeastform"></select>
+                </div>
+                <div class="info-field">
+                    <label for="pd-hyd">Water (%)</label>
+                    <input type="number" id="pd-hyd" value="62" min="45" max="85" step="1">
+                </div>
+            </div>
+            <div class="pd-split" style="margin-top: 10px;">
+                <div class="info-field">
+                    <label for="pd-salt">Salt (%)</label>
+                    <input type="number" id="pd-salt" value="2.5" min="0" max="5" step="0.1">
+                </div>
+                <div class="info-field">
+                    <label for="pd-oil">Oil (%)</label>
+                    <input type="number" id="pd-oil" value="2" min="0" max="10" step="0.5">
+                </div>
+                <div class="info-field">
+                    <label for="pd-sugar">Sugar (%)</label>
+                    <input type="number" id="pd-sugar" value="1" min="0" max="6" step="0.5">
+                </div>
+            </div>
+            <div class="result-grid" style="margin-top: 14px;">
+                <div class="result-item result-item--highlight">
+                    <span class="result-label">Flour</span>
+                    <span class="result-val result-val--accent" id="pd-r-flour">344 g</span>
+                </div>
+                <div class="result-item result-item--highlight">
+                    <span class="result-label">Water</span>
+                    <span class="result-val result-val--accent" id="pd-r-water">213 g</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Salt</span>
+                    <span class="result-val" id="pd-r-salt">8.6 g</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label" id="pd-r-yeastlabel">Instant yeast</span>
+                    <span class="result-val" id="pd-r-yeast">0.7 g</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Oil</span>
+                    <span class="result-val" id="pd-r-oil">6.9 g</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Sugar</span>
+                    <span class="result-val" id="pd-r-sugar">3.4 g</span>
+                </div>
+            </div>
+            <p class="servings-caveat" id="pd-rnote">0.2% instant yeast for a 48-hour cold ferment. Percentages are against the flour weight.</p>
+        </section>
+
+        <!-- ============ Reverse ============ -->
+        <section class="cost-section">
+            <div class="cost-section-header">
+                <span class="cost-section-icon">🔁</span>
+                <h2>Already Have a Ball You Like?</h2>
+            </div>
+            <div class="pd-split">
+                <div class="info-field">
+                    <label for="pd-rv-weight">Ball weight (g)</label>
+                    <input type="number" id="pd-rv-weight" value="280" min="40" max="4000" step="5">
+                </div>
+                <div class="info-field">
+                    <label for="pd-rv-diameter">Pizza it made (in)</label>
+                    <input type="number" id="pd-rv-diameter" value="12" min="6" max="24" step="0.5">
+                </div>
+            </div>
+            <div class="servings-out">
+                <span class="servings-out-num">Your thickness factor is <strong id="pd-rv-tf">0.088</strong></span>
+                <span class="servings-out-alt" id="pd-rv-match">Just under New York, right where Tom Lehmann's example landed.</span>
+            </div>
+            <p class="servings-caveat" id="pd-rv-scale">At that loading: 10 in. 200 g &middot; 12 in. 280 g &middot; 14 in. 401 g &middot; 16 in. 523 g</p>
+        </section>
+
+        <!-- ============ Content ============ -->
+        <article class="seo-section">
+            <h2>A Pizza Does Not Have One Dough Weight</h2>
+            <p>Ask a search engine how much dough a 12-inch pizza takes and you get one number, usually somewhere around 250 grams. That number is not wrong. It is the answer for one crust style, and a 12-inch round can hold anywhere from 208 to 433 grams of dough without the pan changing at all. The thin end gives you a cracker that snaps when you fold it. The thick end gives you a pan pizza with a crumb. Both are 12 inches across.</p>
+            <p>So the useful question is not how much dough a size takes. It is how much dough <em>your</em> size takes at <em>your</em> thickness. That has two inputs: the area of the pan, and the loading you want on it. Everything else &mdash; flour, water, yeast, rising time &mdash; falls out of the ball weight afterwards.</p>
+
+            <h2>The Formula Pizzerias Use</h2>
+            <p>Commercial pizza operations size dough by a loading figure called the thickness factor, written in ounces of dough per square inch of pan. Multiply the pan area by the factor and you have the ball weight. That is the whole method:</p>
+            <p><strong>ball weight (oz) = pan area (in&sup2;) &times; thickness factor</strong></p>
+            <p>For a round pizza the area is &pi; times the radius squared, so a 12-inch pie is 3.1416 &times; 36, or 113.1 square inches. A 16-inch is 201.1. Doubling the diameter multiplies the area by four, which is why the dough weight for a 16-inch pizza is close to twice a 12-inch rather than equal to it. The late Tom Lehmann, who spent decades answering this question for <em>Pizza Today</em>, worked his example from a 12-inch screen: 10 ounces of dough divided by 113.04 square inches gives 0.0885 ounces per square inch, and that single number then sizes every other diameter in the shop.</p>
+
+            <h2>Why &ldquo;One Ounce Per Inch&rdquo; Gets Thinner As Pizzas Grow</h2>
+            <p>The advice handed down for decades is one ounce of dough per inch of diameter, up to 16 inches. It sounds like a fixed thickness, and it is treated like one, but the arithmetic says otherwise. An ounce per inch means weight equals diameter: a 12-inch pie takes 12 ounces, a 16-inch takes 16. Area, though, grows with the square of the diameter, so the same rule delivers a steadily thinner crust as pizzas get bigger.</p>
+            <p>Write it out and the rule turns into its own thickness factor. Weight is <em>d</em> ounces, area is &pi;<em>d</em>&sup2;/4, so the factor is 4 divided by &pi;<em>d</em> &mdash; not a constant at all, but a number that falls as the pizza grows. At 10 inches it is 0.127. At 12 inches, 0.106. At 16 inches, 0.080. That is a 37 percent drop across a range of pans any home oven can hold, and it explains a specific failure: the 12-inch pizza made this way comes out pleasantly thick and the 16-inch made the same way comes out thin enough to see through.</p>
+            <p>Set against a New York loading of 0.090, the rule crosses over at roughly 14 inches. Below that it gives you more dough than New York thickness asks for &mdash; 18 percent more at 12 inches. Above it, less &mdash; 12 percent less at 16. The rule is not a thickness standard. It is a starting point that happens to land near one particular style at one particular size.</p>
+            <div class="table-wrap">
+<table class="pan-table pd-table">
+<thead><tr>
+<th>Style</th><th>Thickness factor</th><th>Typical range</th>
+<th>Water</th><th>Salt</th><th>Oil</th><th>Sugar</th>
+</tr></thead>
+<tbody>
+<tr><td>Thin &amp; crispy</td><td class="num">0.065</td><td class="num">0.060&ndash;0.070</td><td class="num">58%</td><td class="num">2%</td><td class="num">1%</td><td class="num">1%</td></tr>
+<tr><td>Neapolitan</td><td class="num">0.078</td><td class="num">0.075&ndash;0.090</td><td class="num">60%</td><td class="num">2.8%</td><td class="num">none</td><td class="num">none</td></tr>
+<tr><td>New York</td><td class="num">0.090</td><td class="num">0.088&ndash;0.105</td><td class="num">62%</td><td class="num">2.5%</td><td class="num">2%</td><td class="num">1%</td></tr>
+<tr><td>Pan / Detroit</td><td class="num">0.135</td><td class="num">0.120&ndash;0.150</td><td class="num">67%</td><td class="num">2.5%</td><td class="num">3%</td><td class="num">1%</td></tr>
+<tr><td>Sicilian</td><td class="num">0.145</td><td class="num">0.130&ndash;0.160</td><td class="num">70%</td><td class="num">2.5%</td><td class="num">3%</td><td class="num">none</td></tr>
+<tr><td>Deep dish (base only)</td><td class="num">0.160</td><td class="num">0.150&ndash;0.180</td><td class="num">65%</td><td class="num">2.2%</td><td class="num">6%</td><td class="num">1%</td></tr>
+</tbody></table></div>
+
+            <h2>Which Number To Start With</h2>
+            <p>Published thickness factors for the same style disagree by up to a third, and the disagreements are not errors so much as different reference points. Two things are worth knowing before you pick one. First, the factor describes the finished pizza including its rim, so a style with a big puffy cornicione can carry a lower factor than a flat pan pizza and still look thick in the middle. Second, almost every published table was calibrated on a specific flour and a specific oven, and neither of those travels with the number.</p>
+            <p>The values below are middle-of-the-road picks from the published ranges, anchored where possible on worked examples. New York at 0.090 reproduces Lehmann's 12-inch example at 289 grams and lands a 16-inch at 513 grams, both of which match what working pizzerias quote for those sizes. Neapolitan at 0.078 gives a 12-inch 250 grams, inside the 220 to 250 gram band that Neapolitan sources give.</p>
+            <div class="table-wrap">
+<table class="pan-table pd-table">
+<thead><tr>
+<th>Diameter</th><th>Area (in&sup2;)</th><th>&ldquo;1 oz per inch&rdquo;</th>
+<th>Thin &amp; crispy</th>
+<th>Neapolitan</th>
+<th>New York</th>
+</tr></thead><tbody>
+<tr><td>8 in.</td><td class="num">50.3</td><td class="num">227 g</td><td class="num">93 g</td><td class="num">111 g</td><td class="num">128 g</td></tr>
+<tr><td>10 in.</td><td class="num">78.5</td><td class="num">283 g</td><td class="num">145 g</td><td class="num">174 g</td><td class="num">200 g</td></tr>
+<tr><td>12 in.</td><td class="num">113.1</td><td class="num">340 g</td><td class="num">208 g</td><td class="num">250 g</td><td class="num">289 g</td></tr>
+<tr><td>14 in.</td><td class="num">153.9</td><td class="num">397 g</td><td class="num">284 g</td><td class="num">340 g</td><td class="num">393 g</td></tr>
+<tr><td>16 in.</td><td class="num">201.1</td><td class="num">454 g</td><td class="num">371 g</td><td class="num">445 g</td><td class="num">513 g</td></tr>
+<tr><td>18 in.</td><td class="num">254.5</td><td class="num">510 g</td><td class="num">469 g</td><td class="num">563 g</td><td class="num">649 g</td></tr>
+</tbody></table></div>
+            <p>The percentages in the right-hand columns are the baker&rsquo;s percentages that style expects, and the calculator fills them in for you when you change style. Neapolitan carries no oil and no sugar because the AVPN rules do not allow either; a New York dough usually has a little of both, and both earn their place in a home oven that runs cooler than a deck oven.</p>
+
+            <h2>Dough Weight Is Not Flour Weight</h2>
+            <p>A 12-inch New York ball weighs 289 grams, and the flour inside it weighs 172 grams. The rest is water, salt, oil and yeast. That gap catches people twice. It catches them when they read &ldquo;500 g of dough&rdquo; and buy 500 grams of flour, and it catches them when they try to work out how many pizzas a bag of flour makes. A kilogram of flour yields five 12-inch New York balls with a little left over, not two.</p>
+            <p>Going from ball weight back to flour weight needs the total of all the percentages, not just the water. A dough at 62 percent water, 2.5 percent salt, 2 percent oil, 1 percent sugar and 0.2 percent yeast adds up to 167.7 percent of the flour weight. Divide the ball weight by 1.677 and you have the flour. Then every other ingredient is a straightforward percentage of that flour figure. This is the same arithmetic the <a href="/bakers-percentage-calculator">baker&rsquo;s percentage calculator</a> runs, and the same one behind the <a href="/articles/bakers-percentage-explained">baker&rsquo;s percentage guide</a>.</p>
+
+            <h2>Rectangular Pans Are Priced By Area, Not Diameter</h2>
+            <p>A Detroit or Sicilian pie is built in a pan, so its size is length times width rather than a diameter, and no conversion from round sizes is meaningful. A 13 by 18 inch half sheet is 234 square inches, which is more than twice a 12-inch round. At Detroit loading that is 896 grams of dough &mdash; a batch worth mixing in a machine, not by hand.</p>
+            <div class="table-wrap">
+<table class="pan-table pd-table">
+<thead><tr>
+<th>Pan</th><th>Area (in&sup2;)</th><th>Detroit 0.135</th><th>Sicilian 0.145</th>
+<th>New York 0.095</th>
+</tr></thead><tbody>
+<tr><td>9 &times; 13 in.</td><td class="num">117</td><td class="num">448 g</td><td class="num">481 g</td><td class="num">299 g</td></tr>
+<tr><td>10 &times; 14 in.</td><td class="num">140</td><td class="num">536 g</td><td class="num">575 g</td><td class="num">357 g</td></tr>
+<tr><td>12 &times; 16 in.</td><td class="num">192</td><td class="num">735 g</td><td class="num">789 g</td><td class="num">490 g</td></tr>
+<tr><td>13 &times; 18 in.</td><td class="num">234</td><td class="num">896 g</td><td class="num">962 g</td><td class="num">597 g</td></tr>
+<tr><td>16 &times; 18 in.</td><td class="num">288</td><td class="num">1,102 g</td><td class="num">1,184 g</td><td class="num">735 g</td></tr>
+</tbody></table></div>
+            <p>One adjustment the table cannot make for you: Detroit and Sicilian dough is pressed to the corners, and the corners need dough that has relaxed enough to stay there. A dough balled straight from the fridge will pull back from the edges and leave you with rounded corners and a puddle of oil. Let it sit in the oiled pan for an hour before the oven, and press it out a second time halfway through.</p>
+
+            <h2>Work Backwards From a Pizza You Already Like</h2>
+            <p>Every table here is somebody else&rsquo;s calibration. The better move, and the one Lehmann actually recommended, is to measure the pizza you already make and convert it into a factor. Weigh the dough ball you use, measure the diameter it stretches to, divide the weight in ounces by the area in square inches, and you have your own loading figure. From then on you can size any pan from that one number, and your 14-inch will taste like your 12-inch instead of like a stranger&rsquo;s recipe.</p>
+            <p>The reverse panel above does that division for you and prints the ball weights it implies at four diameters. A factor between 0.085 and 0.095 is New York territory. Below 0.075 you are heading for a cracker, and above 0.13 you are building a pan pizza whether you meant to or not. If your number comes out far from where you expected, check the units first: a factor of 3 or 4 means the weight went in as grams without being converted.</p>
+
+            <h2>The Longer It Sits, The Less Yeast It Needs</h2>
+            <p>Yeast quantity is the input home pizza makers get wrong most often, and the reason is that most published formulas do not say what schedule they were written for. Half a percent of instant yeast is a perfectly normal amount for a dough that rises in three hours at room temperature. Use that same half percent and then park the dough in a 38 degree fridge for three days and it will over-proof, exhaust its gluten and come out of the container as a slack, beery puddle.</p>
+            <p>The rule that holds across the published tables is to halve the yeast each time you double the time in the fridge. Start at 0.5 percent for same-day, and 24 hours becomes 0.3, 48 becomes 0.2, 72 becomes 0.1. For 500 grams of flour those are 1.5, 1.0 and 0.5 grams of instant yeast. That last figure is why a scale reading to 0.1 grams matters more for pizza than for bread: half a gram is not something you can judge by eye or by spoon.</p>
+            <div class="table-wrap">
+<table class="pan-table pd-table">
+<thead><tr>
+<th>Schedule</th><th>Fridge time</th><th>Instant yeast</th>
+<th>Per 500 g flour</th><th>What it gets you</th>
+</tr></thead><tbody>
+<tr><td>Same day</td><td class="num">2&ndash;4 h</td><td class="num">0.5%</td><td class="num">2.5 g</td><td>Room temperature bulk plus a short ball proof.</td></tr>
+<tr><td>24 h cold</td><td class="num">24 h</td><td class="num">0.3%</td><td class="num">1.5 g</td><td>Weeknight dough. Mild, clean, easy to open.</td></tr>
+<tr><td>48 h cold</td><td class="num">48 h</td><td class="num">0.2%</td><td class="num">1.0 g</td><td>The home default. Extensible without going slack.</td></tr>
+<tr><td>72 h cold</td><td class="num">72 h</td><td class="num">0.1%</td><td class="num">0.5 g</td><td>Needs a strong flour. Weak AP will tear by hour 60.</td></tr>
+<tr><td>96 h cold</td><td class="num">96 h</td><td class="num">0.05%</td><td class="num">0.2 g</td><td>Experimental. Fragile, sour edge, hard to open.</td></tr>
+</tbody></table></div>
+            <p>Published tables disagree here by a factor of two or three, with one camp putting a 24-hour dough at 0.3 percent and another at 0.1 to 0.15. The gap is mostly fridge temperature and flour strength. A fridge running at 42 degrees ferments noticeably faster than one at 36, and a strong bread flour tolerates a longer ferment than supermarket all-purpose. Take the middle of the range, bake one pizza, and adjust &mdash; the dough tells you within a batch.</p>
+
+            <h2>Instant and Active Dry Are Not 1.25 Apart</h2>
+            <p>Almost every conversion table online says instant yeast is 25 percent stronger than active dry and tells you to multiply by 1.25. The manufacturers say something simpler. Red Star: instant yeast may be substituted 1:1 for active dry. King Arthur: substitute instant 1:1 by weight or volume for any active dry. Fleischmann&rsquo;s treats its rapid-rise, bread machine and active dry yeasts as swappable in the same amounts. The difference you notice is timing, not quantity &mdash; active dry takes roughly 15 minutes longer to reach the same rise.</p>
+            <p>Fresh cake yeast is the one that genuinely needs a multiplier, and the anchor comes from Red Star&rsquo;s own chart: a 2 ounce, 57 gram cake of fresh yeast equals three 7 gram dry packets, so 21 grams of dry. That is a factor of 2.71, not the 3 that gets repeated. Two-fifths of the difference between 2.71 and 3 disappears into rounding, and the rest into the fact that fresh yeast is roughly 70 percent water.</p>
+            <div class="table-wrap">
+<table class="pan-table pd-table">
+<thead><tr>
+<th>Form</th><th>Multiplier</th><th>When the formula says 2 g instant</th><th>Note</th>
+</tr></thead><tbody>
+<tr><td>Instant (IDY)</td><td class="num">&times;1.00</td><td class="num">2.0 g</td><td>Fine granules, mix straight into the flour. The baseline every formula below is written in.</td></tr>
+<tr><td>Active dry (ADY)</td><td class="num">&times;1.00</td><td class="num">2.0 g</td><td>Coarser, coated granules. Red Star and King Arthur both say substitute 1:1 by weight for instant; only the timing changes, about 15 minutes slower.</td></tr>
+<tr><td>Fresh cake</td><td class="num">&times;2.71</td><td class="num">5.4 g</td><td>2 oz / 57 g of cake yeast equals three 7 g dry packets, so it takes 2.71 times the dry weight.</td></tr>
+</tbody></table></div>
+
+            <h2>What This Calculator Cannot Fix</h2>
+            <p>Getting the ball weight right removes one variable. It does not touch the others, and three of them matter more than the weight does. Flour strength decides whether a 72-hour ferment holds: an Italian 00 rated W300 or a strong American bread flour will, and a supermarket all-purpose will start breaking down around hour 48. Stretching technique decides whether the rim survives the oven; a rolling pin presses out the gas you spent a day making. Oven temperature decides whether you get a puffy rim or a pale, dry one &mdash; 550 degrees on a preheated steel behaves nothing like 450 on a cold sheet pan.</p>
+            <p>The calculator also assumes the dough goes into the oven as one piece. A deep dish needs its walls lined, which takes roughly 20 to 25 percent more dough than the base figure shown here, and a stuffed crust takes more again. Treat the number as the floor for those shapes.</p>
+
+            <h2>Where These Numbers Come From</h2>
+            <p>The thickness-factor method and the worked 12-inch example come from Tom Lehmann&rsquo;s dough-density columns in <em>Pizza Today</em>, which also supply the one-ounce-per-inch starting rule. Style factors and baker&rsquo;s percentages are drawn from the ranges published by Neapolitan, New York and Detroit sources and reconciled against those worked examples, so a 12-inch New York ball lands at 289 grams and a 12-inch Neapolitan at 250. Yeast conversions follow Red Star Yeast&rsquo;s published chart and the Saf-instant product documentation. Fermentation percentages follow the halving rule common to the published cold-ferment tables, cross-checked against 500-gram flour batches.</p>
+            <p>Where sources disagree &mdash; and on thickness factors and yeast percentages they do &mdash; the calculator picks a middle value and the text above says so rather than presenting one number as settled.</p>
+
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-box">
+                <div class="faq-item">
+                    <h3>How much dough do I need for a 12-inch pizza?</h3>
+                    <p>It depends entirely on the style, and the spread is wide. A 12-inch round has 113 square inches of surface. At New York thickness that is 289 g of dough; Neapolitan takes 250 g; thin and crispy takes 208 g; a pan or Detroit style takes 433 g. Same pan, same diameter, more than double the dough between the thinnest and thickest of those.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How much dough for a 16-inch pizza?</h3>
+                    <p>513 g for New York style, 445 g for Neapolitan, 367 g for thin and crispy. A 16-inch round is 201 square inches, which is 1.78 times the area of a 12-inch, so it needs 1.78 times the dough. Doubling the diameter does not double the dough; squaring the ratio does.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is one ounce of dough per inch of pizza accurate?</h3>
+                    <p>Only near 14 inches. The rule asks for a fixed weight per inch of diameter, but the dough sits on an area that grows with the square of the diameter, so the rule quietly thins out as pizzas get bigger. It works out to a thickness factor of 4 divided by pi times the diameter: 0.127 at 10 inches, 0.106 at 12, and 0.080 at 16. Compared with a New York thickness factor of 0.09, it gives 18 percent too much dough at 12 inches and 12 percent too little at 16.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Can I use active dry yeast instead of instant yeast?</h3>
+                    <p>Yes, one for one by weight. Red Star says instant yeast may be substituted 1:1 for active dry, and King Arthur tells bakers to substitute instant 1:1 by weight or volume for any active dry. The 1.25 multiplier still circulating online does not come from the manufacturers. What does change is timing: active dry is roughly 15 minutes slower to get going.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>How much yeast for a 48-hour cold ferment?</h3>
+                    <p>About 0.2 percent of the flour weight in instant yeast, which is 1 g for 500 g of flour. The working rule is to halve the yeast each time you double the fridge time: 0.3 percent at 24 hours, 0.2 at 48, 0.1 at 72. Using a same-day dose of 0.5 percent and then refrigerating for three days is the usual reason a cold-fermented dough collapses.</p>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <aside class="article-crosslink" style="margin-bottom: 32px;">
+        <p><strong>🔁 Scaling a bread recipe instead?</strong> The <a href="/bakers-percentage-calculator">baker&rsquo;s percentage calculator</a> converts any formula to flour weight and back, and the <a href="/sourdough-hydration-calculator">sourdough hydration calculator</a> does the same job for a starter. If you are sizing an oven rather than a pan, the <a href="/ddt-calculator">dough temperature calculator</a> works out the water temperature that lands the dough where you want it.</p>
+    </aside>
+
+    <footer>
+        <p>&copy; 2026 BakeCalc Club</p>
+        <p>
+            <a href="/">Home</a>
+            <a href="/cost-calculator">Cost Calculator</a>
+            <a href="/about">About</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/contact">Contact</a>
+        </p>
+
+            <section class="related-conversions">
+                <h3>Quick Ingredient Converters</h3>
+                <ul class="related-links">
+                    <li><a href="/1-cup-flour-to-grams">1 Cup Flour to Grams</a></li>
+                    <li><a href="/1-cup-bread-flour-to-grams">1 Cup Bread Flour to Grams</a></li>
+                    <li><a href="/1-tsp-instant-yeast-to-grams">1 tsp Instant Yeast to Grams</a></li>
+                    <li><a href="/1-tsp-salt-to-grams">1 tsp Salt to Grams</a></li>
+                    <li><a href="/cups-to-ml">Cups to mL</a></li>
+                    <li><a href="/oven-temperature-conversion">Oven Temperature Conversion</a></li>
+                </ul>
+            </section>
+
+            <section class="try-these-tools">
+                <h3>Related Guides</h3>
+                <ul class="related-links">
+                    <li><a href="/bakers-percentage-calculator">Baker&rsquo;s Percentage Calculator</a></li>
+                    <li><a href="/pan-size-converter">Pan Size Converter</a></li>
+                    <li><a href="/ddt-calculator">Desired Dough Temperature Calculator</a></li>
+                    <li><a href="/articles/why-bread-didnt-rise">Why Bread Did Not Rise</a></li>
+                    <li><a href="/articles/is-my-yeast-still-good">Is My Yeast Still Good?</a></li>
+                </ul>
+            </section>
+            <p class="footer-github"><a href="https://github.com/rkingers776-boop/bakecalc" target="_blank" rel="noopener noreferrer nofollow" title="View source code on GitHub">📂 View on GitHub</a></p>
+    </footer>
+</div>
+
+<script src="/pizza-dough-calc.js"></script>
+</body>
+</html>
