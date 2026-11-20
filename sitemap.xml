@@ -206,7 +206,7 @@
   </url>
   <url>
     <loc>https://bakecalc.club/articles/bakers-percentage-explained</loc>
-    <lastmod>2026-09-16</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -541,7 +541,7 @@
   <!-- ====== NEW: Jul 28 ====== -->
   <url>
     <loc>https://bakecalc.club/articles/no-knead-bread-method</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -624,7 +624,7 @@
   <!-- ====== FIX: pan-size-converter (was never in sitemap) ====== -->
   <url>
     <loc>https://bakecalc.club/pan-size-converter</loc>
-    <lastmod>2026-11-18</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -717,7 +717,7 @@
 
   <url>
     <loc>https://bakecalc.club/ddt-calculator</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
