@@ -194,7 +194,7 @@
   <!-- Supporting articles -->
   <url>
     <loc>https://bakecalc.club/articles/why-cake-sinks-in-middle</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -218,7 +218,7 @@
   </url>
   <url>
     <loc>https://bakecalc.club/articles/cookie-spread-too-much</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -273,7 +273,7 @@
   </url>
   <url>
     <loc>https://bakecalc.club/articles/how-to-tell-when-cake-is-done</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -779,7 +779,7 @@
   </url>
   <url>
     <loc>https://bakecalc.club/articles/how-to-test-oven-temperature</loc>
-    <lastmod>2026-10-24</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -883,6 +883,12 @@
   <url>
     <loc>https://bakecalc.club/articles/how-to-freeze-cookie-dough</loc>
     <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bakecalc.club/articles/dark-pan-oven-temperature</loc>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
